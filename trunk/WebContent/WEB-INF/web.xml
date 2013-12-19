@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>NTN</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+ <!-- Start Servlet Config -->
+  <servlet>
+  	<servlet-name>Lien He Servlet</servlet-name>
+  	<servlet-class>control.LienHe</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Lien He Servlet</servlet-name>
+  	<url-pattern>/lienhe</url-pattern>
+  </servlet-mapping>
+  <!-- End Svervlet Config -->
+  
+  <!-- Start JSP Config -->
+	<servlet>
+		<servlet-name>Lien He JSP</servlet-name>
+		<jsp-file>/user/LienHe.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Lien He JSP</servlet-name>
+		<url-pattern>/lienhe.jsp</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Lien He Thanh Cong</servlet-name>
+		<jsp-file>/user/GuiLienHeThanhCong.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Lien He Thanh Cong</servlet-name>
+		<url-pattern>/lienhethanhcong.jsp</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Trang Chu</servlet-name>
+		<jsp-file>/TrangChu.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Trang Chu</servlet-name>
+		<url-pattern>/trangchu.jsp</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Lien He Khong Thanh Cong</servlet-name>
+		<jsp-file>/user/GuiLienHeKhongThanhCong.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Lien He Khong Thanh Cong</servlet-name>
+		<url-pattern>/lienhekhongthanhcong.jsp</url-pattern>
+	</servlet-mapping>
+  
+  <!-- End JSP Config -->
+</web-app>
