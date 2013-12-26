@@ -19,6 +19,17 @@
   	<servlet-name>Lien He Servlet</servlet-name>
   	<url-pattern>/lienhe</url-pattern>
   </servlet-mapping>
+  
+  
+    <servlet>
+  	<servlet-name>Dang Ky Servlet</servlet-name>
+  	<servlet-class>control.DangKy</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Dang Ky Servlet</servlet-name>
+  	<url-pattern>/dangki</url-pattern>
+  </servlet-mapping>
   <!-- End Svervlet Config -->
   
   <!-- Start JSP Config -->
@@ -62,6 +73,16 @@
 	<servlet-mapping>
 		<servlet-name>Lien He Khong Thanh Cong</servlet-name>
 		<url-pattern>/lienhekhongthanhcong.jsp</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Dang Ki</servlet-name>
+		<jsp-file>/user/dangki.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Dang Ki</servlet-name>
+		<url-pattern>/dangki.jsp</url-pattern>
 	</servlet-mapping>
   
   <!-- End JSP Config -->
