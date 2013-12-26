@@ -8,7 +8,7 @@ public class Validation {
 	private final static String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
 	public static boolean isNull(String field) {
-		return field == null || field.equals("");
+		return field == null || field.equals("") || field.equals("null");
 	}
 
 	public static boolean isNulls(String[] fields) {
@@ -36,8 +36,7 @@ public class Validation {
 			if (emailMatcher.matches()) {
 				return true;
 			}
-		} else
-			return false;
+		}
 		return false;
 	}
 }

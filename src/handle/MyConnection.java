@@ -1,13 +1,9 @@
 package handle;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
 
 import snaq.db.ConnectionPool;
 
@@ -15,7 +11,6 @@ public class MyConnection {
 
 	private Connection conn;
 	private PreparedStatement ps;
-	private ResultSet rs;
 	
 	public static MyConnection myConn = new MyConnection("jdbc:mysql://localhost:3306/laptrinhweb");
 	
@@ -61,5 +56,17 @@ public class MyConnection {
 
 	public int delete(String sql, int[] indexes, Object[] values) {
 		return execute(sql, indexes, values);
+	}
+	
+	public ResultSet getResultSet(String sql, String attribute) {
+		ResultSet rs = null;
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			ps.setString(1, attribute);
+			rs = ps.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 }
