@@ -5,6 +5,11 @@ public class UserEntity {
 	private String username, password, fullName, email, year, city;
 	private boolean isMale, isReceiveEmail, isShowEmail, isActive, isAdmin;
 
+	public UserEntity (String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+	
 	public UserEntity(String username, String password, String fullName, String email, String year, boolean isMale, boolean isReceiveEmail, boolean isShowEmail, String city) {
 		this.username = username;
 		this.password = password;

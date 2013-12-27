@@ -28,12 +28,12 @@
 				</div>
 				<div class="logo"><a href="TrangChu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a></div>
 			  <div class="login">
-                    <form action="Control(Nú làm)" method="post" name="form_login" id="form_login" onsubmit="checklogin">
+                    <form action="dangnhap" method="post" name="form_login" id="form_login" onsubmit="checklogin">
                     	<label>Đăng nhập </label>
                     		<div class="login_input">
                    			 	<input name="username" id="username" type="text" class="login_username" value="Tên đăng nhập" onfocus="if(this.value == 'Tên đăng nhập') this.value='';" onblur="if(this.value == '') this.value='Tên đăng nhập';">
                     
-                    			<input type="password" name="passwd" id="passwd" class="login_password" value="Mật khẩu" onfocus="if(this.value == 'Mật khẩu') this.value='';" onblur="if(this.value == '') this.value='Mật khẩu';">
+                    			<input type="password" name="password" id="passwd" class="login_password" value="Mật khẩu" onfocus="if(this.value == 'Mật khẩu') this.value='';" onblur="if(this.value == '') this.value='Mật khẩu';">
            			  </div>
                     		<div class="login_button">
                                 <a href="register.jsp">Đăng kí |</a>
