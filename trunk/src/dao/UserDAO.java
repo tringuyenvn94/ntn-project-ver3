@@ -22,7 +22,7 @@ public class UserDAO {
 
 		return false;
 	}
-	
+
 	public static void write(UserEntity user) {
 		String sql = "INSERT INTO USER"
 				+ "(username, "
@@ -35,8 +35,8 @@ public class UserDAO {
 				+ "is_show_email, "
 				+ "city) "
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8, 9};
-		Object[] values = { 
+		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		Object[] values = {
 				user.getUseName(),
 				user.getPassword(),
 				user.getFullName(),
@@ -48,5 +48,21 @@ public class UserDAO {
 				user.getCity()
 		};
 		MyConnection.myConn.insert(sql, indexes, values);
+	}
+
+	public static boolean checkUser(UserEntity user) {
+		String sql = "SELECT username, password FROM USER WHERE username = ?";
+		String attribute = user.getUseName();
+		ResultSet rs = MyConnection.myConn.getResultSet(sql, attribute);
+		try {
+			while (rs.next()) {
+				String password = rs.getString("password");
+				if (password.equals(user.getPassword())) return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return false;
 	}
 }

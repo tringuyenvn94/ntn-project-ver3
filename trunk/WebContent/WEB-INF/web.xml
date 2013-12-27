@@ -21,7 +21,7 @@
   </servlet-mapping>
   
   
-    <servlet>
+   <servlet>
   	<servlet-name>Dang Ky Servlet</servlet-name>
   	<servlet-class>control.DangKy</servlet-class>
   </servlet>
@@ -29,6 +29,16 @@
   <servlet-mapping>
   	<servlet-name>Dang Ky Servlet</servlet-name>
   	<url-pattern>/dangki</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>Dang Nhap Servlet</servlet-name>
+  	<servlet-class>control.DangNhap</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Dang Nhap Servlet</servlet-name>
+  	<url-pattern>/dangnhap</url-pattern>
   </servlet-mapping>
   <!-- End Svervlet Config -->
   
@@ -75,7 +85,7 @@
 		<url-pattern>/lienhekhongthanhcong.jsp</url-pattern>
 	</servlet-mapping>
 	
-		<servlet>
+	<servlet>
 		<servlet-name>Dang Ki</servlet-name>
 		<jsp-file>/user/dangki.jsp</jsp-file>
 	</servlet>  
@@ -83,6 +93,16 @@
 	<servlet-mapping>
 		<servlet-name>Dang Ki</servlet-name>
 		<url-pattern>/dangki.jsp</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>Dang Nhap</servlet-name>
+		<jsp-file>/user/DangNhap.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Dang Nhap</servlet-name>
+		<url-pattern>/dangnhap.jsp</url-pattern>
 	</servlet-mapping>
   
   <!-- End JSP Config -->
