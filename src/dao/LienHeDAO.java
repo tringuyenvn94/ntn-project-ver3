@@ -2,6 +2,8 @@ package dao;
 
 import handle.MyConnection;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -14,6 +16,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import entity.LienHeEntity;
+import entity.UserEntity;
 
 public class LienHeDAO {
 
@@ -25,7 +28,7 @@ public class LienHeDAO {
 		String contact = lh.getContact();
 		String content = lh.getContent();
 		
-		// Tạo email session
+		// Táº¡o email session
 				Properties p = new Properties();
 				p.put("mail.smtp.auth", "true");
 				p.put("mail.smtp.starttls.enable", "true");
@@ -41,19 +44,21 @@ public class LienHeDAO {
 				MimeMessage message = new MimeMessage(session);
 
 				
-					// tạo nội dung của mail
+					// táº¡o ná»™i dung cá»§a mail nguyễn 
 					message.setSubject("Sent From " + email, "utf8");
 					
 					message.setText(content + "\n \t " + fullName + "\n \t" + email + "\n \t" + phone+ "\n \t" + contact, "utf8");
 
-					// Tạo thông tin người nhận mail
+					// Táº¡o thÃ´ng tin ngÆ°á»�i nháº­n mail
 					message.setFrom(new InternetAddress());
 					message.setRecipients(Message.RecipientType.TO, "groupntn@gmail.com");
 
-					// Phương thức để gửi mail đi
+					// PhÆ°Æ¡ng thá»©c Ä‘á»ƒ gá»­i mail Ä‘i
 					Transport.send(message);
 			
 	}
+	
+	
 	
 	public static void LuuLienHe(LienHeEntity lh) {
 		
