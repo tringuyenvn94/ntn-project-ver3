@@ -40,6 +40,15 @@
   	<servlet-name>Dang Nhap Servlet</servlet-name>
   	<url-pattern>/dangnhap</url-pattern>
   </servlet-mapping>
+    <servlet>
+  	<servlet-name>QuenMK Servlet</servlet-name>
+  	<servlet-class>control.QuenMatKhau</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>QuenMK Servlet</servlet-name>
+  	<url-pattern>/quenmk</url-pattern>
+  </servlet-mapping>
   <!-- End Svervlet Config -->
   
   <!-- Start JSP Config -->
@@ -103,6 +112,25 @@
 	<servlet-mapping>
 		<servlet-name>Dang Nhap</servlet-name>
 		<url-pattern>/dangnhap.jsp</url-pattern>
+	</servlet-mapping>
+	
+			<servlet>
+		<servlet-name>Quen Mat Khau</servlet-name>
+		<jsp-file>/user/QuenMatKhau.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Quen Mat Khau</servlet-name>
+		<url-pattern>/quenmatkhau.jsp</url-pattern>
+	</servlet-mapping>
+			<servlet>
+		<servlet-name>Error</servlet-name>
+		<jsp-file>/user/error.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Error</servlet-name>
+		<url-pattern>/thatbai.jsp</url-pattern>
 	</servlet-mapping>
   
   <!-- End JSP Config -->

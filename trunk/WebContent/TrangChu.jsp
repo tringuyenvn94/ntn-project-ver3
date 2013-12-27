@@ -37,7 +37,7 @@
            			  </div>
                     		<div class="login_button">
                                 <a href="register.jsp">Đăng kí |</a>
-                                <a href="reset.jsp">Quên mật khẩu</a>
+                                <a href="quenmatkhau.jsp">Quên mật khẩu</a>
                                 <input type="submit" name="submit" class="button" value="Đăng nhập">
                             </div>
                     </form>
