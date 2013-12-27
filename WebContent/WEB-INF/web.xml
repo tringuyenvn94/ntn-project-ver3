@@ -133,5 +133,14 @@
 		<url-pattern>/thatbai.jsp</url-pattern>
 	</servlet-mapping>
   
+  		<servlet>
+		<servlet-name>Doi Mat Khau</servlet-name>
+		<jsp-file>/user/doimatkhau.jsp</jsp-file>
+	</servlet>  
+	
+	<servlet-mapping>
+		<servlet-name>Doi Mat Khau</servlet-name>
+		<url-pattern>/doimk.jsp</url-pattern>
+	</servlet-mapping>
   <!-- End JSP Config -->
 </web-app>
