@@ -1022,4 +1022,17 @@ text-decoration:none;
 {
 	color:#990000;
 	text-decoration:none;
+}.tv {
+	float: right;
+	margin-right: 4px;
+	color: #00C;
+	margin-top: 90px;
+	font-size: 16px;
 }
+
+.tv a {
+	color: #00C;
+	text-decoration: none;
+}
+
+
