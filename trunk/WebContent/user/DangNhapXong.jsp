@@ -29,7 +29,7 @@
 					String username = user.getUsername();
 				%>
 				<div class="tv">
-					Xin chào, <%=username %> | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
+					Xin chào, <a href="trangcanhan.jsp"><%=username %></a> | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
 
 				</div>
 			</div>

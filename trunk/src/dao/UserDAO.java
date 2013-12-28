@@ -65,4 +65,11 @@ public class UserDAO {
 
 		return false;
 	}
+	
+	public static void setPassword(String username, String newPassword) {
+		String sql = "UPDATE USER SET password = ? WHERE username = ?";
+		int[] indexes = { 1, 2 };
+		String[] values = { newPassword, username };
+		MyConnection.myConn.update(sql, indexes, values);
+	}
 }

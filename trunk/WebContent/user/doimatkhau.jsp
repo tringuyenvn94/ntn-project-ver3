@@ -1,14 +1,17 @@
 
+<%@page import="entity.UserEntity"%>
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
+	UserEntity user = (UserEntity) session.getAttribute("user");
+	if (user == null) response.sendRedirect("dangnhap.jsp");
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Quên Mật Khẩu</title>
+<title>Đổi Mật Khẩu</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
@@ -153,12 +156,13 @@
 							</form>
 						</div>
 						<div>
-						<form action="doimatkhau">
+						
+						<form action="doimatkhau" method="post">
 							<table>
 								<tr>
 									<th align="left">Mật khẩu cũ:</th>
 									<td>
-										<input type="password" name="old" />
+										<input type="password" name="old_password" />
 									</td>
 								</tr>
 								<tr>

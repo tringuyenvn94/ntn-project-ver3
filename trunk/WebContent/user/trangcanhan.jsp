@@ -1,4 +1,5 @@
 
+<%@page import="entity.UserEntity"%>
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
@@ -8,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lỗi</title>
+<title>Trang Cá Nhân</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
@@ -153,45 +154,12 @@
 							</form>
 						</div>
 						<div>
-							<h1>Có lỗi xảy ra</h1>
-							<%
-								String error = (String) request.getAttribute("error");
-								String email = (String) request.getAttribute("email");
-								if (error.equals("Email invalid format")) {
-							%>
-							<br />
-							<h1>
-								Email "
-								<%=email%>
-								" không đúng định dạng, xin kiểm tra lại. <br /> <a href="trangchu.jsp">Về trang chủ</a> &nbsp; <a href="quenmatkhau.jsp">Về trang Quên mật khẩu</a>
-							</h1>
-							<%
-								} else if (error.equals("Email not exist")) {
-							%>
-							<h1>
-								Email "
-								<%=email%>
-								" không tồn tại hoặc chưa có tài khoản đăng kí bằng email này, xin kiểm tra lại. <br /> <a href="trangchu.jsp">Về trang chủ</a> &nbsp; <a href="quenmatkhau.jsp">Về trang Quên mật khẩu</a>
-							</h1>
-							<%
-								} else if (error.equals("the same")) {
-							%>
-							<h1>Mật khẩu mới không thể giống mật khẩu cũ được. Xin nhập lại</h1>
-							<br /> <a href="doimk.jsp">Quay lại</a>
-							<%
-								} else if (error.equals("not matched")) {
-							%>
-							<h1>Mật khẩu mới và nhập lại mật khẩu mới không giống nhau.</h1>
-							<br /> <a href="doimk.jsp">Quay lại</a>
-							<%
-								} else if (error.equals("some null")) {
-							%>
-							<h1>Some thing null, xin nhập lại</h1>
-							<br /> <a href="doimk.jsp">Quay lại</a>
-							<%
-								}
-							%>
-						</div>
+						<center>
+						<a href="doimk.jsp">Đổi Mật Khẩu</a>
+						<br/>
+						<a href="dangxuat">Đăng Xuất</a>
+						</center>
+					</div>
 
 
 					</div>

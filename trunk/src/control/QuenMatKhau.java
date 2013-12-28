@@ -41,7 +41,8 @@ public class QuenMatKhau extends HttpServlet {
 		request.setAttribute("email", email);
 		if (Validation.isEmail(email)) {
 			if (QuenMKDAO.sendMail(email)) {
-				response.sendRedirect("thanhcong.jsp");
+				request.setAttribute("success", "quenmk");
+				request.getRequestDispatcher("/thanhcong.jsp").forward(request, response);
 			}
 			else {
 				// chuyen toi trang khong ton tai email
