@@ -153,7 +153,10 @@
 							</form>
 						</div>
 						<div>
-						<h1>Chúng tôi đã gửi mail cho bạn</h1>
+										<h1 align="center">Chúng tôi đã gửi mail cho bạn</h1>
+										<br/>
+										<a href="trangchu.jsp">Về trang chủ</a>
+
 						</div>
 
 

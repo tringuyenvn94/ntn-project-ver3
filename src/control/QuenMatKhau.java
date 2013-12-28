@@ -5,6 +5,7 @@ import handle.Validation;
 import java.io.IOException;
 
 import javax.mail.MessagingException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,12 +37,21 @@ public class QuenMatKhau extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
+		RequestDispatcher patcher = request.getRequestDispatcher("/error.jsp");
+		request.setAttribute("email", email);
 		if (Validation.isEmail(email)) {
-			if (QuenMKDAO.sendMail(email)) //chuyen toi trang thanh cong
-			else //chuyen toi trang khong ton tai email
-
+			if (QuenMKDAO.sendMail(email)) {
+				response.sendRedirect("thanhcong.jsp");
+			}
+			else {
+				// chuyen toi trang khong ton tai email
+				request.setAttribute("error", "Email not exist");
+				patcher.forward(request, response);
+			}
 		} else {
 			// loi dinh dang email khong dung
+			request.setAttribute("error", "Email invalid format");
+			patcher.forward(request, response);
 		}
 	}
 
