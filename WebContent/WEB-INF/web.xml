@@ -17,8 +17,7 @@
     <servlet-name>Lien He Servlet</servlet-name>
     <url-pattern>/lienhe</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>Dang Xuat Servlet</servlet-name>
     <servlet-class>control.DangXuat</servlet-class>
   </servlet>
@@ -26,7 +25,6 @@
     <servlet-name>Dang Xuat Servlet</servlet-name>
     <url-pattern>/dangxuat</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Dang Ky Servlet</servlet-name>
     <servlet-class>control.DangKy</servlet-class>
@@ -51,49 +49,14 @@
     <servlet-name>QuenMK Servlet</servlet-name>
     <url-pattern>/quenmk</url-pattern>
   </servlet-mapping>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <servlet>
+    <servlet-name>DoiMK Servlet</servlet-name>
+    <servlet-class>control.DoiMK</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoiMK Servlet</servlet-name>
+    <url-pattern>/doimatkhau</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>Lien He JSP</servlet-name>
     <jsp-file>/user/LienHe.jsp</jsp-file>
@@ -181,5 +144,14 @@
   <servlet-mapping>
     <servlet-name>Dang Nhap Xong</servlet-name>
     <url-pattern>/dangnhapxong.jsp</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>Trang Ca Nhan</servlet-name>
+    <jsp-file>/user/trangcanhan.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Trang Ca Nhan</servlet-name>
+    <url-pattern>/trangcanhan.jsp</url-pattern>
   </servlet-mapping>
 </web-app>

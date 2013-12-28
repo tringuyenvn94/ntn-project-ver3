@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Quên Mật Khẩu</title>
+<title>Success</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
@@ -153,9 +153,19 @@
 							</form>
 						</div>
 						<div>
+						<%
+							String success = (String) request.getAttribute("success");
+							if (success.equals("quenmk")) {
+						%>
 										<h1 align="center">Chúng tôi đã gửi mail cho bạn</h1>
+						<%
+							} else if (success.equals("doimk")) {
+						
+						%>
+						<h1 align="center">Bạn đã đổi mật khẩu thành công</h1>
+						<%} %>
 										<br/>
-										<a href="trangchu.jsp">Về trang chủ</a>
+										<a href="dangnhapxong.jsp">Về trang chủ</a>
 
 						</div>
 
