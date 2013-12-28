@@ -153,7 +153,33 @@
 							</form>
 						</div>
 						<div>
-						<h1>Chúng tôi đã gửi mail cho bạn</h1>
+						<form action="doimatkhau">
+							<table>
+								<tr>
+									<th align="left">Mật khẩu cũ:</th>
+									<td>
+										<input type="password" name="old" />
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Mật khẩu mới:</th>
+									<td>
+										<input type="password" name="new_password" />
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Nhập lại mật khẩu mới:</th>
+									<td>
+										<input type="password" name="confirm_new_password" />
+									</td>
+								</tr>
+								<tr >
+									<td colspan="2" align="center">
+										<input type="submit" value="Đổi mật khẩu" />
+									</td>
+								</tr>
+							</table>						
+						</form>
 						</div>
 
 
