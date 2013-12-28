@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Quên Mật Khẩu</title>
+<title>Lỗi</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
@@ -153,27 +153,28 @@
 							</form>
 						</div>
 						<div>
-										<form method="post" action="quenmk">
-												<table border="0">
-													<tr>
-														<th colspan="2">
-															<%
-															String error = (String) request.getAttribute("error");
-															if (error == null) error = "";
-															%>
-															<%=error %>
-														</th>
-													</tr>
-													<tr>
-														<th align="right">Email</th>
-														<td><input type="text" name="email" /></td>
-													</tr>
-													<tr>
-														<td colspan="2"><input type="submit" value="Gửi Mail" /></td>
-													</tr>
-												</table>
-										</form>
-
+							<h1>Có lỗi xảy ra</h1>
+							<%
+								String error = (String) request.getAttribute("error");
+								String email = (String) request.getAttribute("email");
+								if (error.equals("Email invalid format")) {
+							%>
+							<br />
+							<h1>
+								Email "
+								<%=email%>
+								" không đúng định dạng, xin kiểm tra lại.
+							</h1>
+							<%
+								}else if (error.equals("Email not exist")) {%>
+									<h1>
+								Email "
+								<%=email%>
+								" không tồn tại hoặc chưa có tài khoản đăng kí bằng email này, xin kiểm tra lại.
+							</h1>
+								<%}
+							%>
+							<br /> <a href="trangchu.jsp">Về trang chủ</a> &nbsp; <a href="quenmatkhau.jsp">Về trang Quên mật khẩu</a>
 						</div>
 
 
