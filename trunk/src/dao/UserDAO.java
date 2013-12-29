@@ -72,4 +72,33 @@ public class UserDAO {
 		String[] values = { newPassword, username };
 		MyConnection.myConn.update(sql, indexes, values);
 	}
+	
+	public static boolean resetPassword(String email) {
+		String username = getUsername(email);
+		if (!username.equals("Không tồn tại email")) {
+			String sql = "UPDATE USER SET password = ? WHERE username = ?";
+			int[] indexes = { 1, 2 };
+			String[] values = { "6shbjp1", username };
+			MyConnection.myConn.update(sql, indexes, values);
+			return true;
+		}
+		return false;
+	}
+
+	public static String getUsername(String email) {
+		String sql = "SELECT username FROM USER WHERE email = ?";
+		ResultSet rs = MyConnection.myConn.getResultSet(sql, email);
+		String username = null;
+		;
+		try {
+			while (rs.next()) {
+				username = rs.getString("username");
+			}
+			if (username != null) return username;
+			else return "Không tồn tại email";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "Không tồn tại email";
+	}
 }

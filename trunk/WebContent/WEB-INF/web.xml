@@ -154,4 +154,22 @@
     <servlet-name>Trang Ca Nhan</servlet-name>
     <url-pattern>/trangcanhan.jsp</url-pattern>
   </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>Trang Post Bai</servlet-name>
+    <jsp-file>/user/post.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Trang Post Bai</servlet-name>
+    <url-pattern>/post.jsp</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+    <servlet-name>Quy Dinh</servlet-name>
+    <jsp-file>/user/quydinh.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Quy Dinh</servlet-name>
+    <url-pattern>/quydinh.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -2,8 +2,6 @@ package dao;
 
 import handle.MyConnection;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -16,7 +14,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import entity.LienHeEntity;
-import entity.UserEntity;
 
 public class LienHeDAO {
 

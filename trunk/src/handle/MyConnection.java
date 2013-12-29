@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import snaq.db.ConnectionPool;
 
@@ -11,17 +12,17 @@ public class MyConnection {
 
 	private Connection conn;
 	private PreparedStatement ps;
-	
-	public static MyConnection myConn = new MyConnection("jdbc:mysql://localhost:3306/laptrinhweb");
-	
+
+	public static MyConnection myConn = new MyConnection("jdbc:mysql://localhost:3306/laptrinhweb?useUnicode=true&characterEncoding=utf8");
+
 	public MyConnection(String url) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-//			Properties prop = new Properties();
-//
-//			prop.load(new FileInputStream("src/handle/account.properties"));
-//			String username = prop.getProperty("username");
-//			String password = prop.getProperty("password");
+			// Properties prop = new Properties();
+			//
+			// prop.load(new FileInputStream("src/handle/account.properties"));
+			// String username = prop.getProperty("username");
+			// String password = prop.getProperty("password");
 
 			ConnectionPool pool = new ConnectionPool("My Pool", 5, 5, 30000, url, "nv_ca", "nguyenvanchucan");
 			conn = pool.getConnection();
@@ -32,7 +33,14 @@ public class MyConnection {
 		}
 	}
 	
-	public int execute(String sql, int[] indexes, Object[] values){
+	/**
+	 * Phương thức tổng quát cho câu lệnh executeUpate
+	 * @param sql câu lệnh sql cho prepared statement
+	 * @param indexes mảng lưu các chỉ số index cho prepared statement set vào
+	 * @param values mảng các giá trị cho prepared statement set vào
+	 * @return số int cho biết số dòng bị ảnh hưởng, thêm vào
+	 * */
+	public int execute(String sql, int[] indexes, Object[] values) {
 		int row = -1;
 		try {
 			ps = conn.prepareStatement(sql);
@@ -49,7 +57,7 @@ public class MyConnection {
 	public int insert(String sql, int[] indexes, Object[] values) {
 		return execute(sql, indexes, values);
 	}
-	
+
 	public int update(String sql, int[] indexes, Object[] values) {
 		return execute(sql, indexes, values);
 	}
@@ -57,7 +65,13 @@ public class MyConnection {
 	public int delete(String sql, int[] indexes, Object[] values) {
 		return execute(sql, indexes, values);
 	}
-	
+
+	/**
+	 * Lấy Result Set có điều kiện là một tham số duy nhất
+	 * @param sql câu sql (dạng prepared statement)
+	 * @param attribute tham số trong điều kiện
+	 * @return resultset tương ứng với câu sql
+	 * */
 	public ResultSet getResultSet(String sql, String attribute) {
 		ResultSet rs = null;
 		try {
@@ -68,5 +82,21 @@ public class MyConnection {
 			e.printStackTrace();
 		}
 		return rs;
+	}
+
+	/**
+	 * Lấy ra result set nhưng không cần điều kiện
+	 * @param sql câu sql (dạng statement bình thường)
+	 * @return resultset
+	 * */
+	public ResultSet getResultSet(String sql) {
+		ResultSet result = null;
+		try {
+			Statement stmt = conn.createStatement();
+			result = stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

@@ -3,7 +3,6 @@ package control;
 import handle.Validation;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

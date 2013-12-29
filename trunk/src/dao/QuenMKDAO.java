@@ -1,9 +1,5 @@
 package dao;
 
-import handle.MyConnection;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -16,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class QuenMKDAO {
 	public static boolean sendMail(String email) {
-		if (resetPassword(email)) {
+		if (UserDAO.resetPassword(email)) {
 			try {
 				// Táº¡o email session
 				Properties p = new Properties();
@@ -36,7 +32,7 @@ public class QuenMKDAO {
 				// táº¡o ná»™i dung cá»§a mail nguyễn
 				message.setSubject("NTN-Quên Mật Khẩu", "utf8");
 
-				String text = "Dear, " + getUsername(email)
+				String text = "Dear, " + UserDAO.getUsername(email)
 						+ "\n Mật khẩu mới của bạn là: 6shbjp1"
 						+ "\n                           NTN Group.";
 
@@ -48,7 +44,7 @@ public class QuenMKDAO {
 
 				// PhÆ°Æ¡ng thá»©c Ä‘á»ƒ gá»­i mail Ä‘i
 				Transport.send(message);
-				resetPassword(email);
+				UserDAO.resetPassword(email);
 				return true;
 			} catch (MessagingException e) {
 				e.printStackTrace();
@@ -57,32 +53,5 @@ public class QuenMKDAO {
 		return false;
 	}
 
-	public static boolean resetPassword(String email) {
-		String username = getUsername(email);
-		if (!username.equals("Không tồn tại email")) {
-			String sql = "UPDATE USER SET password = ? WHERE username = ?";
-			int[] indexes = { 1, 2 };
-			String[] values = { "6shbjp1", username };
-			MyConnection.myConn.update(sql, indexes, values);
-			return true;
-		}
-		return false;
-	}
 
-	public static String getUsername(String email) {
-		String sql = "SELECT username FROM USER WHERE email = ?";
-		ResultSet rs = MyConnection.myConn.getResultSet(sql, email);
-		String username = null;
-		;
-		try {
-			while (rs.next()) {
-				username = rs.getString("username");
-			}
-			if (username != null) return username;
-			else return "Không tồn tại email";
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return "Không tồn tại email";
-	}
 }
