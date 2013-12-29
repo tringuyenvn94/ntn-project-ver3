@@ -10,6 +10,16 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+  	<servlet-name>Topic Servlet</servlet-name>
+	<servlet-class>control.Topic</servlet-class>  	
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Topic Servlet</servlet-name>
+  	<url-pattern>/topic</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>Lien He Servlet</servlet-name>
     <servlet-class>control.LienHe</servlet-class>
   </servlet>
@@ -145,8 +155,7 @@
     <servlet-name>Dang Nhap Xong</servlet-name>
     <url-pattern>/dangnhapxong.jsp</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>Trang Ca Nhan</servlet-name>
     <jsp-file>/user/trangcanhan.jsp</jsp-file>
   </servlet>
@@ -154,8 +163,7 @@
     <servlet-name>Trang Ca Nhan</servlet-name>
     <url-pattern>/trangcanhan.jsp</url-pattern>
   </servlet-mapping>
-  
-      <servlet>
+  <servlet>
     <servlet-name>Trang Post Bai</servlet-name>
     <jsp-file>/user/post.jsp</jsp-file>
   </servlet>
@@ -163,8 +171,7 @@
     <servlet-name>Trang Post Bai</servlet-name>
     <url-pattern>/post.jsp</url-pattern>
   </servlet-mapping>
-  
-     <servlet>
+  <servlet>
     <servlet-name>Quy Dinh</servlet-name>
     <jsp-file>/user/quydinh.jsp</jsp-file>
   </servlet>

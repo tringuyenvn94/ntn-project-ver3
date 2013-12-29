@@ -41,6 +41,8 @@ public class DangNhap extends HttpServlet {
 		if (UserDAO.checkUser(user)) {
 			HttpSession session = request.getSession();
 			UserEntity u = (UserEntity) session.getAttribute("user");
+			String email = UserDAO.getEmail(username);
+			user.setEmail(email);
 			if (u == null) session.setAttribute("user", user);
 			response.sendRedirect("dangnhapxong.jsp");
 			
