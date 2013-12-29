@@ -1,3 +1,4 @@
+<%@page import="dao.TopicDAO"%>
 <%@page import="java.io.FileReader"%>
 <%@page import="java.io.BufferedReader"%>
 <%@page import="java.io.InputStreamReader" %>
@@ -12,9 +13,9 @@
 </head>
 <body>
 <%
-BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("WebContent/Files/linhvuc.txt")));
+String content = TopicDAO.load();
 
 %>
-<%=reader.readLine() %>
+<%=content %>
 </body>
 </html>

@@ -1,4 +1,5 @@
 
+<%@page import="entity.UserEntity"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="dao.TopicDAO"%>
 <%@page import="java.io.InputStreamReader"%>
@@ -163,8 +164,11 @@
 						<div>
 							<%
 								//TODO
+								UserEntity user = (UserEntity) session.getAttribute("user");
+								String username = user.getUsername();
+								String email = user.getEmail();
 							%>
-							<form method="post" action="post">
+							<form method="post" action="topic">
 								<table border="0" width="150%">
 									<tbody>
 										<tr>
@@ -172,12 +176,12 @@
 										</tr>
 										<tr>
 											<td width="130" align="left">Họ và tên:</td>
-											<td width="361"><input type="text" value="default" name="name" /></td>
+											<td width="361"><input type="text" value="<%=username %>" name="name" /></td>
 										</tr>
 
 										<tr>
 											<td align="left">Emai:</td>
-											<td><input type="text" name="email" value="default" /></td>
+											<td><input type="text" name="email" value="<%=email %>" /></td>
 										</tr>
 
 										<tr>

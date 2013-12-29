@@ -89,7 +89,6 @@ public class UserDAO {
 		String sql = "SELECT username FROM USER WHERE email = ?";
 		ResultSet rs = MyConnection.myConn.getResultSet(sql, email);
 		String username = null;
-		;
 		try {
 			while (rs.next()) {
 				username = rs.getString("username");
@@ -100,5 +99,19 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return "Không tồn tại email";
+	}
+	
+	public static String getEmail(String username) {
+		String sql = "SELECT email FROM USER WHERE username = ?";
+		String email = null;
+		ResultSet rs = MyConnection.myConn.getResultSet(sql, username);
+		try {
+			while (rs.next()) {
+				email = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return email;
 	}
 }
