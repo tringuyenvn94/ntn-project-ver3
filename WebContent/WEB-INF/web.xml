@@ -10,15 +10,13 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<servlet-name>Topic Servlet</servlet-name>
-	<servlet-class>control.Topic</servlet-class>  	
+    <servlet-name>Topic Servlet</servlet-name>
+    <servlet-class>control.Topic</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>Topic Servlet</servlet-name>
-  	<url-pattern>/topic</url-pattern>
+    <servlet-name>Topic Servlet</servlet-name>
+    <url-pattern>/topic</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Lien He Servlet</servlet-name>
     <servlet-class>control.LienHe</servlet-class>
@@ -69,114 +67,415 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>Lien He JSP</servlet-name>
-    <jsp-file>/user/LienHe.jsp</jsp-file>
+    <jsp-file>/public/LienHe.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>Lien He JSP</servlet-name>
     <url-pattern>/lienhe.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Lien He Thanh Cong</servlet-name>
-    <jsp-file>/user/GuiLienHeThanhCong.jsp</jsp-file>
+    <servlet-name>Trang Chu JSP</servlet-name>
+    <jsp-file>/public/TrangChu.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Lien He Thanh Cong</servlet-name>
-    <url-pattern>/lienhethanhcong.jsp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Trang Chu</servlet-name>
-    <jsp-file>/TrangChu.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Trang Chu</servlet-name>
+    <servlet-name>Trang Chu JSP</servlet-name>
     <url-pattern>/trangchu.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Lien He Khong Thanh Cong</servlet-name>
-    <jsp-file>/user/GuiLienHeKhongThanhCong.jsp</jsp-file>
+    <servlet-name>Dang Ky JSP</servlet-name>
+    <jsp-file>/public/dangky.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Lien He Khong Thanh Cong</servlet-name>
-    <url-pattern>/lienhekhongthanhcong.jsp</url-pattern>
+    <servlet-name>Dang Ky JSP</servlet-name>
+    <url-pattern>/dangky.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Dang Ki</servlet-name>
-    <jsp-file>/user/dangki.jsp</jsp-file>
+    <servlet-name>Dang Nhap JSP</servlet-name>
+    <jsp-file>/public/DangNhap.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Dang Ki</servlet-name>
-    <url-pattern>/dangki.jsp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Dang Nhap</servlet-name>
-    <jsp-file>/user/DangNhap.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Dang Nhap</servlet-name>
+    <servlet-name>Dang Nhap JSP</servlet-name>
     <url-pattern>/dangnhap.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Quen Mat Khau</servlet-name>
+    <servlet-name>Bao Mat JSP</servlet-name>
+    <jsp-file>/public/baomat/BaoMat.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Bao Mat JSP</servlet-name>
+    <url-pattern>/baomat.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GP Bao Mat JSP</servlet-name>
+    <jsp-file>/public/baomat/GPBaoMat.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GP Bao Mat JSP</servlet-name>
+    <url-pattern>/giaiphapbaomat.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Hacker JSP</servlet-name>
+    <jsp-file>/public/baomat/Hacker.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Hacker JSP</servlet-name>
+    <url-pattern>/hacker.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Tin Bao Mat JSP</servlet-name>
+    <jsp-file>/public/baomat/TinBaoMat.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tin Bao Mat JSP</servlet-name>
+    <url-pattern>/tinbaomat.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Virus JSP</servlet-name>
+    <jsp-file>/public/baomat/Virus.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Virus JSP</servlet-name>
+    <url-pattern>/virus.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Game JSP</servlet-name>
+    <jsp-file>/public/game/Game.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Game JSP</servlet-name>
+    <url-pattern>/game.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>He Dieu Hanh JSP</servlet-name>
+    <jsp-file>/public/hedieuhanh/HeDieuHanh.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>He Dieu Hanh JSP</servlet-name>
+    <url-pattern>/hedieuhanh.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Mac JSP</servlet-name>
+    <jsp-file>/public/hedieuhanh/Mac.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Mac JSP</servlet-name>
+    <url-pattern>/mac.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Unix Linux JSP</servlet-name>
+    <jsp-file>/public/hedieuhanh/Unix-Linux.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Unix Linux JSP</servlet-name>
+    <url-pattern>/unix-linux.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Windows JSP</servlet-name>
+    <jsp-file>/public/hedieuhanh/Windows.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Windows JSP</servlet-name>
+    <url-pattern>/windows.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Desktop JSP</servlet-name>
+    <jsp-file>/public/phancung/Desktop.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Desktop JSP</servlet-name>
+    <url-pattern>/desktop.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Laptop JSP</servlet-name>
+    <jsp-file>/public/phancung/Laptop.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Laptop JSP</servlet-name>
+    <url-pattern>/laptop.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Phan Cung JSP</servlet-name>
+    <jsp-file>/public/phancung/PhanCung.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Phan Cung JSP</servlet-name>
+    <url-pattern>/phancung.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Thiet Bi - Linh Kien JSP</servlet-name>
+    <jsp-file>/public/phancung/ThietBi-LinhKien.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Thiet Bi - Linh Kien JSP</servlet-name>
+    <url-pattern>/thietbilinhkien.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Tu Van JSP</servlet-name>
+    <jsp-file>/public/phancung/TuVan.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tu Van JSP</servlet-name>
+    <url-pattern>/tuvan.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Danh Gia JSP</servlet-name>
+    <jsp-file>/public/phanmem/DanhGia.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Danh Gia JSP</servlet-name>
+    <url-pattern>/danhgia.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Khuyen Mai JSP</servlet-name>
+    <jsp-file>/public/phanmem/KhuyenMai.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Khuyen Mai JSP</servlet-name>
+    <url-pattern>/mienphigiamgia.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Phan Mem JSP</servlet-name>
+    <jsp-file>/public/phanmem/PhanMem.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Phan Mem JSP</servlet-name>
+    <url-pattern>/phanmem.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Tin PM JSP</servlet-name>
+    <jsp-file>/public/phanmem/TinPM.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tin PM JSP</servlet-name>
+    <url-pattern>/tinphanmem.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Di Dong JSP</servlet-name>
+    <jsp-file>/public/thietbiso/DiDong.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Di Dong JSP</servlet-name>
+    <url-pattern>/didong.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>May Anh JSP</servlet-name>
+    <jsp-file>/public/thietbiso/MayAnh.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>May Anh JSP</servlet-name>
+    <url-pattern>/mayanh.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>May Nghe Nhac JSP</servlet-name>
+    <jsp-file>/public/thietbiso/MayNgheNhac.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>May Nghe Nhac JSP</servlet-name>
+    <url-pattern>/maynghenhac.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>May Quay JSP</servlet-name>
+    <jsp-file>/public/thietbiso/MayQuay.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>May Quay JSP</servlet-name>
+    <url-pattern>/mayquay.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Phu Kien JSP</servlet-name>
+    <jsp-file>/public/thietbiso/PhuKien.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Phu Kien JSP</servlet-name>
+    <url-pattern>/phukien.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Thiet Bi Game JSP</servlet-name>
+    <jsp-file>/public/thietbiso/ThietBiGame.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Thiet Bi Game JSP</servlet-name>
+    <url-pattern>/thietbigame.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Thiet Bi Khac JSP</servlet-name>
+    <jsp-file>/public/thietbiso/ThietBiKhac.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Thiet Bi Khac JSP</servlet-name>
+    <url-pattern>/thietbikhac.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Thiet Bi So JSP</servlet-name>
+    <jsp-file>/public/thietbiso/ThietBiSo.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Thiet Bi So JSP</servlet-name>
+    <url-pattern>/thietbiso.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>TTTI JSP</servlet-name>
+    <jsp-file>/public/thuthuattientich/ThuThuat-TienIch.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TTTI JSP</servlet-name>
+    <url-pattern>/thuthuattientich.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Tin Khac JSP</servlet-name>
+    <jsp-file>/public/tintuccongnghe/TinKhac.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tin Khac JSP</servlet-name>
+    <url-pattern>/tinkhac.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Tin Quoc Te JSP</servlet-name>
+    <jsp-file>/public/tintuccongnghe/TinQuocTe.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tin Quoc Te JSP</servlet-name>
+    <url-pattern>/tinquocte.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Tin Trong Nuoc JSP</servlet-name>
+    <jsp-file>/public/tintuccongnghe/TinTrongNuoc.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tin Trong Nuoc JSP</servlet-name>
+    <url-pattern>/tintrongnuoc.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Tin Tuc Cong Nghe JSP</servlet-name>
+    <jsp-file>/public/tintuccongnghe/TinTucCN.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tin Tuc Cong Nghe JSP</servlet-name>
+    <url-pattern>/tintuccongnghe.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Quen Mat Khau JSP</servlet-name>
     <jsp-file>/user/QuenMatKhau.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Quen Mat Khau</servlet-name>
+    <servlet-name>Quen Mat Khau JSP</servlet-name>
     <url-pattern>/quenmatkhau.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Error</servlet-name>
+    <servlet-name>Error JSP</servlet-name>
     <jsp-file>/user/error.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Error</servlet-name>
+    <servlet-name>Error JSP</servlet-name>
     <url-pattern>/error.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Doi Mat Khau</servlet-name>
+    <servlet-name>Doi Mat Khau JSP</servlet-name>
     <jsp-file>/user/doimatkhau.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Doi Mat Khau</servlet-name>
-    <url-pattern>/doimk.jsp</url-pattern>
+    <servlet-name>Doi Mat Khau JSP</servlet-name>
+    <url-pattern>/doimatkhau.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Thanh Cong</servlet-name>
+    <servlet-name>Thanh Cong JSP</servlet-name>
     <jsp-file>/user/thanhcong.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Thanh Cong</servlet-name>
+    <servlet-name>Thanh Cong JSP</servlet-name>
     <url-pattern>/thanhcong.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Dang Nhap Xong</servlet-name>
+    <servlet-name>Dang Nhap Xong JSP</servlet-name>
     <jsp-file>/user/DangNhapXong.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Dang Nhap Xong</servlet-name>
+    <servlet-name>Dang Nhap Xong JSP</servlet-name>
     <url-pattern>/dangnhapxong.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Trang Ca Nhan</servlet-name>
+    <servlet-name>Trang Ca Nhan JSP</servlet-name>
     <jsp-file>/user/trangcanhan.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Trang Ca Nhan</servlet-name>
+    <servlet-name>Trang Ca Nhan JSP</servlet-name>
     <url-pattern>/trangcanhan.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Trang Post Bai</servlet-name>
+    <servlet-name>Trang Post Bai JSP</servlet-name>
     <jsp-file>/user/post.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Trang Post Bai</servlet-name>
+    <servlet-name>Trang Post Bai JSP</servlet-name>
     <url-pattern>/post.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Quy Dinh</servlet-name>
+    <servlet-name>Quy Dinh JSP</servlet-name>
     <jsp-file>/user/quydinh.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Quy Dinh</servlet-name>
+    <servlet-name>Quy Dinh JSP</servlet-name>
     <url-pattern>/quydinh.jsp</url-pattern>
   </servlet-mapping>
+  
+  <!-- Skeleton -->
+  <servlet>
+  	<servlet-name>Homepage JSP</servlet-name>
+  	<jsp-file>/skeleton/homepage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Homepage JSP</servlet-name>
+  	<url-pattern>/homepage.jsp</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>Skeleton JSP</servlet-name>
+  	<jsp-file>/skeleton/skeleton.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Skeleton JSP</servlet-name>
+  	<url-pattern>/skeleton.jsp</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Others -->
+  <servlet>
+  	<servlet-name>a</servlet-name>
+  	<jsp-file>/test/test.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>a</servlet-name>
+  	<url-pattern>/test.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>aa</servlet-name>
+  	<jsp-file>/test/test1.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>aa</servlet-name>
+  	<url-pattern>/tes1t.jsp</url-pattern>
+  </servlet-mapping>
+    <servlet>
+  	<servlet-name>aaa</servlet-name>
+  	<jsp-file>/test/test2.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>aaa</servlet-name>
+  	<url-pattern>/tes12.jsp</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  	<servlet-name>aaaa</servlet-name>
+  	<jsp-file>/test/test3.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>aaaa</servlet-name>
+  	<url-pattern>/tes3.jsp</url-pattern>
+  </servlet-mapping>
+  <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>Trang Chu ak</param-value>
+  </context-param>
+   <context-param>
+  	<param-name>logo</param-name>
+  	<param-value>Image/icon_new1.jpg</param-value>
+  </context-param>
 </web-app>

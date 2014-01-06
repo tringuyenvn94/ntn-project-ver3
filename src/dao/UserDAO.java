@@ -1,6 +1,6 @@
 package dao;
 
-import handle.MyConnection;
+import handle.Utils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ public class UserDAO {
 	public static boolean checkUsername(String username) {
 		String sql = "SELECT * FROM USER WHERE username = ?";
 		String attribute = username;
-		ResultSet rs = MyConnection.myConn.getResultSet(sql, attribute);
+		ResultSet rs = Utils.util.getResultSet(sql, attribute);
 		try {
 			rs.last();
 			int row = rs.getRow();
@@ -47,13 +47,13 @@ public class UserDAO {
 				user.isShowEmail(),
 				user.getCity()
 		};
-		MyConnection.myConn.insert(sql, indexes, values);
+		Utils.util.insert(sql, indexes, values);
 	}
 
 	public static boolean checkUser(UserEntity user) {
 		String sql = "SELECT username, password FROM USER WHERE username = ?";
 		String attribute = user.getUseName();
-		ResultSet rs = MyConnection.myConn.getResultSet(sql, attribute);
+		ResultSet rs = Utils.util.getResultSet(sql, attribute);
 		try {
 			while (rs.next()) {
 				String password = rs.getString("password");
@@ -70,7 +70,7 @@ public class UserDAO {
 		String sql = "UPDATE USER SET password = ? WHERE username = ?";
 		int[] indexes = { 1, 2 };
 		String[] values = { newPassword, username };
-		MyConnection.myConn.update(sql, indexes, values);
+		Utils.util.update(sql, indexes, values);
 	}
 	
 	public static boolean resetPassword(String email) {
@@ -79,7 +79,7 @@ public class UserDAO {
 			String sql = "UPDATE USER SET password = ? WHERE username = ?";
 			int[] indexes = { 1, 2 };
 			String[] values = { "6shbjp1", username };
-			MyConnection.myConn.update(sql, indexes, values);
+			Utils.util.update(sql, indexes, values);
 			return true;
 		}
 		return false;
@@ -87,7 +87,7 @@ public class UserDAO {
 
 	public static String getUsername(String email) {
 		String sql = "SELECT username FROM USER WHERE email = ?";
-		ResultSet rs = MyConnection.myConn.getResultSet(sql, email);
+		ResultSet rs = Utils.util.getResultSet(sql, email);
 		String username = null;
 		try {
 			while (rs.next()) {
@@ -104,7 +104,7 @@ public class UserDAO {
 	public static String getEmail(String username) {
 		String sql = "SELECT email FROM USER WHERE username = ?";
 		String email = null;
-		ResultSet rs = MyConnection.myConn.getResultSet(sql, username);
+		ResultSet rs = Utils.util.getResultSet(sql, username);
 		try {
 			while (rs.next()) {
 				email = rs.getString(1);

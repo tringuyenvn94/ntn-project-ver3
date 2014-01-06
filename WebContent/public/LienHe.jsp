@@ -143,7 +143,7 @@
 		</div>
 		<div class="content">
 
-		  <div id="search"></div>
+			<div id="search"></div>
 
 			<div id="content_main">
 
@@ -182,14 +182,15 @@
 																</tr>
 																<tr>
 																	<%
+																		//TODO
 																		String name = (String) request.getAttribute("name");
 																		String email = (String) request.getAttribute("email");
 																		String phone = (String) request.getAttribute("phone");
 																		String address = (String) request.getAttribute("address");
 																		String company = (String) request.getAttribute("company");
 																		String contact = (String) request.getAttribute("contact");
-																		String content = (String)request.getAttribute("content");
-																		
+																		String content = (String) request.getAttribute("content");
+
 																		if (name == null) name = "";
 																		if (email == null) email = "";
 																		if (phone == null) phone = "";
@@ -197,27 +198,24 @@
 																		if (company == null) company = "";
 																		if (contact == null) contact = "";
 																		if (content == null) content = "";
-																		
-																		
-																		
-																		
+
 																		String errorNameNull = (String) request.getAttribute("errorNameNull");
 																		String errorEmailNull = (String) request.getAttribute("errorEmailNull");
 																		String errorPhoneNull = (String) request.getAttribute("errorPhoneNull");
 																		String errorAddressNull = (String) request.getAttribute("errorAddressNull");
 																		String errorContactNull = (String) request.getAttribute("errorContactNull");
-																		String errorContentNull = (String)request.getAttribute("errorContentNull");
-																		
+																		String errorContentNull = (String) request.getAttribute("errorContentNull");
+
 																		if (errorNameNull == null) errorNameNull = "";
 																		if (errorEmailNull == null) errorEmailNull = "";
 																		if (errorPhoneNull == null) errorPhoneNull = "";
 																		if (errorAddressNull == null) errorAddressNull = "";
 																		if (errorContactNull == null) errorContactNull = "";
 																		if (errorContentNull == null) errorContentNull = "";
-																		
+
 																		String errorEmailInvalid = (String) request.getAttribute("errorEmailInvalid");
 																		String errorPhoneInvalid = (String) request.getAttribute("errorPhoneInvalid");
-																		
+
 																		if (errorEmailInvalid == null) errorEmailInvalid = "";
 																		if (errorPhoneInvalid == null) errorPhoneInvalid = "";
 																	%>
@@ -226,15 +224,15 @@
 																</tr>
 																<tr>
 																	<td class="contactRightPad"><span>Email:</span></td>
-																	<td class="contactLeftPad"><input name="txtEmail" type="text" size="32" id="txtEmail"  value="<%=email%>"> <span id="reqEmail" style="color: Red; display: none;"></span> <span id="regEmail" style="color: Red; display: none;"></span>* <%=errorEmailNull%><%=errorEmailInvalid%></td>
+																	<td class="contactLeftPad"><input name="txtEmail" type="text" size="32" id="txtEmail" value="<%=email%>"> <span id="reqEmail" style="color: Red; display: none;"></span> <span id="regEmail" style="color: Red; display: none;"></span>* <%=errorEmailNull%><%=errorEmailInvalid%></td>
 																</tr>
 																<tr>
 																	<td class="contactRightPad"><span>Điện thoại:</span></td>
-																	<td class="contactLeftPad"><input name="txtPhone" type="text" size="18" id="txtPhone" value="<%=phone%>"> * <%=errorPhoneNull %><%=errorPhoneInvalid %></td>
+																	<td class="contactLeftPad"><input name="txtPhone" type="text" size="18" id="txtPhone" value="<%=phone%>"> * <%=errorPhoneNull%><%=errorPhoneInvalid%></td>
 																</tr>
 																<tr>
 																	<td class="contactRightPad"><span>Địa chỉ:</span></td>
-																	<td class="contactLeftPad"><input name="txtAddress" type="text" size="55" id="txtAddress" value="<%=address%>"> * <%=errorAddressNull %></td>
+																	<td class="contactLeftPad"><input name="txtAddress" type="text" size="55" id="txtAddress" value="<%=address%>"> * <%=errorAddressNull%></td>
 																</tr>
 																<tr>
 																	<td class="contactRightPad"><span>Tên công ty:</span></td>
@@ -253,7 +251,7 @@
 																</tr>
 																<tr>
 																	<td class="contactRightPad" valign="top"><span>Nội dung: </span></td>
-																	<td class="contactLeftPad"><textarea name="txtContent" rows="5" cols="55" id="txtContent"><%=content %></textarea> <span id="reqContent" style="color: Red; display: none;"></span>* <%=errorContentNull %></td>
+																	<td class="contactLeftPad"><textarea name="txtContent" rows="5" cols="55" id="txtContent"><%=content%></textarea> <span id="reqContent" style="color: Red; display: none;"></span>* <%=errorContentNull%></td>
 																</tr>
 																<tr>
 																	<td colspan="2" valign="top" class="contactRightPad">
@@ -275,7 +273,6 @@
 
 															</tbody>
 														</table>
-														</form>
 
 														<h2 style="text-align: justify;">&nbsp;</h2>
 														<p style="text-align: right;">
@@ -287,6 +284,7 @@
 											</tr>
 										</tbody>
 									</table>
+								</form>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0" width="100%">

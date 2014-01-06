@@ -153,39 +153,34 @@
 							</form>
 						</div>
 						<div>
-							<table border="0" cellpadding="0" cellspacing="0" width="100%">
-								<tbody>
-									<tr>
-											<center>
-										<form method="post" action="dangnhap">
-												<table border="0">
-													<tr>
-														<th colspan="2">
-															<%
-															String error = (String) request.getAttribute("error");
-															if (error == null) error = "";
-															%>
-															<%=error %>
-														</th>
-													</tr>
-													<tr>
-														<th>Tên tài khoản :</th>
-														<td><input type="text" name="username" /></td>
-													</tr>
-													<tr>
-														<th>Mật khẩu:</th>
-														<td><input type="password" name="password" /></td>
-													</tr>
-													<tr>
-														<td colspan="2"><center><input type="submit" value="Đăng Nhập" /></center></td>
-													</tr>
-												</table>
-										</form>
-											</center>
-									</tr>
+							<form method="post" action="dangnhap">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<th colspan="2" align="center">
+												<%
+													String error = (String) request.getAttribute("error");
+													if (error == null) error = "";
+												%> <%=error%>
+											</th>
+										</tr>
+										<tr>
+											<th align="left">Tên tài khoản :</th>
+											<td><input type="text" name="username" /></td>
+										</tr>
+										<tr>
+											<th align="left">Mật khẩu:</th>
+											<td><input type="password" name="password" /></td>
+										</tr>
+										<tr>
+											<td colspan="2"><center>
+													<input type="submit" value="Đăng Nhập" />
+												</center></td>
+										</tr>
 
-								</tbody>
-							</table>
+									</tbody>
+								</table>
+							</form>
 						</div>
 
 
