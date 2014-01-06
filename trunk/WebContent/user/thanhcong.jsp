@@ -158,18 +158,26 @@
 							if (success.equals("quenmk")) {
 						%>
 										<h1 align="center">Chúng tôi đã gửi mail cho bạn</h1>
+										<br/>
+										<a href="dangnhapxong.jsp">Về trang chủ</a>
 						<%
 							} else if (success.equals("doimk")) {
 						
 						%>
 						<h1 align="center">Bạn đã đổi mật khẩu thành công</h1>
-						<%} %>
 										<br/>
 										<a href="dangnhapxong.jsp">Về trang chủ</a>
-
+						<%
+							} else if (success.equals("lienhe")) {
+						
+						%>
+						<h1 align="center">Chúng tôi đã lưu liên hệ của bạn!</h1>
+										<br/>
+										<a href="trangchu.jsp">Về trang chủ</a> &nbsp;  <a href="lienhe.jsp">Về trang Liên Hệ</a>
+						<%} %>
+						
+						
 						</div>
-
-
 					</div>
 					<div class="space"></div>
 				</div>

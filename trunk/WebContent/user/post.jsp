@@ -2,16 +2,12 @@
 <%@page import="entity.UserEntity"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="dao.TopicDAO"%>
-<%@page import="java.io.InputStreamReader"%>
-<%@page import="java.io.FileNotFoundException"%>
-<%@page import="java.io.FileReader"%>
-<%@page import="java.io.FileInputStream"%>
-<%@page import="java.io.BufferedReader"%>
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +16,7 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
-<script language="javascript" src="ckeditor/ckeditor.js" type="text/javascript"></script>
+
 
 </head>
 
@@ -165,8 +161,14 @@
 							<%
 								//TODO
 								UserEntity user = (UserEntity) session.getAttribute("user");
-								String username = user.getUsername();
-								String email = user.getEmail();
+								String username = "";
+								String email = "";
+								if (user != null) {
+								username = user.getUsername();
+								email = user.getEmail();
+								} else {
+									request.getRequestDispatcher("dangnhap.jsp").forward(request, response);
+								}
 							%>
 							<form method="post" action="topic">
 								<table border="0" width="150%">
@@ -223,9 +225,9 @@
 
 										<tr>
 											<td>Nội dung:</td>
-											<td><textarea rows="" cols="" name="ta" id="ta"></textarea> <script type="text/javascript">
-												CKEDITOR.replace('ta');
-											</script></td>
+											<td><textarea name="ta" id="ta"></textarea>
+											<ckeditor:replace replace="ta" basePath="ckeditor/"></ckeditor:replace>
+											</td>
 										</tr>
 
 										<tr>
@@ -241,16 +243,12 @@
 								</table>
 							</form>
 						</div>
-
-
 					</div>
 					<div class="space"></div>
 				</div>
 			</div>
 		</div>
-
 	</div>
-
 	<div class="footer">
 
 		<div class="menu_footer">
@@ -269,15 +267,10 @@
 			</div>
 		</div>
 	</div>
-
 	<div id="ads_left" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: -165px;">
 		<div style="position: absolute"></div>
 	</div>
-
 	<div id="ads_right" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: 1005px;"></div>
-
-
-
 </body>
 </html>
 
