@@ -18,15 +18,15 @@
 		<div class="header">
 			<div class="headermain">
 			  <div id="menu_top">
-                    <a href="TrangChu.jsp">Trang chủ&nbsp;</a> | &nbsp;
-                    <a href="TinTucCN.jsp">Tin tức&nbsp;</a> |&nbsp;
+                    <a href="trangchu.jsp">Trang chủ&nbsp;</a> | &nbsp;
+                    <a href="tintuccongnghe.jsp">Tin tức&nbsp;</a> |&nbsp;
                     <a href="GioiThieu.jsp">Giới thiệu&nbsp;</a> |&nbsp;
-                    <a href="Game.jsp">Game &nbsp;</a> |&nbsp;
-                    <a href="LienHe.jsp">Liên hệ&nbsp;</a> |&nbsp;
+                    <a href="game.jsp">Game &nbsp;</a> |&nbsp;
+                    <a href="lienhe.jsp">Liên hệ&nbsp;</a> |&nbsp;
                     <a href="https://www.facebook.com/ntncoporation?ref=hl">
                     <img src="Image/facebook.jpg" width="18" height="18" /></a>
 				</div>
-				<div class="logo"><a href="TrangChu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a></div>
+				<div class="logo"><a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a></div>
 			  <div class="login">
                     <form action="Control(Nú làm)" method="post" name="form_login" id="form_login" onsubmit="checklogin">
                     	<label>Đăng nhập </label>
@@ -49,13 +49,13 @@
         <div id="menumain">
 
             <ul id="topmenu">
-            <li class="item"><a href="TrangChu.jsp"><span>Trang chủ</span> </a>
+            <li class="item"><a href="trangchu.jsp"><span>Trang chủ</span> </a>
             	 <ul class="submenu_1"></ul>
      
                  
             </li>
             
-            <li id="item_2" class="item"><a href="TinTucCN.jsp"><span>
+            <li id="item_2" class="item"><a href="tintuccongnghe.jsp"><span>
             Tin tức công nghệ
             </span></a>
             
@@ -63,17 +63,17 @@
             
             <li>
             
-            <a href="TinTrongNuoc.jsp">
+            <a href="tintrongnuoc.jsp">
             Trong nước</a></li>
             
             <li>
             
-            <a href="TinQuocTe.jsp">
+            <a href="tinquocte.jsp">
             Quốc tế</a></li>
             
             <li>
             
-            <a href="TinKhac.jsp">
+            <a href="tinkhac.jsp">
             Tin khác</a></li>
             
             </ul>
@@ -89,28 +89,28 @@
             
             <li>
             
-            <a href="TinBaoMat.jsp">
+            <a href="tinbaomat.jsp">
             Tin bảo mật</a></li>
             
             <li>
             
-            <a href="GPBaoMat.jsp">
+            <a href="giaiphapbaomat.jsp">
             Giải pháp bảo mật</a></li>
             
             <li>
             
-            <a href="Virus.jsp">
+            <a href="virus.jsp">
             Virus</a></li>
             
             <li>
             
-            <a href="Hacker.jsp">
+            <a href="hacker.jsp">
             Hacker</a></li>
             
             </ul>
             </li>
                     
-            <li id="item_4" class="item"><a href="PhanCung.jsp"><span>
+            <li id="item_4" class="item"><a href="phancung.jsp"><span>
             Phần cứng
             </span></a>
             
@@ -118,28 +118,28 @@
             
             <li>
             
-            <a href="Desktop.jsp">
+            <a href="desktop.jsp">
             Desktop</a></li>
             
             <li>
             
-            <a href="Laptop.jsp">
+            <a href="laptop.jsp">
             Laptop</a></li>
                         
             <li>
             
-            <a href="ThietBi-LinhKien.jsp">
+            <a href="thietbilinhkien.jsp">
             Thiết bị - Linh kiện</a></li>
             
             <li>
             
-            <a href="TuVan.jsp">
+            <a href="tuvan.jsp">
             Tư vấn</a></li>
             
             </ul>
             </li>
             
-            <li id="item_5" class="item"><a href="PhanMem.jsp"><span>
+            <li id="item_5" class="item"><a href="phanmem.jsp"><span>
             Phần mềm
             </span></a>
             
@@ -147,23 +147,23 @@
             
             <li>
             
-            <a href="TinPM.jsp">
+            <a href="tinphanmem.jsp">
             Tin tức</a></li>
             
             <li>
             
-            <a href="DanhGia.jsp">
+            <a href="danhgia.jsp">
             Đánh giá</a></li>
             
             <li>
             
-            <a href="KhuyenMai.jsp">
+            <a href="mienphigiamgia.jsp">
             Miễn phí - Giảm giá</a></li>
             
             </ul>
             </li>
             
-            <li id="item_6" class="item"><a href="HeDieuHanh.jsp"><span>
+            <li id="item_6" class="item"><a href="hedieuhanh.jsp"><span>
             Hệ điều hành
             </span></a>
             
@@ -171,30 +171,30 @@
             
             <li>
             
-            <a href="Windows.jsp">
+            <a href="windows.jsp">
             Windows</a></li>
             
             <li>
             
-            <a href="Unix-Linux.jsp">
+            <a href="unix-linux.jsp">
             Unix-Linux</a></li>
             
             <li>
             
-            <a href="Mac.jsp">
+            <a href="mac.jsp">
             Mac</a></li>
             
             </ul>
             </li>
             
-            <li id="item_7" class="item menu"><a href="ThietBiSo.jsp"><span>
+            <li id="item_7" class="item menu"><a href="thietbiso.jsp"><span>
             Thiết bị số
             </span></a>
             <ul class="submenu_7">
             
             <li>
             
-            <a href="MayAnh.jsp">
+            <a href="mayanh.jsp">
             Máy ảnh</a></li>
             
             <li>
@@ -204,34 +204,34 @@
             
             <li>
             
-            <a href="DiDong.jsp">
+            <a href="didong.jsp">
             Di động</a></li>
              <li>            
-            <a href="MayNgheNhac.jsp">
+            <a href="maynghenhac.jsp">
             Máy nghe nhạc</a></li>
             
              <li>           
-            <a href="ThietBiGame.jsp">
+            <a href="thietbigame.jsp">
             Thiết bị game</a></li>
             
              <li>            
-            <a href="ThietBiKhac.jsp">
+            <a href="thietbikhac.jsp">
             Thiết bị khác</a></li>            
             
              <li>            
-            <a href="PhuKien.jsp">
+            <a href="phukien.jsp">
             Phụ kiện</a></li>
             
             </ul>
             </li>
-            <li id="item_8" class="item"><a href="Game.jsp"><span>
+            <li id="item_8" class="item"><a href="game.jsp"><span>
             Game
             </span></a>
              <ul class="submenu_8"></ul>
             
             </li>
             
-            <li id="item_9" class="item"><a href="ThuThuat-TienIch.jsp"><span>
+            <li id="item_9" class="item"><a href="thuthuattientich.jsp"><span>
             Thủ thuật-Tiện ích
             </span></a>
             <ul class="submenu_9"></ul>
@@ -358,7 +358,7 @@ Microsoft vừa phát hành công cụ Office Remote cho phép điều khiển c
                     <div class="wbox cat">
                         <div class="tit">
                             
-                                    <a href="MayAnh.jsp" title="Chuyên mục 'Máy ảnh'">Máy ảnh</a>
+                                    <a href="mayanh.jsp" title="Chuyên mục 'Máy ảnh'">Máy ảnh</a>
                             
                         </div>
                         <div class="ctm">
@@ -445,7 +445,7 @@ Về ngoại hình, Sony HDR-AS30V không mấy khác biệt so với camera hà
                     <div class="wbox cat">
                         <div class="tit">
                             
-                                    <a href="DiDong.jsp" title="Chuyên mục 'Di động'">Di động</a>
+                                    <a href="didong.jsp" title="Chuyên mục 'Di động'">Di động</a>
                             
                         </div>
                         <div class="ctm">
@@ -532,7 +532,7 @@ Mới đây, nhà sản xuất Nhật Bản đã cho ra mắt hai chiếc máy n
                     <div class="wbox cat">
                         <div class="tit">
                             
-                                    <a href="TBGame.jsp" title="Chuyên mục 'Thiết bị game'">Thiết bị game</a>
+                                    <a href="TBgame.jsp" title="Chuyên mục 'Thiết bị game'">Thiết bị game</a>
                             
                         </div>
                         <div class="ctm">
@@ -576,7 +576,7 @@ Microsoft ngày 12.11 đưa ra thông báo họ sẽ đem ứng dụng lưu tr�
                     <div class="wbox cat">
                         <div class="tit">
                             
-                                    <a href="ThietBiKhac.jsp" title="Chuyên mục 'Thiết bị khác'">Thiết bị khác</a>
+                                    <a href="thietbikhac.jsp" title="Chuyên mục 'Thiết bị khác'">Thiết bị khác</a>
                                 
                         </div>
                         <div class="ctm">
@@ -620,7 +620,7 @@ Microsoft ngày 12.11 đưa ra thông báo họ sẽ đem ứng dụng lưu tr�
                     <div class="wbox cat">
                         <div class="tit">
                             
-                                    <a href="PhuKien.jsp" title="Chuyên mục 'Phụ kiện'">Phụ kiện</a>
+                                    <a href="phukien.jsp" title="Chuyên mục 'Phụ kiện'">Phụ kiện</a>
                             
                         </div>
                         <div class="ctm">
@@ -894,12 +894,12 @@ Chỉ một tuần sau khi Apple giới thiệu chiếc iPhone 5s, thị trườ
 		<div class="footer">
                     
         	<div class="menu_footer">
-                        <a href="TrangChu.jsp">Trang chủ</a> | <a href="GioiThieu.jsp">Giới thiệu </a> | <a href="ThietBiSo.jsp">Thiết bị số </a> | 
-                        <a href="Game.jsp">Game</a> |
+                        <a href="trangchu.jsp">Trang chủ</a> | <a href="GioiThieu.jsp">Giới thiệu </a> | <a href="thietbiso.jsp">Thiết bị số </a> | 
+                        <a href="game.jsp">Game</a> |
                         <a href="http://tapchicntt.com" target="_blank">Tapchicntt.com</a> | 
                         <a href="http://bkc.vn" target="_blank">bkc.vn</a> | <a href="http://Stivi.vn" target="_blank">Stivi.vn</a> | 
                         <a href="HoiDap.jsp">Hỏi đáp</a> |
-                        <a href="LienHe.jsp">Liên hệ</a> | 
+                        <a href="lienhe.jsp">Liên hệ</a> | 
                         <a href="https://www.facebook.com/ntncoporation?ref=hl" target="_blank">Facebook</a></div>
                     <div class="line">
                     </div>
@@ -910,7 +910,7 @@ Chỉ một tuần sau khi Apple giới thiệu chiếc iPhone 5s, thị trườ
                             Tổng Biên tập: Nguyễn Tấn Tài. Phó Tổng biên tập: Nguyễn Văn Nú, Lương Văn Nhẫn.<br>
                         	Cơ quan chủ quản: NTN Coporation Entertainment Education Information Technology.</div>
                         <div class="info_right">
-                        	<div class="logo_footer"><a href="TrangChu.jsp"><img src="Image/Logo.png" width="60" height="51"/></a></div>
+                        	<div class="logo_footer"><a href="trangchu.jsp"><img src="Image/Logo.png" width="60" height="51"/></a></div>
                         	Copyright © 2013 IT - Chuyên trang, thông tin công nghệ, thủ thuật , tiện ích...<br>
                             Ghi rõ nguồn " it.com.vn"  khi phát hành lại thông tin từ website này.
                       	</div>
