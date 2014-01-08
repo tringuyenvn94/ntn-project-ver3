@@ -7,7 +7,7 @@ body {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
-	background-color: #333333;
+	background-image: url(../Image/body.png);
 	margin: 0;
 	padding: 0;
 	line-height: 25px;
@@ -17,9 +17,9 @@ body {
 	background-color: #FFF;
 	padding: 0px;
 	width: 999px;
-	margin-top: 5px;
+	margin-top: 10px;
 	margin-right: auto;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	margin-left: auto;
 	border: 1px solid #CCC;
 }
@@ -548,14 +548,18 @@ padding:0;
 }
 
 #ads_left div a img {
-	width: 160px;
-	height: 691px;
+	width: 140px;
+	height: 550px;
+	margin-top: 5px;
+	margin-left: 19px;
+	
 }
 #ads_right div a img {
-	width: 160px;
-	height: 691px;
+	width: 140px;
+	height: 540px;
+	margin-top: 5px;
+	margin-left: 1px;
 }
-
 
 .footer
 {

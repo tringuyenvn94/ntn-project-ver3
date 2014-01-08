@@ -489,4 +489,12 @@
   	<servlet-name>Gioi Thieu JSP</servlet-name>
   	<url-pattern>/gioithieu.jsp</url-pattern>
   </servlet-mapping>
+   <servlet>
+  	<servlet-name>Quan Ly JSP</servlet-name>
+  	<jsp-file>/public/TrangQuanLy.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Quan Ly JSP</servlet-name>
+  	<url-pattern>/quanly.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>

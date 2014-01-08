@@ -12,7 +12,13 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
-
+<style type="text/css">
+#tb {
+	font-size: 16px;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
 </head>
 
 <body>
@@ -168,13 +174,9 @@
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<div class="ctm">
+						<div id="tb">Thông báo
 
-							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
-								<div class="aspNetHidden"></div>
-								
-								<div align="center"></div>
-							</form>
+							
 						</div>
 						<div>
 						<%

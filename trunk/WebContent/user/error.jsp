@@ -176,11 +176,7 @@
 					<div class="news_detail">
 						<div class="ctm">
 
-							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
-								<div class="aspNetHidden"></div>
-								
-								<div align="center"></div>
-							</form>
+						
 						</div>
 						<div>
 							<h1>Có lỗi xảy ra</h1>

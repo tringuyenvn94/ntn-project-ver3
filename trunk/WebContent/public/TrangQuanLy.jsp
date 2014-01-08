@@ -7,19 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>Đăng nhập</title>
-
+<title>Trang Quản Lý</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
-<style type="text/css">
-#ttdn {
-	font-size: 18px;
-	font-weight: bold;
-	font-style: italic;
-}
-</style>
+<link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css">
+<script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -170,45 +163,74 @@
             </div>
             
             <div id="content_main">
+              <div id="TabbedPanels1" class="TabbedPanels">
+                <ul class="TabbedPanelsTabGroup">
+                  <li class="TabbedPanelsTab" tabindex="0">Quản lý thành viên</li>
+                  <li class="TabbedPanelsTab" tabindex="0">Quản lý liên hệ</li>
+                  <li class="TabbedPanelsTab" tabindex="0">Quản lý bài viết</li>
+                </ul>
+                <div class="TabbedPanelsContentGroup">
+                  <div class="TabbedPanelsContent">
+                    <table width="950" border="1" cellpadding="5">
+                      <tr>
+                        <td width="166" align="center">Tên tài khoản</td>
+                        <td width="175" align="center">Họ tên</td>
+                        <td width="79" align="center">Giới tính</td>
+                        <td width="173" align="center">Email</td>
+                        <td width="146" align="center">Ngày đăng ký</td>
+                        <td width="123" align="center">Tác vụ</td>
+                      </tr>
+                      <tr>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><a href="#">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="TabbedPanelsContent">
+                    <table width="950" border="1" cellpadding="5">
+                      <tr>
+                        <td width="182" align="center">Tên người gửi</td>
+                        <td width="184" align="center">Email</td>
+                        <td width="275" align="center">Nội dung</td>
+                        <td width="115" align="center">Ngày gửi</td>
+                        <td width="120" align="center">Tác vụ</td>
+                      </tr>
+                      <tr>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><a href="#">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="TabbedPanelsContent">
+                    <table width="950" border="1" cellpadding="5">
+                      <tr>
+                        <td width="263" align="center">Tiêu đề bài viết</td>
+                        <td width="171" align="center">Tác giả</td>
+                        <td width="145" align="center">Ngày đăng</td>
+                        <td width="161" align="center">Chuyên mục</td>
+                        <td width="136" align="center">Tác vụ</td>
+                      </tr>
+                      <tr>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><a href="#">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              
 
-				<div id="ctLeft_detail">
-					<div class="news_detail">
-						<div id="ttdn">Thông tin đăng nhập
-
-							
-						</div>
-						<div>
-							<form method="post" action="dangnhap">
-								<table border="0" cellpadding="0" cellspacing="0" width="100%">
-									<tbody>
-										<tr>
-											<th colspan="2" align="center">
-												${requestScope.error }
-											</th>
-										</tr>
-										<tr>
-											<th width="43%" height="50px" align="left">Tên tài khoản :</th>
-											<td width="57%"><input type="text" name="username" /></td>
-										</tr>
-										<tr>
-											<th height="50px" align="left">Mật khẩu:</th>
-											<td><input type="password" name="password" /></td>
-										</tr>
-										<tr>
-											<td colspan="2"><center>
-													<input type="submit" value="Đăng Nhập" />
-												</center></td>
-										</tr>
-
-									</tbody>
-								</table>
-							</form>
-						</div>
-
-
-					</div>
-					<div class="space"></div>
-				</div>
+				
 			</div>
 		
         
@@ -248,7 +270,9 @@
  		</div>
 
 	</div>
-
+<script type="text/javascript">
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+    </script>
 </body>
 </html>
 
