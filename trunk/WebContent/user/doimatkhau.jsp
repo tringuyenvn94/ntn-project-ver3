@@ -35,7 +35,11 @@
 							
 												
 				<div id="tv">
-					Xin chào, <a href="trangcanhan.jsp"></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
+				<%
+					String username = user.getUseName(); 
+				
+				%>
+					Xin chào, <a href="trangcanhan.jsp"> <%=username %></a>&nbsp;&nbsp;| &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
 
 				</div>
 			</div>

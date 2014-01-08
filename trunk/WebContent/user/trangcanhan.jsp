@@ -180,7 +180,7 @@
 						UserEntity user = (UserEntity) session.getAttribute("user");
 						if (user == null) response.sendRedirect("dangnhap.jsp");
 						%>
-						<a href="doimk.jsp">Đổi Mật Khẩu</a>
+						<a href="doimatkhau.jsp">Đổi Mật Khẩu</a>
 						<br/>
 						<a href="dangxuat">Đăng Xuất</a>
 						<br/>
