@@ -21,7 +21,7 @@
 					<a href="trangchu.jsp">Trang chủ&nbsp;</a> | &nbsp; <a href="tintuccongnghe.jsp">Tin tức&nbsp;</a> |&nbsp; <a href="gioithieu.jsp">Giới thiệu&nbsp;</a> |&nbsp; <a href="game.jsp">Game &nbsp;</a> |&nbsp; <a href="lienhe.jsp">Liên hệ&nbsp;</a> |&nbsp; <a href="http://www.facebook.com"> <img src="Image/facebook.jpg" width="18" height="18" /></a>
 				</div>
 				<div class="logo">
-					<a href="TrangChu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
+					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
 								<%
 
@@ -779,7 +779,7 @@
 					</div>
 					<div class="info_right">
 						<div class="logo_footer">
-							<a href="TrangChu.jsp"><img src="Image/Logo.png" width="60" height="51" /></a>
+							<a href="trangchu.jsp"><img src="Image/Logo.png" width="60" height="51" /></a>
 						</div>
 						Copyright © 2013 IT - Chuyên trang, thông tin công nghệ, thủ thuật , tiện ích.<br> Ghi rõ nguồn " it.com.vn" khi phát hành lại thông tin từ website này.
 					</div>
