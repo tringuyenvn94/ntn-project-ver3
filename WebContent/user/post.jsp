@@ -16,8 +16,13 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
-
-
+<style type="text/css">
+#bd {
+	font-size: 20px;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
 </head>
 
 <body>
@@ -174,13 +179,8 @@
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<div class="ctm">
-
-							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
-								<div class="aspNetHidden"></div>
-								
-								<div align="center"></div>
-							</form>
+						<div id="bd">
+						  Đăng bài viết						
 						</div>
 						<div>
 							<%
@@ -194,7 +194,8 @@
 								<table border="0" width="150%">
 									<tbody>
 										<tr>
-											<th colspan="2" align="left">Thông tin người gửi</th>
+											<th colspan="2" align="left"><p>&nbsp;</p>
+										    <p>Thông tin người gửi</p></th>
 										</tr>
 										<tr>
 											<td width="130" align="left">Họ và tên:</td>

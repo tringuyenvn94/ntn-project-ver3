@@ -13,8 +13,18 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
-
-
+<style type="text/css">
+.news_detail div center a {
+	font-size: 16px;
+	font-weight: normal;
+	text-decoration: none;
+}
+#tcn {
+	font-size: 18px;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
 </head>
 
 <body>
@@ -165,25 +175,22 @@
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<div class="ctm">
+						<div id="tcn">Trang cá nhân
 
-							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
-								<div class="aspNetHidden"></div>
-								
-	
-							</form>
+							
 						</div>
 						<div>
 						<center>
-						<%//TODO 
+						  <p>
+						    <%//TODO 
 						UserEntity user = (UserEntity) session.getAttribute("user");
 						if (user == null) response.sendRedirect("dangnhap.jsp");
 						%>
-						<a href="doimatkhau.jsp">Đổi Mật Khẩu</a>
-						<br/>
-						<a href="dangxuat">Đăng Xuất</a>
-						<br/>
-						<a href="post.jsp">Post</a>
+						    <a href="doimatkhau.jsp">Đổi Mật Khẩu</a>						    </p>
+						  <p><br/>
+						    <a href="dangxuat">Đăng Xuất</a>						    </p>
+						  <p><br/>
+						    <a href="post.jsp">Đăng Bài</a></p>
 						</center>
 					</div>
 

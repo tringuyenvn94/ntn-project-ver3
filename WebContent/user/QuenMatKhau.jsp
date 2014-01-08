@@ -12,7 +12,13 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
-
+<style type="text/css">
+#qmk {
+	font-size: 16px;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
 </head>
 
 <body>
@@ -166,15 +172,9 @@
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<div class="ctm">
-
-							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
-								<div class="aspNetHidden"></div>
-								
-								<div align="center"></div>
-							</form>
-						</div>
+						<div id="qmk">Nhập email để lấy lại mật khẩu</div>
 						<div>
+							<p>&nbsp;</p>
 										<form method="post" action="quenmk">
 										  <table border="0">
 													<tr>

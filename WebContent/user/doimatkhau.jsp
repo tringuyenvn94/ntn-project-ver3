@@ -16,8 +16,13 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
-
-
+<style type="text/css">
+#dmk {
+	font-size: 18px;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
 </head>
 
 <body>
@@ -172,11 +177,12 @@
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<div class="ctm">
+						<div id="dmk">
+						  <p>Đổi mật khẩu
 
-							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
-								<div class="aspNetHidden"></div>
-							</form>
+							
+						  </p>
+						  <p>&nbsp;</p>
 						</div>
 						<div>
 						
