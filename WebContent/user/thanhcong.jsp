@@ -1,4 +1,4 @@
-
+<%@page import="entity.UserEntity"%>
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Success</title>
+<title>Trang Chủ</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
@@ -22,22 +22,30 @@
 		<div class="header">
 			<div class="headermain">
 				<div id="menu_top">
-					<a href="TrangChu.jsp">Trang chủ&nbsp;</a> | &nbsp; <a href="TinTucCN.jsp">Tin tức&nbsp;</a> |&nbsp; <a href="GioiThieu.jsp">Giới thiệu&nbsp;</a> |&nbsp; <a href="Game.jsp">Game &nbsp;</a> |&nbsp; <a href="lienhejsp">Liên hệ&nbsp;</a> |&nbsp; <a href="https://www.facebook.com/ntncoporation?ref=hl"> <img src="Image/facebook.jpg" width="18" height="18" /></a>
+					<a href="TrangChu.jsp">Trang chủ&nbsp;</a> | &nbsp; <a href="TinTucCN.jsp">Tin tức&nbsp;</a> |&nbsp; <a href="GioiThieu.jsp">Giới thiệu&nbsp;</a> |&nbsp; <a href="Game.jsp">Game &nbsp;</a> |&nbsp; <a href=lienhe.jsp>Liên hệ&nbsp;</a> |&nbsp; <a href="https://www.facebook.com/ntncoporation?ref=hl"> <img src="Image/facebook.jpg" width="18" height="18" /></a>
 				</div>
 				<div class="logo">
 					<a href="TrangChu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-				<div class="login"></div>
+				<%
+
+					UserEntity user = (UserEntity) session.getAttribute("user");
+					String username = user.getUsername();
+				%>
+				<div id="tv">
+					Xin chào, <a href="trangcanhan.jsp"><%=username %></a> | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
+
+				</div>
 			</div>
 		</div>
 
 		<div id="menumain">
 
 			<ul id="topmenu">
-				<li class="item"><a href="TrangChu.jsp"><span>Trang chủ</span> </a>
+				<li class="item menu"><a href="TrangChu.jsp"><span>Trang chủ</span> </a>
 					<ul class="submenu_1"></ul></li>
 
-				<li id="item_2" class="item menu"><a href="TinTucCN.jsp"><span> Tin tức công nghệ </span></a>
+				<li id="item_2" class="item"><a href="TinTucCN.jsp"><span> Tin tức công nghệ </span></a>
 
 					<ul class="submenu_2">
 
@@ -130,9 +138,31 @@
 					<ul class="submenu_10"></ul></li>
 			</ul>
 		</div>
+
+		<div style="margin: 0px auto; width: 999px; height: 80px; position: relative">
+
+			<div id="ads_center" style="position: absolute">
+				<div>
+					<a href="http://stivi.vn" target="_blank"><img src="Image/qcao1.gif" width="999" height="80" border="0"> </a>
+				</div>
+
+			</div>
+
+		</div>
+
 		<div class="content">
 
-			<div id="search"></div>
+			<div id="search">
+				<table style="float: right;" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><b>Tìm kiếm:&nbsp;</b></td>
+
+						<td><input type="text" name="query" id="txtQuery" value="Từ khóa" onfocus="if(this.value == 'Từ khóa') this.value='';" onblur="if(this.value == '') this.value='Từ khóa';" style="width: 150px; height: 18px;"></td>
+						<td><input id="button" type="button" style="width: 50px" value="Tìm"></td>
+					</tr>
+				</table>
+
+			</div>
 
 			<div id="content_main">
 
@@ -142,13 +172,7 @@
 
 							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
 								<div class="aspNetHidden"></div>
-								<div id="menumain">
-									<div class="tl">
-										<div class="tr">
-											<div class="tc"></div>
-										</div>
-									</div>
-								</div>
+								
 								<div align="center"></div>
 							</form>
 						</div>
@@ -182,36 +206,44 @@
 					<div class="space"></div>
 				</div>
 			</div>
+
+
 		</div>
 
-	</div>
 
-	<div class="footer">
+		<div class="footer">
 
-		<div class="menu_footer">
-			<a href="TrangChu.jsp">Trang chủ</a> | <a href="GioiThieu.jsp">Giới thiệu </a> | <a href="ThietBiSo.jsp">Thiết bị số </a> | <a href="Game.jsp">Game</a> | <a href="http://tapchicntt.com" target="_blank">Tapchicntt.com</a> | <a href="http://bkc.vn" target="_blank">bkc.vn</a> | <a href="http://Stivi.vn" target="_blank">Stivi.vn</a> | <a href="HoiDap.jsp">Hỏi đáp</a> | <a href="LienHe.jsp">Liên hệ</a> | <a href="https://www.facebook.com/ntncoporation?ref=hl" target="_blank">Facebook</a>
-		</div>
-		<div class="line"></div>
-		<div class="info">
-			<div class="info_left">
-				Information Technology - Chuyên trang về Công nghệ thông tin.<br> Giấy phép số 1133/GP – BTTTT ngày 1/1/2014 của Bộ thông tin truyền thông.<br> Tổng Biên tập: Nguyễn Tấn Tài. Phó Tổng biên tập: Nguyễn Văn Nú, Lương Văn Nhẫn.<br> Cơ quan chủ quản: NTN Coporation Entertainment Education Information Technology.
+			<div class="menu_footer">
+				<a href="TrangChu.jsp">Trang chủ</a> | <a href="GioiThieu.jsp">Giới thiệu </a> | <a href="ThietBiSo.jsp">Thiết bị số </a> | <a href="Game.jsp">Game</a> | <a href="http://tapchicntt.com" target="_blank">Tapchicntt.com</a> | <a href="http://bkc.vn" target="_blank">bkc.vn</a> | <a href="http://Stivi.vn" target="_blank">Stivi.vn</a> | <a href="HoiDap.jsp">Hỏi đáp</a> | <a href="lienhe.jsp">Liên hệ</a> | <a href="https://www.facebook.com/ntncoporation?ref=hl" target="_blank">Facebook</a>
 			</div>
-			<div class="info_right">
-				<div class="logo_footer">
-					<a href="TrangChu.jsp"><img src="Image/Logo.png" width="60" height="51" /></a>
+			<div class="line"></div>
+			<div class="info">
+				<div class="info_left">
+					Information Technology - Chuyên trang về Công nghệ thông tin.<br> Giấy phép số 1133/GP – BTTTT ngày 1/1/2014 của Bộ thông tin truyền thông.<br> Tổng Biên tập: Nguyễn Tấn Tài. Phó Tổng biên tập: Nguyễn Văn Nú, Lương Văn Nhẫn.<br> Cơ quan chủ quản: NTN Coporation Entertainment Education Information Technology.
 				</div>
-				Copyright © 2013 IT - Chuyên trang, thông tin công nghệ, thủ thuật , tiện ích...<br> Ghi rõ nguồn " it.com.vn" khi phát hành lại thông tin từ website này.
+				<div class="info_right">
+					<div class="logo_footer">
+						<a href="TrangChu.jsp"><img src="Image/Logo.png" width="60" height="51" /></a>
+					</div>
+					Copyright © 2013 IT - Chuyên trang, thông tin công nghệ, thủ thuật , tiện ích...<br> Ghi rõ nguồn " it.com.vn" khi phát hành lại thông tin từ website này.
+				</div>
 			</div>
 		</div>
+
+		<div id="ads_left" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: -165px;">
+			<div style="position: absolute">
+				<a href="http://www.tapchicntt.com" target="_blank"> <img src="Image/quangcao2.gif" width="160" height="664" border="0"></a>
+			</div>
+		</div>
+
+		<div id="ads_right" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: 1005px;">
+			<div style="position: absolute">
+				<a href="http://www.bkc.vn" target="_blank"> <img src="Image/quangcao3.jpg" width="160" height="664" border="0"></a>
+			</div>
+
+		</div>
+
 	</div>
-
-	<div id="ads_left" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: -165px;">
-		<div style="position: absolute"></div>
-	</div>
-
-	<div id="ads_right" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: 1005px;"></div>
-
-
 
 </body>
 </html>
