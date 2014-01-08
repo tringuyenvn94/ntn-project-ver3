@@ -478,4 +478,12 @@
   	<param-name>logo</param-name>
   	<param-value>Image/icon_new1.jpg</param-value>
   </context-param>
+  <servlet>
+  	<servlet-name>Hoi Dap JSP</servlet-name>
+  	<jsp-file>/public/hoidap/HoiDap.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Hoi Dap JSP</servlet-name>
+  	<url-pattern>/hoidap.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>
