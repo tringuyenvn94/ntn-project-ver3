@@ -481,4 +481,12 @@
   	<servlet-name>Hoi Dap JSP</servlet-name>
   	<url-pattern>/hoidap.jsp</url-pattern>
   </servlet-mapping>
+   <servlet>
+  	<servlet-name>Gioi Thieu JSP</servlet-name>
+  	<jsp-file>/public/GioiThieu.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Gioi Thieu JSP</servlet-name>
+  	<url-pattern>/gioithieu.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>

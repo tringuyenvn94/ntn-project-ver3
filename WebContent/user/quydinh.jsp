@@ -6,7 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Điều khoản sử dụng TìmBạnCũ.com</title>
+<title>Điều khoản sử dụng</title>
 <style type="text/css">
 <!--
 body,td,th {
