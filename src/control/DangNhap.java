@@ -56,7 +56,7 @@ public class DangNhap extends HttpServlet {
 				fromSession.setFullName(fromDB.getFullName());
 				fromSession.setEmail(fromDB.getEmail());
 			}
-			response.sendRedirect("dangnhapxong.jsp");
+			response.sendRedirect("trangchu.jsp");
 		} else {
 			request.setAttribute("error", "Mật khẩu hoặc tên tài khoản không đúng, xin kiểm tra lại");
 			request.getRequestDispatcher("/dangnhap.jsp").forward(request, response);
