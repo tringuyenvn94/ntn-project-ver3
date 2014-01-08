@@ -20,11 +20,11 @@
 					<a href="trangchu.jsp">Trang chủ&nbsp;</a> | &nbsp; <a href="tintuccongnghe.jsp">Tin tức&nbsp;</a> |&nbsp; <a href="gioithieu.jsp">Giới thiệu&nbsp;</a> |&nbsp; <a href="game.jsp">Game &nbsp;</a> |&nbsp; <a href="lienhe.jsp">Liên hệ&nbsp;</a> |&nbsp; <a href="http://www.facebook.com"> <img src="Image/facebook.jpg" width="18" height="18" /></a>
 				</div>
 				<div class="logo">
-					<a href="trangchu.jsp"><img src="${param.logo }" width="185" height="107" /></a>
+					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-				<div class="login"></div>
+				<div id="memberbox"><a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a></div>
 			</div>
-
+			</div>
 			<div id="menumain">
 
 				<ul id="topmenu">
@@ -129,7 +129,7 @@
 
 				<div id="ads_center" style="position: absolute">
 					<div>
-						<a href="${param.link_quang_cao }" target="_blank"><img src="${param.hinh_quang_cao }" width="999" height="80" border="0"> </a>
+						<a href="http://stivi.vn" target="_blank"><img src="Image/qcao1.gif" width="999" height="80" border="0"> </a>
 					</div>
 
 				</div>
@@ -378,7 +378,7 @@
 							<div class="ctm">
 
 								<div class="title_article">
-									<a href="${param.link_hedieuhanh_1 }">{param.title_hedieuhanh_1 }</a>
+									<a href="${param.link_hedieuhanh_1 }">${param.title_hedieuhanh_1 }</a>
 								</div>
 								<div>
 									<table border="0" cellpadding="0" cellspacing="0">
@@ -770,7 +770,7 @@
 					</div>
 					<div class="info_right">
 						<div class="logo_footer">
-							<a href="trangchu.jsp"><img src="${param.logo_footer }" width="60" height="51" /></a>
+							<a href="trangchu.jsp"><img src="Image/Logo.png" width="60" height="51" /></a>
 						</div>
 						Copyright © 2013 IT - Chuyên trang, thông tin công nghệ, thủ thuật , tiện ích.<br> Ghi rõ nguồn " it.com.vn" khi phát hành lại thông tin từ website này.
 					</div>
@@ -779,13 +779,13 @@
 
 			<div id="ads_left" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: -165px;">
 				<div style="position: absolute">
-					<a href="${param.link_quang_cao_trai }" target="_blank"> <img src="${param.hinh_quang_cao_trai }" width="160" height="630" border="0"></a>
+					<a href="http://www.tapchicntt.com" target="_blank"> <img src="Image/quangcao2.gif" width="160" height="630" border="0"></a>
 				</div>
 			</div>
 
 			<div id="ads_right" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: 1005px;">
 				<div style="position: absolute">
-					<a href="${param.link_quang_cao_phai }" target="_blank"> <img src="${param.hinh_quang_cao_phai }" width="160" height="630" border="0"></a>
+					<a href="http://www.bkc.vn" target="_blank"> <img src="Image/quangcao3.jpg" width="160" height="630" border="0"></a>
 				</div>
 
 			</div>
