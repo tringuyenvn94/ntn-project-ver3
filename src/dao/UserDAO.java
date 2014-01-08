@@ -101,17 +101,22 @@ public class UserDAO {
 		return "Không tồn tại email";
 	}
 	
-	public static String getEmail(String username) {
-		String sql = "SELECT email FROM USER WHERE username = ?";
-		String email = null;
+	public static UserEntity getUser(String username) {
+		String sql = "SELECT * FROM USER WHERE username = ?";
+		UserEntity user = new UserEntity();
 		ResultSet rs = Utils.util.getResultSet(sql, username);
 		try {
 			while (rs.next()) {
-				email = rs.getString(1);
+				String userName = rs.getString("username");
+				String fullName = rs.getString("full_name");
+				String email = rs.getString("email");
+				user.setUseName(userName);
+				user.setFullName(fullName);
+				user.setEmail(email);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return email;
+		return user;
 	}
 }
