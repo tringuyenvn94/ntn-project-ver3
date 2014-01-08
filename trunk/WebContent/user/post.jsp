@@ -32,8 +32,10 @@
 				<div class="logo">
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-<%
 
+							
+				<%
+					//TODO
 					UserEntity user = (UserEntity) session.getAttribute("user");
 					String username = user.getUsername();
 				%>
@@ -185,6 +187,7 @@
 								//TODO
 
 								String email = user.getEmail();
+								String fullName = user.getFullName();
 
 							%>
 							<form method="post" action="topic">
@@ -195,7 +198,7 @@
 										</tr>
 										<tr>
 											<td width="130" align="left">Họ và tên:</td>
-											<td width="361"><input type="text" value="<%=username %>" name="name" /></td>
+											<td width="361"><input type="text" value="<%=fullName %>" name="name" /></td>
 										</tr>
 
 										<tr>
@@ -222,7 +225,7 @@
 													</option>
 
 													<%
-														}
+															}
 														} catch (Exception e) {
 															e.printStackTrace();
 														}
@@ -232,7 +235,10 @@
 
 										<tr>
 											<td>Tiêu đề:</td>
-											<td><input name="title" type="text" size="60" /></td>
+											<td><input name="title" type="text" size="60" value="${requestScope.title }" />
+											<br />
+											 <p style="color: #F00">${requestScope.errorTitleNull }</p>
+											</td>
 										</tr>
 
 										<tr>
@@ -242,14 +248,20 @@
 
 										<tr>
 											<td>Nội dung:</td>
-											<td><textarea name="ta" id="ta"></textarea>
+											<td><textarea name="ta" id="ta" >${requestScope.content }</textarea>
 											<ckeditor:replace replace="ta" basePath="ckeditor/"></ckeditor:replace>
+												<br />
+											 <p style="color: #F00">${requestScope.errorContentNull }</p>
 											</td>
 										</tr>
 
 										<tr>
 											<td>Url nguồn:</td>
-											<td><input name="url" type="text" size="60" /></td>
+											<td><input name="url" type="text" size="60" value="${requestScope.url }" />
+												<br />
+											 <p style="color: #F00">${requestScope.errorUrlNull }</p>
+											
+											</td>
 										</tr>
 
 										<tr>

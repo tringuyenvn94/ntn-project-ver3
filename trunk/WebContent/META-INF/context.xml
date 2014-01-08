@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Reaml className="org.apache.catalina.reaml.JDBCReaml" drivername="com.mysql.jdbc.Driver"></Reaml>

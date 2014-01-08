@@ -3,6 +3,7 @@ encoding//WebContent/user/quydinh.jsp=UTF-8
 encoding//src/control/DangKy.java=UTF-8
 encoding//src/control/DangNhap.java=UTF-8
 encoding//src/control/LienHe.java=UTF-8
+encoding//src/control/Topic.java=UTF-8
 encoding//src/dao/LienHeDAO.java=UTF-8
 encoding//src/dao/QuenMKDAO.java=UTF-8
 encoding//src/dao/TopicDAO.java=UTF-8

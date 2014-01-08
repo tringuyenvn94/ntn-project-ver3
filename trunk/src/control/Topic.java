@@ -1,5 +1,7 @@
 package control;
 
+import handle.Validation;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.TopicDAO;
+import entity.TopicEntity;
 
 /**
  * Servlet implementation class Topic
@@ -34,7 +37,35 @@ public class Topic extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String content = request.getParameter("ta");
-		TopicDAO.save(content);
+		String type = request.getParameter("linhvuc");
+		String fullName = request.getParameter("name");
+		String email = request.getParameter("email");
+		String title = request.getParameter("title");
+		String url = request.getParameter("url");
+		
+		if (
+				!Validation.isNull(content) &&
+				!Validation.isNull(fullName) &&
+				!Validation.isNull(email) &&
+				Validation.isEmail(email) &&
+				!Validation.isNull(title) &&
+				!Validation.isNull(url)) {
+			TopicEntity topic = new TopicEntity(content, type, title, url);
+			topic.setAuthor(fullName);
+			topic.setEmail(email);
+			TopicDAO.save(topic);
+			response.getWriter().println("Saved");
+		} else {
+			request.setAttribute("content", content);
+			request.setAttribute("title", title);
+			request.setAttribute("url", url);
+			
+			if (Validation.isNull(content)) request.setAttribute("errorContentNull", "Bạn chưa điền nội dung bài viết");
+			if (Validation.isNull(title)) request.setAttribute("errorTitleNull", "Bạn chưa điền tiêu đề bài viết");
+			if (Validation.isNull(url)) request.setAttribute("errorUrlNull", "Bạn chưa điền Url");
+			
+			request.getRequestDispatcher("/post.jsp").forward(request, response);
+		}
 	}
 
 }

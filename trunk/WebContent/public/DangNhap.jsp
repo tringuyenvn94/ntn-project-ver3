@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Trang Chủ</title>
+<title>Đăng Nhập</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
@@ -179,10 +179,7 @@
 									<tbody>
 										<tr>
 											<th colspan="2" align="center">
-												<%
-													String error = (String) request.getAttribute("error");
-													if (error == null) error = "";
-												%> <%=error%>
+												${requestScope.error }
 											</th>
 										</tr>
 										<tr>

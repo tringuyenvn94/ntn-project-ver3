@@ -10,6 +10,10 @@ public class UserEntity {
 		this.password = password;
 	}
 	
+	public UserEntity() {
+		
+	}
+	
 	public UserEntity(String username, String password, String fullName, String email, String year, boolean isMale, boolean isReceiveEmail, boolean isShowEmail, String city) {
 		this.username = username;
 		this.password = password;

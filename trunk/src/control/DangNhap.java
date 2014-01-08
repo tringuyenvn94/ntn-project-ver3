@@ -16,13 +16,13 @@ import entity.UserEntity;
  */
 public class DangNhap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DangNhap() {
-        super();
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public DangNhap() {
+		super();
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,22 +36,32 @@ public class DangNhap extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
+
+		/*
+		 * Tạo user gồm username và password chỉ để mục đích duy nhất 
+		 * là kiểm tra xem có tồn tại user này trong DB hay không
+		 * */
 		UserEntity user = new UserEntity(username, password);
 		if (UserDAO.checkUser(user)) {
 			HttpSession session = request.getSession();
-			UserEntity u = (UserEntity) session.getAttribute("user");
-			String email = UserDAO.getEmail(username);
-			user.setEmail(email);
-			if (u == null) session.setAttribute("user", user);
+			/*
+			 * lấy user từ session, nếu có user rồi thì dùng user load từ DB 
+			 * ở bước (*) gán các thuộc tính: email, fullname cho nó. 
+			 * Còn nếu chưa có thì gán user từ bước (*) vào session
+			 * */
+			UserEntity fromSession = (UserEntity) session.getAttribute("user");
+			UserEntity fromDB = UserDAO.getUser(username);// (*)
+			if (fromSession == null) session.setAttribute("user", fromDB);
+			else {
+				fromSession.setFullName(fromDB.getFullName());
+				fromSession.setEmail(fromDB.getEmail());
+			}
 			response.sendRedirect("dangnhapxong.jsp");
-			
 		} else {
 			request.setAttribute("error", "Mật khẩu hoặc tên tài khoản không đúng, xin kiểm tra lại");
 			request.getRequestDispatcher("/dangnhap.jsp").forward(request, response);
 		}
-		
-		
+
 	}
 
 }
