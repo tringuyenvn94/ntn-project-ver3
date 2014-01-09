@@ -1,3 +1,5 @@
+<%@page import="entity.TopicEntity"%>
+<%@page import="dao.TopicDAO"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -180,14 +182,21 @@
                 <div class="content_left">
            
                     <div class="topnew">
-                        
+                        <%
+                        	TopicEntity topnew = TopicDAO.loadLastedTopic();
+                        	int id_topnew = topnew.getId();
+                        	String title_topnew = topnew.getTitle();
+                        	String url_daidien = topnew.getUrl_daidien();
+                        	if (url_daidien == null) url_daidien = "Image/hinhdaidien.jpg";
+                        	
+                        %>
                                     <div class="title_topnew">
-                                        <a href="cach sua loi lag chuot tren windows 8.1"><span>Cách sửa lỗi lag chuột trên Windows 8.1 </span></a></div>
+                                        <a href="load?id=<%=id_topnew%>"><span><%=title_topnew %></span></a></div>
                                     <div>
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tbody><tr>
                                                 <td class="img_top">
-                                                    <a href="/cach-sua-loi-lag-chuot-tren-windows-8-1-105457"><img src="Image/windows-8.jpg" height="250" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    <a href="load?id=<%=id_topnew%>"><img src="<%=url_daidien %>" height="250" align="left" border="0" hspace="3" vspace="3"></a>
                                                 </td>
                                                 <td class="ctt_top" valign="top">
                                                     Lỗi lag chuột khi chơi game trên các máy tính chạy Windows 8.1 đã gây ra không ít khó chịu cho game thủ.&nbsp;Một trong những điểm mới trên Windows 8.1 là hệ điều hành này hỗ trợ tốt hơn cho các màn hình có DPI cao.&nbsp;

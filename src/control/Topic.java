@@ -42,6 +42,7 @@ public class Topic extends HttpServlet {
 		String email = request.getParameter("email");
 		String title = request.getParameter("title");
 		String url = request.getParameter("url");
+		String url_daidien = request.getParameter("url_daidien");
 		
 		if (
 				!Validation.isNull(content) &&
@@ -53,12 +54,16 @@ public class Topic extends HttpServlet {
 			TopicEntity topic = new TopicEntity(content, type, title, url);
 			topic.setAuthor(fullName);
 			topic.setEmail(email);
+			if (!Validation.isNull(url_daidien)) topic.setUrl_daidien(url_daidien);
+			
 			TopicDAO.save(topic);
-			response.getWriter().println("Saved");
+			request.getSession().setAttribute("topic", topic);
+			response.sendRedirect("template.jsp");
 		} else {
 			request.setAttribute("content", content);
 			request.setAttribute("title", title);
 			request.setAttribute("url", url);
+			request.setAttribute("url_daidien", url_daidien);
 			
 			if (Validation.isNull(content)) request.setAttribute("errorContentNull", "Bạn chưa điền nội dung bài viết");
 			if (Validation.isNull(title)) request.setAttribute("errorTitleNull", "Bạn chưa điền tiêu đề bài viết");
