@@ -54,7 +54,7 @@ public class Topic extends HttpServlet {
 			TopicEntity topic = new TopicEntity(content, type, title, url);
 			topic.setAuthor(fullName);
 			topic.setEmail(email);
-			if (!Validation.isNull(url_daidien)) topic.setUrl_daidien(url_daidien);
+			topic.setUrl_daidien(url_daidien);
 			
 			TopicDAO.save(topic);
 			request.getSession().setAttribute("topic", topic);
