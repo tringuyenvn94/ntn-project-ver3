@@ -1,6 +1,7 @@
 package dao;
 
 import handle.Utils;
+import handle.Validation;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,6 +34,7 @@ public class TopicDAO {
 				+ "(content, id_sub_menu, date_created, title, author, email, url, url_daidien) "
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		if (Validation.isNull(topic.getUrl_daidien())) topic.setUrl_daidien("Image/hinhdaidien.jpg");;
 		Object[] values = {
 				topic.getContent(),
 				topic.getType(),
@@ -42,6 +44,7 @@ public class TopicDAO {
 				topic.getEmail(),
 				topic.getUrl(),
 				topic.getUrl_daidien()
+				
 		};
 
 		Utils.util.insert(sql, indexes, values);
@@ -262,8 +265,7 @@ public class TopicDAO {
 				String title = rs.getString("title");
 				topic.setTitle(title);
 				String url_daidien = rs.getString("url_daidien");
-				if (url_daidien != null) topic.setUrl_daidien(url_daidien);
-				else topic.setUrl_daidien("Image/hinhdaidien.jpg");
+				topic.setUrl_daidien(url_daidien);
 				topics.add(topic);
 			}
 		} catch (Exception e) {
