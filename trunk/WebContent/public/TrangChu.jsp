@@ -396,10 +396,12 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.baomat2.id }">${pageScope.baomat2.title }</a></li>
+										href="load?id=${pageScope.baomat2.id }">${pageScope.baomat2.title
+											}</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.baomat3.id }">${pageScope.baomat3.title }</a></li>
+										href="load?id=${pageScope.baomat3.id }">${pageScope.baomat3.title
+											}</a></li>
 
 								</ul>
 
@@ -412,14 +414,14 @@
 
 
 					<%
-					List<TopicEntity> phancung = TopicDAO.loadByMainId("phancung");
-					TopicEntity phancung1 = phancung.get(0);
-					TopicEntity phancung2 = phancung.get(1);
-					TopicEntity phancung3 = phancung.get(2);
+						List<TopicEntity> phancung = TopicDAO.loadByMainId("phancung");
+						TopicEntity phancung1 = phancung.get(0);
+						TopicEntity phancung2 = phancung.get(1);
+						TopicEntity phancung3 = phancung.get(2);
 
-					pageContext.setAttribute("phancung1", phancung1);
-					pageContext.setAttribute("phancung2", phancung2);
-					pageContext.setAttribute("phancung3", phancung3);
+						pageContext.setAttribute("phancung1", phancung1);
+						pageContext.setAttribute("phancung2", phancung2);
+						pageContext.setAttribute("phancung3", phancung3);
 					%>
 					<div class="wbox cat">
 						<div class="tit">
@@ -431,7 +433,8 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a href="load?id=${pageScope.phancung1.id }">${pageScope.phancung1.title }</a>
+								<a href="load?id=${pageScope.phancung1.id }">${pageScope.phancung1.title
+									}</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
@@ -439,11 +442,12 @@
 										<tr>
 											<td class="image" valign="top"><a
 												href="load?id=${pageScope.phancung1.id }"><img
-													src="${pageScope.phancung1.url_daidien }" align="left" border="0" hspace="3"
-													vspace="3"></a> Theo CNET, iPad Mini Retina tốt hơn iPod,
-												iPhone và bỏ xa iPad thế hệ thứ ba và thứ tư. Sản phẩm đã
-												khắc phục được nhược điểm của thế hệ iPad Mini đầu tiên và
-												hứa hẹn đem lại trải nghiệm tuyệt vời nhất cho người dùng.</td>
+													src="${pageScope.phancung1.url_daidien }" align="left"
+													border="0" hspace="3" vspace="3"></a> Theo CNET, iPad
+												Mini Retina tốt hơn iPod, iPhone và bỏ xa iPad thế hệ thứ ba
+												và thứ tư. Sản phẩm đã khắc phục được nhược điểm của thế hệ
+												iPad Mini đầu tiên và hứa hẹn đem lại trải nghiệm tuyệt vời
+												nhất cho người dùng.</td>
 
 										</tr>
 									</tbody>
@@ -454,10 +458,12 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.phancung2.id }">${pageScope.phancung2.title }</a></li>
+										href="load?id=${pageScope.phancung2.id }">${pageScope.phancung2.title
+											}</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.phancung3.id }">${pageScope.phancung3.title }</a></li>
+										href="load?id=${pageScope.phancung3.id }">${pageScope.phancung3.title
+											}</a></li>
 
 								</ul>
 
@@ -470,14 +476,14 @@
 
 
 					<%
-					List<TopicEntity> phanmem = TopicDAO.loadByMainId("phanmem");
-					TopicEntity phanmem1 = phanmem.get(0);
-					TopicEntity phanmem2 = phanmem.get(1);
-					TopicEntity phanmem3 = phanmem.get(2);
+						List<TopicEntity> phanmem = TopicDAO.loadByMainId("phanmem");
+						TopicEntity phanmem1 = phanmem.get(0);
+						TopicEntity phanmem2 = phanmem.get(1);
+						TopicEntity phanmem3 = phanmem.get(2);
 
-					pageContext.setAttribute("phanmem1", phanmem1);
-					pageContext.setAttribute("phanmem2", phanmem2);
-					pageContext.setAttribute("phanmem3", phanmem3);					
+						pageContext.setAttribute("phanmem1", phanmem1);
+						pageContext.setAttribute("phanmem2", phanmem2);
+						pageContext.setAttribute("phanmem3", phanmem3);
 					%>
 					<div class="wbox cat">
 						<div class="tit">
@@ -488,8 +494,8 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a
-									href="load?id=${pageScope.phanmem1.id }">${pageScope.phanmem1.title }</a>
+								<a href="load?id=${pageScope.phanmem1.id }">${pageScope.phanmem1.title
+									}</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
@@ -497,11 +503,12 @@
 										<tr>
 											<td class="image" valign="top"><a
 												href="load?id=${pageScope.phanmem1.id }"><img
-													src="${pageScope.phanmem1.url_daidien }" align="left" border="0" hspace="3"
-													vspace="3"></a> Kể từ khi ra mắt chiếc điện thoại giá rẻ
-												của Apple - iPhone 5c chỉ đem lại một tình hình kinh doanh
-												ảm đạm. Và cho đến ngày hôm qua một nhà máy của Foxconn tại
-												Trịnh Châu, Trung Quốc sẽ tạm dừng sản xuất sản phẩm này.</td>
+													src="${pageScope.phanmem1.url_daidien }" align="left"
+													border="0" hspace="3" vspace="3"></a> Kể từ khi ra mắt
+												chiếc điện thoại giá rẻ của Apple - iPhone 5c chỉ đem lại
+												một tình hình kinh doanh ảm đạm. Và cho đến ngày hôm qua một
+												nhà máy của Foxconn tại Trịnh Châu, Trung Quốc sẽ tạm dừng
+												sản xuất sản phẩm này.</td>
 
 										</tr>
 									</tbody>
@@ -512,10 +519,12 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.phanmem2.id }">${pageScope.phanmem2.title }</a></li>
+										href="load?id=${pageScope.phanmem2.id }">${pageScope.phanmem2.title
+											}</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.phanmem2.id }">${pageScope.phanmem2.title }</a></li>
+										href="load?id=${pageScope.phanmem2.id }">${pageScope.phanmem2.title
+											}</a></li>
 
 								</ul>
 
@@ -527,16 +536,16 @@
 					</div>
 
 					<%
-					List<TopicEntity> hedieuhanh = TopicDAO.loadByMainId("hedieuhanh");
-					TopicEntity hedieuhanh1 = hedieuhanh.get(0);
-					TopicEntity hedieuhanh2 = hedieuhanh.get(1);
-					TopicEntity hedieuhanh3 = hedieuhanh.get(2);
+						List<TopicEntity> hedieuhanh = TopicDAO.loadByMainId("hedieuhanh");
+						TopicEntity hedieuhanh1 = hedieuhanh.get(0);
+						TopicEntity hedieuhanh2 = hedieuhanh.get(1);
+						TopicEntity hedieuhanh3 = hedieuhanh.get(2);
 
-					pageContext.setAttribute("hedieuhanh1", hedieuhanh1);
-					pageContext.setAttribute("hedieuhanh2", hedieuhanh2);
-					pageContext.setAttribute("hedieuhanh3", hedieuhanh3);					
+						pageContext.setAttribute("hedieuhanh1", hedieuhanh1);
+						pageContext.setAttribute("hedieuhanh2", hedieuhanh2);
+						pageContext.setAttribute("hedieuhanh3", hedieuhanh3);
 					%>
-					
+
 					<!-- the? img cua? tin dau`-->
 					<div class="wbox cat">
 						<div class="tit">
@@ -548,18 +557,19 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a
-									href="load?id=${pageScope.hedieuhanh1.id }">${pageScope.hedieuhanh1.title }</a>
+								<a href="load?id=${pageScope.hedieuhanh1.id }">${pageScope.hedieuhanh1.title
+									}</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a
-												href="load?id=${pageScope.hedieuhanh1.id } " align="left" border="0"
-													hspace="3" vspace="3"></a> Cách đây tròn 30 năm, nhà sáng
-												lập Microsoft là Bill Gates lần đầu tiên giới thiệu Windows,
-												mở đường cho 3 thập kỉ thành công của hệ điều hành này.</td>
+												href="load?id=${pageScope.hedieuhanh1.id } " align="left"
+												border="0" hspace="3" vspace="3"></a> Cách đây tròn 30 năm,
+												nhà sáng lập Microsoft là Bill Gates lần đầu tiên giới thiệu
+												Windows, mở đường cho 3 thập kỉ thành công của hệ điều hành
+												này.</td>
 
 										</tr>
 									</tbody>
@@ -570,10 +580,12 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.hedieuhanh2.id }">${pageScope.hedieuhanh2.title }</a></li>
+										href="load?id=${pageScope.hedieuhanh2.id }">${pageScope.hedieuhanh2.title
+											}</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.hedieuhanh3.id }">${pageScope.hedieuhanh3.title }</a></li>
+										href="load?id=${pageScope.hedieuhanh3.id }">${pageScope.hedieuhanh3.title
+											}</a></li>
 
 								</ul>
 
@@ -585,14 +597,14 @@
 					</div>
 
 					<%
-					List<TopicEntity> thietbiso = TopicDAO.loadByMainId("thietbiso");
-					TopicEntity thietbiso1 = thietbiso.get(0);
-					TopicEntity thietbiso2 = thietbiso.get(1);
-					TopicEntity thietbiso3 = thietbiso.get(2);
+						List<TopicEntity> thietbiso = TopicDAO.loadByMainId("thietbiso");
+						TopicEntity thietbiso1 = thietbiso.get(0);
+						TopicEntity thietbiso2 = thietbiso.get(1);
+						TopicEntity thietbiso3 = thietbiso.get(2);
 
-					pageContext.setAttribute("thietbiso1", thietbiso1);
-					pageContext.setAttribute("thietbiso2", thietbiso2);
-					pageContext.setAttribute("thietbiso3", thietbiso3);					
+						pageContext.setAttribute("thietbiso1", thietbiso1);
+						pageContext.setAttribute("thietbiso2", thietbiso2);
+						pageContext.setAttribute("thietbiso3", thietbiso3);
 					%>
 					<div class="wbox cat">
 						<div class="tit">
@@ -604,8 +616,8 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a
-									href="load?id=${pageScope.thietbiso1.id }">${pageScope.thietbiso1.title }</a>
+								<a href="load?id=${pageScope.thietbiso1.id }">${pageScope.thietbiso1.title
+									}</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
@@ -613,12 +625,13 @@
 										<tr>
 											<td class="image" valign="top"><a
 												href="load?id=${pageScope.thietbiso1.id }"><img
-													src="${pageScope.thietbiso1.url_daidien }" align="left" border="0"
-													hspace="3" vspace="3"></a> Được công bố vào tháng 5/2013
-												nhưng đến giờ thì chiếc smartphone Jolla đầu tiên vẫn chưa
-												có mặt trên thị trường. Tuy nhiên, có thông tin cho rằng
-												chiếc smartphone đầu tiên chạy hệ điều hành Sailfish OS sẽ
-												chính thức lên kệ tại Helsinki, Phần Lan vào ngày 27/11.</td>
+													src="${pageScope.thietbiso1.url_daidien }" align="left"
+													border="0" hspace="3" vspace="3"></a> Được công bố vào
+												tháng 5/2013 nhưng đến giờ thì chiếc smartphone Jolla đầu
+												tiên vẫn chưa có mặt trên thị trường. Tuy nhiên, có thông
+												tin cho rằng chiếc smartphone đầu tiên chạy hệ điều hành
+												Sailfish OS sẽ chính thức lên kệ tại Helsinki, Phần Lan vào
+												ngày 27/11.</td>
 
 										</tr>
 									</tbody>
@@ -629,10 +642,12 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.thietbiso2.id }">${pageScope.thietbiso2.title }</a></li>
+										href="load?id=${pageScope.thietbiso2.id }">${pageScope.thietbiso2.title
+											}</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="load?id=${pageScope.thietbiso3.id }">${pageScope.thietbiso3.title }</a></li>
+										href="load?id=${pageScope.thietbiso3.id }">${pageScope.thietbiso3.title
+											}</a></li>
 
 								</ul>
 
@@ -813,7 +828,26 @@
 
 				</div>
 
+				<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
 
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
 				<div class="content_right">
 
 					<div class="news">
@@ -828,49 +862,57 @@
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Ti vi màn hình cong giá "khủng" 250 triệu đồng</a>
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Ứng dụng LINE đạt mức trên 300 triệu người dùng</a>
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Laptop màn hình cảm ứng tăng trưởng chậm </a>
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Camera nano tốc độ ánh sáng </a>
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Microsoft tăng cường ngăn NSA truy cập hệ thống</a>
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">LG khẳng định sẽ giới thiệu chip Odin </a>
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">WhatsApp lấn át Facebook Messenger </a>
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">iPhone sắp có camera chụp trước lấy nét sau</a>
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
 								</div>
 
 
@@ -881,6 +923,36 @@
 							</div>
 
 						</div>
+
+
+
+
+				<%
+					List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+					TopicEntity tieudiem1 = tieudiem.get(0);
+					TopicEntity tieudiem2 = tieudiem.get(1);
+					TopicEntity tieudiem3 = tieudiem.get(2);
+					TopicEntity tieudiem4 = tieudiem.get(3);
+					TopicEntity tieudiem5 = tieudiem.get(4);
+					TopicEntity tieudiem6 = tieudiem.get(5);
+					TopicEntity tieudiem7 = tieudiem.get(6);
+					TopicEntity tieudiem8 = tieudiem.get(7);
+					TopicEntity tieudiem9 = tieudiem.get(8);
+					TopicEntity tieudiem10 = tieudiem.get(9);
+
+					pageContext.setAttribute("tieudiem1", tieudiem1);
+					pageContext.setAttribute("tieudiem2", tieudiem2);
+					pageContext.setAttribute("tieudiem3", tieudiem3);
+					pageContext.setAttribute("tieudiem4", tieudiem4);
+					pageContext.setAttribute("tieudiem5", tieudiem5);
+					pageContext.setAttribute("tieudiem6", tieudiem6);
+					pageContext.setAttribute("tieudiem7", tieudiem7);
+					pageContext.setAttribute("tieudiem8", tieudiem8);
+					pageContext.setAttribute("tieudiem9", tieudiem9);
+					pageContext.setAttribute("tieudiem10", tieudiem10);
+					
+					System.out.println(tieudiem1.getUrl_daidien());
+				%>
 						<div class="space"></div>
 
 					</div>
@@ -895,13 +967,12 @@
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Task-Manager.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem1.id }"><img src="${pageScope.tieudiem1.url_daidien }" width="142"
 										height="174" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/8-cong-dung-khong-ngo-cua-task-manager-105027"> 8
-										công dụng không ngờ của Task Manager </a>
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title }</a>
 								</div>
 							</div>
 
@@ -909,121 +980,112 @@
 							<div class="box1">
 								<div class="img_tieudiem">
 									<a
-										href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img
-										src="Image/Windows-81.jpg" width="142" height="169" hspace="3"
+										href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142" height="169" hspace="3"
 										vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
 									<a
-										href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
-										Hướng dẫn nâng cấp lên Windows 8.1 bằng hình ảnh </a>
+										href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title }</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
 									<a
-										href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img
-										src="Image/Dong-bo-1.jpg" width="142" height="154" hspace="3"
+										href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142" height="154" hspace="3"
 										vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
 									<a
-										href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119">
-										Xóa bỏ dữ liệu đồng bộ trên mây từ Windows 8.1 </a>
+										href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title }</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img
-										src="Image/Ubuntu.jpg" width="142" height="172" hspace="3"
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142" height="172" hspace="3"
 										vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
-										Kích hoạt bộ gõ Tiếng Việt trên Ubuntu 13.10 </a>
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title }</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
 									<a
-										href="/modem-d-link-tenda-cua-trung-quoc-cai-san-ma-doc-105160"><img
-										src="Image/D-Link-1.jpg" width="142" height="163" hspace="3"
+										href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142" height="163" hspace="3"
 										vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
 									<a
-										href="/nhieu-modem-d-link-tenda-cua-trung-quoc-da-duoc-cai-san-ma-doc-105160">
-										Modem D-Link, Tenda của Trung Quốc cài sẵn mã độc </a>
+										href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title }</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Outlook.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem6.id }"><img src="${pageScope.tieudiem6.url_daidien }" width="142"
 										height="154" hspace="3" vspace="3" align="left" border="0"></a>
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Mẹo hay khắc phục sự cố kết nối trên Outlook </a>
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title }</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Phan-cung.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem7.id }"><img src="${pageScope.tieudiem7.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Xác định phần cứng nào trong máy tính đang
-										hỏng </a>
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title }</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/iOS-7.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem8.id }"><img src="${pageScope.tieudiem8.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Apple chính thức tung ra bản cập nhật iOS
-										7.0.3 </a>
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title }</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Windows-81-1.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem9.id }"><img src="${pageScope.tieudiem9.url_daidien }" width="142"
 										height="145" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Hướng dẫn nâng cấp lên Windows 8.1 bằng hình
-										ảnh </a>
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title }</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Facebook-Page.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem10.id }"><img src="${pageScope.tieudiem10.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Cách chuyển Facebook cá nhân thành Facebook
-										Page </a>
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title }</a>
 								</div>
 							</div>
 						</div>
 					</div>
-
 
 
 				</div>
