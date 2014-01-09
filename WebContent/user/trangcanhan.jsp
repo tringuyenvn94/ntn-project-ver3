@@ -41,7 +41,7 @@
 				</div>
 								
 				<div id="tv">
-					Xin chào, <a href="trangcanhan.jsp"></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
+					Xin chào,&nbsp;${sessionScope.user.username } |<a href="trangchu.jsp">Trang Chủ</a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
 
 				</div>
 			</div>

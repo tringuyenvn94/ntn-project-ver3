@@ -5,7 +5,9 @@ import handle.Utils;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import entity.TopicEntity;
 
@@ -147,7 +149,9 @@ public class TopicDAO {
 
 	/**
 	 * Phương thức load tên của menu con lên dựa vào id của bài viết
-	 * @param id id của bài viết có chứa menu con
+	 * 
+	 * @param id
+	 *            id của bài viết có chứa menu con
 	 * @return subMenu là menu con dựa trên id
 	 * */
 	public static String loadSubMenu(String id) {
@@ -167,7 +171,9 @@ public class TopicDAO {
 
 	/**
 	 * Phương thức load tên của menu cha lên dựa vào id của bài viết
-	 * @param id id của bài viết có chứa menu con tham chiếu tới menu cha
+	 * 
+	 * @param id
+	 *            id của bài viết có chứa menu con tham chiếu tới menu cha
 	 * @return mainMenu là menu con dựa trên id của bài viết
 	 * */
 	public static String loadMainMenu(String id) {
@@ -184,5 +190,87 @@ public class TopicDAO {
 			e.printStackTrace();
 		}
 		return mainMenu;
+	}
+
+	/**
+	 * Phương thức load link của sub menu
+	 * 
+	 * @param subName
+	 *            tên của sub menu
+	 * @return link của submenu
+	 * */
+	public static String loadLinkSub(String subName) {
+		String link = "";
+		String sql = "SELECT link FROM SUB_MENU WHERE name_sub_menu = ? ";
+		ResultSet rs = Utils.util.getResultSet(sql, subName);
+		try {
+			while (rs.next()) {
+				link = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return link;
+	}
+
+	/**
+	 * Phương thức load link của main menu
+	 * 
+	 * @param mainName
+	 *            tên của main menu
+	 * @return link của main menu
+	 * */
+	public static String loadLinkMain(String mainName) {
+		String link = "";
+		String sql = "SELECT link FROM MAIN_MENU WHERE name_main_menu = ? ";
+		ResultSet rs = Utils.util.getResultSet(sql, mainName);
+		try {
+			while (rs.next()) {
+				link = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return link;
+	}
+
+	/**
+	 * Phương thức load một loạt 3 bài viết trước bài mới nhất
+	 * 
+	 * @return một list chứa 3 topic đó
+	 * */
+
+	public static List<TopicEntity> loadBeforeLasted() {
+		List<TopicEntity> topics = new ArrayList<>();
+		String sql = "SELECT * FROM TOPIC";
+		ResultSet rs = Utils.util.getResultSet(sql);
+		try {
+			rs.afterLast();
+			rs.previous();
+			int row = rs.getRow();
+			for (int i = row; i > row - 3; i--) {
+				rs.previous();
+				TopicEntity topic = new TopicEntity();
+				String content = rs.getString("content");
+				topic.setContent(content);
+				String dateSt = rs.getString("date_created");
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				Date date = sdf.parse(dateSt);
+				topic.setDateCreated(date);
+				int id = rs.getInt("id");
+				topic.setId(id);
+				String title = rs.getString("title");
+				topic.setTitle(title);
+				String url_daidien = rs.getString("url_daidien");
+				if (url_daidien != null) topic.setUrl_daidien(url_daidien);
+				else topic.setUrl_daidien("Image/hinhdaidien.jpg");
+				topics.add(topic);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return topics;
+
 	}
 }

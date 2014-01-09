@@ -17,7 +17,7 @@ public class MyConnection {
 			// String username = prop.getProperty("username");
 			// String password = prop.getProperty("password");
 
-			ConnectionPool pool = new ConnectionPool("My Pool", 5, 5, 30000, url, "nv_ca", "nguyenvanchucan");
+			ConnectionPool pool = new ConnectionPool("My Pool", 5, 5, 3000000, url, "nv_ca", "nguyenvanchucan");
 			conn = pool.getConnection();
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();

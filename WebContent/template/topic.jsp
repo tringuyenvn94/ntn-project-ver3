@@ -194,9 +194,11 @@
 		String author = topic.getAuthor();
 		String subMenu = TopicDAO.loadSubMenu(id);
 		String mainMenu = TopicDAO.loadMainMenu(id);
+		String linkSubMenu = TopicDAO.loadLinkSub(subMenu);
+		String linkMainMenu = TopicDAO.loadLinkMain(mainMenu);
 	%>
 		
-				<a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="22" align="absmiddle" border="0"></a> »&nbsp;<a href="${initParam.thietbiso }"><%=mainMenu %></a>&nbsp;»&nbsp;<a href=""><%=subMenu %></a>
+				<a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="22" align="absmiddle" border="0"></a> »&nbsp;<a href="<%=linkMainMenu %>"><%=mainMenu %></a>&nbsp;»&nbsp;<a href="<%=linkSubMenu%>"><%=subMenu %></a>
 			
 	</div>
 	<div class="ctm">

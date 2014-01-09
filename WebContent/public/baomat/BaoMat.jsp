@@ -33,7 +33,6 @@
 				<%
 					} else {
 						String username = user.getUseName();
-						
 				%>
 				<div id="tv">
 					Xin chào,<%=username %> |<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
@@ -42,7 +41,7 @@
 				<%
 					}
 				%>
-			</div>
+				</div>
 			</div>
 		
         <div id="menumain">
