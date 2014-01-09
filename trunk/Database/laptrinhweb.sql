@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50529
 File Encoding         : 65001
 
-Date: 2014-01-09 13:07:54
+Date: 2014-01-09 15:20:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -105,22 +105,23 @@ DROP TABLE IF EXISTS `main_menu`;
 CREATE TABLE `main_menu` (
   `id_main_menu` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `name_main_menu` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_main_menu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of main_menu
 -- ----------------------------
-INSERT INTO `main_menu` VALUES ('baomat', 'Bảo Mật');
-INSERT INTO `main_menu` VALUES ('game', 'Game');
-INSERT INTO `main_menu` VALUES ('hedieuhanh', 'Hệ Điều Hành');
-INSERT INTO `main_menu` VALUES ('hoidap', 'Hỏi - Đáp');
-INSERT INTO `main_menu` VALUES ('phancung', 'Phần Cứng');
-INSERT INTO `main_menu` VALUES ('phanmem', 'Phần Mềm');
-INSERT INTO `main_menu` VALUES ('thietbiso', 'Thiết Bị Số');
-INSERT INTO `main_menu` VALUES ('thuthuattienit', 'Thủ Thuật - Tiện Ít');
-INSERT INTO `main_menu` VALUES ('tintuccongnghe', 'Tin Tức Công Nghệ');
-INSERT INTO `main_menu` VALUES ('trangchu', 'Trang Chủ');
+INSERT INTO `main_menu` VALUES ('baomat', 'Bảo Mật', 'baomat.jsp');
+INSERT INTO `main_menu` VALUES ('game', 'Game', 'game.jsp');
+INSERT INTO `main_menu` VALUES ('hedieuhanh', 'Hệ Điều Hành', 'hedieuhanh.jsp');
+INSERT INTO `main_menu` VALUES ('hoidap', 'Hỏi - Đáp', 'hoidap.jsp');
+INSERT INTO `main_menu` VALUES ('phancung', 'Phần Cứng', 'phancung.jsp');
+INSERT INTO `main_menu` VALUES ('phanmem', 'Phần Mềm', 'phanmem.jsp');
+INSERT INTO `main_menu` VALUES ('thietbiso', 'Thiết Bị Số', 'thietbiso.jsp');
+INSERT INTO `main_menu` VALUES ('thuthuattienit', 'Thủ Thuật - Tiện Ít', 'thuthuattienich.jsp');
+INSERT INTO `main_menu` VALUES ('tintuccongnghe', 'Tin Tức Công Nghệ', 'tintuccongnghe.jsp');
+INSERT INTO `main_menu` VALUES ('trangchu', 'Trang Chủ', 'tranchu.jsp');
 
 -- ----------------------------
 -- Table structure for `sub_menu`
@@ -130,6 +131,7 @@ CREATE TABLE `sub_menu` (
   `id_sub_menu` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `name_sub_menu` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `id_main_menu` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_sub_menu`),
   KEY `id_main_menu_fk` (`id_main_menu`),
   KEY `id_sub_menu` (`id_sub_menu`,`name_sub_menu`),
@@ -140,30 +142,30 @@ CREATE TABLE `sub_menu` (
 -- ----------------------------
 -- Records of sub_menu
 -- ----------------------------
-INSERT INTO `sub_menu` VALUES ('danhgia', 'Đánh Giá', 'phanmem');
-INSERT INTO `sub_menu` VALUES ('desktop', 'Desktop', 'phancung');
-INSERT INTO `sub_menu` VALUES ('didong', 'Di Động', 'thietbiso');
-INSERT INTO `sub_menu` VALUES ('giaiphapbaomat', 'Giải Pháp Bảo Mật', 'baomat');
-INSERT INTO `sub_menu` VALUES ('hacker', 'Hacker', 'baomat');
-INSERT INTO `sub_menu` VALUES ('laptop', 'Laptop', 'phancung');
-INSERT INTO `sub_menu` VALUES ('mac', 'Mac', 'hedieuhanh');
-INSERT INTO `sub_menu` VALUES ('mayanh', 'Máy Ảnh', 'thietbiso');
-INSERT INTO `sub_menu` VALUES ('maynghenhac', 'Máy Nghe Nhạc', 'thietbiso');
-INSERT INTO `sub_menu` VALUES ('mayquay', 'Máy Quay', 'thietbiso');
-INSERT INTO `sub_menu` VALUES ('mienphigiamgia', 'Miễn Phí - Giảm Giá', 'phanmem');
-INSERT INTO `sub_menu` VALUES ('phukien', 'Phụ Kiện', 'thietbiso');
-INSERT INTO `sub_menu` VALUES ('quocte', 'Quốc Tế', 'tintuccongnghe');
-INSERT INTO `sub_menu` VALUES ('thietbigame', 'Thiết Bị Game', 'thietbiso');
-INSERT INTO `sub_menu` VALUES ('thietbikhac', 'Thiết Bị Khác', 'thietbiso');
-INSERT INTO `sub_menu` VALUES ('thietbilinhkien', 'Thiết Bị - Linh Kiện', 'phancung');
-INSERT INTO `sub_menu` VALUES ('tinbaomat', 'Tin Bảo Mật', 'baomat');
-INSERT INTO `sub_menu` VALUES ('tinkhac', 'Tin Khác', 'tintuccongnghe');
-INSERT INTO `sub_menu` VALUES ('tintuc', 'Tin Tức', 'phanmem');
-INSERT INTO `sub_menu` VALUES ('trongnuoc', 'Trong Nước', 'tintuccongnghe');
-INSERT INTO `sub_menu` VALUES ('tuvan', 'Tư Vấn', 'phancung');
-INSERT INTO `sub_menu` VALUES ('unixlinux', 'Unit - Linux', 'hedieuhanh');
-INSERT INTO `sub_menu` VALUES ('virus', 'Virus', 'baomat');
-INSERT INTO `sub_menu` VALUES ('windows', 'Windows', 'hedieuhanh');
+INSERT INTO `sub_menu` VALUES ('danhgia', 'Đánh Giá', 'phanmem', 'danhgia.jsp');
+INSERT INTO `sub_menu` VALUES ('desktop', 'Desktop', 'phancung', 'desktop.jsp');
+INSERT INTO `sub_menu` VALUES ('didong', 'Di Động', 'thietbiso', 'didong.jsp');
+INSERT INTO `sub_menu` VALUES ('giaiphapbaomat', 'Giải Pháp Bảo Mật', 'baomat', 'giaiphapbaomat.jsp');
+INSERT INTO `sub_menu` VALUES ('hacker', 'Hacker', 'baomat', 'hacker.jsp');
+INSERT INTO `sub_menu` VALUES ('laptop', 'Laptop', 'phancung', 'laptop.jsp');
+INSERT INTO `sub_menu` VALUES ('mac', 'Mac', 'hedieuhanh', 'mac.jsp');
+INSERT INTO `sub_menu` VALUES ('mayanh', 'Máy Ảnh', 'thietbiso', 'mayanh.jsp');
+INSERT INTO `sub_menu` VALUES ('maynghenhac', 'Máy Nghe Nhạc', 'thietbiso', 'maynghenhac.jsp');
+INSERT INTO `sub_menu` VALUES ('mayquay', 'Máy Quay', 'thietbiso', 'mayquay.jsp');
+INSERT INTO `sub_menu` VALUES ('mienphigiamgia', 'Miễn Phí - Giảm Giá', 'phanmem', 'mienphigiamgia.jsp');
+INSERT INTO `sub_menu` VALUES ('phukien', 'Phụ Kiện', 'thietbiso', 'phukien.jsp');
+INSERT INTO `sub_menu` VALUES ('quocte', 'Quốc Tế', 'tintuccongnghe', 'tinquocte.jsp');
+INSERT INTO `sub_menu` VALUES ('thietbigame', 'Thiết Bị Game', 'thietbiso', 'thietbigame.jsp');
+INSERT INTO `sub_menu` VALUES ('thietbikhac', 'Thiết Bị Khác', 'thietbiso', 'thietbikhac.jsp');
+INSERT INTO `sub_menu` VALUES ('thietbilinhkien', 'Thiết Bị - Linh Kiện', 'phancung', 'thietbilinhkien.jsp');
+INSERT INTO `sub_menu` VALUES ('tinbaomat', 'Tin Bảo Mật', 'baomat', 'tinbaomat.jsp');
+INSERT INTO `sub_menu` VALUES ('tinkhac', 'Tin Khác', 'tintuccongnghe', 'tinkhac.jsp');
+INSERT INTO `sub_menu` VALUES ('tintuc', 'Tin Tức', 'phanmem', 'tintuc.jsp');
+INSERT INTO `sub_menu` VALUES ('trongnuoc', 'Trong Nước', 'tintuccongnghe', 'tintrongnuoc.jsp');
+INSERT INTO `sub_menu` VALUES ('tuvan', 'Tư Vấn', 'phancung', 'tuvan.jsp');
+INSERT INTO `sub_menu` VALUES ('unixlinux', 'Unit - Linux', 'hedieuhanh', 'unix-linux.jsp');
+INSERT INTO `sub_menu` VALUES ('virus', 'Virus', 'baomat', 'virus.jsp');
+INSERT INTO `sub_menu` VALUES ('windows', 'Windows', 'hedieuhanh', 'windows.jsp');
 
 -- ----------------------------
 -- Table structure for `topic`
@@ -182,13 +184,18 @@ CREATE TABLE `topic` (
   PRIMARY KEY (`id`),
   KEY `id_sub_menu_fk` (`id_sub_menu`),
   CONSTRAINT `id_sub_menu_fk` FOREIGN KEY (`id_sub_menu`) REFERENCES `sub_menu` (`id_sub_menu`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of topic
 -- ----------------------------
 INSERT INTO `topic` VALUES ('1', 'desktop', '2014-01-09 11:14:15', '<p>test 1</p>\r\n', 'Test 1', '22A', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', null);
 INSERT INTO `topic` VALUES ('2', 'thietbikhac', '2014-01-09 11:14:45', '<p>test2</p>\r\n', 'test2', '22A', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', null);
+INSERT INTO `topic` VALUES ('3', 'virus', '2014-01-09 14:00:42', '<p>fsf</p>\r\n', 'tÃ©t vÃ­u', 'f', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', null);
+INSERT INTO `topic` VALUES ('4', 'desktop', '2014-01-09 14:34:33', '<p>asdf</p>\r\n', 'desktop', '22A', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', null);
+INSERT INTO `topic` VALUES ('5', 'didong', '2014-01-09 14:35:17', '<p>didong</p>\r\n', 'didong', 'f', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', 'http://images.tienphong.vn/Uploaded/Images/0/a73/0a7394dd24f0e019a7c91cff195ba0f5.jpg.ashx?w=660&h=371&crop=auto');
+INSERT INTO `topic` VALUES ('6', 'trongnuoc', '2014-01-09 14:35:51', '<p>trong nuoc</p>\r\n', 'trong nuoc', 'a', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', null);
+INSERT INTO `topic` VALUES ('7', 'desktop', '2014-01-09 15:10:04', '<p>a</p>\r\n', 'http://images.tienphong.vn/Uploaded/Images/0/a73/0a7394dd24f0e019a7c91cff195ba0f5.jpg.ashx?w=660&h=371&crop=auto', 'a', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', 'http://images.tienphong.vn/Uploaded/Images/0/a73/0a7394dd24f0e019a7c91cff195ba0f5.jpg.ashx?w=660&h=371&crop=auto');
 
 -- ----------------------------
 -- Table structure for `user`
