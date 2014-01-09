@@ -117,6 +117,38 @@ public class TopicDAO {
 		return topic;
 	}
 
+	
+	/**
+	 * Lấy topic cuối cùng được lưu vào DB dựa trên một id của sub menu
+	 * @param idSubMenu id của  sub menu cần lấy bài lên
+	 * @return 1 topic được đăng gần nhất 
+	 * */
+	public static TopicEntity loadLastedTopic(String idSubMenu) {
+		TopicEntity topic = new TopicEntity();
+		String sql = "SELECT * FROM TOPIC WHERE id_sub_menu = ?";
+		ResultSet rs = Utils.util.getResultSet(sql, idSubMenu);
+		try {
+			rs.last();
+			String content = rs.getString("content");
+			topic.setContent(content);
+
+			String dateSt = rs.getString("date_created");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+			Date date = sdf.parse(dateSt);
+			topic.setDateCreated(date);
+			int id = rs.getInt("id");
+			topic.setId(id);
+			String title = rs.getString("title");
+			topic.setTitle(title);
+			String url_daidien = rs.getString("url_daidien");
+			if (url_daidien != null) topic.setUrl_daidien(url_daidien);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return topic;
+	}
+	
 	/**
 	 * So sánh 2 bài viết để xem bài nào post trước, bài nào post sau.
 	 * 
@@ -274,5 +306,33 @@ public class TopicDAO {
 
 		return topics;
 
+	}
+	
+	/**
+	 * Phương thức load những bài mới nhất theo id của main menu
+	 * @param idMainMenu id của main menu muốn load
+	 * @return một list gồm những bài viết mới nhất
+	 * */
+	public static List<TopicEntity> loadByMainId(String idMainMenu) {
+		List<TopicEntity> topics = new ArrayList<>();
+		String loadSubMenus = "SELECT sub_menu.id_sub_menu FROM sub_menu WHERE id_main_menu = ?";
+		ResultSet subMenus = Utils.util.getResultSet(loadSubMenus, idMainMenu);
+		List<String> idSubMenus = new ArrayList<>();
+		try {
+			while (subMenus.next()) {
+				idSubMenus.add(subMenus.getString(1));
+			}
+			/*
+			 * Vì 1 main menu có nhiều sub menu khác nhau nên phải load
+			 * id_sub_menu lên trước, sau đó với mỗi sub menu thì load lên các bài viết cần thiết
+			 * */
+			for (String sub : idSubMenus) {
+				TopicEntity topic = loadLastedTopic(sub);
+				topics.add(topic);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return topics;
 	}
 }
