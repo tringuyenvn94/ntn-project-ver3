@@ -14,6 +14,7 @@ public class TopicEntity {
 	private int id;
 	private String url_daidien;
 	private boolean isFocus;
+	private String header;
 
 	public TopicEntity(String content, String type, String title, String url) {
 		this.content = content;
@@ -116,6 +117,14 @@ public class TopicEntity {
 
 	public void setFocus(boolean isFocus) {
 		this.isFocus = isFocus;
+	}
+
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
 	}
 
 	
