@@ -13,6 +13,7 @@ public class TopicEntity {
 	private String url;
 	private int id;
 	private String url_daidien;
+	private boolean isFocus;
 
 	public TopicEntity(String content, String type, String title, String url) {
 		this.content = content;
@@ -20,6 +21,7 @@ public class TopicEntity {
 		this.title = title;
 		this.dateCreated = new Date();
 		this.url = url;
+		this.isFocus = false;
 	}
 	
 	public TopicEntity(String content, String type, String title, String url, String url_daidien) {
@@ -29,6 +31,7 @@ public class TopicEntity {
 		this.dateCreated = new Date();
 		this.url = url;
 		this.url_daidien = url_daidien;
+		this.isFocus = false;
 	}
 
 	public TopicEntity() {
@@ -107,5 +110,14 @@ public class TopicEntity {
 		this.url_daidien = url_daidien;
 	}
 
+	public boolean isFocus() {
+		return isFocus;
+	}
+
+	public void setFocus(boolean isFocus) {
+		this.isFocus = isFocus;
+	}
+
+	
 	
 }

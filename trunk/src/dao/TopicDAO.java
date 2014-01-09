@@ -34,7 +34,8 @@ public class TopicDAO {
 				+ "(content, id_sub_menu, date_created, title, author, email, url, url_daidien) "
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8 };
-		if (Validation.isNull(topic.getUrl_daidien())) topic.setUrl_daidien("Image/hinhdaidien.jpg");;
+		if (Validation.isNull(topic.getUrl_daidien())) topic.setUrl_daidien("Image/hinhdaidien.jpg");
+		;
 		Object[] values = {
 				topic.getContent(),
 				topic.getType(),
@@ -44,7 +45,7 @@ public class TopicDAO {
 				topic.getEmail(),
 				topic.getUrl(),
 				topic.getUrl_daidien()
-				
+
 		};
 
 		Utils.util.insert(sql, indexes, values);
@@ -106,6 +107,8 @@ public class TopicDAO {
 			topic.setDateCreated(date);
 			int id = rs.getInt("id");
 			topic.setId(id);
+			String type = rs.getString("id_sub_menu");
+			topic.setType(type);
 			String title = rs.getString("title");
 			topic.setTitle(title);
 			String url_daidien = rs.getString("url_daidien");
@@ -117,11 +120,12 @@ public class TopicDAO {
 		return topic;
 	}
 
-	
 	/**
 	 * Lấy topic cuối cùng được lưu vào DB dựa trên một id của sub menu
-	 * @param idSubMenu id của  sub menu cần lấy bài lên
-	 * @return 1 topic được đăng gần nhất 
+	 * 
+	 * @param idSubMenu
+	 *            id của sub menu cần lấy bài lên
+	 * @return 1 topic được đăng gần nhất
 	 * */
 	public static TopicEntity loadLastedTopic(String idSubMenu) {
 		TopicEntity topic = new TopicEntity();
@@ -138,6 +142,8 @@ public class TopicDAO {
 			topic.setDateCreated(date);
 			int id = rs.getInt("id");
 			topic.setId(id);
+			String type = rs.getString("id_sub_menu");
+			topic.setType(type);
 			String title = rs.getString("title");
 			topic.setTitle(title);
 			String url_daidien = rs.getString("url_daidien");
@@ -148,7 +154,7 @@ public class TopicDAO {
 
 		return topic;
 	}
-	
+
 	/**
 	 * So sánh 2 bài viết để xem bài nào post trước, bài nào post sau.
 	 * 
@@ -161,7 +167,7 @@ public class TopicDAO {
 	 *         &nbsp; < 0: topic 1 được post trước, topic 2 được post sau <br />
 	 *         &nbsp; > 0: topic 2 được post trước, topic 1 được post sau <br />
 	 * */
-	public static int separate(TopicEntity t1, TopicEntity t2) {
+	public static int compare(TopicEntity t1, TopicEntity t2) {
 		return t1.getDateCreated().compareTo(t2.getDateCreated());
 	}
 
@@ -294,6 +300,8 @@ public class TopicDAO {
 				topic.setDateCreated(date);
 				int id = rs.getInt("id");
 				topic.setId(id);
+				String type = rs.getString("id_sub_menu");
+				topic.setType(type);
 				String title = rs.getString("title");
 				topic.setTitle(title);
 				String url_daidien = rs.getString("url_daidien");
@@ -307,10 +315,12 @@ public class TopicDAO {
 		return topics;
 
 	}
-	
+
 	/**
 	 * Phương thức load những bài mới nhất theo id của main menu
-	 * @param idMainMenu id của main menu muốn load
+	 * 
+	 * @param idMainMenu
+	 *            id của main menu muốn load
 	 * @return một list gồm những bài viết mới nhất
 	 * */
 	public static List<TopicEntity> loadByMainId(String idMainMenu) {
@@ -325,7 +335,7 @@ public class TopicDAO {
 			/*
 			 * Vì 1 main menu có nhiều sub menu khác nhau nên phải load
 			 * id_sub_menu lên trước, sau đó với mỗi sub menu thì load lên các bài viết cần thiết
-			 * */
+			 */
 			for (String sub : idSubMenus) {
 				TopicEntity topic = loadLastedTopic(sub);
 				topics.add(topic);
@@ -334,5 +344,90 @@ public class TopicDAO {
 			e.printStackTrace();
 		}
 		return topics;
+	}
+
+	/**
+	 * Lấy những topic cuối cùng được lưu vào DB dựa trên một số nhập vào
+	 * 
+	 * @param noOfEntities
+	 *            số lượng topic muốn load lên
+	 * @return 1 danh sách topic được đăng gần nhất
+	 * */
+	public static List<TopicEntity> loadLastedTopic(int noOfEntities) {
+		List<TopicEntity> topics = new ArrayList<>();
+		String sql = "SELECT * FROM TOPIC";
+		ResultSet rs = Utils.util.getResultSet(sql);
+		try {
+			rs.last();
+			rs.afterLast();
+			int index = 0;
+			while (rs.previous()) {
+				if (index >= noOfEntities) break;
+				TopicEntity topic = new TopicEntity();
+				String content = rs.getString("content");
+				topic.setContent(content);
+
+				String dateSt = rs.getString("date_created");
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				Date date = sdf.parse(dateSt);
+				topic.setDateCreated(date);
+				int id = rs.getInt("id");
+				topic.setId(id);
+				String title = rs.getString("title");
+				topic.setTitle(title);
+				String type = rs.getString("id_sub_menu");
+				topic.setType(type);
+				String url_daidien = rs.getString("url_daidien");
+				if (url_daidien != null) topic.setUrl_daidien(url_daidien);
+				index++;
+				topics.add(topic);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return topics;
+	}
+
+	/**
+	 * Phương thức load tất cả các bài tiêu điểm
+	 * 
+	 * @return một danh sách chứa các bài viết
+	 * */
+	public static List<TopicEntity> loadAllFocusTopic() {
+		List<TopicEntity> topics = new ArrayList<>();
+		String sql = "SELECT * FROM topic WHERE focus = 1";
+		ResultSet rs = Utils.util.getResultSet(sql);
+		try {
+			while (rs.next()) {
+				TopicEntity topic = new TopicEntity();
+				int iD = rs.getInt("id");
+				String type = rs.getString("id_sub_menu");
+				String dateSt = rs.getString("date_created");
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				Date date = sdf.parse(dateSt);
+				topic.setDateCreated(date);
+				String content = rs.getString("content");
+				String title = rs.getString("title");
+				String url = rs.getString("url");
+				String author = rs.getString("author");
+				String email = rs.getString("email");
+
+				topic.setId(iD);
+				topic.setType(type);
+				topic.setContent(content);
+				topic.setTitle(title);
+				topic.setUrl(url);
+				topic.setAuthor(author);
+				topic.setEmail(email);
+				topics.add(topic);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return topics;
+	
 	}
 }
