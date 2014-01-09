@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50529
 File Encoding         : 65001
 
-Date: 2014-01-08 20:32:36
+Date: 2014-01-09 13:07:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -104,7 +104,7 @@ INSERT INTO `linhvuc` VALUES ('Windows');
 DROP TABLE IF EXISTS `main_menu`;
 CREATE TABLE `main_menu` (
   `id_main_menu` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `name_main_menu` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_main_menu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -128,12 +128,12 @@ INSERT INTO `main_menu` VALUES ('trangchu', 'Trang Chủ');
 DROP TABLE IF EXISTS `sub_menu`;
 CREATE TABLE `sub_menu` (
   `id_sub_menu` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `name_sub_menu` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `id_main_menu` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_sub_menu`),
   KEY `id_main_menu_fk` (`id_main_menu`),
-  KEY `id_sub_menu` (`id_sub_menu`,`name`),
-  KEY `name` (`name`),
+  KEY `id_sub_menu` (`id_sub_menu`,`name_sub_menu`),
+  KEY `name` (`name_sub_menu`),
   CONSTRAINT `id_main_menu_fk` FOREIGN KEY (`id_main_menu`) REFERENCES `main_menu` (`id_main_menu`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -171,24 +171,24 @@ INSERT INTO `sub_menu` VALUES ('windows', 'Windows', 'hedieuhanh');
 DROP TABLE IF EXISTS `topic`;
 CREATE TABLE `topic` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name_sub_menu` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id_sub_menu` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `date_created` datetime NOT NULL,
   `content` longtext COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url_daidien` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `name_sub_menu_fk` (`name_sub_menu`),
-  CONSTRAINT `name_sub_menu_fk` FOREIGN KEY (`name_sub_menu`) REFERENCES `sub_menu` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `id_sub_menu_fk` (`id_sub_menu`),
+  CONSTRAINT `id_sub_menu_fk` FOREIGN KEY (`id_sub_menu`) REFERENCES `sub_menu` (`id_sub_menu`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of topic
 -- ----------------------------
-INSERT INTO `topic` VALUES ('1', 'Desktop', '2014-01-08 19:50:07', '<div style=\"background:#eee;border:1px solid #ccc;padding:5px 10px;\"><sub>dfsadfsadfasf<sup>asdfsadfasd</sup></sub>fasdfasdfasdfaf<img alt=\"wink\" src=\"http://localhost:8080/Project/ckeditor/plugins/smiley/images/wink_smile.png\" style=\"height:23px; width:23px\" title=\"wink\" />fsadfasdf</div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>fadsfasdfasdfsadfsfsdfasdfsfsa</p>\r\n\r\n<hr />\r\n<p>sdf</p>\r\n\r\n<hr />\r\n<p>dsafsadf</p>\r\n\r\n<hr />\r\n<p>asf</p>\r\n\r\n<hr />\r\n<p>asffadsf</p>\r\n', 'sdfsdfsfsdf', 'fsdfsdf', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com');
-INSERT INTO `topic` VALUES ('2', 'Desktop', '2014-01-08 20:11:26', '<p>abc</p>\r\n', 'test', 'd', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com');
-INSERT INTO `topic` VALUES ('3', 'Desktop', '2014-01-08 20:18:31', '<p>fdfd</p>\r\n', 'fadsf', 'fdf', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com');
+INSERT INTO `topic` VALUES ('1', 'desktop', '2014-01-09 11:14:15', '<p>test 1</p>\r\n', 'Test 1', '22A', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', null);
+INSERT INTO `topic` VALUES ('2', 'thietbikhac', '2014-01-09 11:14:45', '<p>test2</p>\r\n', 'test2', '22A', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', null);
 
 -- ----------------------------
 -- Table structure for `user`
