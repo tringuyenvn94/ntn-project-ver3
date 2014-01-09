@@ -36,6 +36,10 @@ public class Topic extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf8");
+		response.setCharacterEncoding("utf8");
+		
 		String content = request.getParameter("ta");
 		String type = request.getParameter("linhvuc");
 		String fullName = request.getParameter("name");
