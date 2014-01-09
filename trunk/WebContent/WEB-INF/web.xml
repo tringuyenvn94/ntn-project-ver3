@@ -540,8 +540,73 @@
   </context-param>
   
    <context-param>
-  	<param-name>lienhe</param-name>
-  	<param-value>lienhe.jsp</param-value>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>dangky</param-name>
+  	<param-value>dangky.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>dangnhap</param-name>
+  	<param-value>dangnhap.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>baomat</param-name>
+  	<param-value>baomat.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>giaiphapbaomat</param-name>
+  	<param-value>giaiphapbaomat.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
+  </context-param>
+  
+    <context-param>
+  	<param-name>trangchu</param-name>
+  	<param-value>trangchu.jsp</param-value>
   </context-param>
 
 </web-app>
