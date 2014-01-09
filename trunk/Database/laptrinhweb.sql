@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50529
 File Encoding         : 65001
 
-Date: 2014-01-09 19:38:54
+Date: 2014-01-09 22:42:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -133,8 +133,10 @@ CREATE TABLE `sub_menu` (
 INSERT INTO `sub_menu` VALUES ('danhgia', 'Đánh Giá', 'phanmem', 'danhgia.jsp');
 INSERT INTO `sub_menu` VALUES ('desktop', 'Desktop', 'phancung', 'desktop.jsp');
 INSERT INTO `sub_menu` VALUES ('didong', 'Di Động', 'thietbiso', 'didong.jsp');
+INSERT INTO `sub_menu` VALUES ('game', 'Game', 'game', 'game.jsp');
 INSERT INTO `sub_menu` VALUES ('giaiphapbaomat', 'Giải Pháp Bảo Mật', 'baomat', 'giaiphapbaomat.jsp');
 INSERT INTO `sub_menu` VALUES ('hacker', 'Hacker', 'baomat', 'hacker.jsp');
+INSERT INTO `sub_menu` VALUES ('hoidap', 'Hỏi Đáp', 'hoidap', 'hoidap.jsp');
 INSERT INTO `sub_menu` VALUES ('laptop', 'Laptop', 'phancung', 'laptop.jsp');
 INSERT INTO `sub_menu` VALUES ('mac', 'Mac', 'hedieuhanh', 'mac.jsp');
 INSERT INTO `sub_menu` VALUES ('mayanh', 'Máy Ảnh', 'thietbiso', 'mayanh.jsp');
@@ -146,6 +148,7 @@ INSERT INTO `sub_menu` VALUES ('quocte', 'Quốc Tế', 'tintuccongnghe', 'tinqu
 INSERT INTO `sub_menu` VALUES ('thietbigame', 'Thiết Bị Game', 'thietbiso', 'thietbigame.jsp');
 INSERT INTO `sub_menu` VALUES ('thietbikhac', 'Thiết Bị Khác', 'thietbiso', 'thietbikhac.jsp');
 INSERT INTO `sub_menu` VALUES ('thietbilinhkien', 'Thiết Bị - Linh Kiện', 'phancung', 'thietbilinhkien.jsp');
+INSERT INTO `sub_menu` VALUES ('thuathuattienich', 'Thủ Thuật Tiện Ích', 'thuthuattienit', 'thuthuattienich.jsp');
 INSERT INTO `sub_menu` VALUES ('tinbaomat', 'Tin Bảo Mật', 'baomat', 'tinbaomat.jsp');
 INSERT INTO `sub_menu` VALUES ('tinkhac', 'Tin Khác', 'tintuccongnghe', 'tinkhac.jsp');
 INSERT INTO `sub_menu` VALUES ('tintuc', 'Tin Tức', 'phanmem', 'tintuc.jsp');
