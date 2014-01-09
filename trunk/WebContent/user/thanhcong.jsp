@@ -33,15 +33,7 @@
 				<div class="logo">
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-								<%
-
-					UserEntity user = (UserEntity) session.getAttribute("user");
-					String username = user.getUsername();
-				%>
-				<div id="tv">
-					Xin chào, <a href="trangcanhan.jsp"><%=username %></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
-
-				</div>
+			
 			</div>
 			</div>
 
@@ -200,8 +192,12 @@
 						<h1 align="center">Chúng tôi đã lưu liên hệ của bạn!</h1>
 										<br/>
 										<a href="trangchu.jsp">Về trang chủ</a> &nbsp;  <a href="lienhe.jsp">Về trang Liên Hệ</a>
+						<%}
+							else if (success.equals("dangky")) {
+							%>
+						<h1 align="center">Chúc mừng bạn đã đăng kí thành công</h1> <br />
+						<a href="trangchu.jsp">Về trang chủ</a>
 						<%} %>
-						
 						
 						</div>
 					</div>

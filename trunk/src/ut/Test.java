@@ -10,6 +10,6 @@ public class Test {
 //	List<TopicEntity> topics = TopicDAO.loadBeforeLasted();
 //	for (TopicEntity topic : topics) System.out.println(topic.getHeader());
 //		
-		System.out.println(TopicDAO.loadLastedTopic().getHeader());
+		System.out.println(TopicDAO.loadLastedTopic("game").getContent());
 	}
 }
