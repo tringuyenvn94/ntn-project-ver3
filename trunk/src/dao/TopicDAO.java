@@ -35,7 +35,6 @@ public class TopicDAO {
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8 };
 		if (Validation.isNull(topic.getUrl_daidien())) topic.setUrl_daidien("Image/hinhdaidien.jpg");
-		;
 		Object[] values = {
 				topic.getContent(),
 				topic.getType(),
@@ -52,12 +51,21 @@ public class TopicDAO {
 	}
 
 	/**
-	 * Load nội dung bài viết lên từ DB
+	 * phương thức load tổng quát 1 topic
+	 * 
+	 * @param sql
+	 *            câu lệnh để thực thi load topic
+	 * @param param
+	 *            tham số truyền vào là điều kiện lọc
 	 * */
-	public static TopicEntity load(String id) {
-		String sql = "SELECT * FROM TOPIC WHERE id = ?";
+	private static TopicEntity loadTopic(String sql, String param) {
 		TopicEntity topic = new TopicEntity();
-		ResultSet rs = Utils.util.getResultSet(sql, id);
+		ResultSet rs = null;
+		if (!param.equals("")) {
+			rs = Utils.util.getResultSet(sql, param);
+		} else {
+			rs = Utils.util.getResultSet(sql);
+		}
 		try {
 			while (rs.next()) {
 				int iD = rs.getInt("id");
@@ -71,7 +79,9 @@ public class TopicDAO {
 				String url = rs.getString("url");
 				String author = rs.getString("author");
 				String email = rs.getString("email");
+				String url_daidien = rs.getString("url_daidien");
 
+				topic.setUrl_daidien(url_daidien);
 				topic.setId(iD);
 				topic.setType(type);
 				topic.setContent(content);
@@ -83,8 +93,16 @@ public class TopicDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return topic;
+
+	}
+
+	/**
+	 * Load nội dung bài viết lên từ DB
+	 * */
+	public static TopicEntity load(String id) {
+		String sql = "SELECT * FROM TOPIC WHERE id = ?";
+		return loadTopic(sql, id);
 	}
 
 	/**
@@ -93,31 +111,8 @@ public class TopicDAO {
 	 * @return 1 topic được đăng gần nhất
 	 * */
 	public static TopicEntity loadLastedTopic() {
-		TopicEntity topic = new TopicEntity();
 		String sql = "SELECT * FROM TOPIC";
-		ResultSet rs = Utils.util.getResultSet(sql);
-		try {
-			rs.last();
-			String content = rs.getString("content");
-			topic.setContent(content);
-
-			String dateSt = rs.getString("date_created");
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-			Date date = sdf.parse(dateSt);
-			topic.setDateCreated(date);
-			int id = rs.getInt("id");
-			topic.setId(id);
-			String type = rs.getString("id_sub_menu");
-			topic.setType(type);
-			String title = rs.getString("title");
-			topic.setTitle(title);
-			String url_daidien = rs.getString("url_daidien");
-			if (url_daidien != null) topic.setUrl_daidien(url_daidien);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return topic;
+		return loadTopic(sql, "");
 	}
 
 	/**
@@ -128,31 +123,8 @@ public class TopicDAO {
 	 * @return 1 topic được đăng gần nhất
 	 * */
 	public static TopicEntity loadLastedTopic(String idSubMenu) {
-		TopicEntity topic = new TopicEntity();
 		String sql = "SELECT * FROM TOPIC WHERE id_sub_menu = ?";
-		ResultSet rs = Utils.util.getResultSet(sql, idSubMenu);
-		try {
-			rs.last();
-			String content = rs.getString("content");
-			topic.setContent(content);
-
-			String dateSt = rs.getString("date_created");
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-			Date date = sdf.parse(dateSt);
-			topic.setDateCreated(date);
-			int id = rs.getInt("id");
-			topic.setId(id);
-			String type = rs.getString("id_sub_menu");
-			topic.setType(type);
-			String title = rs.getString("title");
-			topic.setTitle(title);
-			String url_daidien = rs.getString("url_daidien");
-			if (url_daidien != null) topic.setUrl_daidien(url_daidien);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return topic;
+		return loadTopic(sql, idSubMenu);
 	}
 
 	/**
@@ -189,6 +161,28 @@ public class TopicDAO {
 	}
 
 	/**
+	 * Phương thức load một chuỗi string từ DB
+	 * 
+	 * @param param
+	 *            chuỗi string truyền vào làm điều kiện lọc
+	 * @param sql
+	 *            câu lệnh sql
+	 * @return một chuỗi string lọc được
+	 * */
+	private static String loadString(String sql, String param) {
+		ResultSet rs = Utils.util.getResultSet(sql, param);
+		String result = "";
+		try {
+			while (rs.next()) {
+				result = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	/**
 	 * Phương thức load tên của menu con lên dựa vào id của bài viết
 	 * 
 	 * @param id
@@ -198,16 +192,7 @@ public class TopicDAO {
 	public static String loadSubMenu(String id) {
 		String sql = "SELECT sub_menu.name_sub_menu FROM sub_menu WHERE id_sub_menu = "
 				+ "(SELECT topic.id_sub_menu FROM topic WHERE id = ?)";
-		ResultSet rs = Utils.util.getResultSet(sql, id);
-		String subMenu = "";
-		try {
-			while (rs.next()) {
-				subMenu = rs.getString(1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return subMenu;
+		return loadString(sql, id);
 	}
 
 	/**
@@ -221,16 +206,7 @@ public class TopicDAO {
 		String sql = "SELECT main_menu.name_main_menu FROM main_menu WHERE id_main_menu = "
 				+ "(SELECT sub_menu.id_main_menu FROM sub_menu WHERE id_sub_menu = "
 				+ "(SELECT topic.id_sub_menu FROM topic WHERE id = ?))";
-		ResultSet rs = Utils.util.getResultSet(sql, id);
-		String mainMenu = "";
-		try {
-			while (rs.next()) {
-				mainMenu = rs.getString(1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return mainMenu;
+		return loadString(sql, id);
 	}
 
 	/**
@@ -241,17 +217,8 @@ public class TopicDAO {
 	 * @return link của submenu
 	 * */
 	public static String loadLinkSub(String subName) {
-		String link = "";
 		String sql = "SELECT link FROM SUB_MENU WHERE name_sub_menu = ? ";
-		ResultSet rs = Utils.util.getResultSet(sql, subName);
-		try {
-			while (rs.next()) {
-				link = rs.getString(1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return link;
+		return loadString(sql, subName);
 	}
 
 	/**
@@ -262,17 +229,63 @@ public class TopicDAO {
 	 * @return link của main menu
 	 * */
 	public static String loadLinkMain(String mainName) {
-		String link = "";
 		String sql = "SELECT link FROM MAIN_MENU WHERE name_main_menu = ? ";
-		ResultSet rs = Utils.util.getResultSet(sql, mainName);
+		return loadString(sql, mainName);
+	}
+
+	/**
+	 * Phương thức tổng quát load nhiều topic có điều kiện
+	 * 
+	 * @param sql
+	 *            câu lệnh sql
+	 * @param param
+	 *            tham số truyền vào làm điều kiện của câu truy vấn
+	 * @return một List chứa các topic đã lọc được nhờ vào câu sql
+	 * */
+	private static List<TopicEntity> loadTopics(String sql, String param) {
+		ResultSet rs = null;
+		List<TopicEntity> topics = new ArrayList<>();
+
+		if (!param.equals("")) {
+			rs = Utils.util.getResultSet(sql, param);
+		} else {
+			rs = Utils.util.getResultSet(sql);
+		}
+
 		try {
+			TopicEntity topic;
 			while (rs.next()) {
-				link = rs.getString(1);
+				topic = new TopicEntity();
+				int iD = rs.getInt("id");
+				String type = rs.getString("id_sub_menu");
+				String dateSt = rs.getString("date_created");
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				Date date = sdf.parse(dateSt);
+				topic.setDateCreated(date);
+				String content = rs.getString("content");
+				String title = rs.getString("title");
+				String url = rs.getString("url");
+				String author = rs.getString("author");
+				String email = rs.getString("email");
+				String url_daidien = rs.getString("url_daidien");
+				boolean isFocus = rs.getBoolean("focus");
+
+				topic.setId(iD);
+				topic.setType(type);
+				topic.setContent(content);
+				topic.setTitle(title);
+				topic.setUrl(url);
+				topic.setAuthor(author);
+				topic.setEmail(email);
+				topic.setUrl_daidien(url_daidien);
+				topic.setFocus(isFocus);
+				topics.add(topic);
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return link;
+
+		return topics;
 	}
 
 	/**
@@ -396,38 +409,7 @@ public class TopicDAO {
 	 * @return một danh sách chứa các bài viết
 	 * */
 	public static List<TopicEntity> loadAllFocusTopic() {
-		List<TopicEntity> topics = new ArrayList<>();
 		String sql = "SELECT * FROM topic WHERE focus = 1";
-		ResultSet rs = Utils.util.getResultSet(sql);
-		try {
-			while (rs.next()) {
-				TopicEntity topic = new TopicEntity();
-				int iD = rs.getInt("id");
-				String type = rs.getString("id_sub_menu");
-				String dateSt = rs.getString("date_created");
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-				Date date = sdf.parse(dateSt);
-				topic.setDateCreated(date);
-				String content = rs.getString("content");
-				String title = rs.getString("title");
-				String url = rs.getString("url");
-				String author = rs.getString("author");
-				String email = rs.getString("email");
-
-				topic.setId(iD);
-				topic.setType(type);
-				topic.setContent(content);
-				topic.setTitle(title);
-				topic.setUrl(url);
-				topic.setAuthor(author);
-				topic.setEmail(email);
-				topics.add(topic);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return topics;
-	
+		return loadTopics(sql, "");
 	}
 }
