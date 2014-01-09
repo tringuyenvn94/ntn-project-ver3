@@ -105,7 +105,10 @@ public class DangKy extends HttpServlet {
 			if (isShowEmail != null) showEmail = true;
 
 			UserEntity user = new UserEntity(username, password, fullName, email, year, isMale, isReceiveEmail, showEmail, city);
+			
 			UserDAO.write(user);
+			request.setAttribute("success", "dangky");
+			request.getRequestDispatcher("/thanhcong.jsp").forward(request, response);
 		} else
 			request.getRequestDispatcher("/dangki.jsp").forward(request, response);
 	}
