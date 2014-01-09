@@ -1,3 +1,4 @@
+<%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,7 +24,23 @@
 				<div class="logo">
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
+				<%
+					UserEntity user = (UserEntity) session.getAttribute("user");
+					if (user == null) {
+				%>
 				<div id="memberbox"><a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a></div>
+				<%
+					} else {
+						String username = user.getUseName();
+						
+				%>
+				<div id="tv">
+					Xin chào,<%=username %> |<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
+
+				</div>
+				<%
+					}
+				%>
 			</div>
 			</div>
 		

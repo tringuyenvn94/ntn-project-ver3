@@ -535,8 +535,13 @@
    -->
   
   <context-param>
-  	<param-name>thietbiso</param-name>
-  	<param-value>thietbiso.jsp</param-value>
+  	<param-name>lienhe</param-name>
+  	<param-value>lienhe.jsp</param-value>
+  </context-param>
+  
+   <context-param>
+  	<param-name>lienhe</param-name>
+  	<param-value>lienhe.jsp</param-value>
   </context-param>
 
 </web-app>
