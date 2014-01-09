@@ -11,6 +11,8 @@ public class TopicEntity {
 	private String author;
 	private String email;
 	private String url;
+	private int id;
+	private String url_daidien;
 
 	public TopicEntity(String content, String type, String title, String url) {
 		this.content = content;
@@ -18,6 +20,15 @@ public class TopicEntity {
 		this.title = title;
 		this.dateCreated = new Date();
 		this.url = url;
+	}
+	
+	public TopicEntity(String content, String type, String title, String url, String url_daidien) {
+		this.content = content;
+		this.type = type;
+		this.title = title;
+		this.dateCreated = new Date();
+		this.url = url;
+		this.url_daidien = url_daidien;
 	}
 
 	public TopicEntity() {
@@ -80,4 +91,21 @@ public class TopicEntity {
 		this.url = url;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUrl_daidien() {
+		return url_daidien;
+	}
+
+	public void setUrl_daidien(String url_daidien) {
+		this.url_daidien = url_daidien;
+	}
+
+	
 }

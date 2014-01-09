@@ -219,10 +219,11 @@
 														try {
 															ResultSet linhvuc = TopicDAO.loadLinhVuc();
 															while (linhvuc.next()) {
-																String lv = linhvuc.getString(1);
+																String name = linhvuc.getString(1);
+																String id = linhvuc.getString(2);
 													%>
-													<option value="<%=lv%>">
-														<%=lv%>
+													<option value="<%=id%>">
+														<%=name%>
 													</option>
 
 													<%
@@ -243,8 +244,8 @@
 										</tr>
 
 										<tr>
-											<td>Ảnh:</td>
-											<td>//ckfinder</td>
+											<td>Ảnh đại diện (URL):</td>
+											<td><input name="url_daidien" value="${requestScope.url_daidien }" size="60" /></td>
 										</tr>
 
 										<tr>

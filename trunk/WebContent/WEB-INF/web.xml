@@ -5,12 +5,25 @@
     <welcome-file>trangchu.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+  <!-- 
+  ===================================================
+  						Start Servlet
+  ===================================================
+   -->
     <servlet-name>Topic Servlet</servlet-name>
     <servlet-class>control.Topic</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Topic Servlet</servlet-name>
     <url-pattern>/topic</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Load Servlet</servlet-name>
+    <servlet-class>control.Load</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Load Servlet</servlet-name>
+    <url-pattern>/load</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Lien He Servlet</servlet-name>
@@ -60,6 +73,11 @@
     <servlet-name>DoiMK Servlet</servlet-name>
     <url-pattern>/doimatkhau</url-pattern>
   </servlet-mapping>
+  <!-- 
+  ===================================================
+  						Start JSP
+  ===================================================
+   -->
   <servlet>
     <servlet-name>Lien He JSP</servlet-name>
     <jsp-file>/public/LienHe.jsp</jsp-file>
@@ -412,76 +430,88 @@
     <servlet-name>Quy Dinh JSP</servlet-name>
     <url-pattern>/quydinh.jsp</url-pattern>
   </servlet-mapping>
-  
-  <!-- Skeleton -->
   <servlet>
-  	<servlet-name>Homepage JSP</servlet-name>
-  	<jsp-file>/skeleton/homepage.jsp</jsp-file>
+    <servlet-name>Homepage JSP</servlet-name>
+    <jsp-file>/skeleton/homepage.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Homepage JSP</servlet-name>
-  	<url-pattern>/homepage.jsp</url-pattern>
-  </servlet-mapping>
-  
-    <servlet>
-  	<servlet-name>Skeleton JSP</servlet-name>
-  	<jsp-file>/skeleton/skeleton.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>Skeleton JSP</servlet-name>
-  	<url-pattern>/skeleton.jsp</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Others -->
-  <servlet>
-  	<servlet-name>a</servlet-name>
-  	<jsp-file>/test/test.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>a</servlet-name>
-  	<url-pattern>/test.jsp</url-pattern>
+    <servlet-name>Homepage JSP</servlet-name>
+    <url-pattern>/homepage.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>aa</servlet-name>
-  	<jsp-file>/test/test1.jsp</jsp-file>
+    <servlet-name>Skeleton JSP</servlet-name>
+    <jsp-file>/skeleton/skeleton.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>aa</servlet-name>
-  	<url-pattern>/tes1t.jsp</url-pattern>
+    <servlet-name>Skeleton JSP</servlet-name>
+    <url-pattern>/skeleton.jsp</url-pattern>
   </servlet-mapping>
-    <servlet>
-  	<servlet-name>aaa</servlet-name>
-  	<jsp-file>/test/test2.jsp</jsp-file>
+  <servlet>
+    <servlet-name>a</servlet-name>
+    <jsp-file>/test/test.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>aaa</servlet-name>
-  	<url-pattern>/tes12.jsp</url-pattern>
+    <servlet-name>a</servlet-name>
+    <url-pattern>/test.jsp</url-pattern>
   </servlet-mapping>
-   <servlet>
-  	<servlet-name>aaaa</servlet-name>
-  	<jsp-file>/test/test3.jsp</jsp-file>
+  <servlet>
+    <servlet-name>aa</servlet-name>
+    <jsp-file>/test/test1.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>aaaa</servlet-name>
-  	<url-pattern>/tes3.jsp</url-pattern>
+    <servlet-name>aa</servlet-name>
+    <url-pattern>/tes1t.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>aaa</servlet-name>
+    <jsp-file>/test/test2.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>aaa</servlet-name>
+    <url-pattern>/tes12.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>aaaa</servlet-name>
+    <jsp-file>/test/test3.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>aaaa</servlet-name>
+    <url-pattern>/tes3.jsp</url-pattern>
   </servlet-mapping>
   <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>Trang Chu ak</param-value>
+    <param-name>trangchu</param-name>
+    <param-value>Trang Chu ak</param-value>
   </context-param>
-   <context-param>
-  	<param-name>logo</param-name>
-  	<param-value>Image/icon_new1.jpg</param-value>
+  <context-param>
+    <param-name>logo</param-name>
+    <param-value>Image/icon_new1.jpg</param-value>
   </context-param>
   <servlet>
-  	<servlet-name>Hoi Dap JSP</servlet-name>
-  	<jsp-file>/public/hoidap/HoiDap.jsp</jsp-file>
+    <servlet-name>Hoi Dap JSP</servlet-name>
+    <jsp-file>/public/hoidap/HoiDap.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Hoi Dap JSP</servlet-name>
-  	<url-pattern>/hoidap.jsp</url-pattern>
+    <servlet-name>Hoi Dap JSP</servlet-name>
+    <url-pattern>/hoidap.jsp</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
+    <servlet-name>Template JSP</servlet-name>
+    <jsp-file>/template/template.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Template JSP</servlet-name>
+    <url-pattern>/template.jsp</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>Topic JSP</servlet-name>
+    <jsp-file>/template/topic.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Topic JSP</servlet-name>
+    <url-pattern>/topic.jsp</url-pattern>
+  </servlet-mapping>
+     <servlet>
   	<servlet-name>Gioi Thieu JSP</servlet-name>
   	<jsp-file>/public/GioiThieu.jsp</jsp-file>
   </servlet>
@@ -497,4 +527,16 @@
   	<servlet-name>Quan Ly JSP</servlet-name>
   	<url-pattern>/quanly.jsp</url-pattern>
   </servlet-mapping>
+  
+    <!-- 
+  ===================================================
+  				Start Context Param
+  ===================================================
+   -->
+  
+  <context-param>
+  	<param-name>thietbiso</param-name>
+  	<param-value>thietbiso.jsp</param-value>
+  </context-param>
+
 </web-app>
