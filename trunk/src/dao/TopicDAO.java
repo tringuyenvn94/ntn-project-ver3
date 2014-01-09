@@ -89,6 +89,8 @@ public class TopicDAO {
 				topic.setUrl(url);
 				topic.setAuthor(author);
 				topic.setEmail(email);
+				String header = getHeader(content);
+				topic.setHeader(header);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,7 +100,11 @@ public class TopicDAO {
 	}
 
 	/**
-	 * Load nội dung bài viết lên từ DB
+	 * Load nội dung bài viết lên từ DB dựa vào 1 id nhất đinh
+	 * 
+	 * @param id
+	 *            id của bài viết
+	 * @return 1 topic tương ứng với id truyền vào
 	 * */
 	public static TopicEntity load(String id) {
 		String sql = "SELECT * FROM TOPIC WHERE id = ?";
@@ -147,17 +153,17 @@ public class TopicDAO {
 	 * phương thức lấy một đoạn văn bản làm mở đầu bài viết
 	 * chua xong
 	 * */
-	public static String moDau(int id) {
-		String sql = "SELECT content FROM TOPIC WHERE id = ?";
-		ResultSet rs = Utils.util.getResultSet(sql, id + "");
-		String content = "";
-		try {
-			rs.next();
-			content = rs.getString(1);
-		} catch (SQLException e) {
-			e.printStackTrace();
+	private static String getHeader(String content) {
+		String contentSub = content.substring(38);
+		String result = "";
+		char st;
+		for (int i = 0; i < contentSub.length(); i++) {
+			if ((st = contentSub.charAt(i)) == '<') {
+				break;
+			}
+			result += st;
 		}
-		return content;
+		return result;
 	}
 
 	/**
@@ -280,6 +286,9 @@ public class TopicDAO {
 				topic.setUrl_daidien(url_daidien);
 				topic.setFocus(isFocus);
 				topics.add(topic);
+
+				String header = getHeader(content);
+				topic.setHeader(header);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -320,6 +329,9 @@ public class TopicDAO {
 				String url_daidien = rs.getString("url_daidien");
 				topic.setUrl_daidien(url_daidien);
 				topics.add(topic);
+
+				String header = getHeader(content);
+				topic.setHeader(header);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -395,6 +407,8 @@ public class TopicDAO {
 				index++;
 				topics.add(topic);
 
+				String header = getHeader(content);
+				topic.setHeader(header);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

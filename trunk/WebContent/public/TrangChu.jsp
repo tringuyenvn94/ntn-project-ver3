@@ -207,25 +207,20 @@
 					<div class="topnew">
 						<%
 							TopicEntity topnew = TopicDAO.loadLastedTopic();
-							int id_topnew = topnew.getId();
-							String title_topnew = topnew.getTitle();
-							String url_daidien = topnew.getUrl_daidien();
+							pageContext.setAttribute("topnew", topnew);
+							
 						%>
 						<div class="title_topnew">
-							<a href="load?id=<%=id_topnew%>"><span><%=title_topnew%></span></a>
+							<a href="load?id=${pageScope.topnew.id }"><span>${pageScope.topnew.title }</span></a>
 						</div>
 						<div>
 							<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tbody>
 									<tr>
-										<td class="img_top"><a href="load?id=<%=id_topnew%>"><img
-												src="<%=url_daidien%>" height="250" align="left" border="0"
+										<td class="img_top"><a href="load?id=${pageScope.topnew.id }"><img
+												src="${pageScope.topnew.url_daidien }" height="250" align="left" border="0"
 												hspace="3" vspace="3"></a></td>
-										<td class="ctt_top" valign="top">Lỗi lag chuột khi chơi
-											game trên các máy tính chạy Windows 8.1 đã gây ra không ít
-											khó chịu cho game thủ.&nbsp;Một trong những điểm mới trên
-											Windows 8.1 là hệ điều hành này hỗ trợ tốt hơn cho các màn
-											hình có DPI cao.&nbsp;</td>
+										<td class="ctt_top" valign="top">${pageScope.topnew.header }&nbsp;</td>
 									</tr>
 								</tbody>
 							</table>
@@ -951,7 +946,6 @@
 					pageContext.setAttribute("tieudiem9", tieudiem9);
 					pageContext.setAttribute("tieudiem10", tieudiem10);
 					
-					System.out.println(tieudiem1.getUrl_daidien());
 				%>
 						<div class="space"></div>
 

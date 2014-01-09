@@ -7,7 +7,9 @@ import entity.TopicEntity;
 
 public class Test {
 	public static void main(String[] args) throws Exception {
-		List<TopicEntity> topics = TopicDAO.loadAllFocusTopic();
-		for (TopicEntity topic : topics) System.out.println(topic.getTitle());
+//	List<TopicEntity> topics = TopicDAO.loadBeforeLasted();
+//	for (TopicEntity topic : topics) System.out.println(topic.getHeader());
+//		
+		System.out.println(TopicDAO.loadLastedTopic().getHeader());
 	}
 }
