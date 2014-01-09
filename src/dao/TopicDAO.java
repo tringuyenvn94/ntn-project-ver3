@@ -285,10 +285,10 @@ public class TopicDAO {
 				topic.setEmail(email);
 				topic.setUrl_daidien(url_daidien);
 				topic.setFocus(isFocus);
-				topics.add(topic);
 
 				String header = getHeader(content);
 				topic.setHeader(header);
+				topics.add(topic);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -426,4 +426,52 @@ public class TopicDAO {
 		String sql = "SELECT * FROM topic WHERE focus = 1";
 		return loadTopics(sql, "");
 	}
+	
+	/**
+	 * Load những bài viết mà chỉ có duy nhất một main menu cũng là sub menu
+	 * @param idMain id của sub menu
+	 * @return danh sách các bài viết của sub menu đó
+	 * */
+	public static List<TopicEntity> loadByMainIdOnly(String idMain) {
+		List<TopicEntity> topics = new ArrayList<>();
+		String sql = "SELECT * FROM topic WHERE id_sub_menu = ?";
+		ResultSet rs = Utils.util.getResultSet(sql, idMain);
+		try {
+			TopicEntity topic;
+			while (rs.next()) {
+				topic = new TopicEntity();
+				int iD = rs.getInt("id");
+				String type = rs.getString("id_sub_menu");
+				String dateSt = rs.getString("date_created");
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				Date date = sdf.parse(dateSt);
+				topic.setDateCreated(date);
+				String content = rs.getString("content");
+				String title = rs.getString("title");
+				String url = rs.getString("url");
+				String author = rs.getString("author");
+				String email = rs.getString("email");
+				String url_daidien = rs.getString("url_daidien");
+				boolean isFocus = rs.getBoolean("focus");
+
+				topic.setId(iD);
+				topic.setType(type);
+				topic.setContent(content);
+				topic.setTitle(title);
+				topic.setUrl(url);
+				topic.setAuthor(author);
+				topic.setEmail(email);
+				topic.setUrl_daidien(url_daidien);
+				topic.setFocus(isFocus);
+
+				String header = getHeader(content);
+				topic.setHeader(header);
+				topics.add(topic);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return topics;
+	}
+	
 }

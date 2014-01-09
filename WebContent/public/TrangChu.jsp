@@ -208,19 +208,21 @@
 						<%
 							TopicEntity topnew = TopicDAO.loadLastedTopic();
 							pageContext.setAttribute("topnew", topnew);
-							
 						%>
 						<div class="title_topnew">
-							<a href="load?id=${pageScope.topnew.id }"><span>${pageScope.topnew.title }</span></a>
+							<a href="load?id=${pageScope.topnew.id }"><span>${pageScope.topnew.title
+									}</span></a>
 						</div>
 						<div>
 							<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tbody>
 									<tr>
-										<td class="img_top"><a href="load?id=${pageScope.topnew.id }"><img
-												src="${pageScope.topnew.url_daidien }" height="250" align="left" border="0"
-												hspace="3" vspace="3"></a></td>
-										<td class="ctt_top" valign="top">${pageScope.topnew.header }&nbsp;</td>
+										<td class="img_top"><a
+											href="load?id=${pageScope.topnew.id }"><img
+												src="${pageScope.topnew.url_daidien }" height="250"
+												align="left" border="0" hspace="3" vspace="3"></a></td>
+										<td class="ctt_top" valign="top">${pageScope.topnew.header
+											}&nbsp;</td>
 									</tr>
 								</tbody>
 							</table>
@@ -318,11 +320,8 @@
 											<td class="image" valign="top"><a
 												href="load?id=${pageScope.tintuc1.id }"><img
 													src="${pageScope.tintuc1.url_daidien }" align="left"
-													border="0" hspace="3" vspace="3"></a> Đúng 2 năm về
-												trước, Wired cho đăng tải một bài báo có tên "Sự trỗi dậy và
-												sụp đổ của Bitcoin". Trong khi Wired đã đúng về sự trỗi dậy
-												của Bitcoin, ngày sụp đổ của đồng tiền ảo này liệu có còn
-												quá xa?</td>
+													border="0" hspace="3" vspace="3"></a>
+												${pageScope.tintuc1.header }</td>
 
 										</tr>
 									</tbody>
@@ -377,10 +376,8 @@
 											<td class="image" valign="top"><a
 												href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img
 													src="${pageScope.baomat1.url_daidien }" align="left"
-													border="0" hspace="3" vspace="3"></a> Cho dù có cùng tên
-												gọi với máy chơi game cầm tay của NVIDIA, Project Shield của
-												Google là một dự án hoàn toàn độc lập sẽ giúp ích rất nhiều
-												cho các trang web nhỏ.</td>
+													border="0" hspace="3" vspace="3"></a>
+												${pageScope.baomat1.header }</td>
 
 										</tr>
 									</tbody>
@@ -438,11 +435,8 @@
 											<td class="image" valign="top"><a
 												href="load?id=${pageScope.phancung1.id }"><img
 													src="${pageScope.phancung1.url_daidien }" align="left"
-													border="0" hspace="3" vspace="3"></a> Theo CNET, iPad
-												Mini Retina tốt hơn iPod, iPhone và bỏ xa iPad thế hệ thứ ba
-												và thứ tư. Sản phẩm đã khắc phục được nhược điểm của thế hệ
-												iPad Mini đầu tiên và hứa hẹn đem lại trải nghiệm tuyệt vời
-												nhất cho người dùng.</td>
+													border="0" hspace="3" vspace="3"></a>
+												${pageScope.phancung1.header }</td>
 
 										</tr>
 									</tbody>
@@ -499,11 +493,8 @@
 											<td class="image" valign="top"><a
 												href="load?id=${pageScope.phanmem1.id }"><img
 													src="${pageScope.phanmem1.url_daidien }" align="left"
-													border="0" hspace="3" vspace="3"></a> Kể từ khi ra mắt
-												chiếc điện thoại giá rẻ của Apple - iPhone 5c chỉ đem lại
-												một tình hình kinh doanh ảm đạm. Và cho đến ngày hôm qua một
-												nhà máy của Foxconn tại Trịnh Châu, Trung Quốc sẽ tạm dừng
-												sản xuất sản phẩm này.</td>
+													border="0" hspace="3" vspace="3"></a>${pageScope.phanmem1.header
+												}</td>
 
 										</tr>
 									</tbody>
@@ -561,10 +552,8 @@
 										<tr>
 											<td class="image" valign="top"><a
 												href="load?id=${pageScope.hedieuhanh1.id } " align="left"
-												border="0" hspace="3" vspace="3"></a> Cách đây tròn 30 năm,
-												nhà sáng lập Microsoft là Bill Gates lần đầu tiên giới thiệu
-												Windows, mở đường cho 3 thập kỉ thành công của hệ điều hành
-												này.</td>
+												border="0" hspace="3" vspace="3"></a>${pageScope.hedieuhanh1.header
+												}</td>
 
 										</tr>
 									</tbody>
@@ -621,12 +610,8 @@
 											<td class="image" valign="top"><a
 												href="load?id=${pageScope.thietbiso1.id }"><img
 													src="${pageScope.thietbiso1.url_daidien }" align="left"
-													border="0" hspace="3" vspace="3"></a> Được công bố vào
-												tháng 5/2013 nhưng đến giờ thì chiếc smartphone Jolla đầu
-												tiên vẫn chưa có mặt trên thị trường. Tuy nhiên, có thông
-												tin cho rằng chiếc smartphone đầu tiên chạy hệ điều hành
-												Sailfish OS sẽ chính thức lên kệ tại Helsinki, Phần Lan vào
-												ngày 27/11.</td>
+													border="0" hspace="3" vspace="3"></a>${pageScope.thietbiso1.header
+												}</td>
 
 										</tr>
 									</tbody>
@@ -652,8 +637,17 @@
 						</div>
 
 					</div>
+					
+					<%
+						List<TopicEntity> game = TopicDAO.loadByMainIdOnly("game");
+						TopicEntity game1 = game.get(0);
+						TopicEntity game2 = game.get(1);
+						TopicEntity game3 = game.get(2);
 
-
+						pageContext.setAttribute("game1", game1);
+						pageContext.setAttribute("game2", game2);
+						pageContext.setAttribute("game3", game3);
+					%>
 					<div class="wbox cat">
 						<div class="tit">
 
@@ -663,18 +657,15 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a href="/">Chơi game 30 phút mỗi ngày giúp tăng cường trí
-									nhớ </a>
+								<a href="load?id=${pageScope.game1.id }">${pageScope.game1.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a href="/"><img
-													src="Image/game-1.jpg" align="left" border="0" hspace="3"
-													vspace="3"></a> Trong khi một số người nghĩ rằng chơi
-												game chỉ lãng phí thời gian, thì các nhà khoa học lại phát
-												hiện ra chơi game có thể giúp tăng kích cỡ bộ não.</td>
+													src="${pageScope.game1.url_daidien }" align="left" border="0" hspace="3"
+													vspace="3"></a>${pageScope.game1.header }</td>
 
 										</tr>
 									</tbody>
@@ -685,10 +676,10 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Ngọa Long Mobile chính thức đến tay người dùng </a></li>
+										href="load?id=${pageScope.game2.id }">${pageScope.game2.title }</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Plants vs Zombies 2 đã có mặt trên Android </a></li>
+										href="load?id=${pageScope.game3.id }">${pageScope.game3.title }</a></li>
 
 								</ul>
 
@@ -700,7 +691,16 @@
 					</div>
 
 
+					<%
+						List<TopicEntity> thuthuat = TopicDAO.loadByMainIdOnly("thuathuattienich");
+						TopicEntity thuthuat1 = thuthuat.get(0);
+						TopicEntity thuthuat2 = thuthuat.get(1);
+						TopicEntity thuthuat3 = thuthuat.get(2);
 
+						pageContext.setAttribute("thuthuat1", thuthuat1);
+						pageContext.setAttribute("thuthuat2", thuthuat2);
+						pageContext.setAttribute("thuthuat3", thuthuat3);
+					%>
 					<div class="wbox cat">
 						<div class="tit">
 
@@ -710,19 +710,15 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a href="/">Google Chrome 32 Beta: Nhận diện tác vụ trong
-									từng thẻ </a>
+								<a href="load?id=${pageScope.thuthuat1.id }">${pageScope.thuthuat1.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a href="/"><img
-													src="Image/chrom.jpg" height="170" align="left" border="0"
-													hspace="3" vspace="3"></a> Một thay đổi không lớn, nhưng
-												rất được chào đón trên Google Chrome 32 Beta, đó là khả năng
-												thông báo cho người dùng biết tác vụ đang được thực hiện
-												trong một thẻ mà không cần bấm vào thẻ đó.</td>
+													src="${pageScope.thuthuat1.url_daidien }" height="170" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.thuthuat1.header }</td>
 
 										</tr>
 									</tbody>
@@ -733,10 +729,10 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Phân nhóm bạn bè trên Facebook </a></li>
+										href="load?id=${pageScope.thuthuat2.id }">${pageScope.thuthuat2.title }</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Từ điển Oxford cho người học tiếng Anh </a></li>
+										href="load?id=${pageScope.thuthuat3.id }">${pageScope.thuthuat3.title }</a></li>
 
 								</ul>
 
@@ -746,7 +742,16 @@
 						</div>
 
 					</div>
+					<%
+						List<TopicEntity> hoidap = TopicDAO.loadByMainIdOnly("hoidap");
+						TopicEntity hoidap1 = hoidap.get(0);
+						TopicEntity hoidap2 = hoidap.get(1);
+						TopicEntity hoidap3 = hoidap.get(2);
 
+						pageContext.setAttribute("hoidap1", hoidap1);
+						pageContext.setAttribute("hoidap2", hoidap2);
+						pageContext.setAttribute("hoidap3", hoidap3);
+					%>
 					<div class="wbox cat">
 						<div class="tit">
 
@@ -756,17 +761,15 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a href="/">Liệu iPhone 6 giá cả sẽ như thế nào?</a>
+								<a href="load?id=${pageScope.hoidap1.id }">${pageScope.hoidap1.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a href="/"><img
-													src="Image/question-iphone-6.jpg" align="left" border="0"
-													hspace="3" vspace="3"></a> Màn hình lớn hơn cùng với chip
-												xử lý thế hệ mới nhiều khả năng sẽ khiến mức giá bán iPhone
-												6 bị đội lên khoảng 50 - 100 USD.</td>
+													src="${pageScope.hoidap1.url_daidien }" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.hoidap1.header }</td>
 
 										</tr>
 									</tbody>
@@ -777,10 +780,10 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/"> Cách sạc pin điện thoại đúng cách? </a></li>
+										href="load?id=${pageScope.hoidap2.id }">${pageScope.hoidap2.title }</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Laptop bị nước vào, phải làm sao? </a></li>
+										href="load?id=${pageScope.hoidap3.id }">${pageScope.hoidap3.title }</a></li>
 
 								</ul>
 
@@ -922,31 +925,30 @@
 
 
 
-				<%
-					List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
-					TopicEntity tieudiem1 = tieudiem.get(0);
-					TopicEntity tieudiem2 = tieudiem.get(1);
-					TopicEntity tieudiem3 = tieudiem.get(2);
-					TopicEntity tieudiem4 = tieudiem.get(3);
-					TopicEntity tieudiem5 = tieudiem.get(4);
-					TopicEntity tieudiem6 = tieudiem.get(5);
-					TopicEntity tieudiem7 = tieudiem.get(6);
-					TopicEntity tieudiem8 = tieudiem.get(7);
-					TopicEntity tieudiem9 = tieudiem.get(8);
-					TopicEntity tieudiem10 = tieudiem.get(9);
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
 
-					pageContext.setAttribute("tieudiem1", tieudiem1);
-					pageContext.setAttribute("tieudiem2", tieudiem2);
-					pageContext.setAttribute("tieudiem3", tieudiem3);
-					pageContext.setAttribute("tieudiem4", tieudiem4);
-					pageContext.setAttribute("tieudiem5", tieudiem5);
-					pageContext.setAttribute("tieudiem6", tieudiem6);
-					pageContext.setAttribute("tieudiem7", tieudiem7);
-					pageContext.setAttribute("tieudiem8", tieudiem8);
-					pageContext.setAttribute("tieudiem9", tieudiem9);
-					pageContext.setAttribute("tieudiem10", tieudiem10);
-					
-				%>
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
 						<div class="space"></div>
 
 					</div>
@@ -961,121 +963,131 @@
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="load?id=${pageScope.tieudiem1.id }"><img src="${pageScope.tieudiem1.url_daidien }" width="142"
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
 										height="174" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title }</a>
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
 								</div>
 							</div>
 
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a
-										href="load?id=${pageScope.tieudiem2.id }"><img
-										src="${pageScope.tieudiem2.url_daidien }" width="142" height="169" hspace="3"
-										vspace="3" align="left" border="0"></a>
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a
-										href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title }</a>
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a
-										href="load?id=${pageScope.tieudiem3.id }"><img
-										src="${pageScope.tieudiem3.url_daidien }" width="142" height="154" hspace="3"
-										vspace="3" align="left" border="0"></a>
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a
-										href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title }</a>
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
 									<a href="load?id=${pageScope.tieudiem4.id }"><img
-										src="${pageScope.tieudiem4.url_daidien }" width="142" height="172" hspace="3"
-										vspace="3" align="left" border="0"></a>
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title }</a>
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a
-										href="load?id=${pageScope.tieudiem5.id }"><img
-										src="${pageScope.tieudiem5.url_daidien }" width="142" height="163" hspace="3"
-										vspace="3" align="left" border="0"></a>
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a
-										href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title }</a>
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="load?id=${pageScope.tieudiem6.id }"><img src="${pageScope.tieudiem6.url_daidien }" width="142"
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
 										height="154" hspace="3" vspace="3" align="left" border="0"></a>
 								</div>
 								<div class="title_tieudiem">
-									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title }</a>
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="load?id=${pageScope.tieudiem7.id }"><img src="${pageScope.tieudiem7.url_daidien }" width="142"
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title }</a>
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="load?id=${pageScope.tieudiem8.id }"><img src="${pageScope.tieudiem8.url_daidien }" width="142"
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title }</a>
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="load?id=${pageScope.tieudiem9.id }"><img src="${pageScope.tieudiem9.url_daidien }" width="142"
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
 										height="145" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title }</a>
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="load?id=${pageScope.tieudiem10.id }"><img src="${pageScope.tieudiem10.url_daidien }" width="142"
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title }</a>
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
 								</div>
 							</div>
 						</div>
