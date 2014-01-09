@@ -473,5 +473,13 @@ public class TopicDAO {
 		}
 		return topics;
 	}
-	
+	/**
+	 * Load bằng sub menu
+	 * @param id sub menu
+	 * @return một danh sách chứa các topic có cùng sub menu
+	 * */
+	public static List<TopicEntity> loadBySubMenu(String idSub) {
+		String sql = "SELECT * FROM topic WHERE id_sub_menu = ?";
+		return loadTopics(sql, idSub);
+	}
 }
