@@ -188,7 +188,6 @@
                         	int id_topnew = topnew.getId();
                         	String title_topnew = topnew.getTitle();
                         	String url_daidien = topnew.getUrl_daidien();
-                        	System.out.println("top new: " + url_daidien);
                         	
                         %>
                                     <div class="title_topnew">
@@ -223,7 +222,6 @@
                                         	TopicEntity topic3 = topics.get(2);
                                         	int id1 = topic1.getId();
                                         	pageContext.setAttribute("topic1", topic1);
-                                        	System.out.println("box sub: " + url_daidien);
                                         
                                         %>
                                             <a href="load?id=${pageScope.topic1.id }">
