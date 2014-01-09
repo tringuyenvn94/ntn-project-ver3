@@ -222,10 +222,13 @@
                                         	TopicEntity topic3 = topics.get(2);
                                         	int id1 = topic1.getId();
                                         	pageContext.setAttribute("topic1", topic1);
+                                        	pageContext.setAttribute("topic2", topic2);
+                                        	pageContext.setAttribute("topic3", topic3);
                                         
                                         %>
                                             <a href="load?id=${pageScope.topic1.id }">
-                                                <img src="${paceScope.topic1.url_daidien }">
+                                                <img src="${pageScope.topic1.url_daidien }">
+                                                
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
@@ -238,13 +241,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                <img src="Image/LG-G-Flex15.jpg" border="0">
+                                            <a href="load?id=${pageScope.topic2.id }">
+                                                <img src="${pageScope.topic2.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                LG màn hình cong bất ngờ xuất hiện tại Việt Nam</a>
+                                            <a href="load?id=${pageScope.topic2.id }">
+                                                ${pageScope.topic2.title }</a>
                                         </div>
                                     </span>
                                 </td>
@@ -252,13 +255,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                <img src="Image/youtube-1.jpg" border="0">
+                                            <a href="load?id=${pageScope.topic3.id }">
+                                                <img src="${pageScope.topic3.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                Chống lại hệ thống bình luận mới của YouTube</a>
+                                            <a href="load?id=${pageScope.topic3.id }">
+                                                ${pageScope.topic3.title }</a>
                                         </div>
                                     </span>
                                 </td>
@@ -276,14 +279,25 @@
                         </div>
                         <div class="ctm">
                            
+                           <%
+                           		List<TopicEntity> tintuc = TopicDAO.loadByMainId("tintuccongnghe");
+                           		TopicEntity tintuc1 = tintuc.get(0);
+                           		TopicEntity tintuc2 = tintuc.get(1);
+                           		TopicEntity tintuc3 = tintuc.get(2);
+                           		pageContext.setAttribute("tintuc1", tintuc1);
+                           		pageContext.setAttribute("tintuc2", tintuc2);
+                           		pageContext.setAttribute("tintuc3", tintuc3);
+                           
+                           %>
+                           
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Ai sẽ giết chết "tiền ảo" Bitcoin?</a>
+                                        <a href="load?id=${pageScope.tintuc1.id }">${pageScope.tintuc1.title }</a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/Bitcoin-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    <a href="load?id=${pageScope.tintuc1.id }"><img src="${pageScope.tintuc1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
                                                        Đúng 2 năm về trước, Wired cho đăng tải một bài báo có tên "Sự trỗi dậy và sụp đổ của Bitcoin". Trong khi Wired đã đúng về sự trỗi dậy của Bitcoin, ngày sụp đổ của đồng tiền ảo này liệu có còn quá xa?
                                                 </td>
                                          
@@ -295,10 +309,10 @@
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448">Anonymous tấn công nhiều cơ quan chính phủ Mỹ </a> </li>
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.tintuc2.id }">${pageScope.tintuc2.title } </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/da-nang-quan-ly-do-thi-qua-facebook-105446">Đà Nẵng: Quản lý đô thị qua… Facebook </a> </li>
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.tintuc3.id }">${pageScope.tintuc3.title } </a> </li>
                                             
                                                 </ul>
                                             
