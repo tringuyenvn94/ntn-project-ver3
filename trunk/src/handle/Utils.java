@@ -78,7 +78,7 @@ public class Utils {
 	public ResultSet getResultSet(String sql) {
 		ResultSet result = null;
 		try {
-			Statement stmt = mc.conn.createStatement();
+			Statement stmt = mc.conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			result = stmt.executeQuery(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();

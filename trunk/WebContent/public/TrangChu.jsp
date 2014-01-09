@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="entity.TopicEntity"%>
 <%@page import="dao.TopicDAO"%>
 <%@page import="entity.UserEntity"%>
@@ -187,7 +188,7 @@
                         	int id_topnew = topnew.getId();
                         	String title_topnew = topnew.getTitle();
                         	String url_daidien = topnew.getUrl_daidien();
-                        	if (url_daidien == null) url_daidien = "Image/hinhdaidien.jpg";
+                        	System.out.println("top new: " + url_daidien);
                         	
                         %>
                                     <div class="title_topnew">
@@ -215,13 +216,23 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                <img src="Image/laptop-1.jpg" border="0">
+                                        <%
+                                        	List<TopicEntity> topics = TopicDAO.loadBeforeLasted();
+                                        	TopicEntity topic1 = topics.get(0);
+                                        	TopicEntity topic2 = topics.get(1);
+                                        	TopicEntity topic3 = topics.get(2);
+                                        	int id1 = topic1.getId();
+                                        	pageContext.setAttribute("topic1", topic1);
+                                        	System.out.println("box sub: " + url_daidien);
+                                        
+                                        %>
+                                            <a href="load?id=${pageScope.topic1.id }">
+                                                <img src="${paceScope.topic1.url_daidien }">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                Bí quyết bỏ túi trước khi chọn mua laptop</a>
+                                            <a href="load?id=${pageScope.topic1.id }">
+                                                ${pageScope.topic1.title }</a>
                                         </div>
                                     </span>
                                 </td>
