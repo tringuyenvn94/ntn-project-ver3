@@ -4,12 +4,18 @@
   <welcome-file-list>
     <welcome-file>trangchu.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+ 
+  
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
+  
   <!-- 
   ===================================================
   						Start Servlet
   ===================================================
    -->
+   <servlet>
     <servlet-name>Topic Servlet</servlet-name>
     <servlet-class>control.Topic</servlet-class>
   </servlet>
@@ -430,22 +436,7 @@
     <servlet-name>Quy Dinh JSP</servlet-name>
     <url-pattern>/quydinh.jsp</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>Homepage JSP</servlet-name>
-    <jsp-file>/skeleton/homepage.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Homepage JSP</servlet-name>
-    <url-pattern>/homepage.jsp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Skeleton JSP</servlet-name>
-    <jsp-file>/skeleton/skeleton.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Skeleton JSP</servlet-name>
-    <url-pattern>/skeleton.jsp</url-pattern>
-  </servlet-mapping>
+ 
   <servlet>
     <servlet-name>a</servlet-name>
     <jsp-file>/test/test.jsp</jsp-file>
@@ -608,5 +599,4 @@
   	<param-name>trangchu</param-name>
   	<param-value>trangchu.jsp</param-value>
   </context-param>
-
 </web-app>

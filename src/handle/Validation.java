@@ -30,13 +30,11 @@ public class Validation {
 	}
 
 	public static boolean isEmail(String email) {
-		if (!isNull(email)) {
 			Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
 			Matcher emailMatcher = emailPattern.matcher(email);
 			if (emailMatcher.matches()) {
 				return true;
 			}
-		}
 		return false;
 	}
 }

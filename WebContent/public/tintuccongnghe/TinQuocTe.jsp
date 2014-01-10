@@ -817,7 +817,7 @@
 			<div class="line"></div>
 			<div class="info">
 				<div class="info_left">
-					Chuyên trang về Công nghệ thông tin.<br> Giấy phép số 1133/GP – BTTTT ngày 1/1/2014 của Bộ thông tin truyền thông.<br> Đặng Ngọc Tiến, Huỳnh Thanh Điền<br> Đại học Nông Lâm, khoa Công nghệ thông tin.
+					Chuyên trang về Công nghệ thông tin.<br> Giấy phép số 1133/GP – BTTTT ngày 1/1/2014 của Bộ thông tin truyền thông.<br> Tổng Biên tập: Nguyễn Tấn Tài. Phó Tổng biên tập: Nguyễn Văn Nú, Lương Văn Nhẫn.<br> Đại học Nông Lâm, khoa Công nghệ thông tin.
 				</div>
 				<div class="info_right">
 					<div class="logo_footer">

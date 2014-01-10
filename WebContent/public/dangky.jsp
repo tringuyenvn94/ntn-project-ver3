@@ -27,23 +27,6 @@
 				<div class="logo">
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-				<%
-					UserEntity user = (UserEntity) session.getAttribute("user");
-					if (user == null) {
-				%>
-				<div id="memberbox"><a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a></div>
-				<%
-					} else {
-						String username = user.getUseName();
-						
-				%>
-				<div id="tv">
-					Xin chào,<%=username %> |<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
-
-				</div>
-				<%
-					}
-				%>
 			</div>
 			</div>
 		
@@ -186,91 +169,22 @@
 
 							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
 								<div class="aspNetHidden"></div>
-								
-
-
-								<%
-									//TODO 
-									String errorUsernameNull = (String) request.getAttribute("errorUsernameNull");
-									String errorPasswordNull = (String) request.getAttribute("errorPasswordNull");
-									String errorConfirmPasswordNull = (String) request.getAttribute("errorConfirmPasswordNull");
-									String errorEmailNull = (String) request.getAttribute("errorEmailNull");
-									String errorFullNameNull = (String) request.getAttribute("errorFullNameNull");
-
-									if (errorUsernameNull == null) errorUsernameNull = "";
-									if (errorPasswordNull == null) errorPasswordNull = "";
-									if (errorConfirmPasswordNull == null) errorConfirmPasswordNull = "";
-									if (errorEmailNull == null) errorEmailNull = "";
-									if (errorFullNameNull == null) errorFullNameNull = "";
-
-									String errorPasswordNotMatched = (String) request.getAttribute("errorPasswordNotMatched");
-									String errorInvalidEmail = (String) request.getAttribute("errorInvalidEmail");
-									String errorCityNotYetChoosen = (String) request.getAttribute("errorCityNotYetChoosen");
-									String errorAcceptNotYetChoosen = (String) request.getAttribute("errorAcceptNotYetChoosen");
-									String errorYearNotYetChoosen = (String) request.getAttribute("errorYearNotYetChoosen");
-									String errorUsernameExisted = (String) request.getAttribute("errorUsernameExisted");
-									
-									if (errorUsernameExisted == null) errorUsernameExisted = "";
-									if (errorUsernameExisted != null) errorUsernameNull = "";
-									if (errorPasswordNotMatched == null) errorPasswordNotMatched = "";
-									if (errorInvalidEmail == null) errorInvalidEmail = "";
-									if (errorCityNotYetChoosen == null) errorCityNotYetChoosen = "";
-									if (errorAcceptNotYetChoosen == null) errorAcceptNotYetChoosen = "";
-									if (errorYearNotYetChoosen == null) errorYearNotYetChoosen = "";
-
-									if (errorPasswordNotMatched != null) errorConfirmPasswordNull = "";
-									if (errorConfirmPasswordNull != null) errorPasswordNotMatched = "";
-
-									String username = (String) request.getAttribute("username");
-									String fullName = (String) request.getAttribute("fullName");
-									String sex = (String) request.getAttribute("sex");
-									String email = (String) request.getAttribute("email");
-									String isReceiveNewEmail = (String) request.getAttribute("isReceiveNewEmail");
-									String isShowEmail = (String) request.getAttribute("isShowEmail");
-
-									String checkedMale = "";
-									String checkedFemale = "";
-									String checkedReceiveNewEmail = "checked";
-									String checkedShowEmail = "checked";
-
-									if (username == null) username = "";
-									if (fullName == null) fullName = "";
-									if (email == null) email = "";
-
-									if (sex != null) {
-										if (sex.equals("male")) checkedMale = "checked";
-										else if (sex.equals("female"))
-											checkedFemale = "checked";
-
-									} else
-										checkedMale = "checked";
-
-									if (isReceiveNewEmail == null || isReceiveNewEmail.equals("unchecked")) checkedReceiveNewEmail = "";
-									if (isShowEmail == null || isShowEmail.equals("unchecked")) checkedShowEmail = "";
-								%>
-
-
-
-
-
 											<h1>Đăng ký thành viên</h1>
-										
-
 								<div id="Main_pnlRegister" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'Main_btnRegister')">
 
 									<table border="0" cellpadding="0" cellspacing="8">
 										<tbody>
 
 											<tr>
-												<td colspan="2" align="left" class="cmt"><i>(vui lòng điền đầy đủ những thông tin dưới đây)</i>
-													<div id="Main_vsRegister" style="display: none;"></div></td>
+												<td colspan="2" align="left" class="cmt">(vui lòng điền đầy đủ những thông tin dưới đây)
+											  <div id="Main_vsRegister" style="display: none;"></div></td>
 											</tr>
 											<tr>
 												<td width="160" height="20px"></td>
 											</tr>
 											<tr>
-												<td nowrap="nowrap" class="infoLogin"><span>Tên đăng nhập:</span></td>
-											  <td width="748" class="infoLogin"><input name="username" value="<%=username%>" type="text" id="Main_txtUserName" style="width: 245px;"> * <span id="Main_reqUserName" style="display: none;">*</span> <span id="Main_regUserName" style="display: none;">*</span> <%=errorUsernameNull%><%=errorUsernameExisted %></td>
+												<td nowrap="nowrap" class="infoLogin"><span><strong>Tên đăng nhập:</strong></span></td>
+											  <td width="748" class="infoLogin"><input name="username" value="${requestScope.username }" type="text" id="Main_txtUserName" style="width: 245px;"> <span style="color: #F00">*</span> <span id="Main_reqUserName" style="display: none;">*</span> <span id="Main_regUserName" style="display: none;">*</span> <span style="color: #F00">${requestScope.errorUsernameNull} ${requestScope.errorUsernameExisted }</span></td>
 											</tr>
 											<tr>
 												<td></td>
@@ -279,42 +193,42 @@
 												</td>
 											</tr>
 											<tr>
-												<td class="infoLogin" nowrap="nowrap"><span>Mật khẩu:</span></td>
+												<td class="infoLogin" nowrap="nowrap"><span><strong>Mật khẩu:</strong></span></td>
 												<td class="infoLogin"><input name="password" type="password" id="Main_txtPassword" style="width: 145px;"> 
-												<span id="Main_reqPassword" style="display: none;">*</span> <span id="Main_cpareComfirmPassword" style="display: none;">*</span> *<%=errorPasswordNull%></td>
+												<span id="Main_reqPassword" style="display: none;">*</span> <span id="Main_cpareComfirmPassword" style="display: none;">*</span><span style="color: #F00"> *${requestScope. errorPasswordNull }</span></td>
 											</tr>
 											<tr>
-												<td class="infoLogin"><span>Gõ lại mật khẩu:</span></td>
+												<td class="infoLogin"><span><strong>Gõ lại mật khẩu:</strong></span></td>
 												<td class="infoLogin"><input name="confirm_password" type="password" id="Main_txtConfirmPassword" style="width: 145px;">
-												* <%=errorConfirmPasswordNull%><%=errorPasswordNotMatched%></td>
+											    <span style="color: #F00">* ${requestScope.errorConfirmPasswordNull} ${requestScope.errorPasswordNotMatched }</span></td>
 											</tr>
 											<tr>
-												<td height="33" class="infoLogin"><span>Họ và tên:</span></td>
+												<td height="33" class="infoLogin"><span><strong>Họ và tên:</strong></span></td>
 												<td class="infoLogin">
 													<table width="751" border="0" cellpadding="0" cellspacing="0" class="infoLogin">
 														<tbody>
 															<tr>
 																<td width="323" class="infoLogin">
 																	<p>
-																		<input name="full_name" value="<%=fullName%>" type="text" id="Main_txtFirstName" style="width: 240px;"> 
-																		<span id="Main_reqFirstName" style="display: none;">*&nbsp;</span>*<%=errorFullNameNull%><br>
+																		<input name="full_name" value="${requestScope.fullName }" type="text" id="Main_txtFirstName" style="width: 240px;"> 
+																		<span id="Main_reqFirstName" style="display: none;">*&nbsp;</span><span style="color: #F00"><br>*${requestScope.errorFullNameNull }</span><br>
 																	</p>
 																</td>
-																<td width="79" class="infoLogin"><span id="Main_reqLastName" style="display: none;">*</span>Giới tính:<br></td>
+																<td width="79" class="infoLogin"><span id="Main_reqLastName" style="display: none;">*</span><strong>Giới tính:</strong><br></td>
 																<td width="1" align="right" class="infoLogin"></td>
-																<td width="348" class="infoLogin"><span id="Main_slcSex"><input id="Main_slcSex_0" type="radio" name="sex" value="male" <%=checkedMale%>><label for="Main_slcSex_0">Nam</label><input id="Main_slcSex_1" type="radio" name="sex" value="female" <%=checkedFemale%>><label for="Main_slcSex_1">Nữ</label></span></td>
+																<td width="348" class="infoLogin"><span id="Main_slcSex"><input id="Main_slcSex_0" type="radio" name="sex" value="male" checked ="checked" ><label for="Main_slcSex_0">Nam</label><input id="Main_slcSex_1" type="radio" name="sex" value="female" ><label for="Main_slcSex_1">Nữ</label></span></td>
 															</tr>
 														</tbody>
 													</table>
 												</td>
 											</tr>
 											<tr>
-												<td class="infoLogin" valign="top"><span>Email:</span></td>
-												<td class="infoLogin" valign="top"><input name="email" type="text" value="<%=email%>" id="Main_txtEmail" style="width: 245px;"> 
-												<span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> *<br> <input id="Main_chkShowEmail" type="checkbox" name="is_show_email" <%=checkedShowEmail%>><label for="Main_chkShowEmail">Hiển thị cho mọi người cùng biết</label></td>
+												<td class="infoLogin" valign="top"><span><strong>Email:</strong></span></td>
+												<td class="infoLogin" valign="top"><input name="email" type="text" value="${requestScope.email }" id="Main_txtEmail" style="width: 245px;"> 
+											  <span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">* ${requestScope.errorEmailNull } ${requestScope.errorInvalidEmail }</span><br> <input id="Main_chkShowEmail" type="checkbox" name="is_show_email" ${requestScope.showEmail }><label for="Main_chkShowEmail">Hiển thị cho mọi người cùng biết</label></td>
 											</tr>
 											<tr>
-												<td class="infoLogin" valign="top"><span>Sinh năm:</span></td>
+												<td class="infoLogin" valign="top"><span><strong>Sinh năm:</strong></span></td>
 												<td class="infoLogin" valign="top"><select name="year" id="Main_slcBirthYear">
 														<option value="nam">[Năm]</option>
 														<option value="2007">2007</option>
@@ -426,10 +340,10 @@
 														<option value="1901">1901</option>
 
 												</select> 
-												*<%=errorYearNotYetChoosen%> <span id="Main_reqBirthYear" style="display: none;">*</span></td>
+											    <span style="color: #F00">*${requestScope.errorYearNotYetChoosen }</span></td>
 											</tr>
 											<tr>
-												<td class="infoLogin" valign="top"><span>Tỉnh thành:</span></td>
+												<td class="infoLogin" valign="top"><span><strong>Tỉnh thành:</strong></span></td>
 												<td class="infoLogin" valign="top"><select name="city" id="Main_slcProvince">
 														<option value="chontinhthanh">[Chọn Tỉnh Thành]</option>
 														<option value="hanoi" selected="selected">Hà Nội</option>
@@ -498,17 +412,17 @@
 														<option value="yenbai">Yên Bái</option>
 														<option value="khongbiet">Khác...</option>
 												</select> 
-												*<span id="Main_reqPovince" style="display: none;">*</span><%=errorCityNotYetChoosen%></td>
+											    <span style="color: #F00">*${requestScope.errorCityNotYetChoosen }</span></td>
 											</tr>
 											<tr>
 												<td></td>
-												<td class="infoLogin"><input id="Main_chkReceiverLetter" type="checkbox" name="is_receive_new_email" <%=checkedReceiveNewEmail%>><label for="Main_chkReceiverLetter">Nhận email khi có tin mới</label></td>
+												<td class="infoLogin"><input id="Main_chkReceiverLetter" type="checkbox" name="is_receive_new_email" ${requestScope.receiveEmail }><label for="Main_chkReceiverLetter">Nhận email khi có tin mới</label></td>
 											</tr>
 											<tr>
 												<td colspan="2" style="height: 10px"></td>
 											</tr>
 											<tr>
-												<td valign="top" class="infoLogin">Thỏa thuận:</td>
+												<td valign="top" class="infoLogin"><strong>Thỏa thuận:</strong></td>
 												<td class="infoLogin"><span class="cmt">Đọc kỹ bản thỏa thuận &amp; điều kiện sử dụng dưới đây</span> <br /> <textarea cols="67" rows="15">Chào mừng bạn trở thành thành viên NTNGROUP! Để có thể sử dụng các dịch vụ nâng cao của chúng tôi , bạn phải đồng ý với các Điều khoản sử dụng được liệt kê dưới đây. Vì các Điều khoản sử dụng này có thể được sửa đổi tùy vào từng thời điểm nên chúng tôi khuyên bạn nên thường xuyên xem lại điều khoản để có thể cập nhật bất kỳ thay đổi nào. Nếu có thay đổi hay chỉnh sửa nào về Điều khoản sử dụng, chúng tôi sẽ đưa lên website. Chú ý: sự thay đổi sẽ có hiệu lực bắt đầu từ ngày đưa lên web. Hãy nhớ rằng các Điều khoản sử dụng này chỉ áp dụng trên website này, không có bất kỳ tác dụng nào tới nội dung của các bên thứ ba.
 
 1. ĐĂNG KÝ VÀ TRỞ THÀNH THÀNH VIÊN TRÊN WEBSITE
@@ -550,9 +464,10 @@ WEBSITE VÀ CÁC DỊCH VỤ CUNG CẤP THÔNG QUA WEBSITE DỰA TRÊN MỘT S�
 											</tr>
 											<tr>
 												<td></td>
-												<td class="infoLogin"><span style="font-weight: bold;"><input name="isAccept" type="checkbox" id="Main_chkArgreePolicy" value="accept">
-												<label for="Main_chkArgreePolicy">Tôi đồng ý bản thỏa thuận khi tham gia làm thành viên *<br> <%=errorAcceptNotYetChoosen%>
-													</label></span></td>
+												<td class="infoLogin"><input name="isAccept" type="checkbox" id="Main_chkArgreePolicy" value="accept">
+												<label for="Main_chkArgreePolicy"><strong>Tôi đồng ý bản thỏa thuận khi tham gia làm thành viên</strong> <span style="color: #F00">*</span><br> 
+												  <span style="color: #F00">${requestScope.errorAcceptNotYetChoosen } </span></label>
+												</td>
 											</tr>
 											<tr>
 												<td class="infoLogin" align="center" colspan="2" style="padding-top: 8px"><input name="is_accept" type="submit" id="is_accept" value="Hoàn thành đăng kí">&nbsp; <input type="reset" value="Reset" style="width: 70px"></td>

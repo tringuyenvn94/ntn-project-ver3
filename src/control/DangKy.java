@@ -50,9 +50,7 @@ public class DangKy extends HttpServlet {
 		String city = request.getParameter("city");
 		String isReceiveNewEmail = request.getParameter("is_receive_new_email");
 		String isShowEmail = request.getParameter("is_show_email");
-		String isAccept = request.getParameter("is_accept");
-
-
+		String isAccept = request.getParameter("iAccept");
 		/*
 		 * 1. All fields is NOT NULL (except isRecieiveNewEmail & isShowEmail
 		 * 2. password & confirmPassword is actually matched
@@ -61,42 +59,49 @@ public class DangKy extends HttpServlet {
 		 * 5. year has to choosen
 		 * 6. username HAS not TO exist in DB
 		 */
+		if (Validation.isNull(isShowEmail)) request.setAttribute("showEmail", "");
+		else request.setAttribute("showEmail", "CHECKED");
+		
+		if (Validation.isNull(isReceiveNewEmail)) request.setAttribute("receiveEmail", "");
+		else request.setAttribute("showEmail", "CHECKED");
+
+		if (!password.equals(confirmPassword))
+			request.setAttribute("errorPasswordNotMatched", "Mật khẩu của bạn không khớp, xin nhập lại.");
+
+		if (!Validation.isEmail(email) && !Validation.isNull(email))
+			request.setAttribute("errorInvalidEmail", "Định dạng email không đúng, xin nhập lại.");
+
+		if (city.equals("chontinhthanh"))
+			request.setAttribute("errorCityNotYetChoosen", "Bạn chưa chọn tỉnh/thành phố, xin chọn tỉnh/thành phố.");
+
+		if (year.equals("nam"))
+			request.setAttribute("errorYearNotYetChoosen", "Xin hãy chọn năm sinh của bạn.");
+
+		if (UserDAO.checkUsername(username))
+			request.setAttribute("errorUsernameExisted", "Tài khoản này đã tồn tại. Hãy chọn tên đăng nhập khác.");
+
+		if (Validation.isNull(username)) request.setAttribute("errorUsernameNull", "Xin hãy nhập Tên đăng nhập");
+		if (Validation.isNull(password)) request.setAttribute("errorPasswordNull", "Xin hãy nhập mật khẩu");
+		if (Validation.isNull(confirmPassword)) request.setAttribute("errorConfirmPasswordNull", "Xin hãy nhập lại mật khẩu");
+		if (Validation.isNull(email)) request.setAttribute("errorEmailNull", "Xin hãy nhập email");
+		if (Validation.isNull(fullName)) request.setAttribute("errorFullNameNull", "Xin hãy nhập họ và tên");
+		if (Validation.isNull(isAccept)) request.setAttribute("errorAcceptNotYetChoosen", "Bạn chưa đồng ý với điều khoản của chúng tôi. Xin hãy stick vào ô ở trên");
+		String[] parameters = { username, password, confirmPassword, email, isAccept };
+
 
 		request.setAttribute("username", username);
 		request.setAttribute("fullName", fullName);
 		request.setAttribute("email", email);
 		request.setAttribute("sex", sex);
-		if (isReceiveNewEmail == null) request.setAttribute("isReceiveNewEmail", "");
-		if (isShowEmail == null) request.setAttribute("isShowEmail", "");
+		
+		
+		if (password.equals(confirmPassword) && // Password phải giống nhau
+				Validation.isEmail(email) && // đúng định dạng email
+				!city.equals("chontinhthanh") && // đã chọn tỉnh thành rồi
+				!year.equals("nam") && // đã chọn năm sinh rồi
+				!Validation.isNulls(parameters) && // tất cả các trường không null
+				!UserDAO.checkUsername(username)) {// username chưa tồn tại trong database
 
-		boolean isMatched, isEmail, isChoosen, isYearChoosen, isUsernameExist;
-
-		if (!(isMatched = password.equals(confirmPassword))) {
-			request.setAttribute("errorPasswordNotMatched", "Mật khẩu của bạn không khớp, xin nhập lại.");
-		}
-		if (!(isEmail = Validation.isEmail(email))) {
-			request.setAttribute("errorInvalidEmail", "Định dạng email không đúng, xin nhập lại.");
-		}
-		if (isChoosen = city.equals("chontinhthanh")) {
-			request.setAttribute("errorCityNotYetChoosen", "Bạn chưa chọn tỉnh/thành phố, xin chọn tỉnh/thành phố.");
-		}
-
-		if (isYearChoosen = year.equals("nam")) {
-			request.setAttribute("errorYearNotYetChoosen", "Xin hãy chọn năm sinh của bạn.");
-		}
-
-		if (isUsernameExist = UserDAO.checkUsername(username)) {
-			request.setAttribute("errorUsernameExisted", "Tài khoản này đã tồn tại.");
-		}
-
-		request.setAttribute("errorUsernameNull", "Xin hãy nhập Tên đăng nhập");
-		request.setAttribute("errorPasswordNull", "Xin hãy nhập mật khẩu");
-		request.setAttribute("errorConfirmPasswordNull", "Xin hãy nhập lại mật khẩu");
-		request.setAttribute("errorEmailNull", "Xin hãy nhập email");
-		request.setAttribute("errorFullNameNull", "Xin hãy nhập họ và tên");
-		request.setAttribute("errorAcceptNotYetChoosen", "Bạn chưa đồng ý với điều khoản của chúng tôi.");
-		String[] parameters = { username, password, confirmPassword, email, isAccept };
-		if (isMatched && isEmail && !isChoosen && !isYearChoosen && !Validation.isNulls(parameters) && !isUsernameExist) {
 			boolean isMale = false;
 			if (sex.equals("male")) isMale = true;
 			boolean isReceiveEmail = false;
@@ -104,12 +109,20 @@ public class DangKy extends HttpServlet {
 			boolean showEmail = false;
 			if (isShowEmail != null) showEmail = true;
 
-			UserEntity user = new UserEntity(username, password, fullName, email, year, isMale, isReceiveEmail, showEmail, city);
-			
+			UserEntity user = new UserEntity(
+					username,
+					password,
+					fullName,
+					email,
+					year,
+					isMale,
+					isReceiveEmail,
+					showEmail,
+					city);
+
 			UserDAO.write(user);
 			request.setAttribute("success", "dangky");
 			request.getRequestDispatcher("/thanhcong.jsp").forward(request, response);
-		} else
-			request.getRequestDispatcher("/dangki.jsp").forward(request, response);
+		} else request.getRequestDispatcher("/dangky.jsp").forward(request, response);
 	}
 }
