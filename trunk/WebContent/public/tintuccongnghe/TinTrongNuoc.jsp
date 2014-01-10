@@ -1,6 +1,9 @@
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.TopicDAO"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,725 +11,847 @@
 
 <title>Tin trong nước</title>
 
-<link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
-<link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
+<link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
+<link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
 
 </head>
 
 <body>
 
 	<div class="container">
-    
+
 		<div class="header">
 			<div class="headermain">
 				<div id="menu_top">
-					<a href="trangchu.jsp">Trang chủ&nbsp;</a> | &nbsp; <a href="tintuccongnghe.jsp">Tin tức&nbsp;</a> |&nbsp; <a href="gioithieu.jsp">Giới thiệu&nbsp;</a> |&nbsp; <a href="game.jsp">Game &nbsp;</a> |&nbsp; <a href="lienhe.jsp">Liên hệ&nbsp;</a> |&nbsp; <a href="http://www.facebook.com"> <img src="Image/facebook.jpg" width="18" height="18" /></a>
+					<a href="trangchu.jsp">Trang chủ&nbsp;</a> | &nbsp; <a
+						href="tintuccongnghe.jsp">Tin tức&nbsp;</a> |&nbsp; <a
+						href="gioithieu.jsp">Giới thiệu&nbsp;</a> |&nbsp; <a
+						href="game.jsp">Game &nbsp;</a> |&nbsp; <a href="lienhe.jsp">Liên
+						hệ&nbsp;</a> |&nbsp; <a href="http://www.facebook.com"> <img
+						src="Image/facebook.jpg" width="18" height="18" /></a>
 				</div>
 				<div class="logo">
-					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
+					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185"
+						height="107" /></a>
 				</div>
 				<%
 					UserEntity user = (UserEntity) session.getAttribute("user");
 					if (user == null) {
 				%>
-				<div id="memberbox"><a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a></div>
+				<div id="memberbox">
+					<a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên
+						mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a>
+				</div>
 				<%
 					} else {
 						String username = user.getUseName();
-						
 				%>
 				<div id="tv">
-					Xin chào,<%=username %> |<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
+					Xin chào,<%=username%>
+					|<a href="trangcanhan.jsp">Trang cá nhân </a>|<a
+						href="dangxuat?user=user">Đăng Xuất </a>
 
 				</div>
 				<%
 					}
 				%>
 			</div>
-			</div>
-		
-        <div id="menumain">
-
-				<ul id="topmenu">
-					<li class="item"><a href="trangchu.jsp"><span>Trang chủ</span> </a>
-						<ul class="submenu_1"></ul></li>
-
-					<li id="item_2" class="item menu"><a href="tintuccongnghe.jsp"><span> Tin tức công nghệ </span></a>
-
-						<ul class="submenu_2">
-
-							<li><a href="tintrongnuoc.jsp"> Trong nước</a></li>
-
-							<li><a href="tinquocte.jsp"> Quốc tế</a></li>
-
-							<li><a href="tinkhac.jsp"> Tin khác</a></li>
-
-						</ul></li>
-
-
-
-					<li id="item_3" class="item"><a href="baomat.jsp"><span> Bảo mật </span></a>
-
-						<ul class="submenu_3">
-
-							<li><a href="tinbaomat.jsp"> Tin bảo mật</a></li>
-
-							<li><a href="giaiphapbaomat.jsp"> Giải pháp bảo mật</a></li>
-
-							<li><a href="virus.jsp"> Virus</a></li>
-
-							<li><a href="hacker.jsp"> Hacker</a></li>
-
-						</ul></li>
-
-					<li id="item_4" class="item"><a href="phancung.jsp"><span> Phần cứng </span></a>
-
-						<ul class="submenu_4">
-
-							<li><a href="desktop.jsp"> Desktop</a></li>
-
-							<li><a href="laptop.jsp"> Laptop</a></li>
-
-							<li><a href="thietbilinhkien.jsp"> Thiết bị - Linh kiện</a></li>
-
-							<li><a href="tuvan.jsp"> Tư vấn</a></li>
-
-						</ul></li>
-
-					<li id="item_5" class="item"><a href="phanmem.jsp"><span> Phần mềm </span></a>
-
-						<ul class="submenu_5">
-
-							<li><a href="tinphanmem.jsp"> Tin tức</a></li>
-
-							<li><a href="danhgia.jsp"> Đánh giá</a></li>
-
-							<li><a href="mienphigiamgia.jsp"> Miễn phí - Giảm giá</a></li>
-
-						</ul></li>
-
-					<li id="item_6" class="item"><a href="hedieuhanh.jsp"><span> Hệ điều hành </span></a>
-
-						<ul class="submenu_6">
-
-							<li><a href="windows.jsp"> Windows</a></li>
-
-							<li><a href="unix-linux.jsp"> Unix-Linux</a></li>
-
-							<li><a href="mac.jsp"> Mac</a></li>
-
-						</ul></li>
-
-					<li id="item_7" class="item"><a href="thietbiso.jsp"><span> Thiết bị số </span></a>
-						<ul class="submenu_7">
-
-							<li><a href="mayanh.jsp"> Máy ảnh</a></li>
-
-							<li><a href="mayquay.jsp"> Máy quay</a></li>
-
-							<li><a href="didong.jsp"> Di động</a></li>
-							<li><a href="maynghenhac.jsp"> Máy nghe nhạc</a></li>
-
-							<li><a href="thietbigame.jsp"> Thiết bị game</a></li>
-
-							<li><a href="thietbikhac.jsp"> Thiết bị khác</a></li>
-
-							<li><a href="phukien.jsp"> Phụ kiện</a></li>
-
-						</ul></li>
-					<li id="item_8" class="item"><a href="game.jsp"><span> Game </span></a>
-						<ul class="submenu_8"></ul></li>
-
-					<li id="item_9" class="item"><a href="thuthuattientich.jsp"><span> Thủ thuật-Tiện ích </span></a>
-						<ul class="submenu_9"></ul></li>
-
-					<li id="item_10" class="item"><a href="hoidap.jsp"><span> Hỏi-đáp </span></a>
-						<ul class="submenu_10"></ul></li>
-				</ul>
-			</div>
-        
-        <div style="margin:0px auto;width:999px;height:80px;position:relative">
-
- 			<div id="ads_center" style="position: absolute">
-    			<div><a href="http://stivi.vn" target="_blank"><img src="Image/qcao1.gif" width="999" height="80" border="0">
-                	</a>
-                </div>
-    			
-			</div>
-	
 		</div>
 
-		<div class="content">       
-        
-        	<div id="search">
-        			<table style="float: right;" border="0" cellspacing="0" cellpadding="0">
-            			<tr>
-                			<td>
-                    			<b>Tìm kiếm:&nbsp;</b>
-                			</td>
-              
-                            <td>
-                                <input type="text" name="query" id="txtQuery" value="Từ khóa" onfocus="if(this.value == 'Từ khóa') this.value='';" onblur="if(this.value == '') this.value='Từ khóa';" style="width: 150px; height: 18px;">
-                            </td>
-                            <td>
-                                <input id="button" type="button" style="width: 50px" value="Tìm">
-                            </td>
-                        </tr>
-                    </table>
-                    
-            </div>
-            
-            <div id="content_main">
-            	
-                <div class="content_left">
-           
-                               
-<div class="bag">
-   	<div class="tit">
-                <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="tintuccongnghe.jsp">Tin tức công nghệ</a>&nbsp;»&nbsp;<a href="tintrongnuoc.jsp">Trong nước</a>
-        
-    </div>
-       
-          <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span>Cắt cáp, “khoảng tối” doanh nghiệp công nghệ Việt
-</span></a>
-                </div>
-                <div>
-                    <table border="0" cellpadding="0" cellspacing="0">
-                        <tbody><tr>
-                            <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="Image/iPhone-22.jpg" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
-                            </td>
-                            <td class="content_top" valign="top" align="left">
-Cắt cáp viễn thông - một hành động được xem là rất xấu và có thể quy vào tội hình sự, thế nhưng, thời gian gần đây, tình trạng các doanh nghiệp có hạ tầng cáp bị cắt lại thường xuyên xảy ra.
+		<div id="menumain">
 
-                          </td>
-                        </tr>
-                    </tbody></table>
-                </div>
-                		
-                        
-                    	<div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                   
-                        <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="Image/cuoc-3G.jpg" height="179" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-Bộ TT&TT sẽ báo cáo Thủ tướng về cước 3G
+			<ul id="topmenu">
+				<li class="item"><a href="trangchu.jsp"><span>Trang
+							chủ</span> </a>
+					<ul class="submenu_1"></ul></li>
 
-</a></p>
-                            <p class="detail_ctt">
-Sau những ngày thi đấu căng thẳng của 5 bộ Lần đầu tiên công khai giá thành dịch vụ 3G
+				<li id="item_2" class="item menu"><a href="tintuccongnghe.jsp"><span>
+							Tin tức công nghệ </span></a>
 
-            </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="Image/giacuoc3G-1.jpg" height="171" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">Lần đầu tiên công khai giá thành dịch vụ 3G
+					<ul class="submenu_2">
 
- 
- </a></p>
-                            <p class="detail_ctt">
-Cục Viễn thông (Bộ TT&TT) đã thông báo giá cước dịch vụ truy cập dữ liệu Internet qua di động có giá thành là 167 đồng/MB, trong khi đó các mạng đang bán với giá trung bình khoảng 100 đồng/MB.
-                            </p>
-            </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="Image/facebook-1.jpg" height="164" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-Đà Nẵng: Quản lý đô thị qua… Facebook
+						<li><a href="tintrongnuoc.jsp"> Trong nước</a></li>
 
-</a></p>
-                            <p class="detail_ctt">
-Hàng ngàn phản ánh của người dân đã được Phòng Quản lý đô thị TP Đà Nẵng tiếp nhận, xử lý thông qua mạng xã hội phổ biến nhất hiện nay.
-                            </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="Image/doanh-nghiep.jpg" height="150" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                        Doanh nghiệp thí điểm nộp thuế điện tử từ 1/2014
+						<li><a href="tinquocte.jsp"> Quốc tế</a></li>
 
-</a></p>
-                            <p class="detail_ctt">
-Giai đoạn thí điểm của dự án nộp thuế điện tử sẽ được triển khai từ tháng 1/2014, với sự tham gia của tối thiểu 1.000 doanh nghiệp tại 3 địa phương đang thực hiện khai thuế qua mạng gồm Hà Nội, Bắc Ninh và Vĩnh Phúc.
-                           </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="Image/bat-dong-san1.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">Batdongsan.com.vn cấp dữ liệu cho nhà môi giới
+						<li><a href="tinkhac.jsp"> Tin khác</a></li>
 
- </a></p>
-                            <p class="detail_ctt">
-Sau một thời gian phát triển và chạy thử nghiệm, Batdongsan.com.vn đã chính thức cho ra mắt dịch vụ cung cấp dữ liệu nguồn khách hàng cho các nhà môi giới. Dịch vụ này sẽ mang lại cho các khách hàng môi giới của Batdongsan.com.vn cơ hội tiếp cận với hàng trăm nghìn thông tin chính chủ có nhu cầu bán, cho thuê để làm nguồn vào cho họat động kinh doanh môi giới của mình.
-                             </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="Image/truyen-hinh-cap.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                         Lùi thời hạn cấp giấy phép cho DN truyền hình cáp
+					</ul></li>
 
-</a></p>
-                            <p class="detail_ctt"> Bộ TT&TT sẽ tiếp tục lùi thời hạn cấp giấy phép cho các doanh nghiệp cung cấp dịch vụ truyền hình cáp từ trước năm 2011. Chủ trương của Nhà nước là quy hoạch lại thị trường truyền hình cáp theo hướng giảm dần số lượng doanh nghiệp.
-                            </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="Image/Internet.jpg" height="134" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> 34 triệu người Việt truy cập Internet
 
- </a></p>
-                            <p class="detail_ctt">
-Tỷ lệ dân số Việt Nam có truy cập Internet lên đến khoảng 34 triệu người, chiếm khoảng 36% tổng số dân (khoảng 90 triệu người), theo công bố mới nhất từ Cục Thương mại điện tử và công nghệ thông tin (VECITA), Bộ Công thương.
-                         </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="Image/Bang-tan.jpg" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
-                          <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">Quy hoạch lại băng tần 2G cho hệ thống băng rộng
 
- </a></p>
-                            <p class="detail_ctt">
-Ngày 29/10, tại Hà Nội, Cục Tần số Vô tuyến điện phối hợp với Quỹ ICT ASEAN tổ chức hội thảo “Quy hoạch lại các băng tần 2G cho các hệ thống băng rộng”.
-                             </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="Image/SMS-rac.jpg" height="147" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">Thêm 132 số điện thoại phát tán SMS rác bị "trảm"
+				<li id="item_3" class="item"><a href="baomat.jsp"><span>
+							Bảo mật </span></a>
 
- </a></p>
-                            <p class="detail_ctt">
-Sở TT&TT Hà Nội vừa có văn bản đề nghị các doanh nghiệp (DN) viễn thông trên địa bàn tiếp tục ngừng cung cấp dịch vụ với 120 thuê bao điện thoại và 12 đầu số tin nhắn đã có hành vi phát tán SMS rác, SMS lừa đảo.
-                            </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="Image/cuoc-3g2.jpg" height="142" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">Tăng cước 3G là hợp lý, đúng lộ trình
+					<ul class="submenu_3">
 
- </a></p>
-                            <p class="detail_ctt">
-Theo số liệu của Cục Viễn thông (Bộ TT&TT), trong lần điều chỉnh tăng giá cước 3G vừa qua, có 45% thuê bao 3G giữ nguyên giá, 13% thuê bao được giảm giá gói cước, và 42% thuê bao bị tăng giá cước.
-                            </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="Image/viet-nam.jpg" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">VN yêu cầu Australia, Mỹ giải thích vụ “nghe lén"
+						<li><a href="tinbaomat.jsp"> Tin bảo mật</a></li>
 
- </a></p>
-                            <p class="detail_ctt">
-Việt Nam "rất quan ngại" trước thông tin Australia bí mật thu thập thông tin tình báo ở Việt Nam, người phát ngôn Bộ Ngoại giao Lương Thanh Nghị khẳng định tại cuộc họp báo thường kỳ ngày 7/11.
-                            </p>
-          </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        
-                    
-                        <div class="lines">
-                            <img src="../../../Styles/images/kengang_netdut_digi_03.jpg"></div>
-                        <div class="news_other">
-                   CÁC TIN KHÁC</div>
-          <div class="title_news">
-                
-                <ul>
-                
-                      <li> <a href="/kiem-hang-ngan-usd-tu-viec-bat-loi-bao-mat-cho-google-105514">Internet cáp quang (FTTH) lên ngôi
- </a> </li>
-                    
-                      <li> <a href="/giam-doc-windows-phone-khang-dinh-se-duoi-kip-doi-thu-105513">Phát hiện DN “chôm” phần mềm lên tới 10 tỷ đồng
- </a> </li>
-                    
-                      <li> <a href="/google-maps-phai-go-bo-hinh-anh-thi-the-mot-cau-be-105493">Vụ tăng cước 3G: Chính phủ vào cuộc
-</a> </li>
-                    
-                      <li> <a href="/chuyen-gia-it-cua-nato-lanh-an-7-nam-tu-vi-trom-du-lieu-mat-105487">Báo điện tử Tầm Nhìn bị hacker tấn công
- </a> </li>
-                    
-                      <li> <a href="/apple-thu-lai-iphone-ipad-bi-tham-nuoc-105477">Trung tâm dữ liệu đầu tiên đạt Uptime Tier III
- </a> </li>
-                    
-                      <li> <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Bốn động lực cho sự phát triển của ngành CNTT
- </a> </li>
-                    
-                      <li> <a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448"> Tăng cước 3G 20% - 40% liệu có hợp lý?
-</a> </li>
-                    
-                      <li> <a href="/chau-au-chinh-thuc-cho-dung-thiet-bi-dien-tu-tren-may-bay-105443">Vietnamobile quyết không tăng giá với dịch vụ 3G
- </a> </li>
-                    
-                      <li> <a href="/apple-dong-cua-itunes-connect-tu-21-12-den-27-12-105442">Cước 3G có thể tiếp tục tăng trong năm 2014
- </a> </li>
-                    
-                      <li> <a href="/nhat-ban-ho-tro-asean-tang-cuong-an-ninh-mang-105436"> HP đứng đầu thị trường lưu trữ ngoài tại Việt Nam
- </a> </li>
-                    
-                </ul>
-                
-                      
-                </div>
-              
-          </div>
-            
-              <div class="page">
-                    <span>Trang: [<b>1</b>] [<a href="/tintuc/tin-quoc-te/2" title="Qua trang 2">2</a>] [<a href="/tintuc/tin-quoc-te/3" title="Qua trang 3">3</a>] [<a href="/tintuc/tin-quoc-te/731" title="Qua trang cuối">Cuối</a>] <br>Có tất cả 16803 bài viết </span>
-              
-    </div>
+						<li><a href="giaiphapbaomat.jsp"> Giải pháp bảo mật</a></li>
 
-					 <div class="facebook">
-                	<div class="title_fb">InformationTechnology trên Facebook</div>
-        		  <div class="fb"><table width="280" border="0">
-        		    <tr>
-        		      <td width="104"><a href="https://www.facebook.com/ntncoporation?ref=hl" target="_blank"><img src="Image/Logo.png" width="101" height="91" /></a></td>
-        		      <td width="166" valign="top"><p><a href="https://www.facebook.com/ntncoporation?ref=hl" target="_blank">InformationTechnology</a></p>
-       		          <p><a href="https://www.facebook.com/ntncoporation?ref=hl" target="_blank"><img src="Image/Untitled.png" width="55" height="22"/></a></p>
-                      
-                      </td>
-      		      </tr>
-      		    </table>
-        		  <div style="margin-left:12px; margin-top:10px"><a href="https://facebook.com/help/443483272359009" target="_blank"><img src="Image/facebook.jpg" width="15" height="16" /></a><a href="https://facebook.com/help/443483272359009" target="_blank"> Plugin xã hội của facebook</a></div></div>
-        		</div>		                                               
+						<li><a href="virus.jsp"> Virus</a></li>
+
+						<li><a href="hacker.jsp"> Hacker</a></li>
+
+					</ul></li>
+
+				<li id="item_4" class="item"><a href="phancung.jsp"><span>
+							Phần cứng </span></a>
+
+					<ul class="submenu_4">
+
+						<li><a href="desktop.jsp"> Desktop</a></li>
+
+						<li><a href="laptop.jsp"> Laptop</a></li>
+
+						<li><a href="thietbilinhkien.jsp"> Thiết bị - Linh kiện</a></li>
+
+						<li><a href="tuvan.jsp"> Tư vấn</a></li>
+
+					</ul></li>
+
+				<li id="item_5" class="item"><a href="phanmem.jsp"><span>
+							Phần mềm </span></a>
+
+					<ul class="submenu_5">
+
+						<li><a href="tinphanmem.jsp"> Tin tức</a></li>
+
+						<li><a href="danhgia.jsp"> Đánh giá</a></li>
+
+						<li><a href="mienphigiamgia.jsp"> Miễn phí - Giảm giá</a></li>
+
+					</ul></li>
+
+				<li id="item_6" class="item"><a href="hedieuhanh.jsp"><span>
+							Hệ điều hành </span></a>
+
+					<ul class="submenu_6">
+
+						<li><a href="windows.jsp"> Windows</a></li>
+
+						<li><a href="unix-linux.jsp"> Unix-Linux</a></li>
+
+						<li><a href="mac.jsp"> Mac</a></li>
+
+					</ul></li>
+
+				<li id="item_7" class="item"><a href="thietbiso.jsp"><span>
+							Thiết bị số </span></a>
+					<ul class="submenu_7">
+
+						<li><a href="mayanh.jsp"> Máy ảnh</a></li>
+
+						<li><a href="mayquay.jsp"> Máy quay</a></li>
+
+						<li><a href="didong.jsp"> Di động</a></li>
+						<li><a href="maynghenhac.jsp"> Máy nghe nhạc</a></li>
+
+						<li><a href="thietbigame.jsp"> Thiết bị game</a></li>
+
+						<li><a href="thietbikhac.jsp"> Thiết bị khác</a></li>
+
+						<li><a href="phukien.jsp"> Phụ kiện</a></li>
+
+					</ul></li>
+				<li id="item_8" class="item"><a href="game.jsp"><span>
+							Game </span></a>
+					<ul class="submenu_8"></ul></li>
+
+				<li id="item_9" class="item"><a href="thuthuattientich.jsp"><span>
+							Thủ thuật-Tiện ích </span></a>
+					<ul class="submenu_9"></ul></li>
+
+				<li id="item_10" class="item"><a href="hoidap.jsp"><span>
+							Hỏi-đáp </span></a>
+					<ul class="submenu_10"></ul></li>
+			</ul>
+		</div>
+
+		<div
+			style="margin: 0px auto; width: 999px; height: 80px; position: relative">
+
+			<div id="ads_center" style="position: absolute">
+				<div>
+					<a href="http://stivi.vn" target="_blank"><img
+						src="Image/qcao1.gif" width="999" height="80" border="0"> </a>
 				</div>
-           
 
-        		<div class="content_right">
+			</div>
+
+		</div>
+
+		<div class="content">
+
+			<div id="search">
+				<table style="float: right;" border="0" cellspacing="0"
+					cellpadding="0">
+					<tr>
+						<td><b>Tìm kiếm:&nbsp;</b></td>
+
+						<td><input type="text" name="query" id="txtQuery"
+							value="Từ khóa"
+							onfocus="if(this.value == 'Từ khóa') this.value='';"
+							onblur="if(this.value == '') this.value='Từ khóa';"
+							style="width: 150px; height: 18px;"></td>
+						<td><input id="button" type="button" style="width: 50px"
+							value="Tìm"></td>
+					</tr>
+				</table>
+
+			</div>
+
+
+
+
+			<%
+				List<TopicEntity> trongnuoc = TopicDAO.loadBySubMenu("trongnuoc");
+				TopicEntity trongnuoc1 = trongnuoc.get(0);
+				TopicEntity trongnuoc2 = trongnuoc.get(1);
+				TopicEntity trongnuoc3 = trongnuoc.get(2);
+				TopicEntity trongnuoc4 = trongnuoc.get(0);
+				TopicEntity trongnuoc5 = trongnuoc.get(2);
+				TopicEntity trongnuoc6 = trongnuoc.get(1);
+				TopicEntity trongnuoc7 = trongnuoc.get(2);
+				TopicEntity trongnuoc8 = trongnuoc.get(0);
+				TopicEntity trongnuoc9 = trongnuoc.get(1);
+				TopicEntity trongnuoc10 = trongnuoc.get(2);
+				TopicEntity trongnuoc11 = trongnuoc.get(1);
+				TopicEntity trongnuoc12 = trongnuoc.get(0);
 				
-                    <div class="news">
-                        <div class="tit">
-                            
-                                   <a href="tinmoinhat.jsp">  Tin mới nhất </a>
-                            
-                        </div>
-                        <div class="ctm">
-                            
-                                    <div class="title_new">
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Ai sẽ giết chết "tiền ảo" Bitcoin?
+				pageContext.setAttribute("trongnuoc1", trongnuoc1);
+				pageContext.setAttribute("trongnuoc2", trongnuoc2);
+				pageContext.setAttribute("trongnuoc3", trongnuoc3);
+				pageContext.setAttribute("trongnuoc4", trongnuoc4);
+				pageContext.setAttribute("trongnuoc5", trongnuoc5);
+				pageContext.setAttribute("trongnuoc6", trongnuoc6);
+				pageContext.setAttribute("trongnuoc7", trongnuoc7);
+				pageContext.setAttribute("trongnuoc8", trongnuoc8);
+				pageContext.setAttribute("trongnuoc9", trongnuoc9);
+				pageContext.setAttribute("trongnuoc10", trongnuoc10);
+				pageContext.setAttribute("trongnuoc11", trongnuoc11);
+				pageContext.setAttribute("trongnuoc12", trongnuoc12);
+			%>
+			<div id="content_main">
+
+				<div class="content_left">
+
+
+					<div class="bag">
+						<div class="tit">
+							<a href="trangchu.jsp"><img src="Image/icon_home.jpg"
+								width="18" height="24" align="absmiddle" border="0"></a>
+							»&nbsp;<a href="tintuccongnghe.jsp">Tin tức công nghệ</a>&nbsp;»&nbsp;<a
+								href="tintrongnuoc.jsp">Trong nước</a>
+
+						</div>
+
+						<div class="title_article">
+							<a href="load?id=${pageScope.trongnuoc1.id }"><span>${pageScope.trongnuoc1.title }</span></a>
+						</div>
+						<div>
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<td class="img_top2"><a
+											href="load?id=${pageScope.trongnuoc1.id }"><img
+												src="${pageScope.trongnuoc1.url_daidien }" width="247" height="265"
+												hspace="3" vspace="3" align="left" border="0"></a></td>
+										<td class="content_top" valign="top" align="left">${pageScope.trongnuoc1.header }</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.trongnuoc2.id }">
+								<img src="${pageScope.trongnuoc1.url_daidien }" height="179" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.trongnuoc2.id }">${pageScope.trongnuoc2.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc2.header }
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.trongnuoc3.id }">
+								<img src="${pageScope.trongnuoc3.url_daidien }" height="171" hspace="5"
+								vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.trongnuoc3.id }">${pageScope.trongnuoc3.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc3.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="${pageScope.trongnuoc4.id }">
+								<img src="${pageScope.trongnuoc4.url_daidien }" height="164" hspace="5"
+								vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="${pageScope.trongnuoc4.id }">${pageScope.trongnuoc4.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc4.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="${pageScope.trongnuoc5.id }">
+								<img src="${pageScope.trongnuoc5.url_daidien }" height="150" hspace="5"
+								vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="${pageScope.trongnuoc5.id }">${pageScope.trongnuoc5.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc5.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="${pageScope.trongnuoc6.id }"> <img
+								src="${pageScope.trongnuoc6.url_daidien }" height="146" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="${pageScope.trongnuoc6.id }">${pageScope.trongnuoc6.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc6.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="${pageScope.trongnuoc7.id }">
+								<img src="${pageScope.trongnuoc7.url_daidien }" height="146" hspace="5"
+								vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="${pageScope.trongnuoc7.id }">${pageScope.trongnuoc7.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc7.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="${pageScope.trongnuoc8.id }">
+								<img src="${pageScope.trongnuoc8.url_daidien }" height="134" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="${pageScope.trongnuoc8.id }">${pageScope.trongnuoc8.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc8.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="${pageScope.trongnuoc9.id }"><img
+									src="${pageScope.trongnuoc9.url_daidien }" height="144" hspace="5" vspace="3"
+									align="left" border="0" /></a>
+								<p class="title_ctt">
+									<a href="${pageScope.trongnuoc9.id }">${pageScope.trongnuoc9.title }</a>
+								</p>
+								<p class="detail_ctt">${pageScope.trongnuoc9.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="${pageScope.trongnuoc10.id }">
+								<img src="${pageScope.trongnuoc10.url_daidien }" height="147" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="${pageScope.trongnuoc10.id }">${pageScope.trongnuoc10.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc10.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="${pageScope.trongnuoc11.id }">
+								<img src="${pageScope.trongnuoc11.url_daidien }" height="142" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="${pageScope.trongnuoc11.id }">${pageScope.trongnuoc11.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc11.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="${pageScope.trongnuoc12.id }">
+								<img src="${pageScope.trongnuoc12.url_daidien }" width="287" height="160"
+								hspace="5" vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="${pageScope.trongnuoc12.id }">${pageScope.trongnuoc12.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.trongnuoc12.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+
+
+						<div class="lines">
+							<img src="../../../Styles/images/kengang_netdut_digi_03.jpg">
+						</div>
+						<div class="news_other">CÁC TIN KHÁC</div>
+						<div class="title_news">
+
+							<ul>
+
+								<li><a
+									href="/kiem-hang-ngan-usd-tu-viec-bat-loi-bao-mat-cho-google-105514">Internet
+										cáp quang (FTTH) lên ngôi </a></li>
+
+								<li><a
+									href="/giam-doc-windows-phone-khang-dinh-se-duoi-kip-doi-thu-105513">Phát
+										hiện DN “chôm” phần mềm lên tới 10 tỷ đồng </a></li>
+
+								<li><a
+									href="/google-maps-phai-go-bo-hinh-anh-thi-the-mot-cau-be-105493">Vụ
+										tăng cước 3G: Chính phủ vào cuộc </a></li>
+
+								<li><a
+									href="/chuyen-gia-it-cua-nato-lanh-an-7-nam-tu-vi-trom-du-lieu-mat-105487">Báo
+										điện tử Tầm Nhìn bị hacker tấn công </a></li>
+
+								<li><a
+									href="/apple-thu-lai-iphone-ipad-bi-tham-nuoc-105477">Trung
+										tâm dữ liệu đầu tiên đạt Uptime Tier III </a></li>
+
+								<li><a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Bốn
+										động lực cho sự phát triển của ngành CNTT </a></li>
+
+								<li><a
+									href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448">
+										Tăng cước 3G 20% - 40% liệu có hợp lý? </a></li>
+
+								<li><a
+									href="/chau-au-chinh-thuc-cho-dung-thiet-bi-dien-tu-tren-may-bay-105443">Vietnamobile
+										quyết không tăng giá với dịch vụ 3G </a></li>
+
+								<li><a
+									href="/apple-dong-cua-itunes-connect-tu-21-12-den-27-12-105442">Cước
+										3G có thể tiếp tục tăng trong năm 2014 </a></li>
+
+								<li><a
+									href="/nhat-ban-ho-tro-asean-tang-cuong-an-ninh-mang-105436">
+										HP đứng đầu thị trường lưu trữ ngoài tại Việt Nam </a></li>
+
+							</ul>
+
+
+						</div>
+
+					</div>
+
+					<div class="page">
+						<span>Trang: [<b>1</b>] [<a href="/tintuc/tin-quoc-te/2"
+							title="Qua trang 2">2</a>] [<a href="/tintuc/tin-quoc-te/3"
+							title="Qua trang 3">3</a>] [<a href="/tintuc/tin-quoc-te/731"
+							title="Qua trang cuối">Cuối</a>] <br>Có tất cả 16803 bài
+							viết
+						</span>
+
+					</div>
+
+					<div class="facebook">
+						<div class="title_fb">InformationTechnology trên Facebook</div>
+						<div class="fb">
+							<table width="280" border="0">
+								<tr>
+									<td width="104"><a
+										href="https://www.facebook.com/ntncoporation?ref=hl"
+										target="_blank"><img src="Image/Logo.png" width="101"
+											height="91" /></a></td>
+									<td width="166" valign="top"><p>
+											<a href="https://www.facebook.com/ntncoporation?ref=hl"
+												target="_blank">InformationTechnology</a>
+										</p>
+										<p>
+											<a href="https://www.facebook.com/ntncoporation?ref=hl"
+												target="_blank"><img src="Image/Untitled.png" width="55"
+												height="22" /></a>
+										</p></td>
+								</tr>
+							</table>
+							<div style="margin-left: 12px; margin-top: 10px">
+								<a href="https://facebook.com/help/443483272359009"
+									target="_blank"><img src="Image/facebook.jpg" width="15"
+									height="16" /></a><a
+									href="https://facebook.com/help/443483272359009"
+									target="_blank"> Plugin xã hội của facebook</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="content_right">
+<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
+
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
+					<div class="news">
+						<div class="tit">
+
+							<a href="tinmoinhat.jsp"> Tin mới nhất </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="title_new">
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
+								</div>
+
+
+								<span id="xemtin"><a href="/"><strong>Xem
+											các tin khác </strong></a></span>
+
+
+							</div>
+
+						</div>
 
 
 
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Anonymous tấn công nhiều cơ quan chính phủ Mỹ
+
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
+						<div class="space"></div>
+
+					</div>
+
+					<div class="headlines">
+						<div class="tit">
+
+							<a> Tiêu điểm </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
+										height="174" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
+								</div>
+							</div>
 
 
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
+										height="145" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
+								</div>
+							</div>
+						</div>
+					</div>
 
 
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Đà Nẵng: Quản lý đô thị qua… Facebook
+				</div>
 
 
+			</div>
 
 
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Châu Âu cho dùng thiết bị điện tử trên máy bay
+		</div>
 
-
-
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Apple đóng cửa iTunes Connect từ 21/12 đến 27/12
-
-
-
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Nhật Bản hỗ trợ ASEAN tăng cường an ninh mạng
-
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Doanh nghiệp thí điểm nộp thuế điện tử từ 1/2014
-
-
-
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Google vẫn là “Vua” tìm kiếm tại thị trường Mỹ
-
-
-
-</a>
-                                     </div>
-                                      
-                                    
-                                     <span id="xemtin"><a href="/"><strong>Xem các tin khác </strong></a></span>
-                                    
-                                               
-                                    </div>
-                               
-                        </div>
-                        <div class="space"></div>
-                       
-                    </div>   
-                                     
-                    <div class="headlines">
-                        <div class="tit">
-                           
-                                    <a>
-                                        Tiêu điểm
-                                    </a>
-                                
-                        </div>
-                        <div class="ctm">
-                                        
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Phan-mem.jpg" width="175" height="161" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/8-cong-dung-khong-ngo-cua-task-manager-105027">
-Phát hiện DN “chôm” phần mềm lên tới 10 tỷ đồng
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
-
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img src="Image/viet-nam.jpg" width="142" height="159" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
-VN yêu cầu Australia, Mỹ giải thích vụ “nghe lén"
-                                                </a>
-                                            </div>
-                                        </div>
-  
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img src="Image/cuoc-3G(11).jpg" width="142" height="147" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119">
-Vụ tăng cước 3G: Chính phủ vào cuộc
-                                                </a>
-                                            </div>
-                                        </div>
-                                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img src="Image/Internet(22).jpg" width="142" height="160" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
-Internet cáp quang (FTTH) lên ngôi
-                                                </a>
-                                            </div>
-                                        </div>
-       
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/modem-d-link-tenda-cua-trung-quoc-cai-san-ma-doc-105160"><img src="Image/cuoc-3g2.jpg" width="142" height="153" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/nhieu-modem-d-link-tenda-cua-trung-quoc-da-duoc-cai-san-ma-doc-105160">
-Tăng cước 3G là hợp lý, đúng lộ trình
-                                                </a>
-                                            </div>
-                                        </div>
-                   
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/SMS-rac.jpg" width="142" height="162" hspace="3" vspace="3" align="left" border="0"></a>    
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-Thêm 132 số điện thoại phát tán SMS rác bị "trảm"
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/bat-dong-san1.jpg" width="142" height="169" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-Batdongsan.com.vn cấp dữ liệu cho nhà môi giới
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Trung-tam.jpg" width="142" height="176" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-Trung tâm dữ liệu đầu tiên đạt Uptime Tier III
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/cuoc-3G(21).jpg" width="142" height="145" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-Tăng cước 3G 20% - 40% liệu có hợp lý?
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/doanh-nghiep-1.jpg" width="142" height="185" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-                                                  Cắt cáp, “khoảng tối” doanh nghiệp công nghệ Việt
-
-                                                </a>
-                                            </div>
-                                        </div>
-                                </div>
-                     </div>
-                    
-				
-        
-                                        
-                
-        		
-        		
-       	  </div>
-            
-        
-        </div>
-		
-        
-        </div>
-        
 		<div class="footer">
 
-				<div class="menu_footer">
-					<a href="trangchu.jsp">Trang chủ</a> | <a href="gioithieu.jsp">Giới thiệu </a> | <a href="thietbiso.jsp">Thiết bị số </a> | <a href="game.jsp">Game</a> | <a href="http://tapchicntt.com" target="_blank">Tapchicntt.com</a> | <a href="http://bkc.vn" target="_blank">bkc.vn</a> | <a href="http://Stivi.vn" target="_blank">Stivi.vn</a> | <a href="hoidap.jsp">Hỏi đáp</a> | <a href="lienhe.jsp">Liên hệ</a> | <a href="https://www.facebook.com/ntncoporation?ref=hl" target="_blank">Facebook</a>
+			<div class="menu_footer">
+				<a href="trangchu.jsp">Trang chủ</a> | <a href="gioithieu.jsp">Giới
+					thiệu </a> | <a href="thietbiso.jsp">Thiết bị số </a> | <a
+					href="game.jsp">Game</a> | <a href="http://tapchicntt.com"
+					target="_blank">Tapchicntt.com</a> | <a href="http://bkc.vn"
+					target="_blank">bkc.vn</a> | <a href="http://Stivi.vn"
+					target="_blank">Stivi.vn</a> | <a href="hoidap.jsp">Hỏi đáp</a> | <a
+					href="lienhe.jsp">Liên hệ</a> | <a
+					href="https://www.facebook.com/ntncoporation?ref=hl"
+					target="_blank">Facebook</a>
+			</div>
+			<div class="line"></div>
+			<div class="info">
+				<div class="info_left">
+					Chuyên trang về Công nghệ thông tin.<br> Giấy phép số 1133/GP – BTTTT ngày 1/1/2014 của Bộ thông tin truyền thông.<br> Đặng Ngọc Tiến, Huỳnh Thanh Điền<br> Đại học Nông Lâm, khoa Công nghệ thông tin.
 				</div>
-				<div class="line"></div>
-				<div class="info">
-					<div class="info_left">
-						Information Technology - Chuyên trang về Công nghệ thông tin.<br> Giấy phép số 1133/GP – BTTTT ngày 1/1/2014 của Bộ thông tin truyền thông.<br> Tổng Biên tập: Nguyễn Tấn Tài. Phó Tổng biên tập: Nguyễn Văn Nú, Lương Văn Nhẫn.<br> Cơ quan chủ quản: NTN Coporation Entertainment Education Information Technology.
+				<div class="info_right">
+					<div class="logo_footer">
+						<a href="trangchu.jsp"><img src="Image/Logo.png" width="60"
+							height="51" /></a>
 					</div>
-					<div class="info_right">
-						<div class="logo_footer">
-							<a href="trangchu.jsp"><img src="Image/Logo.png" width="60" height="51" /></a>
-						</div>
-						Copyright © 2013 IT - Chuyên trang, thông tin công nghệ, thủ thuật , tiện ích.<br> Ghi rõ nguồn " it.com.vn" khi phát hành lại thông tin từ website này.
-					</div>
+					Copyright © 2013 IT - Chuyên trang, thông tin công nghệ, thủ thuật
+					, tiện ích.<br> Ghi rõ nguồn " it.com.vn" khi phát hành lại
+					thông tin từ website này.
 				</div>
 			</div>
-        
-  		<div id="ads_left" style="position:fixed; top:5px; height:630px; width:160px; margin-left:-165px;">
-        	<div style="position:absolute"><a href="http://www.tapchicntt.com" target="_blank">
-            	<img src="Image/quangcao2.gif" width="160" height="630" border="0"></a>
-        	</div>
-        </div>
-        
-		<div id="ads_right" style="position:fixed; top:5px; height:630px; width:160px; margin-left:1005px;">
-        	<div style="position:absolute"><a href="http://www.bkc.vn" target="_blank">
-            	<img src="Image/quangcao3.jpg" width="160" height="630" border="0"></a>
-       	 	</div>
-        	
- 		</div>
+		</div>
+
+		<div id="ads_left"
+			style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: -165px;">
+			<div style="position: absolute">
+				<a href="http://www.tapchicntt.com" target="_blank"> <img
+					src="Image/quangcao2.gif" width="160" height="630" border="0"></a>
+			</div>
+		</div>
+
+		<div id="ads_right"
+			style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: 1005px;">
+			<div style="position: absolute">
+				<a href="http://www.bkc.vn" target="_blank"> <img
+					src="Image/quangcao3.jpg" width="160" height="630" border="0"></a>
+			</div>
+
+		</div>
 
 	</div>
 
