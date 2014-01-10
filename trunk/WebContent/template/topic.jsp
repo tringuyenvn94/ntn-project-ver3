@@ -11,6 +11,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<%
 		//TODO START
@@ -250,6 +258,10 @@
             <div class="article_detail">
           
     <div class="title_art">
+    <div class="fb-like" data-href="https://www.facebook.com/ntncoporation" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    <br>
+    <div class="fb-comments" data-href="http://localhost:8080/Project/load?id=${requestScope.id }" data-numposts="5" data-colorscheme="light"></div>
+        <br>
         Bài viết cùng chủ đề</div>
     <div class="hr"> </div>
     <div class="infoA">

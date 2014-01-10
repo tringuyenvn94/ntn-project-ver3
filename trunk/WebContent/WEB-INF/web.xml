@@ -404,14 +404,7 @@
     <servlet-name>Thanh Cong JSP</servlet-name>
     <url-pattern>/thanhcong.jsp</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>Dang Nhap Xong JSP</servlet-name>
-    <jsp-file>/user/DangNhapXong.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Dang Nhap Xong JSP</servlet-name>
-    <url-pattern>/dangnhapxong.jsp</url-pattern>
-  </servlet-mapping>
+  
   <servlet>
     <servlet-name>Trang Ca Nhan JSP</servlet-name>
     <jsp-file>/user/trangcanhan.jsp</jsp-file>

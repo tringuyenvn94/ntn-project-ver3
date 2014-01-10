@@ -4,8 +4,9 @@
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
 	UserEntity user = (UserEntity) session.getAttribute("user");
-	if (user == null) response.sendRedirect("dangnhap.jsp");
+	if (user == null)
 %>
+<jsp:forward page="/dangnhap.jsp"></jsp:forward>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -43,7 +44,7 @@
 					String username = user.getUseName(); 
 				
 				%>
-					Xin chào, <a href="trangcanhan.jsp"> <%=username %></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
+					Xin chào, <%=username %> <a href="trangcanhan.jsp">Trang Cá Nhân</a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
 
 				</div>
 			</div>
