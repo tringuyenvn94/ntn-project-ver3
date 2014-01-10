@@ -14,10 +14,26 @@
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
 <style type="text/css">
-.news_detail div center a {
+.news_detail div a {
 	font-size: 16px;
-	font-weight: normal;
+	font-weight: bold;
 	text-decoration: none;
+	color: #030;
+}
+.news_detail div {
+	margin-left: 40px;
+}
+#ctLeft_detail {
+	margin-left: 170px;
+}
+.news_detail #tcn {
+	margin-left: 0px;
+	background-color: #CF9;
+	border: 1px solid #000;
+}
+.news_detail {
+	border: 1px solid #000;
+	background-color: #FFC;
 }
 #tcn {
 	font-size: 18px;
@@ -175,10 +191,10 @@
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<div id="tcn">Trang cá nhân
+						<center><div id="tcn">Trang cá nhân
 
 							
-						</div>
+						</div></center>
 						<div>
 						<center>
 						  <p>
@@ -200,8 +216,8 @@
 						  <p><br/>
 						    <a href="bookmark.jsp">Các bài đã đánh dấu</a><a href="post.jsp"></a></p>
 						  <p><br/><a href="dangxuat">Đăng Xuất</a><a href="post.jsp"></a></p>
-						  
-						</center>
+						  </center>
+						
 					</div>
 
 

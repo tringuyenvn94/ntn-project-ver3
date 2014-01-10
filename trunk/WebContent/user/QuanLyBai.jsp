@@ -204,7 +204,7 @@
 			      <td align="center">&nbsp;</td>
 			      <td align="center">&nbsp;</td>
 			      <td align="center">&nbsp;</td>
-			      <td align="center"><a href="#">Sửa</a></td>
+			      <td align="center"><a href="suabai.jsp">Sửa</a></td>
 		        </tr>
 		      </table>
 			</div>

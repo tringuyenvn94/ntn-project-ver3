@@ -12,7 +12,11 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
-
+<style type="text/css">
+.news_detail {
+	width: 700px;
+}
+</style>
 </head>
 
 <body>
