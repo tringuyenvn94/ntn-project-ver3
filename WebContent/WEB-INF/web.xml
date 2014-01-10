@@ -551,7 +551,14 @@
   	<servlet-name>Sua Thanh Vien JSP</servlet-name>
   	<url-pattern>/suathanhvien.jsp</url-pattern>
   </servlet-mapping>
-  
+       <servlet>
+   	<servlet-name>Sua Bai JSP</servlet-name>
+  	<jsp-file>/user/SuaBai.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Sua Bai JSP</servlet-name>
+  	<url-pattern>/suabai.jsp</url-pattern>
+  </servlet-mapping>
     <!-- 
   ===================================================
   				Start Context Param

@@ -25,7 +25,9 @@ body {
 }
 
 .header {
-	background-position: left bottom;
+	background-image: url(../Image/HPNY.png);
+	background-repeat: no-repeat;
+	background-position: right;
 	color: #FFFFFF;
 	height: 160px;
 	margin: auto;
@@ -34,11 +36,12 @@ body {
 }
 .headermain
 {
+	background-image: url(../Image/b.jpg);
+	background-repeat: no-repeat;
+	background-position: 280px;
 	width: 999px;
 	height: 160px;
 	margin: auto;
-	background-color: #FFF;
-	background-image: url(../Image/background.png);
 	border: 1px solid #CCC;
 }
 
