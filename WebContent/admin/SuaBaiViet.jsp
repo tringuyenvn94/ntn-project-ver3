@@ -1,26 +1,24 @@
 
 <%@page import="entity.UserEntity"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="dao.TopicDAO"%>
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Trang cá nhân</title>
+<title>Sửa Bài Viết</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
 <style type="text/css">
-.news_detail div center a {
-	font-size: 16px;
-	font-weight: normal;
-	text-decoration: none;
-}
-#tcn {
-	font-size: 18px;
+#bd {
+	font-size: 20px;
 	font-style: italic;
 	font-weight: bold;
 }
@@ -39,9 +37,11 @@
 				<div class="logo">
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-								
+
+							
+				
 				<div id="tv">
-					Xin chào,&nbsp;${sessionScope.user.username } |<a href="trangchu.jsp">&nbsp;Trang Chủ</a> | <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
+					Xin chào, <a href="trangcanhan.jsp"></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
 
 				</div>
 			</div>
@@ -175,30 +175,120 @@
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<div id="tcn">Trang cá nhân
-
-							
+						<div id="bd">
+						  Sửa thông tin bài viết					
 						</div>
 						<div>
-						<center>
-						  <p>
-						    <%//TODO 
-						UserEntity user = (UserEntity) session.getAttribute("user");
-						if (user == null) response.sendRedirect("dangnhap.jsp");
-						%>
-						    <a href="suathongtin.jsp">Sửa thông tin cá nhân</a>						    </p>
-						  <p><br/><a href="doimatkhau.jsp">Đổi Mật Khẩu</a></p>
-						  <p><br/><a href="post.jsp">Đăng Bài</a></p>
-						  <p><br/>
-						    <a href="quanlybai.jsp">Quản lí bài đã viết</a>						    </p>
-						  <p><br/>
-						    <a href="bookmark.jsp">Các bài đã đánh dấu</a><a href="post.jsp"></a></p>
-						  <p><br/><a href="dangxuat">Đăng Xuất</a><a href="post.jsp"></a></p>
-						  
-						</center>
-					</div>
+							
+							<form method="post" action="topic">
+								<table border="0" width="150%">
+									<tbody>
+										<tr>
+											<th colspan="2" align="left"><p>&nbsp;</p>
+										    <p>Thông tin người gửi</p></th>
+										</tr>
+										<tr>
+											<td width="130" align="left"><p>Họ và tên:</p></td>
+											<td width="361"><p>
+											  <input type="text" value="" name="name" />
+											</p></td>
+										</tr>
 
+										<tr>
+											<td align="left">Email:</td>
+											<td><input type="text" name="email" value="" /></td>
+										</tr>
 
+										<tr>
+											<th colspan="2" align="left"><p>&nbsp;</p>
+											  <p>Chi tiết bài viết 
+										    </p></th>
+										</tr>
+
+										<tr>
+											<td>Lĩnh vực:</td>
+											<td><p>
+											  <select name="linhvuc">
+											    <%
+														try {
+															ResultSet linhvuc = TopicDAO.loadLinhVuc();
+															while (linhvuc.next()) {
+																String name = linhvuc.getString(1);
+																String id = linhvuc.getString(2);
+													%>
+											    <option value="<%=id%>">
+											      <%=name%>
+										        </option>
+											    
+											    <%
+															}
+														} catch (Exception e) {
+															e.printStackTrace();
+														}
+													%>
+										      </select>
+											</p></td>
+										</tr>
+
+										<tr>
+											<td>Tiêu đề:</td>
+											<td><input name="title" type="text" size="60" value="${requestScope.title }" />
+											<br />
+											 <p style="color: #F00">${requestScope.errorTitleNull }</p>
+											</td>
+										</tr>
+
+										<tr>
+											<td>Ảnh đại diện (URL):</td>
+											<td><input name="url_daidien" value="${requestScope.url_daidien }" size="60" /></td>
+										</tr>
+
+										<tr>
+											<td>Nội dung:</td>
+											<td>
+											  <p>
+											    <textarea name="ta" id="ta" >${requestScope.content }</textarea>
+											    <ckeditor:replace replace="ta" basePath="ckeditor/"></ckeditor:replace>
+											    <br />
+										      </p>
+											  <p style="color: #F00">${requestScope.errorContentNull }</p>
+											</td>
+										</tr>
+
+										<tr>
+										  <td>Trạng thái:</td>
+										  <td><label for="select"></label>
+										    <select name="select" id="select">
+										      <option value="0">Chọn trạng thái</option>
+										      <option value="1">Waitting</option>
+										      <option value="2">posted</option>
+										      <option value="3">Banned</option>
+                                          </select></td>
+									  </tr>
+										<tr>
+											<td>Url nguồn:</td>
+											<td>
+											  <p>
+											    <input name="url" type="text" size="60" value="${requestScope.url }" />
+											    <br />
+										      </p>
+											  <p style="color: #F00">${requestScope.errorUrlNull }</p>
+											
+											</td>
+										</tr>
+
+										<tr>
+<td>&nbsp;</td>											<td align="left"><p>&nbsp;
+  </p>
+  <p>
+    <input type="submit" value="Đồng ý" />
+  </p></td>
+										</tr>
+
+									</tbody>
+								</table>
+							</form>
+						</div>
 					</div>
 					<div class="space"></div>
 				</div>
