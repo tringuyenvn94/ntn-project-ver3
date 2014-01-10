@@ -3,26 +3,34 @@
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
+	UserEntity user = (UserEntity) session.getAttribute("user");
+	if (user == null) response.sendRedirect("dangnhap.jsp");
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Trang cá nhân</title>
+<title>Quản lý bài viết</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
 <style type="text/css">
-.news_detail div center a {
-	font-size: 16px;
-	font-weight: normal;
-	text-decoration: none;
-}
-#tcn {
+#dmk {
 	font-size: 18px;
 	font-style: italic;
 	font-weight: bold;
+}
+#ql {
+	font-size: 18px;
+	font-style: italic;
+	font-weight: bold;
+}
+#ql_ct table tr td a {
+	font-size: 16px;
+	font-style: italic;
+	text-decoration: none;
 }
 </style>
 </head>
@@ -39,9 +47,13 @@
 				<div class="logo">
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-								
+
 				<div id="tv">
-					Xin chào,&nbsp;${sessionScope.user.username } |<a href="trangchu.jsp">&nbsp;Trang Chủ</a> | <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
+				<%
+					String username = user.getUseName(); 
+				
+				%>
+					Xin chào, <a href="trangcanhan.jsp"> <%=username %></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
 
 				</div>
 			</div>
@@ -172,37 +184,31 @@
 				</div>
 
 			<div id="content_main">
-
-				<div id="ctLeft_detail">
-					<div class="news_detail">
-						<div id="tcn">Trang cá nhân
-
-							
-						</div>
-						<div>
-						<center>
-						  <p>
-						    <%//TODO 
-						UserEntity user = (UserEntity) session.getAttribute("user");
-						if (user == null) response.sendRedirect("dangnhap.jsp");
-						%>
-						    <a href="suathongtin.jsp">Sửa thông tin cá nhân</a>						    </p>
-						  <p><br/><a href="doimatkhau.jsp">Đổi Mật Khẩu</a></p>
-						  <p><br/><a href="post.jsp">Đăng Bài</a></p>
-						  <p><br/>
-						    <a href="quanlybai.jsp">Quản lí bài đã viết</a>						    </p>
-						  <p><br/>
-						    <a href="bookmark.jsp">Các bài đã đánh dấu</a><a href="post.jsp"></a></p>
-						  <p><br/><a href="dangxuat">Đăng Xuất</a><a href="post.jsp"></a></p>
-						  
-						</center>
-					</div>
-
-
-					</div>
-					<div class="space"></div>
-				</div>
+            
+			  <div id="ql">Các bài đã viết
+              </div>
+			<br><div id="ql_ct">
+			  <table width="950" border="1" cellpadding="5">
+			    <tr>
+			      <td width="77" height="28" align="center"><strong>Chọn</strong></td>
+			      <td width="402" align="center"><strong>Tiêu đề</strong></td>
+			      <td width="139" align="center"><strong>Ngày gửi</strong></td>
+			      <td width="141" align="center"><strong>Trạng thái</strong></td>
+			      <td width="157" align="center"><strong>Thao tác</strong></td>
+		        </tr>
+			    <tr>
+			      <td align="center"><form name="form1" method="post" action="">
+			        <input type="checkbox" name="checkbox" id="checkbox">
+			        <label for="checkbox"></label>
+		          </form></td>
+			      <td align="center">&nbsp;</td>
+			      <td align="center">&nbsp;</td>
+			      <td align="center">&nbsp;</td>
+			      <td align="center"><a href="#">Sửa</a></td>
+		        </tr>
+		      </table>
 			</div>
+		  </div>
 		</div>
 	
 	<div class="footer">

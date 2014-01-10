@@ -512,11 +512,51 @@
   </servlet-mapping>
    <servlet>
   	<servlet-name>Quan Ly JSP</servlet-name>
-  	<jsp-file>/public/TrangQuanLy.jsp</jsp-file>
+  	<jsp-file>/admin/TrangQuanLy.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
   	<servlet-name>Quan Ly JSP</servlet-name>
   	<url-pattern>/quanly.jsp</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  	<servlet-name>Sua Thong Tin Ca Nhan JSP</servlet-name>
+  	<jsp-file>/user/SuaThongTin.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Sua Thong Tin Ca Nhan JSP</servlet-name>
+  	<url-pattern>/suathongtin.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+   	<servlet-name>Quan Ly Bai Viet JSP</servlet-name>
+  	<jsp-file>/user/QuanLyBai.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Quan Ly Bai Viet JSP</servlet-name>
+  	<url-pattern>/quanlybai.jsp</url-pattern>
+  </servlet-mapping>
+    <servlet>
+   	<servlet-name>Quan Ly Bai Da Danh Dau JSP</servlet-name>
+  	<jsp-file>/user/Bookmark.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Quan Ly Bai Da Danh Dau JSP</servlet-name>
+  	<url-pattern>/bookmark.jsp</url-pattern>
+  </servlet-mapping>
+      <servlet>
+   	<servlet-name>Sua Bai Viet JSP</servlet-name>
+  	<jsp-file>/admin/SuaBaiViet.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Sua Bai Viet JSP</servlet-name>
+  	<url-pattern>/suabaiviet.jsp</url-pattern>
+  </servlet-mapping>
+     <servlet>
+   	<servlet-name>Sua Thanh Vien JSP</servlet-name>
+  	<jsp-file>/admin/SuaThanhVien.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Sua Thanh Vien JSP</servlet-name>
+  	<url-pattern>/suathanhvien.jsp</url-pattern>
   </servlet-mapping>
   
     <!-- 
