@@ -331,11 +331,11 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tintuc2.id }">${pageScope.tintuc2.title
 											} </a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tintuc3.id }">${pageScope.tintuc3.title
 											} </a></li>
 
@@ -387,11 +387,11 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.baomat2.id }">${pageScope.baomat2.title
 											}</a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.baomat3.id }">${pageScope.baomat3.title
 											}</a></li>
 
@@ -446,11 +446,11 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.phancung2.id }">${pageScope.phancung2.title
 											}</a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.phancung3.id }">${pageScope.phancung3.title
 											}</a></li>
 
@@ -504,11 +504,11 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.phanmem2.id }">${pageScope.phanmem2.title
 											}</a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.phanmem2.id }">${pageScope.phanmem2.title
 											}</a></li>
 
@@ -563,11 +563,11 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.hedieuhanh2.id }">${pageScope.hedieuhanh2.title
 											}</a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.hedieuhanh3.id }">${pageScope.hedieuhanh3.title
 											}</a></li>
 
@@ -621,11 +621,11 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.thietbiso2.id }">${pageScope.thietbiso2.title
 											}</a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.thietbiso3.id }">${pageScope.thietbiso3.title
 											}</a></li>
 
@@ -675,10 +675,10 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.game2.id }">${pageScope.game2.title }</a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.game3.id }">${pageScope.game3.title }</a></li>
 
 								</ul>
@@ -728,10 +728,10 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.thuthuat2.id }">${pageScope.thuthuat2.title }</a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.thuthuat3.id }">${pageScope.thuthuat3.title }</a></li>
 
 								</ul>
@@ -779,10 +779,10 @@
 
 								<ul>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.hoidap2.id }">${pageScope.hoidap2.title }</a></li>
 
-									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<li><img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.hoidap3.id }">${pageScope.hoidap3.title }</a></li>
 
 								</ul>
@@ -859,56 +859,56 @@
 							<div class="title_new">
 
 								<div>
-									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
 										}</a>
 								</div>
 
 
 								<div>
-									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
 										}</a>
 								</div>
 
 
 								<div>
-									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
 										}</a>
 								</div>
 
 
 								<div>
-									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
 										}</a>
 								</div>
 
 
 								<div>
-									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
 										}</a>
 								</div>
 
 
 								<div>
-									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
 										}</a>
 								</div>
 
 
 								<div>
-									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
 										}</a>
 								</div>
 
 
 								<div>
-									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
 										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
 										}</a>
 								</div>

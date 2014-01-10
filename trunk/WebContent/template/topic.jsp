@@ -12,8 +12,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<%
+		//TODO START
+		String id = (String) request.getAttribute("id");
+		TopicEntity topic = TopicDAO.load(id);
+		pageContext.setAttribute("topic", topic);
+		
+		String subMenu = TopicDAO.loadSubMenu(id);
+		String mainMenu = TopicDAO.loadMainMenu(id);
+		
+		String linkSubMenu = TopicDAO.loadLinkSub(subMenu);
+		String linkMainMenu = TopicDAO.loadLinkMain(mainMenu);
+	%>
 
-<title>Tiêu đề</title>
+<title>${pageScope.topic.title }</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
@@ -188,35 +200,21 @@
         <div id="ctLeft_detail">
 <div class="news_detail">
 	<div class="tit">
-		<%
-		//TODO START
-		String id = (String) request.getAttribute("id");
-		TopicEntity topic = TopicDAO.load(id);
-		String title = topic.getTitle();
-		Date date = topic.getDateCreated();
-		String content = topic.getContent();
-		String author = topic.getAuthor();
-		String subMenu = TopicDAO.loadSubMenu(id);
-		String mainMenu = TopicDAO.loadMainMenu(id);
-		String linkSubMenu = TopicDAO.loadLinkSub(subMenu);
-		String linkMainMenu = TopicDAO.loadLinkMain(mainMenu);
-	%>
+	
 		
-				<a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="22" align="absmiddle" border="0"></a> »&nbsp;<a href="<%=linkMainMenu %>"><%=mainMenu %></a>&nbsp;»&nbsp;<a href="<%=linkSubMenu%>"><%=subMenu %></a>
+				<a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="22" align="middle" border="0"></a> »&nbsp;<a href="<%=linkMainMenu %>"><%=mainMenu %></a>&nbsp;»&nbsp;<a href="<%=linkSubMenu%>"><%=subMenu %></a>
 			
 	</div>
 	<div class="ctm">
 
 		
-				<h1 class="title_article">
-					
-						<%=title %></h1>
+				<h1 class="title_article">${pageScope.topic.title }</h1>
 				<div class="infoUpdate">
 					<table border="0" cellpadding="0" cellspacing="0" width="676">
 						<tbody><tr>
 							<td width="415">
-								Cập nhật lúc
-								 <%=date %>
+								Cập nhật lúc ${pageScope.topic.dateCreated }
+								 
 							 </td>
 							 
 								
@@ -227,62 +225,18 @@
 				<div class="infoDetail">
 				
 					<table border="0" cellpadding="0" cellspacing="0" width="100%">
-						<tbody><tr>
-							<td>
-							<div id="baiviet">
-							<%=content %>
-<p style="text-align: right;"><em><strong><%=author %></strong></em></p>
-								
-							</div>
-							</td>
-						</tr>
-					</tbody></table>
-					
-				</div>
-				<div>
-					<table border="0" cellpadding="0" cellspacing="0" width="100%">
-						<tbody><tr>
-							<td colspan="5" align="right">
-								
-							</td>
-						</tr>
-						<tr>
-							
-						</tr>
-						
-						
+						<tbody>
 							<tr>
-							<td width="27%" class="bookmark">
-								<a id="favorites" tabindex="2" href="#" onmouseover="_atw.shv(this)" onmouseout="_atw.rhv(this)" onclick="return addthis_sendto('favorites');"><span>Yêu Thích</span></a>
-							</td>
-							
-							
-							<td width="28%" class="share">
-								<img src="Image/icon_phanhoi_03.jpg"><a title="Bình luận, nhận xét, tranh luận, góp ý cho bài này" href="/hp-pavilion-14-15-va-nhung-nang-cap-dang-gia-105663#comments">
-									&nbsp; Phản hồi</a>
-							</td>
-							<td width="45%" class="danhgia">
-								<div class="rating">
-								Đánh giá(<a href="javascript:void(0);" onclick="alert(this.title)" title="Nhấn chuột vào các ngôi sao để đánh giá">?</a>):
-								<span class="value-title" title="0"><a href="javascript:void(0);" onclick="dorate(105663,1,'oqiooih012qawuyb42uveqob')" title="1 điểm"><img onmouseover="rateover(this,0)" onmouseout="rateout(this,0)" id="dorate1" src="Image/ra.gif" border="0" height="11" hspace="1" width="11"></a><a href="javascript:void(0);" onclick="dorate(105663,2,'oqiooih012qawuyb42uveqob')" title="2 điểm"><img onmouseover="rateover(this,0)" onmouseout="rateout(this,0)" id="dorate2" src="Image/ra.gif" border="0" height="11" hspace="1" width="11"></a><a href="javascript:void(0);" onclick="dorate(105663,3,'oqiooih012qawuyb42uveqob')" title="3 điểm"><img onmouseover="rateover(this,0)" onmouseout="rateout(this,0)" id="dorate3" src="Image/ra.gif" border="0" height="11" hspace="1" width="11"></a><a href="javascript:void(0);" onclick="dorate(105663,4,'oqiooih012qawuyb42uveqob')" title="4 điểm"><img onmouseover="rateover(this,0)" onmouseout="rateout(this,0)" id="dorate4" src="Image/ra.gif" border="0" height="11" hspace="1" width="11"></a><a href="javascript:void(0);" onclick="dorate(105663,5,'oqiooih012qawuyb42uveqob')" title="5 điểm"><img onmouseover="rateover(this,0)" onmouseout="rateout(this,0)" id="dorate5" src="Image/ra.gif" border="0" height="11" hspace="1" width="11"></a></span></div>
-							</td>
-						</tr>
-						
-						<tr>
-							
-						</tr>
-								   
-						<tr>
-							
-						</tr>
-
-	                  <tr>
-							<td colspan="5"><div id="comments"><div class="fb-comments" data-href="http://www.quantrimang.com.vn/C:/Users/Nguyen%20Tan%20Tai/Downloads/moi/HP%20Pavilion%2014%20&amp;%2015%20v%C3%A0%20nh%E1%BB%AFng%20n%C3%A2ng%20c%E1%BA%A5p%20%C4%91%C3%A1ng%20gi%C3%A1%20%20%20Qu%E1%BA%A3n%20Tr%E1%BB%8B%20M%E1%BA%A1ng%20-%20QuanTriMang.com.htm" data-width="650" data-num-posts="10"></div></div>
-								
-							</td>
-						</tr>
-
-					</tbody></table>
+								<td>
+									<div id="baiviet">${pageScope.topic.content }
+									
+										<p style="text-align: right;"><em><strong>${pageScope.topic.author }</strong></em></p>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
 				</div>
 				
 			
@@ -462,81 +416,81 @@
                 <div class="focus">
                     
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Modem D-Link, Tenda của Trung Quốc cài sẵn mã độc
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a  href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a  href=""><img src="Image/icon.jpg" align="middle">
                                     Làm thế nào để khôi phục ID tài khoản iTunes?
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Khắc phục lỗi 100% Disk trên Windows 8/8.1
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Mẹo tận dụng sức mạnh tối đa của card đồ hoạ
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Hệ điều hành Windows sinh nhật tròn 30 năm tuổi
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Google tung "độc chiêu" phòng chống DDoS
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Cách nhanh nhất để chia sẻ kết nối Wifi
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Mẹo sử dụng iDevice không cần iTunes
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Sử dụng Email theo tên miền với Windows Live
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Cách phòng tránh các tác hại khi sử dụng laptop</a></div>
                                     <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Cách phòng tránh các tác hại khi sử dụng laptop</a></div>
                                     <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Cách phòng tránh các tác hại khi sử dụng laptop</a></div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
+                                <a href=""><img src="Image/icon.jpg" align="middle">
                                     Quản lý toàn diện iCloud từ máy tính
                                 </a>
                           
