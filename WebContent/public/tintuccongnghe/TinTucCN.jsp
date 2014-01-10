@@ -218,22 +218,17 @@
 					<div class="topnew">
 
 						<div class="title_topnew">
-							<a href="cach sua loi lag chuot tren windows 8.1"><span>
-									Ai sẽ giết chết "tiền ảo" Bitcoin? </span></a>
+							<a href="load?id=${pageScope.tintuc1.id }"><span>${pageScope.tintuc1.title }</span></a>
 						</div>
 						<div>
 							<table border="0" cellpadding="0" cellspacing="0" width="100%">
 								<tbody>
 									<tr>
 										<td class="img_top"><a
-											href="/cach-sua-loi-lag-chuot-tren-windows-8-1-105457"><img
-												src="Image/Bitcoin-1.jpg" height="265" align="left"
+											href="load?id=${pageScope.tintuc1.id }"><img
+												src="${pageScope.tintuc1.url_daidien }" height="265" align="left"
 												border="0" hspace="3" vspace="3"></a></td>
-										<td class="ctt_top" valign="top">Đúng 2 năm về trước,
-											Wired cho đăng tải một bài báo có tên "Sự trỗi dậy và sụp đổ
-											của Bitcoin". Trong khi Wired đã đúng về sự trỗi dậy của
-											Bitcoin, ngày sụp đổ của đồng tiền ảo này liệu có còn quá
-											xa?&nbsp;</td>
+										<td class="ctt_top" valign="top">${pageScope.tintuc1.header }&nbsp;</td>
 									</tr>
 								</tbody>
 							</table>
@@ -249,41 +244,38 @@
 
 									<td><span>
 											<div class="boxsub">
-												<a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-													<img src="Image/internet5.jpg" border="0">
+												<a href="load?id=${pageScope.tintuc2.id }">
+													<img src="${pageScope.tintuc2.url_daidien }" border="0">
 												</a>
 											</div>
 											<div class="title_boxsub">
-												<a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-													Báo cáo tổng kết xu hướng Internet toàn cầu 2013</a>
+												<a href="load?id=${pageScope.tintuc2.id }">${pageScope.tintuc2.title }</a>
 											</div>
 									</span></td>
 
 									<td><span>
 											<div class="boxsub">
 												<a
-													href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-													<img src="Image/doanh-nghiep-1.jpg" border="0">
+													href="load?id=${pageScope.tintuc3.id }">
+													<img src="${pageScope.tintuc3.url_daidien }" border="0">
 												</a>
 											</div>
 											<div class="title_boxsub">
 												<a
-													href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-													Cắt cáp, “khoảng tối” doanh nghiệp công nghệ Việt</a>
+													href="load?id=${pageScope.tintuc3.id }">${pageScope.tintuc3.title }</a>
 											</div>
 									</span></td>
 
 									<td><span>
 											<div class="boxsub">
 												<a
-													href="4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-													<img src="Image/iPhone2.jpg" border="0">
+													href="load?id=${pageScope.tintuc4.id }">
+													<img src="${pageScope.tintuc4.url_daidien }" border="0">
 												</a>
 											</div>
 											<div class="title_boxsub">
 												<a
-													href="/4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-													Viettel sẽ bán dòng máy iPhone từ ngày 15/11/2013</a>
+													href="load?id=${pageScope.tintuc4.id }">${pageScope.tintuc4.title }</a>
 											</div>
 									</span></td>
 
@@ -293,7 +285,20 @@
 
 					</div>
 
-
+			<%
+				List<TopicEntity> trongnuoc = TopicDAO.loadBySubMenu("trongnuoc");
+				TopicEntity trongnuoc1 = trongnuoc.get(0);
+				TopicEntity trongnuoc2 = trongnuoc.get(1);
+				TopicEntity trongnuoc3 = trongnuoc.get(2);
+				TopicEntity trongnuoc4 = trongnuoc.get(3);
+				TopicEntity trongnuoc5 = trongnuoc.get(4);
+				
+				pageContext.setAttribute("trongnuoc1", trongnuoc1);
+				pageContext.setAttribute("trongnuoc2", trongnuoc2);
+				pageContext.setAttribute("trongnuoc3", trongnuoc3);
+				pageContext.setAttribute("trongnuoc4", trongnuoc4);
+				pageContext.setAttribute("trongnuoc5", trongnuoc5);
+			%>
 					<div class="wbox cat">
 						<div class="tit">
 
@@ -304,19 +309,16 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Đà Nẵng:
-									Quản lý đô thị qua… Facebook</a>
+								<a href="load?id=${pageScope.trongnuoc1.id }">${pageScope.trongnuoc1.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a
-												href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img
-													src="Image/facebook-1.jpg" align="left" border="0"
-													hspace="3" vspace="3"></a> Hàng ngàn phản ánh của người
-												dân đã được Phòng Quản lý đô thị TP Đà Nẵng tiếp nhận, xử lý
-												thông qua mạng xã hội phổ biến nhất hiện nay.</td>
+												href="load?id=${pageScope.trongnuoc1.id }"><img
+													src="${pageScope.trongnuoc1.url_daidien }" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.trongnuoc1.header }</td>
 
 										</tr>
 									</tbody>
@@ -324,21 +326,16 @@
 							</div>
 
 							<div class="title_article">
-								<a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Doanh
-									nghiệp thí điểm nộp thuế điện tử từ 1/2014</a>
+								<a href="load?id=${pageScope.trongnuoc2.id }">${pageScope.trongnuoc2.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a
-												href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img
-													src="Image/doanh-nghiep.jpg" align="left" border="0"
-													hspace="3" vspace="3"></a> Giai đoạn thí điểm của dự án
-												nộp thuế điện tử sẽ được triển khai từ tháng 1/2014, với sự
-												tham gia của tối thiểu 1.000 doanh nghiệp tại 3 địa phương
-												đang thực hiện khai thuế qua mạng gồm Hà Nội, Bắc Ninh và
-												Vĩnh Phúc.</td>
+												href="load?id=${pageScope.trongnuoc2.id }"><img
+													src="${pageScope.trongnuoc2.url_daidien }" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.trongnuoc2.header }</td>
 
 										</tr>
 									</tbody>
@@ -346,20 +343,16 @@
 							</div>
 
 							<div class="title_article">
-								<a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Tăng cước
-									3G là hợp lý, đúng lộ trình</a>
+								<a href="load?id=${pageScope.trongnuoc3.id }">${pageScope.trongnuoc3.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a
-												href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img
-													src="Image/cuoc-3g2.jpg" align="left" border="0" hspace="3"
-													vspace="3"></a> Theo số liệu của Cục Viễn thông (Bộ
-												TT&TT), trong lần điều chỉnh tăng giá cước 3G vừa qua, có
-												45% thuê bao 3G giữ nguyên giá, 13% thuê bao được giảm giá
-												gói cước, và 42% thuê bao bị tăng giá cước.</td>
+												href="load?id=${pageScope.trongnuoc3.id }"><img
+													src="${pageScope.trongnuoc3.url_daidien }" align="left" border="0" hspace="3"
+													vspace="3"></a>${pageScope.trongnuoc3.header }</td>
 
 										</tr>
 									</tbody>
@@ -371,12 +364,10 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448">VN
-											yêu cầu Australia, Mỹ giải thích vụ “nghe lén" </a></li>
+										href="load?id=${pageScope.trongnuoc4.id }">${pageScope.trongnuoc4.title } </a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/da-nang-quan-ly-do-thi-qua-facebook-105446">Batdongsan.com.vn
-											cấp dữ liệu cho nhà môi giới </a></li>
+										href="load?id=${pageScope.trongnuoc5.id }">${pageScope.trongnuoc5.title }</a></li>
 
 								</ul>
 
@@ -387,7 +378,20 @@
 
 					</div>
 
-
+			<%
+				List<TopicEntity> quocte = TopicDAO.loadBySubMenu("quocte");
+				TopicEntity quocte1 = quocte.get(0);
+				TopicEntity quocte2 = quocte.get(1);
+				TopicEntity quocte3 = quocte.get(2);
+				TopicEntity quocte4 = quocte.get(3);
+				TopicEntity quocte5 = quocte.get(4);
+				
+				pageContext.setAttribute("quocte1", quocte1);
+				pageContext.setAttribute("quocte2", quocte2);
+				pageContext.setAttribute("quocte3", quocte3);
+				pageContext.setAttribute("quocte4", quocte4);
+				pageContext.setAttribute("quocte5", quocte5);
+			%>
 					<div class="wbox cat">
 						<div class="tit">
 							<a href="tinquocte.jsp" title="Chuyên mục 'Tin quốc tế'">Quốc
@@ -397,59 +401,48 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a href="/google-tung-doc-chieu-phong-chong-ddos-105403">Anonymous
-									tấn công nhiều cơ quan chính phủ Mỹ</a>
+								<a href="load?id=${pageScope.quocte1.id }">${pageScope.quocte1.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a
-												href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img
-													src="Image/anonymous-1.jpg" align="left" border="0"
-													hspace="3" vspace="3"></a> Báo cáo từ Cơ quan Điều tra
-												Liên bang Mỹ (FBI) cho biết tin tặc có liên hệ với nhóm
-												Anonymous đã truy cập vào hệ thống máy tính của các cơ quan
-												chính phủ Mỹ và lấy đi nhiều thông tin mật.</td>
+												href="load?id=${pageScope.quocte1.id }"><img
+													src="${pageScope.quocte1.url_daidien }" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.quocte1.header }</td>
 
 										</tr>
 									</tbody>
 								</table>
 							</div>
 							<div class="title_article">
-								<a href="/google-tung-doc-chieu-phong-chong-ddos-105403">Châu
-									Âu cho dùng thiết bị điện tử trên máy bay</a>
+								<a href="load?id=${pageScope.quocte2.id }">${pageScope.quocte2.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a
-												href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img
-													src="Image/smartphone-plane.jpg" align="left" border="0"
-													hspace="3" vspace="3"></a> Châu Âu đã chính thức cho phép
-												dùng thiết bị điện tử cá nhân trên máy bay. Có khả năng bắt
-												đầu từ cuối tháng 11/2013, các hãng hàng không châu Âu sẽ
-												bắt đầu áp dụng quy định mới này.</td>
+												href="load?id=${pageScope.quocte2.id }"><img
+													src="${pageScope.quocte2.url_daidien }" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.quocte2.header }</td>
 
 										</tr>
 									</tbody>
 								</table>
 							</div>
 							<div class="title_article">
-								<a href="/google-tung-doc-chieu-phong-chong-ddos-105403">Apple
-									đóng cửa iTunes Connect từ 21/12 đến 27/12</a>
+								<a href="load?id=${pageScope.quocte3.id }">${pageScope.quocte3.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
 											<td class="image" valign="top"><a
-												href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img
-													src="Image/iTunesConnect.jpg" align="left" border="0"
-													hspace="3" vspace="3"></a> Trong thời gian tạm đóng cửa
-												iTunes Connect (21/12 - 27/12), lập trình viên không thể đệ
-												trình cập nhật hoặc thay đổi giá ứng dụng.</td>
+												href="load?id=${pageScope.quocte3.id }"><img
+													src="${pageScope.quocte3.url_daidien }" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.quocte3.header }</td>
 
 										</tr>
 									</tbody>
@@ -460,19 +453,32 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/nhom-tin-tac-trung-quoc-danh-cap-bi-mat-cong-ty-my-105390">Nhật
-											Bản hỗ trợ ASEAN tăng cường an ninh mạng </a></li>
+										href="load?id=${pageScope.quocte4.id }">${pageScope.quocte4.title }</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/trojan-moi-kho-phat-hien-tan-cong-lo-hong-ie-105360">Google
-											vẫn là “Vua” tìm kiếm tại thị trường Mỹ </a></li>
+										href="load?id=${pageScope.quocte5.id }">${pageScope.quocte5.title }</a></li>
 
 								</ul>
 							</div>
 						</div>
 
 					</div>
-
+					
+					
+			<%
+				List<TopicEntity> tinkhac = TopicDAO.loadBySubMenu("tinkhac");
+				TopicEntity tinkhac1 = tinkhac.get(0);
+				TopicEntity tinkhac2 = tinkhac.get(1);
+				TopicEntity tinkhac3 = tinkhac.get(2);
+				TopicEntity tinkhac4 = tinkhac.get(3);
+				TopicEntity tinkhac5 = tinkhac.get(4);
+				
+				pageContext.setAttribute("tinkhac1", tinkhac1);
+				pageContext.setAttribute("tinkhac2", tinkhac2);
+				pageContext.setAttribute("tinkhac3", tinkhac3);
+				pageContext.setAttribute("tinkhac4", tinkhac4);
+				pageContext.setAttribute("tinkhac5", tinkhac5);
+			%>
 					<div class="wbox cat">
 						<div class="tit">
 
@@ -482,37 +488,30 @@
 						<div class="ctm">
 
 							<div class="title_article">
-								<a href="/">Khuyến mại tưng bừng mừng sinh nhật VDC</a>
+								<a href="load?id=${pageScope.tinkhac1.id }">${pageScope.tinkhac1.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
-											<td class="image" valign="top"><a href="/"><img
-													src="Image/vdc.jpg" align="left" border="0" hspace="3"
-													vspace="3"></a> “Khuyến mại tưng bừng Mừng sinh nhật VDC”
-												– Cơ hội nhận nhiều quà tặng hấp dẫn: Tivi LED 55’’, Điện
-												thoại Iphone 5S/Iphone 5, Điện thoại Galaxy S4/S3 và nhiều
-												thẻ mua hàng BigC.</td>
+											<td class="image" valign="top"><a href="load?id=${pageScope.tinkhac1.id }"><img
+													src="${pageScope.tinkhac1.url_daidien }" align="left" border="0" hspace="3"
+													vspace="3"></a>${pageScope.tinkhac1.header }</td>
 
 										</tr>
 									</tbody>
 								</table>
 							</div>
 							<div class="title_article">
-								<a href="/">Kingston ra mắt thành công 11 cửa hàng tin cậy</a>
+								<a href="load?id=${pageScope.tinkhac2.id }">${pageScope.tinkhac2.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
-											<td class="image" valign="top"><a href="/"><img
-													src="Image/Kingston-2.jpg" align="left" border="0"
-													hspace="3" vspace="3"></a> Hãng bộ nhớ của Mỹ Kingston
-												Technology ra mắt hệ thống 11 "Cửa hàng tin cậy” tại Hà Nội
-												và TP Hồ Chí Minh. Đây là những cửa hàng bán lẻ đầu tiên
-												được Kingston chứng nhận giúp người tiêu dùng an tâm khi mua
-												sắm các sản phẩm.</td>
+											<td class="image" valign="top"><a href="load?id=${pageScope.tinkhac2.id }"><img
+													src="${pageScope.tinkhac2.url_daidien }" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.tinkhac2.header }</td>
 
 										</tr>
 									</tbody>
@@ -520,18 +519,15 @@
 							</div>
 
 							<div class="title_article">
-								<a href="/">iPMAC chính thức giảng dạy khóa học MCSA 2012</a>
+								<a href="load?id=${pageScope.tinkhac3.id }">${pageScope.tinkhac3.title }</a>
 							</div>
 							<div>
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
-											<td class="image" valign="top"><a href="/"><img
-													src="Image/MCSA-2012-1.jpg" align="left" border="0"
-													hspace="3" vspace="3"></a> Từ tháng 06/2013, iPMAC chính
-												thức đưa vào giảng dạy khóa học MCSA 2012 dựa trên nền tảng
-												hệ điều hành máy chủ Windows Server 2012, hệ điều hành mới
-												nhất của Microsoft cho đến thời điểm hiện nay.</td>
+											<td class="image" valign="top"><a href="load?id=${pageScope.tinkhac3.id }"><img
+													src="${pageScope.tinkhac3.url_daidien }" align="left" border="0"
+													hspace="3" vspace="3"></a>${pageScope.tinkhac3.header }</td>
 
 										</tr>
 									</tbody>
@@ -544,11 +540,10 @@
 								<ul>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">9 sự kiện iPMAC tiêu biểu </a></li>
+										href="load?id=${pageScope.tinkhac4.id }">${pageScope.tinkhac4.title }</a></li>
 
 									<li><img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Kỷ niệm 9 năm ngày thành lập Học viện CNTT iPMAC
-									</a></li>
+										href="load?id=${pageScope.tinkhac5.id }">${pageScope.tinkhac5.title }</a></li>
 
 								</ul>
 
@@ -592,7 +587,26 @@
 
 
 				<div class="content_right">
+<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
 
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
 					<div class="news">
 						<div class="tit">
 
@@ -605,50 +619,57 @@
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Ai sẽ giết chết "tiền ảo" Bitcoin?</a>
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Anonymous tấn công nhiều cơ quan chính phủ Mỹ</a>
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Đà Nẵng: Quản lý đô thị qua… Facebook </a>
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Châu Âu cho dùng thiết bị điện tử trên máy bay </a>
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Google vẫn là “Vua” tìm kiếm tại thị trường Mỹ</a>
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Apple đóng cửa iTunes Connect từ 21/12 đến 27/12
-									</a>
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Nhật Bản hỗ trợ ASEAN tăng cường an ninh mạng </a>
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
 								</div>
 
 
 								<div>
 									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
-										href="/">Doanh nghiệp thí điểm nộp thuế điện tử từ 1/2014</a>
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
 								</div>
 
 
@@ -659,6 +680,34 @@
 							</div>
 
 						</div>
+
+
+
+
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
 						<div class="space"></div>
 
 					</div>
@@ -673,139 +722,135 @@
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Task-Manager.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
 										height="174" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/8-cong-dung-khong-ngo-cua-task-manager-105027"> 8
-										công dụng không ngờ của Task Manager </a>
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
 								</div>
 							</div>
 
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a
-										href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img
-										src="Image/Windows-81.jpg" width="142" height="169" hspace="3"
-										vspace="3" align="left" border="0"></a>
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a
-										href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
-										Hướng dẫn nâng cấp lên Windows 8.1 bằng hình ảnh </a>
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a
-										href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img
-										src="Image/Dong-bo-1.jpg" width="142" height="154" hspace="3"
-										vspace="3" align="left" border="0"></a>
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a
-										href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119">
-										Xóa bỏ dữ liệu đồng bộ trên mây từ Windows 8.1 </a>
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img
-										src="Image/Ubuntu.jpg" width="142" height="172" hspace="3"
-										vspace="3" align="left" border="0"></a>
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
-										Kích hoạt bộ gõ Tiếng Việt trên Ubuntu 13.10 </a>
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a
-										href="/modem-d-link-tenda-cua-trung-quoc-cai-san-ma-doc-105160"><img
-										src="Image/D-Link-1.jpg" width="142" height="163" hspace="3"
-										vspace="3" align="left" border="0"></a>
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a
-										href="/nhieu-modem-d-link-tenda-cua-trung-quoc-da-duoc-cai-san-ma-doc-105160">
-										Modem D-Link, Tenda của Trung Quốc cài sẵn mã độc </a>
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Outlook.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
 										height="154" hspace="3" vspace="3" align="left" border="0"></a>
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Mẹo hay khắc phục sự cố kết nối trên Outlook </a>
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Phan-cung.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Xác định phần cứng nào trong máy tính đang
-										hỏng </a>
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/iOS-7.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Apple chính thức tung ra bản cập nhật iOS
-										7.0.3 </a>
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Windows-81-1.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
 										height="145" hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Hướng dẫn nâng cấp lên Windows 8.1 bằng hình
-										ảnh </a>
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
 								</div>
 							</div>
 
 							<div class="box1">
 								<div class="img_tieudiem">
-									<a href="/"><img src="Image/Facebook-Page.jpg" width="142"
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
 										hspace="3" vspace="3" align="left" border="0"></a>
 
 								</div>
 								<div class="title_tieudiem">
-									<a href="/"> Cách chuyển Facebook cá nhân thành Facebook
-										Page </a>
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
 								</div>
 							</div>
 						</div>
 					</div>
-
-
-
-
-
 
 
 				</div>
@@ -832,11 +877,7 @@
 			<div class="line"></div>
 			<div class="info">
 				<div class="info_left">
-					Information Technology - Chuyên trang về Công nghệ thông tin.<br>
-					Giấy phép số 1133/GP – BTTTT ngày 1/1/2014 của Bộ thông tin truyền
-					thông.<br> Tổng Biên tập: Nguyễn Tấn Tài. Phó Tổng biên tập:
-					Nguyễn Văn Nú, Lương Văn Nhẫn.<br> Cơ quan chủ quản: NTN
-					Coporation Entertainment Education Information Technology.
+					Chuyên trang về Công nghệ thông tin.<br> Giấy phép số 1133/GP – BTTTT ngày 1/1/2014 của Bộ thông tin truyền thông.<br> Đặng Ngọc Tiến, Huỳnh Thanh Điền<br> Đại học Nông Lâm, khoa Công nghệ thông tin.
 				</div>
 				<div class="info_right">
 					<div class="logo_footer">
