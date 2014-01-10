@@ -1,4 +1,4 @@
-
+﻿
 <%@page import="entity.UserEntity"%>
 <%
 	request.setCharacterEncoding("utf8");
@@ -184,11 +184,17 @@
 						  <p>
 						    <%//TODO 
 						UserEntity user = (UserEntity) session.getAttribute("user");
-						if (user == null) response.sendRedirect("dangnhap.jsp");
+						    System.out.println(user.getUsername());
+						if (user == null)
 						%>
+						
+						<jsp:forward page="/dangnhap.jsp"></jsp:forward>
+						    <a href="doimatkhau.jsp">Đổi Mật Khẩu</a>						    </p>
+
 						    <a href="suathongtin.jsp">Sửa thông tin cá nhân</a>						    </p>
 						  <p><br/><a href="doimatkhau.jsp">Đổi Mật Khẩu</a></p>
 						  <p><br/><a href="post.jsp">Đăng Bài</a></p>
+
 						  <p><br/>
 						    <a href="quanlybai.jsp">Quản lí bài đã viết</a>						    </p>
 						  <p><br/>
