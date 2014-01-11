@@ -18,7 +18,7 @@
 	font-size: 16px;
 	font-weight: bold;
 	text-decoration: none;
-	color: #030;
+	color: #009;
 }
 .news_detail div {
 	margin-left: 40px;
@@ -28,17 +28,19 @@
 }
 .news_detail #tcn {
 	margin-left: 0px;
-	background-color: #CF9;
-	border: 1px solid #000;
+	background-color: #FF9;
+	border: 1px solid #FF0;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: bold;
+	color: #000;
+}
+.news_detail div center p a {
+	font-style: italic;
 }
 .news_detail {
-	border: 1px solid #000;
-	background-color: #FFC;
-}
-#tcn {
-	font-size: 18px;
-	font-style: italic;
-	font-weight: bold;
+	border: 1px solid #FC0;
+	background-color: #AEFFAE;
 }
 </style>
 </head>
@@ -200,24 +202,18 @@
 						  <p>
 						    <%//TODO 
 						UserEntity user = (UserEntity) session.getAttribute("user");
-						    System.out.println(user.getUsername());
-						if (user == null)
+						if (user == null) response.sendRedirect("dangnhap.jsp");
 						%>
-						
-						<jsp:forward page="/dangnhap.jsp"></jsp:forward>
-						    <a href="doimatkhau.jsp">Đổi Mật Khẩu</a>						    </p>
-
 						    <a href="suathongtin.jsp">Sửa thông tin cá nhân</a>						    </p>
 						  <p><br/><a href="doimatkhau.jsp">Đổi Mật Khẩu</a></p>
 						  <p><br/><a href="post.jsp">Đăng Bài</a></p>
-
 						  <p><br/>
 						    <a href="quanlybai.jsp">Quản lí bài đã viết</a>						    </p>
 						  <p><br/>
 						    <a href="bookmark.jsp">Các bài đã đánh dấu</a><a href="post.jsp"></a></p>
 						  <p><br/><a href="dangxuat">Đăng Xuất</a><a href="post.jsp"></a></p>
-						  </center>
-						
+						  
+						</center>
 					</div>
 
 
