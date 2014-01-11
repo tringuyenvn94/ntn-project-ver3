@@ -10,7 +10,7 @@ body {
 	background-image: url(../Image/body.png);
 	margin: 0;
 	padding: 0;
-	line-height: 25px;
+	line-height: 30px;
 }
 
 .container {
@@ -36,7 +36,7 @@ body {
 {
 	background-image: url(../Image/b.jpg);
 	background-repeat: no-repeat;
-	background-position: 280px;
+	background-position: 300px;
 	width: 999px;
 	height: 160px;
 	margin: auto;
@@ -167,7 +167,7 @@ body {
 {
 	width:999px;
 	height:auto;
-	line-height:20px;
+	line-height:25px;
 	padding:5px;
 	overflow:hidden;
 }
@@ -553,7 +553,6 @@ padding:0;
 	height: 400px;
 	margin-top: -5px;
 	margin-left: 37px;
-	
 }
 #ads_right div a img {
 	width: 125px;
