@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -182,19 +185,28 @@
            
                                
 <div class="bag">
-   
+   					
+   						<%
+                        	
+                        	List<TopicEntity> thuthuattienit = TopicDAO.loadByMainId("thuthuattienit");
+                        	TopicEntity thuthuattienich1 = thuthuattienit.get(0);
+                        	
+                        	pageContext.setAttribute("thuthuattienich1", thuthuattienich1);
+                        
+                       %>
+   					
        
                 <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span> Cách sửa lỗi lag chuột trên Windows 8.1 </span></a>
+                    <a href="load?id=${pageScope.thuthuattienich1.id }"><span> ${pageScope.thuthuattienich1.title } </span></a>
                 </div>
                 <div>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="Image/windows-8.jpg" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
+                                <a href="load?id=${pageScope.thuthuattienich1.id }"><img src="${pageScope.thuthuattienich1.url_daidien }" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
                             </td>
                             <td class="content_top" valign="top" align="left">
- Lỗi lag chuột khi chơi game trên các máy tính chạy Windows 8.1 đã gây ra không ít khó chịu cho game thủ. Một trong những điểm mới trên Windows 8.1 là hệ điều hành này hỗ trợ tốt hơn cho các màn hình có DPI cao.                           </td>
+ 								${pageScope.thuthuattienich1.header }          </td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -203,19 +215,56 @@
                         </div>
                         <div class="subcontent">
                         
+                        		
+                        		<%
+                        	List<TopicEntity> tt_ti = TopicDAO.loadBySubMenu("thuathuattienich");
+                        	TopicEntity tt_ti1 = tt_ti.get(0);
+                        	TopicEntity tt_ti2 = tt_ti.get(1);
+                        	TopicEntity tt_ti3 = tt_ti.get(2);
+                        	TopicEntity tt_ti4 = tt_ti.get(3);
+                        	TopicEntity tt_ti5 = tt_ti.get(4);
+                        	TopicEntity tt_ti6 = tt_ti.get(5);
+                        	TopicEntity tt_ti7 = tt_ti.get(6);
+                        	TopicEntity tt_ti8 = tt_ti.get(7);
+                        	TopicEntity tt_ti9 = tt_ti.get(8);
+                        	TopicEntity tt_ti10 = tt_ti.get(9);
+                        	TopicEntity tt_ti11 = tt_ti.get(10);
+                        	TopicEntity tt_ti12 = tt_ti.get(11);
+                        	TopicEntity tt_ti13 = tt_ti.get(12);
+                        	TopicEntity tt_ti14 = tt_ti.get(13);
+
+                        	
+                        	pageContext.setAttribute("tt_ti1", tt_ti1);
+                        	pageContext.setAttribute("tt_ti2", tt_ti2);
+                        	pageContext.setAttribute("tt_ti3", tt_ti3);
+                        	pageContext.setAttribute("tt_ti4", tt_ti4);
+                        	pageContext.setAttribute("tt_ti5", tt_ti5);
+                        	pageContext.setAttribute("tt_ti6", tt_ti6);
+                        	pageContext.setAttribute("tt_ti7", tt_ti7);
+                        	pageContext.setAttribute("tt_ti8", tt_ti8);
+                        	pageContext.setAttribute("tt_ti9", tt_ti9);
+                        	pageContext.setAttribute("tt_ti10", tt_ti10);
+                        	pageContext.setAttribute("tt_ti11", tt_ti11);
+                        	pageContext.setAttribute("tt_ti12", tt_ti12);
+                        	pageContext.setAttribute("tt_ti13", tt_ti13);
+                        	pageContext.setAttribute("tt_ti14", tt_ti14);
+                        
+                        %>
+                        		
+                        
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tbody><tr>
                             
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                <img src="Image/smartphone-11.jpg" border="0">
+                                            <a href="load?id=${pageScope.tt_ti1.id }">
+                                                <img src="${pageScope.tt_ti1.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
- Cách sạc pin cho smartphone, tablet nhanh hơn 50%</a>
+                                            <a href="load?id=${pageScope.tt_ti1.id }">
+										 ${pageScope.tt_ti1.title }</a>
                                         </div>
                                     </span>
                                 </td>
@@ -223,13 +272,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                <img src="Image/laptop-11.jpg" border="0">
+                                            <a href="load?id=${pageScope.tt_ti2.id }">
+                                                <img src="${pageScope.tt_ti2.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
- Làm thế nào để “cứu” laptop khi bị nước vào?</a>
+                                            <a href="load?id=${pageScope.tt_ti2.id }">
+           									${pageScope.tt_ti2.title }  </a>
                                         </div>
                                     </span>
                                 </td>
@@ -237,13 +286,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                <img src="Image/1383746167-gb-ava.jpg" border="0">
+                                            <a href="load?id=${pageScope.tt_ti3.id }">
+                                                <img src="${pageScope.tt_ti3.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                               Phân nhóm bạn bè trên Facebook
+                                            <a href="load?id=${pageScope.tt_ti3.id }">
+                                               ${pageScope.tt_ti3.title }
 </a>
                                         </div>
                                     </span>
@@ -257,148 +306,148 @@
                         </div>
                    
                         <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="Image/android-2.jpg" height="179" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti4.id }">
+                                <img src="${pageScope.tt_ti4.url_daidien }" height="179" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-             Loại bỏ các thư mục ảnh trống trong máy Android
+                                <a href="load?id=${pageScope.tt_ti4.id }">
+             ${pageScope.tt_ti4.title }
 </a></p>
                             <p class="detail_ctt">
- Khi bạn mới mua máy hoặc vừa cài lại/ nâng cấp ROM thì lúc thiết lập tài khoản Google, thì hệ thống sẽ thêm một thư mục hình ảnh trong Gallery gồm các hình ảnh được tải từ trên tài khoản Google+/Picasa của bạn.            </div>
+ 								${pageScope.tt_ti4.header }           </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="Image/youtube-11.jpg" height="171" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti5.id }">
+                                <img src="${pageScope.tt_ti5.url_daidien }" height="171" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655"> Chống lại hệ thống bình luận mới của YouTube
+                                <a href="load?id=${pageScope.tt_ti5.id }"> ${pageScope.tt_ti5.title }
  </a></p>
                             <p class="detail_ctt">
- Với sự thay đổi của Google cho hệ thống bình luận của YouTube, giờ đây bạn phải có tài khoản Google+ để viết bình luận. Google còn cho phép người dùng đăng các URL trong bình luận và số ký tự là vô hạn.                             </p>
+ 								${pageScope.tt_ti5.header }                            </p>
             </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="Image/EZgif-2.jpg" height="164" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti6.id }">
+                                <img src="${pageScope.tt_ti6.url_daidien }" height="164" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                         Chỉnh sửa ảnh GIF động mà không cần đến Photoshop
+                                <a href="load?id=${pageScope.tt_ti6.id }">
+                         ${pageScope.tt_ti6.title }
 </a></p>
                             <p class="detail_ctt">
- Công nghệ ảnh GIF động đã lạc hậu nhưng đôi khi vẫn được dùng trong email hoặc trên web. Nếu chỉ cần nhanh chóng, dễ dàng sửa một ảnh GIF có sẵn, bạn hãy dùng bộ công cụ miễn phí của EZgif.com.                             </p>
+ 								${pageScope.tt_ti6.header }            </p>
             </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
           </div>
                         <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="Image/1384017260-oxford-ava.jpg" height="135" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti7.id }">
+                                <img src="${pageScope.tt_ti7.url_daidien }" height="135" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                         Từ điển Oxford cho người học tiếng Anh </a></p>
+                                <a href="load?id=${pageScope.tt_ti7.id }">
+                         ${pageScope.tt_ti7.title } </a></p>
                             <p class="detail_ctt">
-Đây là bộ từ điển Anh - Anh nổi tiếng thế giới, phục vụ cho nhu cầu nâng cao trình độ tiếng Anh chuyên nghiệp.                          </p>
+							${pageScope.tt_ti7.header }                        </p>
           </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
           </div>
                         <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="Image/windows--8.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti8.id }">
+                                <img src="${pageScope.tt_ti8.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">  Khắc phục một số lỗi khi nâng cấp lên Windows 8.1 </a></p>
+                                <a href="load?id=${pageScope.tt_ti8.id }">  ${pageScope.tt_ti8.title } </a></p>
                             <p class="detail_ctt">
- Người dùng thường than phiền về một số các rắc rối trên máy tính trước hoặc sau khi nâng cấp lên Windows 8.1. Microsoft đã phát hành rộng rãi cập nhật Windows 8.1 đến đông đảo người dùng Windows 8, và hầu hết chúng ta đều xem cập nhật này như là một bản Service Pack cho Windows 8.   </p>
+ 									${pageScope.tt_ti8.header }   </p>
             </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
           </div>
                         <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="Image/1384332172-gg-ava.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti9.id }">
+                                <img src="${pageScope.tt_ti9.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                         Gmail cho phép lưu thẳng tập tin đính kèm về Google... </a></p>
-                            <p class="detail_ctt"> Khi xem các tập tin đính kèm trong email do người khác gửi tới, người dùng Gmail có thể lưu thẳng vào “đám mây” Google Drive nhanh chóng.                             </p>
+                                <a href="load?id=${pageScope.tt_ti9.id }">
+                         ${pageScope.tt_ti9.title } </a></p>
+                            <p class="detail_ctt"> ${pageScope.tt_ti9.header }                             </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="Image/tang-toc-may-tinh.jpg" height="134" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti10.id }">
+                                <img src="${pageScope.tt_ti10.url_daidien }" height="134" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> Tăng tốc máy tính mà không phải mua phần cứng </a></p>
+                                <a href="load?id=${pageScope.tt_ti10.id }"> ${pageScope.tt_ti10.title } </a></p>
                             <p class="detail_ctt">
- Nếu một chiếc máy tính đã từng chạy nhanh đang trở nên chậm, lỗi không thực sự do phần cứng. Chắc chắn bạn có thể cải thiện tốc độ bằng việc thêm RAM, nâng cấp CPU, hoặc thay thế ổ cứng bằng ổ SSD. Tất cả những giải pháp này đều tốn tiền nhưng không giải pháp nào trong số chúng giải quyết được vấn đề cơ bản.  </p>
+ 									${pageScope.tt_ti10.header }  </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="Image/1384171310-xwidget-ava.jpg" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
+                        <div class="subcontent2"><a href="load?id=${pageScope.tt_ti11.id }"><a href="load?id=${pageScope.tt_ti11.id }"><img src="${pageScope.tt_ti11.url_daidien }" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
                           <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">
-                         Màn hình desktop thật lộng lẫy với XWidget </a></p>
+                              <a href="load?id=${pageScope.tt_ti11.id }">
+                         ${pageScope.tt_ti11.title } </a></p>
                             <p class="detail_ctt">
-XWidget mang đến một kho widget đồ sộ, tha hồ cho bạn lựa chọn để làm đẹp màn hình desktop cũng như phục vụ công việc hiệu quả hơn.                              </p>
+								${pageScope.tt_ti11.header }               </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="Image/wifi-11.jpg" height="147" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti12.id }">
+                                <img src="${pageScope.tt_ti12.url_daidien }" height="147" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                         Mẹo biến iPhone thành máy phát Wifi </a></p>
+                                <a href="load?id=${pageScope.tt_ti12.id }">
+                         ${pageScope.tt_ti12.title } </a></p>
                             <p class="detail_ctt">
- Có lẽ nhiều người dùng đã không còn lạ lẫm gì với việc biến các thiết bị Android trở thành một điểm truy cập mạng, đây là một giải pháp thuận tiện để phục vụ cho công việc hoặc giải trí ở những nơi không có kết nối này. Và đối với iPhone thì cũng không quá phức tạp để thực hiện được việc này.   </p>
+ 									${pageScope.tt_ti12.header }   </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="Image/card-do-hoa-1.jpg" height="142" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti13.id }">
+                                <img src="${pageScope.tt_ti13.url_daidien }" height="142" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                          Mẹo tận dụng sức mạnh tối đa của card đồ hoạ</a></p>
+                                <a href="load?id=${pageScope.tt_ti13.id }">
+                          ${pageScope.tt_ti13.title }</a></p>
                             <p class="detail_ctt">
- Trên Windows, bạn không bị giới hạn bởi các cài đặt đồ họa có sẵn trong game. Do đó bạn hoàn toàn có thể "ép" card đồ họa luôn thực hiện các tính năng như AF hoặc AA để game đẹp hơn, và cũng có thể tắt hoàn toàn các tính năng này để tăng tốc khi chơi game.  </p>
+ 							${pageScope.tt_ti13.header }  </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="Image/window-live0.jpg" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tt_ti14.id }">
+                                <img src="${pageScope.tt_ti14.url_daidien }" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">  Sử dụng Email theo tên miền với Windows Live</a></p>
+                          <a href="load?id=${pageScope.tt_ti14.id }">  ${pageScope.tt_ti14.title }</a></p>
                             <p class="detail_ctt">
- Sử dụng Email theo tên miền là một trong những tiêu chí tạo dựng thương hiệu của bạn, góp phần nâng cao sự chuyên nghiệp trong giao dịch kinh doanh và quản lý hệ thống nhân viên trong công ty. Trong suốt một thời gian dài, khi nhắc đến việc setup email theo tên miền, hầu hết mọi người đều nghĩ đến Google mail hoặc mua host riêng rồi cấu hình email. </p>
+ 								${pageScope.tt_ti14.header } </p>
           </div>
                     
                        <div class="lines">

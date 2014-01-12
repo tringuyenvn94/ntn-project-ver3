@@ -378,44 +378,62 @@
                         </div>
                         <div class="ctm">
                            
+                             <%
+                        	List<TopicEntity> unix_linux = TopicDAO.loadBySubMenu("unixlinux");
+                        	TopicEntity unix_linux1 = unix_linux.get(0);
+                        	TopicEntity unix_linux2 = unix_linux.get(1);
+                        	TopicEntity unix_linux3 = unix_linux.get(2);
+                        	TopicEntity unix_linux4 = unix_linux.get(3);
+                        	TopicEntity unix_linux5 = unix_linux.get(4);
+                        	
+                        	pageContext.setAttribute("unix_linux1", unix_linux1);
+                        	pageContext.setAttribute("unix_linux2", unix_linux2);
+                        	pageContext.setAttribute("unix_linux3", unix_linux3);
+                        	pageContext.setAttribute("unix_linux4", unix_linux4);
+                        	pageContext.setAttribute("unix_linux5", unix_linux5);
+                        
+                        %>
+                           
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"> Valve ra mắt hệ điều hành SteamOS dựa trên Linux
+                                        <a href="load?id=${pageScope.unix_linux1.id }"> ${pageScope.unix_linux1.title } 
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/SteamOS-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- Valve mới đây đã chính thức ra mắt SteamOS, hệ điều hành dựa trên Linux được thiết kế dành cho các máy tính chơi game. Đây là bước chuẩn bị cho việc ra mắt Steam Box, chiếc máy console đầu tiên của Valve nhắm đến việc kết hợp sự tiện lợi của các hệ console thông dụng với khả năng đồ họa mạnh mẽ của PC.                                                 </td>
+                                                    <a href="load?id=${pageScope.unix_linux1.id }"><img src="${pageScope.unix_linux1.url_daidien}" align="left" border="0" hspace="3" vspace="3"></a>
+ 															 ${pageScope.unix_linux1.header }
+                                         </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </div>
+                                    <div class="title_article">
+                                        <a href="load?id=${pageScope.unix_linux2.id }"> ${pageScope.unix_linux2.title } 
+
+</a></div>
+                                    <div>
+                                       <table border="0" cellpadding="0" cellspacing="0">
+                                            <tbody><tr>
+                                                <td class="image" valign="top">
+                                                    <a href="load?id=${pageScope.unix_linux2.id }"><img src="${pageScope.unix_linux2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+  																	${pageScope.unix_linux2.header }
+                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"> Những đóng góp thầm lặng của Linux tới cuộc sống
+                                        <a href="load?id=${pageScope.unix_linux3.id }"> ${pageScope.unix_linux3.title } 
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/Linux-2.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- Hệ điều hành mã nguồn mở này được ứng dụng trên các thiết bị quen thuộc như smartphone, tablet cho đến những hệ thống phức tạp như điều tiết giao thông.                                                 </td>
-                                         
-                                            </tr>
-                                        </tbody></table>
-                                    </div>
-                                    <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"> Linux 3.10 cải tiến SSD Caching, hỗ trợ Radeon
-
-</a></div>
-                                    <div>
-                                       <table border="0" cellpadding="0" cellspacing="0">
-                                            <tbody><tr>
-                                                <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/Linux.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- Mới đây, Linus Torvalds vừa phát hành phiên bản kernel Linux 3.10 với một số nâng cấp so với bản 3.9 ra mắt hồi tháng Tư. Linux 3.10 được trang bị tính năng SSD caching mới cùng một số cải tiến cho trình điều khiển các chip đồ họa Radeon.                                                 </td>
+                                                    <a href="load?id=${pageScope.unix_linux3.id }"><img src="${pageScope.unix_linux3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 														${pageScope.unix_linux3.header }                                  
+                </td>
                                          
                                             </tr>
                                         </tbody></table>
@@ -425,12 +443,12 @@
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/nhom-tin-tac-trung-quoc-danh-cap-bi-mat-cong-ty-my-105390">Ngưng hỗ trợ 3 phiên bản Ubuntu Linux 
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.unix_linux4.id }">${pageScope.unix_linux4.title } 
 
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/trojan-moi-kho-phat-hien-tan-cong-lo-hong-ie-105360">Ubuntu sắp sửa ra mắt phiên bản di động? 
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.unix_linux5.id }"> ${pageScope.unix_linux5.title } 
 
 
  </a> </li>
@@ -449,45 +467,64 @@
                         </div>
                         <div class="ctm">
                             
+                        <%
+                        	List<TopicEntity> mac = TopicDAO.loadBySubMenu("mac");
+                        	TopicEntity mac1 = mac.get(0);
+                        	TopicEntity mac2 = mac.get(1);
+                        	TopicEntity mac3 = mac.get(2);
+                        	TopicEntity mac4 = mac.get(3);
+                        	TopicEntity mac5 = mac.get(4);
+                        	
+                        	pageContext.setAttribute("mac1", mac1);
+                        	pageContext.setAttribute("mac2", mac2);
+                        	pageContext.setAttribute("mac3", mac3);
+                        	pageContext.setAttribute("mac4", mac4);
+                        	pageContext.setAttribute("mac5", mac5);
+                        
+                        %>
+                            		
                                     <div class="title_article">
-                                        <a href="/"> Phiên bản Mac OS X tiếp theo vẫn miễn phí
+                                        <a href="load?id=${pageScope.mac1.id }"> ${pageScope.mac1.title } 
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/Mac-OS-X.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- Đại diện của Apple vừa cho biết các hệ điều hành Mac OS X tiếp theo của Apple vẫn được cung cấp miễn phí                                                 </td>
+                                                    <a href="load?id=${pageScope.mac1.id }"><img src="${pageScope.mac1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 																	${pageScope.mac1.header }
+ 																	          </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                      <div class="title_article">
-                                        <a href="/"> Cách truy cập ảnh nền bí mật trên OS X Mavericks
+                                        <a href="load?id=${pageScope.mac2.id }"> ${pageScope.mac2.title } 
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/OS-X-Mavericks-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- Trên OS X Mountain Lion trước đây, Apple từng giấu đi hàng loạt bức ảnh nền vào sâu bên trong hệ thống và chỉ dùng chúng để làm ảnh bảo vệ màn hình (screen saver).                                                 </td>
+                                                    <a href="load?id=${pageScope.mac2.id }"><img src="${pageScope.mac2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 																${pageScope.mac2.header }
+ 																            </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     
                                      <div class="title_article">
-                                        <a href="/"> Lỗi thường gặp khi nâng cấp OS X Mavericks
+                                        <a href="load?id=${pageScope.mac3.id }"> ${pageScope.mac3.title } 
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/OS-X-Mavericks.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- OS X Mavericks được Apple tuyên bố hoàn toàn miễn phí và người dùng có thể tải về trực tiếp từ App Store. Đây là tin rất vui với nhiều người dùng nhưng cũng là lý do khiến việc nâng cấp bị quá tải trong khoảng từ khi phát hành. Người dùng nên sao lưu tất cả dữ liệu trước khi tiến hành nâng cấp để tránh rủi ro.                                                 </td>
+                                                    <a href="load?id=${pageScope.mac3.id }"><img src="${pageScope.mac3.url_daidien } " align="left" border="0" hspace="3" vspace="3"></a>
+ 														${pageScope.mac3.header }
+ 														</td>
                                          
                                             </tr>
                                         </tbody></table>
@@ -499,13 +536,13 @@
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Vì sao Apple cho nâng cấp miễn phí OS X Mavericks? 
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.mac4.id }">   ${pageScope.mac4.title } 
 
 
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Những chú ý khi tải OS X Mavericks 
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.mac5.id }">             ${pageScope.mac5.title } 
 
  </a> </li>
                                             
