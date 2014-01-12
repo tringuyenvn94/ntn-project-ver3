@@ -59,6 +59,6 @@ body,td,th {
   <li>Không tuyên truyền, đăng tải trên bài viết/phản hồi/bình luận những thông tin phạm luật, phỉ báng,   nói xấu, nội dung khiêu dâm, tranh ảnh không lành mạnh, không đúng đắn, đồ trụy,   quấy rối, hay những thông tin có hại tác động vào quyền riêng tư, lăng mạ, kích   động hay các nội dung tương tự.</li>
   <li>Tất  cả những thành viên vi phạm quá nhiều quy định, tùy thuộc vào từng trường hợp  mà có thể bị khóa tạm thời hoặc xóa vĩnh viễn tài khoản.</li>
 </ol>
-<p align="right"><em><strong>Cập nhật lần cuối cùng ngày 14 - 08 - 2008 </strong></em></p>
+<p align="right"><em><strong>Cập nhật lần cuối cùng ngày 1/1/2014 </strong></em></p>
 </body>
 </html>
