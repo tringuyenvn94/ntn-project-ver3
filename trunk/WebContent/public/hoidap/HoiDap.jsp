@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -183,10 +186,19 @@
            
                                
 <div class="bag">
-   
+   					
+   					<%
+                        	
+                        	List<TopicEntity> hdap = TopicDAO.loadByMainId("hoidap");
+                        	TopicEntity hdap1 = hdap.get(0);
+                        	
+                        	pageContext.setAttribute("hdap1", hdap1);
+                        
+                       %>
+   					
        
                 <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span>Cách kiểm tra laptop mới mua trước khi sử dụng?
+                    <a href="load?id=${pageScope.hdap1.id }"><span>		${pageScope.hdap1.title }
 
  </span></a>
                 </div>
@@ -194,10 +206,10 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="Image/question-kiem-tra-laptop-truoc-khi-su-dung.jpg" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
+                                <a href="load?id=${pageScope.hdap1.id }"><img src="${pageScope.hdap1.url_daidien }" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
                             </td>
                             <td class="content_top" valign="top" align="left">
-Cho mình hỏi cách kiểm tra laptop mới mua với, laptop như thế nào mới là hàng chất lượng tốt?
+										${pageScope.hdap1.header }
                            </td>
                         </tr>
                     </tbody></table>
@@ -207,19 +219,56 @@ Cho mình hỏi cách kiểm tra laptop mới mua với, laptop như thế nào 
                         </div>
                         <div class="subcontent">
                         
+                        
+                        	<%
+                        	List<TopicEntity> hoidap = TopicDAO.loadBySubMenu("hoidap");
+                        	TopicEntity hoidap1 = hoidap.get(0);
+                        	TopicEntity hoidap2 = hoidap.get(1);
+                        	TopicEntity hoidap3 = hoidap.get(2);
+                        	TopicEntity hoidap4 = hoidap.get(3);
+                        	TopicEntity hoidap5 = hoidap.get(4);
+                        	TopicEntity hoidap6 = hoidap.get(5);
+                        	TopicEntity hoidap7 = hoidap.get(6);
+                        	TopicEntity hoidap8 = hoidap.get(7);
+                        	TopicEntity hoidap9 = hoidap.get(8);
+                        	TopicEntity hoidap10 = hoidap.get(9);
+                        	TopicEntity hoidap11 = hoidap.get(10);
+                        	TopicEntity hoidap12 = hoidap.get(11);
+                        	TopicEntity hoidap13 = hoidap.get(12);
+                        	TopicEntity hoidap14 = hoidap.get(13);
+
+                        	
+                        	pageContext.setAttribute("hoidap1", hoidap1);
+                        	pageContext.setAttribute("hoidap2", hoidap2);
+                        	pageContext.setAttribute("hoidap3", hoidap3);
+                        	pageContext.setAttribute("hoidap4", hoidap4);
+                        	pageContext.setAttribute("hoidap5", hoidap5);
+                        	pageContext.setAttribute("hoidap6", hoidap6);
+                        	pageContext.setAttribute("hoidap7", hoidap7);
+                        	pageContext.setAttribute("hoidap8", hoidap8);
+                        	pageContext.setAttribute("hoidap9", hoidap9);
+                        	pageContext.setAttribute("hoidap10", hoidap10);
+                        	pageContext.setAttribute("hoidap11", hoidap11);
+                        	pageContext.setAttribute("hoidap12", hoidap12);
+                        	pageContext.setAttribute("hoidap13", hoidap13);
+                        	pageContext.setAttribute("hoidap14", hoidap4);
+                        
+                        %>
+                        
+                        
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tbody><tr>
                             
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                <img src="Image/question-pin-2(1).jpg" border="0">
+                                            <a href="load?id=${pageScope.hoidap1.id }">
+                                                <img src="${pageScope.hoidap1.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-Những dấu hiệu nhận biết pin laptop sắp hỏng?
+                                            <a href="load?id=${pageScope.hoidap1.id }">
+ 											${pageScope.hoidap1.title }
 
 </a>
                                         </div>
@@ -229,13 +278,13 @@ Những dấu hiệu nhận biết pin laptop sắp hỏng?
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                <img src="Image/question-phim-tat-tren-window.jpg" border="0">
+                                            <a href="load?id=${pageScope.hoidap2.id }">
+                                                <img src="${pageScope.hoidap2.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-Các phím tắt trên window?
+                                            <a href="load?id=${pageScope.hoidap2.id }">
+ 												${pageScope.hoidap2.title }
 
 </a>
                                         </div>
@@ -245,13 +294,13 @@ Các phím tắt trên window?
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                <img src="Image/question-234.jpg" border="0">
+                                            <a href="load?id=${pageScope.hoidap3.id }">
+                                                <img src="${pageScope.hoidap3.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-Cần đánh giá Ipad Air mới ở Việt Nam?
+                                            <a href="load?id=${pageScope.hoidap3.id }">
+ 											${pageScope.hoidap3.title }
 
 </a>
                                         </div>
@@ -266,32 +315,32 @@ Cần đánh giá Ipad Air mới ở Việt Nam?
                         </div>
                    
                         <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="Image/question-sac-pin-dien-thoai.jpg" height="179" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap4.id }">
+                                <img src="${pageScope.hoidap4.url_daidien }" height="179" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-Cách sạc pin điện thoại đúng cách?
+                                <a href="load?id=${pageScope.hoidap4.id }">
+ 									${pageScope.hoidap4.title }
 
 </a></p>
                             <p class="detail_ctt">
-Cho mình hỏi cách sạc pin điện thoại như thế nào là đúng cách để giữ cho pin điện thoại lâu bền và không hại máy
+									${pageScope.hoidap4.header }
             </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="Image/question-chi-phi-3g-cua-smart-phone.jpg" height="171" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap5.id }">
+                                <img src="${pageScope.hoidap5.url_daidien }" height="171" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655"> Chi phí 3g có phụ thuộc vào loại điện thoại?
+                                <a href="load?id=${pageScope.hoidap5.id }"> ${pageScope.hoidap5.title }
 
 
  </a></p>
                             <p class="detail_ctt">
-Mọi người cho mình hỏi chi phí dùng 3g có phụ thuộc vào loại điện thoại ko? Mình mới thay smartphone mà cảm thấy tốn kém hơn trước
+										${pageScope.hoidap5.header }
                              </p>
             </div>
                     
@@ -299,17 +348,17 @@ Mọi người cho mình hỏi chi phí dùng 3g có phụ thuộc vào loại �
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="Image/question-6-phuong-phap-tang-bao-mat-cho-smartphone.jpg" height="164" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap6.id }">
+                                <img src="${pageScope.hoidap6.url_daidien }" height="164" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                         Phương pháp tăng bảo mật cho smartphone là gì?
+                                <a href="load?id=${pageScope.hoidap6.id }">
+                         ${pageScope.hoidap6.title }
 
 
 </a></p>
                             <p class="detail_ctt">
-Làm thế nào để điện thoại di động của mình bảo mật hơn?
+ 							${pageScope.hoidap6.header }
                          </p>
             </div>
                     
@@ -317,16 +366,16 @@ Làm thế nào để điện thoại di động của mình bảo mật hơn?
                             <img src="Image/netdut.jpg">
           </div>
                         <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="Image/question-1-.jpg" height="135" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap7.id }">
+                                <img src="${pageScope.hoidap7.url_daidien }" height="135" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                       Iphone 5s chính hãng giá bán bao nhiêu?
+                                <a href="load?id=${pageScope.hoidap7.id }">
+                       ${pageScope.hoidap7.title }
 
  </a></p>
                             <p class="detail_ctt">
-Giá bán Iphone 5s do các nhà mạng viettel,vinaphone,fpt bán ra là bao nhiêu ?
+ 								${pageScope.hoidap7.header }
                           </p>
           </div>
                     
@@ -334,15 +383,15 @@ Giá bán Iphone 5s do các nhà mạng viettel,vinaphone,fpt bán ra là bao nh
                             <img src="Image/netdut.jpg">
           </div>
                         <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="Image/question-2.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap8.id }">
+                                <img src="${pageScope.hoidap8.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632"> Liệu FPT có giảm giá Iphone 5s không?
+                                <a href="load?id=${pageScope.hoidap8.id }"> ${pageScope.hoidap8.title }
 
  </a></p>
                             <p class="detail_ctt">
-Iphone 5s bán ở FPT giá cao quá , không biết có giảm giá cho bằng với viettel và vinaphone không ?
+							${pageScope.hoidap8.header }
 </p>
             </div>
                     
@@ -350,14 +399,14 @@ Iphone 5s bán ở FPT giá cao quá , không biết có giảm giá cho bằng 
                             <img src="Image/netdut.jpg">
           </div>
                         <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="Image/question-1.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap9.id }">
+                                <img src="${pageScope.hoidap9.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">Iphone ở đâu đắt đỏ nhất thế giới?
+                                <a href="load?id=${pageScope.hoidap9.id }"> ${pageScope.hoidap9.title }
 
 </a></p>
-                            <p class="detail_ctt">Iphone ở đâu bán đắt nhất nhỉ, thấy giá ở Việt Nam toàn đắt hơn ở nước ngoài à.
+                            <p class="detail_ctt"> ${pageScope.hoidap9.header }
                              </p>
                         </div>
                     
@@ -365,29 +414,29 @@ Iphone 5s bán ở FPT giá cao quá , không biết có giảm giá cho bằng 
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="Image/question-1-cong-nghe-moi-pin-tu-phuc-hoi-sac-chi-trong-10-phut.jpg" height="134" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap10.id }">
+                                <img src="${pageScope.hoidap10.url_daidien }" height="134" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> Liệu có pin điện thoại tự phục hồi không?
+                                <a href="load?id=${pageScope.hoidap10.id }"> ${pageScope.hoidap10.title }
 
 </a></p>
                             <p class="detail_ctt">
- Không biết trong tương lại có loại pin tự phục hồi hoặc sạc nhanh không nhỉ?
+ 							${pageScope.hoidap10.header }
   </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="Image/question-iphone-5s-chinh-hang-hay-xach-tay.jpg" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
+                        <div class="subcontent2"><a href="load?id=${pageScope.hoidap11.id }"><a href="load?id=${pageScope.hoidap11.id }"><img src="${pageScope.hoidap11.url_daidien }" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
                           <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">
-                        Nên mua iPhone 5S hàng chính hãng hay xách tay?
+                              <a href="load?id=${pageScope.hoidap11.id }">
+                       ${pageScope.hoidap11.title }
 
  </a></p>
                             <p class="detail_ctt">
-Cho mình hỏi iPhone 5S thì mua loại xách tay có hợp lý hay không? Loại chính hãng và xách tay khác nhau ở những điểm nào
+  										${pageScope.hoidap11.header }
                               </p>
                         </div>
                     
@@ -395,16 +444,16 @@ Cho mình hỏi iPhone 5S thì mua loại xách tay có hợp lý hay không? Lo
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="Image/question-iphone-5s-chinh-hang.jpg" height="147" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap12.id }">
+                                <img src="${pageScope.hoidap12.url_daidien }" height="147" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                        Giá iPhone 5S chính hãng?
+                                <a href="load?id=${pageScope.hoidap12.id }">
+                        ${pageScope.hoidap12.title }
 
  </a></p>
                             <p class="detail_ctt">
-Mình muốn mua một em iPhone 5s chính hãng của Vinaphone mới, bạn nào biết giá cả như thế nào chỉ giúp mình nhé
+  											${pageScope.hoidap12.header }
    </p>
                         </div>
                     
@@ -412,16 +461,16 @@ Mình muốn mua một em iPhone 5s chính hãng của Vinaphone mới, bạn n�
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="Image/question-word-to-pdf.jpg" height="142" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap13.id }">
+                                <img src="${pageScope.hoidap13.url_daidien }" height="142" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                         Cách chuyển file Word sang PDF?
+                                <a href="load?id=${pageScope.hoidap13.id }">
+                         ${pageScope.hoidap13.title }
 
 </a></p>
                             <p class="detail_ctt">
- Cách chuyển file word sang định dạng pdf như thế nào hả mọi người? Mình đang cần chuyển một tài liệu sang PDF để nộp cho thầy giáo
+   							${pageScope.hoidap13.header }
   </p>
                         </div>
                     
@@ -429,15 +478,15 @@ Mình muốn mua một em iPhone 5s chính hãng của Vinaphone mới, bạn n�
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="Image/question-iphone-6-se-co-gia-cao.jpg" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.hoidap14.id }">
+                                <img src="${pageScope.hoidap14.url_daidien }" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537"> Liệu iPhone 6 giá cả sẽ như thế nào?
+                          <a href="load?id=${pageScope.hoidap14.id }"> ${pageScope.hoidap14.title }
 
 </a></p>
                             <p class="detail_ctt">
-Mình là dân đam mê công nghệ, nhất là điện thoại. Bạn nào có ý kiến gì về giá cả iPhone 6 sắp tới ko?
+  									${pageScope.hoidap14.header }
 </p>
           </div>
                     

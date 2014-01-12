@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -184,18 +187,27 @@
                                
 <div class="bag">
    
-       
+       					<%
+                        	
+                        	List<TopicEntity> game = TopicDAO.loadByMainId("game");
+                        	TopicEntity game1 = game.get(0);
+                        	
+                        	pageContext.setAttribute("game1", game1);
+                        
+                       %>
+       		
+       		
                 <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span>Chơi game 30 phút mỗi ngày giúp tăng cường trí nhớ</span></a>
+                    <a href="load?id=${pageScope.game1.id }"><span>${pageScope.game1.title }</span></a>
                 </div>
                 <div>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="Image/game-1.jpg" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
+                                <a href="load?id=${pageScope.game1.id }"><img src="${pageScope.game1.url_daidien }" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
                             </td>
                             <td class="content_top" valign="top" align="left">
-Trong khi một số người nghĩ rằng chơi game chỉ lãng phí thời gian, thì các nhà khoa học lại phát hiện ra chơi game có thể giúp tăng kích cỡ bộ não.
+												${pageScope.game1.header }
                           </td>
                         </tr>
                     </tbody></table>
@@ -205,19 +217,54 @@ Trong khi một số người nghĩ rằng chơi game chỉ lãng phí thời gi
                         </div>
                         <div class="subcontent">
                         
+                        	<%
+                        	List<TopicEntity> gamesub = TopicDAO.loadBySubMenu("game");
+                        	TopicEntity gamesub1 = gamesub.get(0);
+                        	TopicEntity gamesub2 = gamesub.get(1);
+                        	TopicEntity gamesub3 = gamesub.get(2);
+                        	TopicEntity gamesub4 = gamesub.get(3);
+                        	TopicEntity gamesub5 = gamesub.get(4);
+                        	TopicEntity gamesub6 = gamesub.get(5);
+                        	TopicEntity gamesub7 = gamesub.get(6);
+                        	TopicEntity gamesub8 = gamesub.get(7);
+                        	TopicEntity gamesub9 = gamesub.get(8);
+                        	TopicEntity gamesub10 = gamesub.get(9);
+                        	TopicEntity gamesub11 = gamesub.get(10);
+                        	TopicEntity gamesub12 = gamesub.get(11);
+                        	TopicEntity gamesub13 = gamesub.get(12);
+                        	TopicEntity gamesub14 = gamesub.get(13);
+
+                        	
+                        	pageContext.setAttribute("gamesub1", gamesub1);
+                        	pageContext.setAttribute("gamesub2", gamesub2);
+                        	pageContext.setAttribute("gamesub3", gamesub3);
+                        	pageContext.setAttribute("gamesub4", gamesub4);
+                        	pageContext.setAttribute("gamesub5", gamesub5);
+                        	pageContext.setAttribute("gamesub6", gamesub6);
+                        	pageContext.setAttribute("gamesub7", gamesub7);
+                        	pageContext.setAttribute("gamesub8", gamesub8);
+                        	pageContext.setAttribute("gamesub9", gamesub9);
+                        	pageContext.setAttribute("gamesub10", gamesub10);
+                        	pageContext.setAttribute("gamesub11", gamesub11);
+                        	pageContext.setAttribute("gamesub12", gamesub12);
+                        	pageContext.setAttribute("gamesub13", gamesub13);
+                        	pageContext.setAttribute("gamesub14", gamesub14);
+                        
+                        %>
+                        
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tbody><tr>
                             
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                <img src="Image/game-2.png" border="0">
+                                            <a href="load?id=${pageScope.gamesub1.id }">
+                                                <img src="${pageScope.gamesub1.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-Hàn Quốc lần đầu tiên tổ chức hội chợ, triển lãm game tại Việt Nam
+                                            <a href="load?id=${pageScope.gamesub1.id }">
+												${pageScope.gamesub1.title }
 </a>
                                         </div>
                                     </span>
@@ -226,13 +273,13 @@ Hàn Quốc lần đầu tiên tổ chức hội chợ, triển lãm game tại 
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                <img src="Image/game-3.png" border="0">
+                                            <a href="load?id=${pageScope.gamesub2.id }">
+                                                <img src="${pageScope.gamesub2.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                Đã có thêm 3 nhà vô địch mới của Siêu Hùng Đại Chiến
+                                            <a href="load?id=${pageScope.gamesub2.id }">
+                                                ${pageScope.gamesub2.title }
 </a>
                                         </div>
                                     </span>
@@ -241,13 +288,13 @@ Hàn Quốc lần đầu tiên tổ chức hội chợ, triển lãm game tại 
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                <img src="Image/game-4.png" border="0">
+                                            <a href="load?id=${pageScope.gamesub3.id }">
+                                                <img src="${pageScope.gamesub3.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                Đưa game mobile đồ họa đỉnh cao về Việt Nam
+                                            <a href="load?id=${pageScope.gamesub3.id }">
+                                                ${pageScope.gamesub3.title }
 </a>
                                         </div>
                                     </span>
@@ -261,148 +308,154 @@ Hàn Quốc lần đầu tiên tổ chức hội chợ, triển lãm game tại 
                         </div>
                    
                         <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="Image/game-5.png" height="179" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub4.id }">
+                                <img src="${pageScope.gamesub4.url_daidien }" height="179" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-             Tưng bừng lễ trao giải thể thao điện tử VEC 2013
+                                <a href="load?id=${pageScope.gamesub4.id }">
+             ${pageScope.gamesub4.title }
 </a></p>
                             <p class="detail_ctt">
-Sau những ngày thi đấu căng thẳng của 5 bộ môn, giải thể thao điện tử quy mô quốc gia VEC 2013 đã kết thúc, lễ trao giải cũng được tổ chức trong không khí đầy sôi nổi tại Hà Nội hôm 27/10 vừa qua.            </div>
+										${pageScope.gamesub4.header }            
+</div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="Image/game-6.png" height="171" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub5.id }">
+                                <img src="${pageScope.gamesub5.url_daidien }" height="171" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">Ngọa Long Mobile chính thức đến tay người dùng 
+                                <a href="load?id=${pageScope.gamesub5.id }">    ${pageScope.gamesub5.title }
  </a></p>
                             <p class="detail_ctt">
-Sau thời gian thử nghiệm (close beta) rất khả quan, Ngọa Long Mobile đã chính thức ra mắt người dùng trên hệ điều hành Android vào lúc 10h00 ngày 25/10/2013.                            </p>
+								${pageScope.gamesub5.header }     
+                       </p>
             </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="Image/game-7.png" height="164" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub6.id }">
+                                <img src="${pageScope.gamesub6.url_daidien }" height="164" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                         Plants vs Zombies 2 đã có mặt trên Android
+                                <a href="load?id=${pageScope.gamesub6.id }">
+                         ${pageScope.gamesub6.title }
 </a></p>
                             <p class="detail_ctt">
-Người dùng Android đã có thể tải về miễn phí Plants vs. Zombies 2. Game có thêm nhiều nhân vật mới bao gồm nhiều loại zombie và thực vật ăn thịt người mới.                            </p>
+							${pageScope.gamesub6.header } 
+							 </p>
             </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="Image/game-8.png" height="150" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub7.id }">
+                                <img src="${pageScope.gamesub7.url_daidien }" height="150" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                          Bản quyền game Tiếu Ngạo Giang Hồ đã thuộc về VGG</a></p>
+                                <a href="load?id=${pageScope.gamesub7.id }">
+                          ${pageScope.gamesub7.title }  </a></p>
                             <p class="detail_ctt">
-Theo nguồn tin nhận được, công ty cổ phần giải trí VGG, đã vượt qua FPT Online để sở hữu “siêu phẩm” game Tiếu Ngạo Giang Hồ và phát hành độc quyền tại Việt Nam trong thời gian tới.                            </p>
+									${pageScope.gamesub7.header } 
+									  </p>
             </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="Image/game-9.png" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub8.id }">
+                                <img src="${pageScope.gamesub8.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632"> Chơi game giúp phẫu thuật "chuẩn" hơn </a></p>
+                                <a href="load?id=${pageScope.gamesub8.id }"> ${pageScope.gamesub8.title } </a></p>
                             <p class="detail_ctt">
- Nói đến những ca phẫu thuật khiến ta liên tưởng tới những giờ phút căng thẳng với các loại biểu đồ, thuốc men, dụng cụ mổ... Nhưng với các bác sĩ tại Bệnh viện Celebration Health Florida (Hoa Kỳ) thì không phải như thế. Trước khi bước vào phòng mổ, họ sẽ dành ra ít phút để... chơi game.                             </p>
+ 									${pageScope.gamesub8.header } 
+  </p>
             </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="Image/game-10.png" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub9.id }">
+                                <img src="${pageScope.gamesub9.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                          9 game mới hay nhất tháng 9/2013 cho Android </a></p>
-                            <p class="detail_ctt"> 9 game hấp dẫn mới có phiên bản cho hệ điều hành Android: Heroes of Loot, Reaper, Sonic & Sega All-Stars Racing, Joining Hands 2, Little Galaxy…                            </p>
+                                <a href="load?id=${pageScope.gamesub9.id }">
+                          ${pageScope.gamesub9.title } </a></p>
+                            <p class="detail_ctt"> ${pageScope.gamesub9.header }                           </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="Image/game-11.png" height="134" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub10.id }">
+                                <img src="${pageScope.gamesub10.url_daidien }" height="134" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> KoramGame vẫn duy trì game ở tên miền riêng </a></p>
+                                <a href="load?id=${pageScope.gamesub10.id }"> ${pageScope.gamesub10.title } </a></p>
                             <p class="detail_ctt">
-Cả Myw.vn và Gaubay.com của KoramGame đã ngưng hoạt động, tuy nhiên các game của công ty này vẫn tồn tại với tên miền riêng của mình.                            </p>
+ 								${pageScope.gamesub10.header }                            </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="Image/game-12.png" height="144" hspace="5" vspace="3" align="left" border="0" /></a></a>
+                        <div class="subcontent2"><a href="load?id=${pageScope.gamesub11.id }"><a href="load?id=${pageScope.gamesub11.id }"><img src="${pageScope.gamesub11.url_daidien }" height="144" hspace="5" vspace="3" align="left" border="0" /></a></a>
                           <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">
-                          Bang ChiếnThần lập kỷ lục vượt phó bản khó nhất VLTK phiên bản 3D </a></p>
+                              <a href="load?id=${pageScope.gamesub11.id }">
+                          ${pageScope.gamesub11.title } </a></p>
                             <p class="detail_ctt">
-Địch Hoa Động là một trong những phó bản khó nhất hiện tại của Võ Lâm Truyền Kỳ (VLTK) phiên bản 3D. Thủ lĩnh của phó bản dành cho 25 người này là rắn 4 đầu Địch Ba Lạp, uy lực kinh hồn, cuối cùng cũng đã bị chinh phục.                             </p>
+							${pageScope.gamesub11.header }
+							  </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="Image/game-13.png" height="147" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub12.id }">
+                                <img src="${pageScope.gamesub12.url_daidien }" height="147" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                          9 dấu hiệu chứng tỏ Candy Crush đang gây sốt </a></p>
+                                <a href="load?id=${pageScope.gamesub12.id }">
+                          ${pageScope.gamesub12.title } </a></p>
                             <p class="detail_ctt">
-Bạn có biết rằng tổng số thông điệp Twitter về Candy Crush có thể tạo thành một cuốn tiểu thuyết dài 4.500 trang? Hay người ta sản xuất cả quần áo, giày dép, bánh ngọt Candy Crush?                            </p>
+									${pageScope.gamesub12.header }       </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="Image/game-14.png" height="142" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub13.id }">
+                                <img src="${pageScope.gamesub13.url_daidien }" height="142" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                          Chung kết Gcafe Season One 2013 khu vực miền Trung - Tây Nguyên </a></p>
+                                <a href="load?id=${pageScope.gamesub13.id }">
+                          ${pageScope.gamesub13.title } </a></p>
                             <p class="detail_ctt">
-Ngày 27/10/2013, Vòng chung kết Gcafe Season One 2013 khu vực miền Trung - Tây Nguyên đã chính thức diễn ra tại nhà hát Trưng Vương, TP Đà Nẵng.                            </p>
+									${pageScope.gamesub13.header } </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="Image/game-15.png" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.gamesub14.id }">
+                                <img src="${pageScope.gamesub14.url_daidien }" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537"> Sắp chung kết Giải vô địch thể thao điện tử Việt Nam </a></p>
+                          <a href="load?id=${pageScope.gamesub14.id }"> ${pageScope.gamesub14.title } </a></p>
                             <p class="detail_ctt">
-Chung kết toàn quốc Giải vô địch thể thao điện tử Việt Năm năm nay (VEC 2013) đang nóng dần lên và sẽ diễn ra vào ngày 26/10 tới.                            </p>
+									${pageScope.gamesub14.header }   </p>
           </div>
                     
                        <div class="lines">
