@@ -281,7 +281,7 @@
 											</tr>
 											<tr>
 												<td nowrap="nowrap" class="infoLogin"><span>Tên đăng nhập:</span></td>
-											  <td width="748" class="infoLogin"><input name="username" value="<%=username%>" type="text" id="Main_txtUserName" style="width: 245px;"> * <span id="Main_reqUserName" style="display: none;">*</span> <span id="Main_regUserName" style="display: none;">*</span> <%=errorUsernameNull%><%=errorUsernameExisted %></td>
+											  <td width="748" class="infoLogin"><input name="username" type="text" disabled id="Main_txtUserName" style="width: 245px;" value="<%=username%>"> <span style="color: #F00">*</span><span id="Main_reqUserName" style="display: none;">*</span> <span id="Main_regUserName" style="display: none;">*</span> <span style="color: #F00"><%=errorUsernameNull%><%=errorUsernameExisted %></span></td>
 											</tr>
 											
 											
@@ -295,7 +295,7 @@
 																<td width="323" class="infoLogin">
 																	<p>
 																		<input name="full_name" value="<%=fullName%>" type="text" id="Main_txtFirstName" style="width: 240px;"> 
-																		<span id="Main_reqFirstName" style="display: none;">*&nbsp;</span>*<%=errorFullNameNull%><br>
+																		<span id="Main_reqFirstName" style="display: none;">*&nbsp;</span><span style="color: #F00">*</span><span style="color: #F00"><%=errorFullNameNull%></span><br>
 																	</p>
 																</td>
 																<td width="79" class="infoLogin"><span id="Main_reqLastName" style="display: none;">*</span>Giới tính:<br></td>
@@ -309,7 +309,18 @@
 											<tr>
 												<td class="infoLogin" valign="top"><span>Email:</span></td>
 												<td class="infoLogin" valign="top"><input name="email" type="text" value="<%=email%>" id="Main_txtEmail" style="width: 245px;"> 
-												<span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> *</td>
+												<span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">*</span></td>
+											</tr>
+                                            <tr>
+												<td class="infoLogin" valign="top"><span>Set Password</span></td>
+												<td class="infoLogin" valign="top"><label for="textfield"></label>
+											    <input type="text" name="textfield" id="textfield" style="width: 245px;">												  <span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">*</span></td>
+											</tr>
+                                            <tr>
+												<td class="infoLogin" valign="top">&nbsp;</td>
+											  <td class="infoLogin" valign="top"><label for="textfield"></label>											    
+											    <span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span>
+											    <input type="submit" name="button2" id="button2" value="Reset Password"></td>
 											</tr>
 											<tr>
 												<td class="infoLogin" valign="top"><span>Sinh năm:</span></td>
@@ -424,7 +435,7 @@
 														<option value="1901">1901</option>
 
 												</select> 
-												*<%=errorYearNotYetChoosen%> <span id="Main_reqBirthYear" style="display: none;">*</span></td>
+												<span style="color: #F00">*</span><%=errorYearNotYetChoosen%> <span id="Main_reqBirthYear" style="display: none;">*</span></td>
 											</tr>
 											<tr>
 												<td class="infoLogin" valign="top"><span>Tỉnh thành:</span></td>
@@ -496,7 +507,7 @@
 														<option value="yenbai">Yên Bái</option>
 														<option value="khongbiet">Khác...</option>
 												</select> 
-												*<span id="Main_reqPovince" style="display: none;">*</span><%=errorCityNotYetChoosen%></td>
+												<span style="color: #F00">*</span><span id="Main_reqPovince" style="display: none;">*</span><%=errorCityNotYetChoosen%></td>
 											</tr>
 											
 											
@@ -525,7 +536,7 @@
 												</span></td>
 											</tr>
 											<tr>
-												<td class="infoLogin" align="center" colspan="2" style="padding-top: 8px"><input name="is_accept" type="submit" id="is_accept" value="   Lưu">&nbsp; <input type="reset" value="Reset" style="width: 70px"></td>
+												<td class="infoLogin" align="center" colspan="2" style="padding-top: 8px"><input name="is_accept" type="submit" id="is_accept" value="    OK    ">&nbsp; </td>
 											</tr>
 										</tbody>
 									</table>
