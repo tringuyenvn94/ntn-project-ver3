@@ -32,18 +32,28 @@
 				<%
 					UserEntity user = (UserEntity) session.getAttribute("user");
 					if (user == null) {
+						response.sendRedirect("dangnhap.jsp");
 				%>
-				<div id="memberbox"><a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a></div>
+				<div id="memberbox">
+					<a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a>
+				</div>
 				<%
 					} else {
-						String username = user.getUseName();
-						
+						String role = (String) session.getAttribute("role");
+						if (role.equals("admin")) {
+							String username = user.getUseName();
 				%>
 				<div id="tv">
-					Xin chào,<%=username %> |<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
+					Xin chào,<%=username%>
+					|<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
 
 				</div>
 				<%
+					} else if (role.equals("user")){
+							request.setAttribute("error", "not enough role");
+							request.getRequestDispatcher("/error.jsp").forward(request,
+									response);
+						}
 					}
 				%>
 			</div>

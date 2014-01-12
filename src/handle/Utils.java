@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class Utils {
 
 	private PreparedStatement ps;
-	private MyConnection mc = new MyConnection("jdbc:mysql://localhost:3306/laptrinhweb?useUnicode=true&characterEncoding=utf8");
+	private MyConnection mc = new MyConnection("jdbc:mysql://localhost:3306/laptrinhweb?autoReconnect=true&useUnicode=true&characterEncoding=utf8");
 	public static Utils util = new Utils();
 	/**
 	 * Phương thức tổng quát cho câu lệnh executeUpate
@@ -59,7 +59,7 @@ public class Utils {
 	public ResultSet getResultSet(String sql, String attribute) {
 		ResultSet rs = null;
 		try {
-			PreparedStatement ps = mc.conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			PreparedStatement ps = mc.conn.prepareStatement(sql);
 			ps.setString(1, attribute);
 			rs = ps.executeQuery();
 		} catch (Exception e) {

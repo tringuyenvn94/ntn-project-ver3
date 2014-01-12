@@ -57,6 +57,7 @@ public class UserDAO {
 				user.getCity()
 		};
 		Utils.util.insert(sql, indexes, values);
+		RoleDAO.insertUserToRole(getUser(user.getUseName()), PowerDAO.getUserPwr());
 	}
 
 	/**
@@ -111,6 +112,7 @@ public class UserDAO {
 	/**
 	 * Lấy lên username từ một địa chỉ email (Giả sử email là duy nhất trong DB)
 	 * @param email địa chỉ email
+	 * @return username là chủ nhân của địa chỉ email nhập vào
 	 * */
 	public static String getUsername(String email) {
 		String sql = "SELECT username FROM USER WHERE email = ?";
@@ -142,9 +144,11 @@ public class UserDAO {
 				String userName = rs.getString("username");
 				String fullName = rs.getString("full_name");
 				String email = rs.getString("email");
+				int id = rs.getInt("user_id");
 				user.setUseName(userName);
 				user.setFullName(fullName);
 				user.setEmail(email);
+				user.setUserId(id);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

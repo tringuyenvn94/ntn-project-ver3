@@ -39,13 +39,33 @@
 				<div class="logo">
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-
-							
-				
+<%
+					UserEntity user = (UserEntity) session.getAttribute("user");
+					if (user == null) {
+						response.sendRedirect("dangnhap.jsp");
+				%>
+				<div id="memberbox">
+					<a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a>
+				</div>
+				<%
+					} else {
+						String role = (String) session.getAttribute("role");
+						if (role.equals("admin")) {
+							String username = user.getUseName();
+				%>
 				<div id="tv">
-					Xin chào, <a href="trangcanhan.jsp"></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
+					Xin chào,<%=username%>
+					|<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
 
 				</div>
+				<%
+					} else if (role.equals("user")){
+							request.setAttribute("error", "not enough role");
+							request.getRequestDispatcher("/error.jsp").forward(request,
+									response);
+						}
+					}
+				%>
 			</div>
 			</div>
 

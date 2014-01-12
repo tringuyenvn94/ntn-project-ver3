@@ -1,9 +1,9 @@
 package entity;
 
 public class UserEntity {
-	private int userId, noOfEntries;
+	private int userId;
 	private String username, password, fullName, email, year, city;
-	private boolean isMale, isReceiveEmail, isShowEmail, isActive, isAdmin;
+	private boolean isMale, isReceiveEmail, isShowEmail;
 
 	public UserEntity (String username, String password) {
 		this.username = username;
@@ -48,14 +48,6 @@ public class UserEntity {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-
-	public int getNoOfEntries() {
-		return noOfEntries;
-	}
-
-	public void setNoOfEntries(int noOfEntries) {
-		this.noOfEntries = noOfEntries;
 	}
 
 	public String getUseName() {
@@ -120,22 +112,6 @@ public class UserEntity {
 
 	public void setShowEmail(boolean isShowEmail) {
 		this.isShowEmail = isShowEmail;
-	}
-
-	public boolean isActive() {
-		return isActive;
-	}
-
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
-
-	public boolean isAdmin() {
-		return isAdmin;
-	}
-
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
 	}
 
 }

@@ -238,7 +238,7 @@
 								<td>
 									<div id="baiviet">${pageScope.topic.content }
 									
-										<p style="text-align: right;"><em><strong>${pageScope.topic.author }</strong></em></p>
+										<p style="text-align: right;"><em><strong>Theo ${pageScope.topic.url }</strong></em></p>
 									</div>
 								</td>
 							</tr>
