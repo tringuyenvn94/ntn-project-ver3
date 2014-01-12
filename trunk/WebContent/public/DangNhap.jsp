@@ -43,14 +43,8 @@
 				<div id="memberbox"><a href="dangnhap.jsp">Đăng nhập</a> | <a href="quenmatkhau.jsp">Quên mật khẩu?</a> | <a href="dangky.jsp">Đăng ký</a></div>
 				<%
 					} else {
-						String username = user.getUseName();
-						
-				%>
-				<div id="tv">
-					Xin chào,<%=username %> |<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
-
-				</div>
-				<%
+						request.setAttribute("error", "da co user roi");
+						request.getRequestDispatcher("/error.jsp").forward(request, response);
 					}
 				%>
 			</div>

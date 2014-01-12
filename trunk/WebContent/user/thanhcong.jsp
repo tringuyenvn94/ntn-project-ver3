@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Đổi mật khẩu</title>
+<title>${requestScope.success }</title>
 <jsp:include page="/template/Facebook.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />

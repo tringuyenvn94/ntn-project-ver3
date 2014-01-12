@@ -1,4 +1,4 @@
-﻿
+
 <%@page import="entity.UserEntity"%>
 <%
 	request.setCharacterEncoding("utf8");
