@@ -207,9 +207,13 @@
 				TopicEntity tintuc1 = tintuc.get(0);
 				TopicEntity tintuc2 = tintuc.get(1);
 				TopicEntity tintuc3 = tintuc.get(2);
+				
+				
 				pageContext.setAttribute("tintuc1", tintuc1);
 				pageContext.setAttribute("tintuc2", tintuc2);
 				pageContext.setAttribute("tintuc3", tintuc3);
+				
+				
 			%>
 			<div id="content_main">
 
@@ -262,7 +266,10 @@
 											</div>
 											<div class="title_boxsub">
 												<a
-													href="load?id=${pageScope.tintuc3.id }">${pageScope.tintuc3.title }</a>
+													href="load?id=${pageScope.tintuc3.id }">
+													${pageScope.tintuc3.title }
+													
+													</a>
 											</div>
 									</span></td>
 

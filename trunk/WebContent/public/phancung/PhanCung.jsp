@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -181,16 +184,32 @@
            
                     <div class="topnew">
                         
+                        <%
+                        	
+                        	List<TopicEntity> topnew = TopicDAO.loadByMainId("phancung");
+                        	TopicEntity topnew1 = topnew.get(0);
+                        	TopicEntity topnew2 = topnew.get(1);
+                        	TopicEntity topnew3 = topnew.get(2);
+                        	TopicEntity topnew4 = topnew.get(3);
+                        	
+                        	pageContext.setAttribute("topnew1", topnew1);
+                        	pageContext.setAttribute("topnew2", topnew2);
+                        	pageContext.setAttribute("topnew3", topnew3);
+                        	pageContext.setAttribute("topnew4", topnew4);
+                        
+                        %>
+                        
+                        
                                     <div class="title_topnew">
-                                        <a href="cach sua loi lag chuot tren windows 8.1"><span> iPad Mini Retina rất khó sửa chữa
+                                        <a href="load?id=${pageScope.topnew1.id }"><span> ${pageScope.topnew1.title }
  </span></a></div>
                                     <div>
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tbody><tr>
                                                 <td class="img_top">
-                                                    <a href="/cach-sua-loi-lag-chuot-tren-windows-8-1-105457"><img src="Image/ipad-mini1.jpg" height="222" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    <a href="load?id=${pageScope.topnew1.id }"><img src="${pageScope.topnew1.url_daidien }" height="222" align="left" border="0" hspace="3" vspace="3"></a>
                                                 </td>
-                                                <td class="ctt_top" valign="top">Khám phá linh kiện bên trong iPad Mini Retina, các kỹ thuật viên trang iFixit nhận thấy Apple đã nâng cấp dung lượng pin lớn hơn bên cạnh việc sử dụng màn hình độ phân giải cao, nhưng máy cũng được đánh giá rất khó sửa chữa.
+                                                <td class="ctt_top" valign="top">${pageScope.topnew1.header }
 
 </td>
                                             </tr>
@@ -207,13 +226,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                <img src="Image/iPad-mini-2.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew2.id }">
+                                                <img src="${pageScope.topnew2.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                              Ngày mai iPad mini Retina 4G có mặt tại Việt Nam
+                                            <a href="load?id=${pageScope.topnew2.id }">
+                                              ${pageScope.topnew2.title }
 </a>
                                         </div>
                                     </span>
@@ -222,13 +241,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                <img src="Image/LG-G-Pad1.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew3.id }">
+                                                <img src="${pageScope.topnew3.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                LG G Pad 8.3 bán tại Việt Nam cuối tháng này
+                                            <a href="load?id=${pageScope.topnew3.id }">
+                                                ${pageScope.topnew3.title }
 </a>
                                         </div>
                                     </span>
@@ -237,13 +256,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                <img src="Image/iPad-mini-2(1).jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew4.id }">
+                                                <img src="${pageScope.topnew4.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-iPad Mini màn hình Retina bắt đầu bán
+                                            <a href="load?id=${pageScope.topnew4.id }">
+													${pageScope.topnew4.title }
 </a>
                                         </div>
                                     </span>
@@ -255,6 +274,7 @@ iPad Mini màn hình Retina bắt đầu bán
                     
                        
                     <div class="wbox cat">
+                    
                         <div class="tit">
                             
                                     <a href="desktop.jsp" title="Chuyên mục 'Desktop'">Desktop</a>
@@ -262,15 +282,32 @@ iPad Mini màn hình Retina bắt đầu bán
                         </div>
                         <div class="ctm">
                            
+                         <%
+                        	List<TopicEntity> desktop = TopicDAO.loadBySubMenu("desktop");
+                        	TopicEntity desktop1 = desktop.get(0);
+                        	TopicEntity desktop2 = desktop.get(1);
+                        	TopicEntity desktop3 = desktop.get(2);
+                        	TopicEntity desktop4 = desktop.get(3);
+                        	TopicEntity desktop5 = desktop.get(4);
+                        	
+                        	pageContext.setAttribute("desktop1", desktop1);
+                        	pageContext.setAttribute("desktop2", desktop2);
+                        	pageContext.setAttribute("desktop3", desktop3);
+                        	pageContext.setAttribute("desktop4", desktop4);
+                        	pageContext.setAttribute("desktop5", desktop5);
+                        
+                        %>
+                           
+                           
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Giá Mac Pro 2013 có thể lên tới 14.000 USD</a>
+                                        <a href="load?id=${pageScope.desktop1.id }">Giá Mac Pro 2013 có thể lên tới 14.000 USD</a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/Mac-Pro-2013.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Mac Pro 2013 có giá khởi điểm 3000 USD nhưng nếu lựa chọn cấu hình cao nhất, người dùng sẽ phải trả một cái giá lên tới 14.000 USD.
+                                                    <a href="load?id=${pageScope.desktop1.id }"><img src="${pageScope.desktop1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 																${pageScope.desktop1.header }
                                                 </td>
                                          
                                             </tr>
@@ -278,15 +315,15 @@ Mac Pro 2013 có giá khởi điểm 3000 USD nhưng nếu lựa chọn cấu h�
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Siêu máy tính có khả năng dự báo thời tiết
+                                        <a href="load?id=${pageScope.desktop2.id }">Siêu máy tính có khả năng dự báo thời tiết
 </a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/Sieu-may-tinh.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Có khả năng dự báo về cường độ và đường đi của cơn bão bốn ngày trước khi nó hình thành, đó chính là sức mạnh vượt trội của siêu máy tính trị giá 30 triệu bảng - "bảo bối" của Cơ quan Khí tượng Thủy văn Anh (Met), vừa mới được lộ diện.
+                                                    <a href="load?id=${pageScope.desktop2.id }"><img src="${pageScope.desktop2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 																${pageScope.desktop2.header }
                                                 </td>
                                          
                                             </tr>
@@ -294,15 +331,15 @@ Có khả năng dự báo về cường độ và đường đi của cơn bão 
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">MSI ra bộ đôi All In One cấu hình cao
+                                        <a href="load?id=${pageScope.desktop3.id }">MSI ra bộ đôi All In One cấu hình cao
 </a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/MSI-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Hãng công nghệ MSI vừa ra mắt bộ đôi máy tính All In One (AIO) là AE221 và AE270. Máy tính All In One hiện nay đang trở thành xu thế mua sắm mới nhờ thiết kế đẹp và gọn nhẹ hơn các dòng máy tính để bàn truyền thống.
+                                                    <a href="load?id=${pageScope.desktop3.id }"><img src="${pageScope.desktop3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														${pageScope.desktop3.header }
                                                 </td>
                                          
                                             </tr>
@@ -314,11 +351,11 @@ Hãng công nghệ MSI vừa ra mắt bộ đôi máy tính All In One (AIO) là
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448"> Apple Mac Pro giá 63 triệu đồng, bán ra tháng 12
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.desktop4.id }"> Apple Mac Pro giá 63 triệu đồng, bán ra tháng 12
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/da-nang-quan-ly-do-thi-qua-facebook-105446"> "Máu điện tử" cho siêu máy tính
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.desktop5.id }"> "Máu điện tử" cho siêu máy tính
  </a> </li>
                                             
                                                 </ul>
@@ -338,43 +375,59 @@ Hãng công nghệ MSI vừa ra mắt bộ đôi máy tính All In One (AIO) là
                         </div>
                         <div class="ctm">
                            
+                           		<%
+                        	List<TopicEntity> laptop = TopicDAO.loadBySubMenu("laptop");
+                        	TopicEntity laptop1 = laptop.get(0);
+                        	TopicEntity laptop2 = laptop.get(1);
+                        	TopicEntity laptop3 = laptop.get(2);
+                        	TopicEntity laptop4 = laptop.get(3);
+                        	TopicEntity laptop5 = laptop.get(4);
+                        	
+                        	pageContext.setAttribute("laptop1", laptop1);
+                        	pageContext.setAttribute("laptop2", laptop2);
+                        	pageContext.setAttribute("laptop3", laptop3);
+                        	pageContext.setAttribute("laptop4", laptop4);
+                        	pageContext.setAttribute("laptop5", laptop5);
+                        
+                        %>
+                           
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">HP Chromebook 11 bị thu hồi hàng loạt
+                                        <a href="load?id=${pageScope.laptop1.id }">HP Chromebook 11 bị thu hồi hàng loạt
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/HP-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Quyết định ngưng bán Chromebook thế hệ mới của HP và Google đã được triển khai sau khi khách hàng than phiền về cục sạc máy tính.
+                                                    <a href="load?id=${pageScope.laptop1.id }"><img src="${pageScope.laptop1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														${pageScope.laptop1.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">Acer giới thiệu chromebook "siêu rẻ"
+                                        <a href="load?id=${pageScope.laptop2.id }">Acer giới thiệu chromebook "siêu rẻ"
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/acer-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Theo thông tin từ trang công nghệ Softpedia, Acer vừa giới thiệu mẫu chromebook mới mang tên C720 - 2848 ra thị trường. C720 - 2848 được trang bị màn hình ComfyView 11 inch và sử dụng bộ vi xử lý Intel Haswell thế hệ thứ bốn.
+                                                    <a href="load?id=${pageScope.laptop2.id }"><img src="${pageScope.laptop2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+																		${pageScope.laptop2.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">Cách phòng tránh các tác hại khi sử dụng laptop
+                                        <a href="load?id=${pageScope.laptop3.id }">Cách phòng tránh các tác hại khi sử dụng laptop
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/laptop-2.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Việc dành thời gian học tập, làm việc, giải trí bên laptop ngày càng được số đông chúng ta lạm dụng bất kể thời gian ngày đêm để dẫn đến những tác hại nghiêm trọng ảnh hưởng đến sức khỏe mà chúng ta ít ai quan tâm đến.
+                                                    <a href="load?id=${pageScope.laptop3.id }"><img src="${pageScope.laptop3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 														${pageScope.laptop3.header }
                                                 </td>
                                          
                                             </tr>
@@ -385,11 +438,11 @@ Việc dành thời gian học tập, làm việc, giải trí bên laptop ngày
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/nhom-tin-tac-trung-quoc-danh-cap-bi-mat-cong-ty-my-105390"> HP ra mắt máy tính để bàn chạy Android
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.laptop4.id }"> HP ra mắt máy tính để bàn chạy Android
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/trojan-moi-kho-phat-hien-tan-cong-lo-hong-ie-105360"> Làm thế nào để thay thế ổ cứng cho Laptop?
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.laptop5.id }"> Làm thế nào để thay thế ổ cứng cho Laptop?
 
  </a> </li>
                                             
@@ -406,31 +459,48 @@ Việc dành thời gian học tập, làm việc, giải trí bên laptop ngày
                             
                         </div>
                         <div class="ctm">
+                        
+                        		
+                         <%
+                        	List<TopicEntity> thietbilinhkien = TopicDAO.loadBySubMenu("thietbilinhkien");
+                        	TopicEntity thietbilinhkien1 = thietbilinhkien.get(0);
+                        	TopicEntity thietbilinhkien2 = thietbilinhkien.get(1);
+                        	TopicEntity thietbilinhkien3 = thietbilinhkien.get(2);
+                        	TopicEntity thietbilinhkien4 = thietbilinhkien.get(3);
+                        	TopicEntity thietbilinhkien5 = thietbilinhkien.get(4);
+                        	
+                        	pageContext.setAttribute("thietbilinhkien1", thietbilinhkien1);
+                        	pageContext.setAttribute("thietbilinhkien2", thietbilinhkien2);
+                        	pageContext.setAttribute("thietbilinhkien3", thietbilinhkien3);
+                        	pageContext.setAttribute("thietbilinhkien4", thietbilinhkien4);
+                        	pageContext.setAttribute("thietbilinhkien5", thietbilinhkien5);
+                        
+                        %>
                             
                                     <div class="title_article">
-                                        <a href="/">Mediatek đem công nghệ cao giá rẻ đến Việt Nam
+                                        <a href="load?id=${pageScope.thietbilinhkien1.id }">Mediatek đem công nghệ cao giá rẻ đến Việt Nam
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/Mediatek-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Hiện nay, người tiêu dùng Việt Nam đang được tiếp cận với những chiếc smartphone ngày càng mạnh mẽ nhưng với giá thành rẻ hơn. MediaTek là một trong những doanh nghiệp góp phần tạo ra sự khác biệt này trong lĩnh vực điện thoại di động.
+                                                    <a href="load?id=${pageScope.thietbilinhkien1.id }"><img src="${pageScope.thietbilinhkien1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+												 ${pageScope.thietbilinhkien1.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                      <div class="title_article">
-                                        <a href="/">Samsung sẽ tự sản xuất cảm biến di động
+                                        <a href="load?id=${pageScope.thietbilinhkien2.id }">Samsung sẽ tự sản xuất cảm biến di động
 `
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/samsung.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Samsung vừa xác nhận kế hoạch sản xuất 180 triệu cảm biến 16 megapixel cho thiết bị di động trong năm sau. Vậy là nhiều khả năng hãng công nghệ Hàn Quốc sẽ không sử dụng cảm biến của Sony để trang bị lên các sản phẩm cao cấp của hãng nữa.
+                                                    <a href="load?id=${pageScope.thietbilinhkien2.id }"><img src="${pageScope.thietbilinhkien2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+													${pageScope.thietbilinhkien2.header }
                                                 </td>
                                          
                                             </tr>
@@ -438,15 +508,15 @@ Samsung vừa xác nhận kế hoạch sản xuất 180 triệu cảm biến 16 
                                     </div>
                                     
                                      <div class="title_article">
-                                        <a href="/">Chuẩn cáp mới có tốc độ lên đến 10 Gbps
+                                        <a href="load?id=${pageScope.thietbilinhkien3.id }">Chuẩn cáp mới có tốc độ lên đến 10 Gbps
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/Cap.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Kết nối cáp 16 Mbps của người dùng trông sẽ hết sức nhỏ bé khi so sánh với thế hệ cáp mới cung cấp tốc độ đến 10 Gbps trong tương lai.
+                                                    <a href="load?id=${pageScope.thietbilinhkien3.id }"><img src="${pageScope.thietbilinhkien3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														${pageScope.thietbilinhkien3.header }
                                                 </td>
                                          
                                             </tr>
@@ -459,12 +529,12 @@ Kết nối cáp 16 Mbps của người dùng trông sẽ hết sức nhỏ bé 
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/"> AMD sẽ chiếm 40% thị phần GPU trong 6 tháng tới
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.thietbilinhkien4.id }"> AMD sẽ chiếm 40% thị phần GPU trong 6 tháng tới
 
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/"> Buffalo ra dòng ổ cứng ngoài đủ màu sắc
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.thietbilinhkien5.id }"> Buffalo ra dòng ổ cứng ngoài đủ màu sắc
 
  </a> </li>
                                             
@@ -485,23 +555,39 @@ Kết nối cáp 16 Mbps của người dùng trông sẽ hết sức nhỏ bé 
                         </div>
                         <div class="ctm">
                             
+                          <%
+                        	List<TopicEntity> tuvan = TopicDAO.loadBySubMenu("tuvan");
+                        	TopicEntity tuvan1 = tuvan.get(0);
+                        	TopicEntity tuvan2 = tuvan.get(1);
+                        	TopicEntity tuvan3 = tuvan.get(2);
+                        	TopicEntity tuvan4 = tuvan.get(3);
+                        	TopicEntity tuvan5 = tuvan.get(4);
+                        	
+                        	pageContext.setAttribute("tuvan1", tuvan1);
+                        	pageContext.setAttribute("tuvan2", tuvan2);
+                        	pageContext.setAttribute("tuvan3", tuvan3);
+                        	pageContext.setAttribute("tuvan4", tuvan4);
+                        	pageContext.setAttribute("tuvan5", tuvan5);
+                        
+                        %>	
+                            
                                     <div class="title_article">
-                                        <a href="/">Để tránh đau cổ tay khi làm việc lâu với máy tính
+                                        <a href="load?id=${pageScope.tuvan1.id }">Để tránh đau cổ tay khi làm việc lâu với máy tính
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/Co-tay.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Chứng đau cổ tay, gây ra từ việc lặp đi lặp lại các động tác đánh máy hay dùng chuột, có lẽ là một trong những ảnh hưởng thường gặp nhất ở những người thường xuyên làm việc trên máy vi tính. Nếu biết kết hợp giữa những thói quen tốt và các sản phẩm hỗ trợ, bạn có thể hoàn toàn loại bỏ những cơn đau khó chịu nữa.
+                                                    <a href="load?id=${pageScope.tuvan1.id }"><img src="${pageScope.tuvan1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														 ${pageScope.tuvan1.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                      <div class="title_article">
-                                        <a href="/">5 mẹo nhỏ tiết kiệm đáng kể thời lượng pin iPad
+                                        <a href="load?id=${pageScope.tuvan2.id }">5 mẹo nhỏ tiết kiệm đáng kể thời lượng pin iPad
 
 
 </a></div>
@@ -509,8 +595,8 @@ Chứng đau cổ tay, gây ra từ việc lặp đi lặp lại các động t�
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/pin-iPad.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-So với các dòng máy tính bảng hiện nay, iPad có thời lượng pin tới 10 giờ đồng hồ sử dụng. Thậm chí, với siêu phẩm New iPad vừa được ra mắt tuần trước, dung lượng pin còn gấp đôi so với thế hệ cũ. Dù vậy, với nhiều người dùng, nỗ lực này vẫn chưa thể nhu cầu của họ...
+                                                    <a href="load?id=${pageScope.tuvan2.id }"><img src="${pageScope.tuvan2.url_daidien}" align="left" border="0" hspace="3" vspace="3"></a>
+													 ${pageScope.tuvan2.header }
                                                 </td>
                                          
                                             </tr>
@@ -518,15 +604,15 @@ So với các dòng máy tính bảng hiện nay, iPad có thời lượng pin t
                                     </div>
                                     
                                      <div class="title_article">
-                                        <a href="/">8 điều tối kỵ khi "vệ sinh" cho máy tính
+                                        <a href="load?id=${pageScope.tuvan3.id }">8 điều tối kỵ khi "vệ sinh" cho máy tính
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/ve-sinh-may-tinh.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Với nhiều người dùng, việc vệ sinh máy tính - sản phẩm vốn đã trở thành “bất li thân” là niềm vui nho nhỏ, giúp bạn thư giãn. Tuy nhiên, làm sạch cho cho máy tính cũng cần phải biết cách.
+                                                    <a href="load?id=${pageScope.tuvan3.id }"><img src="${pageScope.tuvan3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														${pageScope.tuvan3.header }
                                                 </td>
                                          
                                             </tr>
@@ -539,13 +625,13 @@ Với nhiều người dùng, việc vệ sinh máy tính - sản phẩm vốn �
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Bí kíp tránh đau tay khi sử dụng chuột máy tính
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.tuvan4.id }">Bí kíp tránh đau tay khi sử dụng chuột máy tính
 
 
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Những băn khoăn khi muốn TV mỏng
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.tuvan5.id }">Những băn khoăn khi muốn TV mỏng
 
 
  </a> </li>

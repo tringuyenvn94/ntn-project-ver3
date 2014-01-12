@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -181,17 +184,34 @@
            
                     <div class="topnew">
                         
+                        
+                        		 
+                        <%
+                        	
+                        	List<TopicEntity> topnew = TopicDAO.loadByMainId("phanmem");
+                        	TopicEntity topnew1 = topnew.get(0);
+                        	TopicEntity topnew2 = topnew.get(1);
+                        	TopicEntity topnew3 = topnew.get(2);
+                        //	TopicEntity topnew4 = topnew.get(3);
+                        	
+                        	pageContext.setAttribute("topnew1", topnew1);
+                        	pageContext.setAttribute("topnew2", topnew2);
+                        	pageContext.setAttribute("topnew3", topnew3);
+                        	//pageContext.setAttribute("topnew4", topnew4);
+                        
+                        %>
+                        
                                     <div class="title_topnew">
-                                        <a href="cach sua loi lag chuot tren windows 8.1"><span> Google khuyên không đeo kính thông minh khi lái xe
+                                        <a href="load?id=${pageScope.topnew1.id }"><span> ${pageScope.topnew1.title }
 
  </span></a></div>
                                     <div>
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tbody><tr>
                                                 <td class="img_top">
-                                                    <a href="/cach-sua-loi-lag-chuot-tren-windows-8-1-105457"><img src="Image/google-glass-1.jpg" height="280" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    <a href="load?id=${pageScope.topnew1.id }"><img src="${pageScope.topnew1.url_daidien }" height="280" align="left" border="0" hspace="3" vspace="3"></a>
                                                 </td>
-                                                <td class="ctt_top" valign="top">Google vừa bổ sung vào "điều khoản sử dụng dịch vụ" của họ trong đó khuyên người dùng không sử dụng Google Glass khi lái xe.
+                                                <td class="ctt_top" valign="top"> ${pageScope.topnew1.header }
 
 
 </td>
@@ -209,13 +229,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                <img src="Image/email-1.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew2.id }">
+                                                <img src="${pageScope.topnew2.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-Xuất hiện email giả mạo tặng iPhone 5S miễn phí
+                                            <a href="load?id=${pageScope.topnew1.id }">
+											${pageScope.topnew1.title }
 </a>
                                         </div>
                                     </span>
@@ -224,13 +244,13 @@ Xuất hiện email giả mạo tặng iPhone 5S miễn phí
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                <img src="Image/gmail.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew3.id }">
+                                                <img src="${pageScope.topnew3.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-Gmail cho lưu file đính kèm vào Google Drive
+                                            <a href="load?id=${pageScope.topnew3.id }">
+														${pageScope.topnew3.title }
 </a>
                                         </div>
                                     </span>
@@ -264,16 +284,32 @@ Cùng đánh giá ứng dụng trực tuyến FPT Play
                         </div>
                         <div class="ctm">
                            
+                            <%
+                        	List<TopicEntity> tintuc = TopicDAO.loadBySubMenu("tintuc");
+                        	TopicEntity tintuc1 = tintuc.get(0);
+                        	TopicEntity tintuc2 = tintuc.get(1);
+                        	TopicEntity tintuc3 = tintuc.get(2);
+                        	TopicEntity tintuc4 = tintuc.get(3);
+                        	TopicEntity tintuc5 = tintuc.get(4);
+                        	
+                        	pageContext.setAttribute("tintuc1", tintuc1);
+                        	pageContext.setAttribute("tintuc2", tintuc2);
+                        	pageContext.setAttribute("tintuc3", tintuc3);
+                        	pageContext.setAttribute("tintuc4", tintuc4);
+                        	pageContext.setAttribute("tintuc5", tintuc5);
+                        
+                        %>
+                           
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Yahoo hứa hẹn bảo mật cho dữ liệu người dùng
+                                        <a href="load?id=${pageScope.tintuc1.id }">Yahoo hứa hẹn bảo mật cho dữ liệu người dùng
 </a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/yahoo-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Hồi giữa tháng Mười, Yahoo vừa tuyên bố sẽ tiến hành mã hóa dịch vụ webmail của họ. Và hôm nay, CEO Marissa Mayer của công ty cho biết thêm rằng không chỉ Yahoo Mail mà tất cả các sản phẩm, dữ liệu người dùng khác cũng sẽ được hãng mã hóa.
+                                                    <a href="load?id=${pageScope.tintuc1.id }"><img src="${pageScope.tintuc1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+															${pageScope.tintuc1.header }
                                                 </td>
                                          
                                             </tr>
@@ -281,7 +317,7 @@ Hồi giữa tháng Mười, Yahoo vừa tuyên bố sẽ tiến hành mã hóa 
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Một nhà máy của Foxconn dừng sản xuất iPhone 5c
+                                        <a href="load?id=${pageScope.tintuc2.id }">Một nhà máy của Foxconn dừng sản xuất iPhone 5c
 
 </a>
                                      </div>   
@@ -289,8 +325,8 @@ Hồi giữa tháng Mười, Yahoo vừa tuyên bố sẽ tiến hành mã hóa 
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/iPhone-2.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Kể từ khi ra mắt chiếc điện thoại giá rẻ của Apple - iPhone 5c chỉ đem lại một tình hình kinh doanh ảm đạm. Và cho đến ngày hôm qua một nhà máy của Foxconn tại Trịnh Châu, Trung Quốc sẽ tạm dừng sản xuất sản phẩm này.
+                                                    <a href="load?id=${pageScope.tintuc2.id }"><img src="${pageScope.tintuc2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+															${pageScope.tintuc2.header }
                                                 </td>
                                          
                                             </tr>
@@ -298,7 +334,7 @@ Kể từ khi ra mắt chiếc điện thoại giá rẻ của Apple - iPhone 5c
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Người dùng Twitter: Ít gặp stress
+                                        <a href="load?id=${pageScope.tintuc3.id }">Người dùng Twitter: Ít gặp stress
 
 </a>
                                      </div>   
@@ -306,8 +342,8 @@ Kể từ khi ra mắt chiếc điện thoại giá rẻ của Apple - iPhone 5c
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/twitter-3.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Một nghiên cứu của các nhà tâm lý học người Anh đã chỉ ra rằng, những ai thường xuyên chơi Twitter sẽ ít gặp stress hơn những người hay chơi các mạng xã hội khác.
+                                                    <a href="load?id=${pageScope.tintuc3.id }"><img src="${pageScope.tintuc3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+															${pageScope.tintuc3.header }
                                                 </td>
                                          
                                             </tr>
@@ -319,11 +355,11 @@ Một nghiên cứu của các nhà tâm lý học người Anh đã chỉ ra r�
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448">Microsoft đi tiên phong hỗ trợ công nghệ in 3D
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.tintuc4.id }">Microsoft đi tiên phong hỗ trợ công nghệ in 3D
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/da-nang-quan-ly-do-thi-qua-facebook-105446">Ứng dụng đọc tin Flipboard cập bến Windows 8
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.tintuc5.id }">Ứng dụng đọc tin Flipboard cập bến Windows 8
 
  </a> </li>
                                             
@@ -343,47 +379,63 @@ Một nghiên cứu của các nhà tâm lý học người Anh đã chỉ ra r�
                             
                         </div>
                         <div class="ctm">
-                           
+                           			
+                           			<%
+                        	List<TopicEntity> danhgia = TopicDAO.loadBySubMenu("danhgia");
+                        	TopicEntity danhgia1 = danhgia.get(0);
+                        	TopicEntity danhgia2 = danhgia.get(1);
+                        	TopicEntity danhgia3 = danhgia.get(2);
+                        	TopicEntity danhgia4 = danhgia.get(3);
+                        	TopicEntity danhgia5 = danhgia.get(4);
+                        	
+                        	pageContext.setAttribute("danhgia1", danhgia1);
+                        	pageContext.setAttribute("danhgia2", danhgia2);
+                        	pageContext.setAttribute("danhgia3", danhgia3);
+                        	pageContext.setAttribute("danhgia4", danhgia4);
+                        	pageContext.setAttribute("danhgia5", danhgia5);
+                        
+                        %>
+                           			
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">6 trình duyệt tuyệt vời cho thiết bị chạy Android
+                                        <a href="load?id=${pageScope.danhgia1.id }">6 trình duyệt tuyệt vời cho thiết bị chạy Android
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/android.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Trình duyệt mặc định trên Android có tên “Internet” là một trình duyệt vô cùng đơn giản được kèm theo Android OS. Trong khi đó, có những trình duyệt từ nhà cung cấp thứ ba sở hữu giao diện mạnh mẽ hơn, cấu hình tuyệt vời hơn và được cập nhật thường xuyên hơn.
+                                                    <a href="load?id=${pageScope.danhgia1.id }"><img src="${pageScope.danhgia1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														${pageScope.danhgia1.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">Vũ khí lợi hại của Windows 8
+                                        <a href="load?id=${pageScope.danhgia2.id }">Vũ khí lợi hại của Windows 8
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/Windows-8-Consumer-Preview.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Microsoft vừa mới phát hành phiên bản Windows 8 Consumer Preview để người dùng tải về miễn phí. Hệ điều hành thiên về hỗ trợ màn hình cảm ứng này được Microsoft tạo ra với tham vọng, chặn đứng sự bành trướng của Apple và Google trong thị trường máy tính bảng.
+                                                    <a href="load?id=${pageScope.danhgia2.id }"><img src="${pageScope.danhgia2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+																 ${pageScope.danhgia2.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">5 tính năng sáng giá của Windows8 cho doanh nghiệp
+                                        <a href="load?id=${pageScope.danhgia3.id }">5 tính năng sáng giá của Windows8 cho doanh nghiệp
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/win8handson.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Bên cạnh những tính năng nổi bật cho người dùng cá nhân, Windows 8 còn có nhiều tính năng đáng chú ý mà giới doanh nghiệp cần biết.
+                                                    <a href="load?id=${pageScope.danhgia3.id }"><img src="${pageScope.danhgia3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														${pageScope.danhgia3.header }
                                                 </td>
                                          
                                             </tr>
@@ -394,12 +446,12 @@ Bên cạnh những tính năng nổi bật cho người dùng cá nhân, Window
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/nhom-tin-tac-trung-quoc-danh-cap-bi-mat-cong-ty-my-105390">Windows 8 Consumer Preview trước giờ 'xuất kích'
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.danhgia4.id }">Windows 8 Consumer Preview trước giờ 'xuất kích'
 
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/trojan-moi-kho-phat-hien-tan-cong-lo-hong-ie-105360">Khám phá 30 phần mềm miễn phí hay
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.danhgia5.id }">Khám phá 30 phần mềm miễn phí hay
 
 
  </a> </li>
@@ -418,31 +470,47 @@ Bên cạnh những tính năng nổi bật cho người dùng cá nhân, Window
                         </div>
                         <div class="ctm">
                             
+              			<%
+                        	List<TopicEntity> mienphigiamgia = TopicDAO.loadBySubMenu("mienphigiamgia");
+                        	TopicEntity mienphigiamgia1 = mienphigiamgia.get(0);
+                        	TopicEntity mienphigiamgia2 = mienphigiamgia.get(1);
+                        	TopicEntity mienphigiamgia3 = mienphigiamgia.get(2);
+                        	TopicEntity mienphigiamgia4 = mienphigiamgia.get(3);
+                        	TopicEntity mienphigiamgia5 = mienphigiamgia.get(4);
+                        	
+                        	pageContext.setAttribute("mienphigiamgia1", mienphigiamgia1);
+                        	pageContext.setAttribute("mienphigiamgia2", mienphigiamgia2);
+                        	pageContext.setAttribute("mienphigiamgia3", mienphigiamgia3);
+                        	pageContext.setAttribute("mienphigiamgia4", mienphigiamgia4);
+                        	pageContext.setAttribute("mienphigiamgia5", mienphigiamgia5);
+                        
+                        %>
+                            
                                     <div class="title_article">
-                                        <a href="/">Tặng miễn phí license key phần mềm Registry Tuner
+                                        <a href="load?id=${pageScope.mienphigiamgia1.id }">Tặng miễn phí license key phần mềm Registry Tuner
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/Lavasoft-Giveaway.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Bạn có chiếc máy tính chạy chậm hơn bình thường và không biết cách nào để giải quyết nó? Bạn không chắc nó bị quá tải registry hay do dính virus hoặc spyware? Dù vấn đề là gì đi nữa, vẫn có giải pháp có thể giải quyết vấn đề máy tính chạy chậm. Trong khuôn khổ hợp tác thân thiện với Lavasoft trong vòng 1 tuần, chúng tôi cung cấp miễn phí bản copy của phần mềm Lavasoft Registry Tuner khi bạn tải và cài đặt phần mềm Ad-Aware Free Antivirus+ 11.
+                                                    <a href="load?id=${pageScope.mienphigiamgia1.id }"><img src="${pageScope.mienphigiamgia1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														${pageScope.mienphigiamgia1.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                      <div class="title_article">
-                                        <a href="/">Miễn phí bản quyền O&O DiskImage 6.8 Professial
+                                        <a href="load?id=${pageScope.mienphigiamgia2.id }">Miễn phí bản quyền O&O DiskImage 6.8 Professial
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/Disk-Image-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Giới thiệu và mời tham gia nhận miễn phí khóa bản quyền phần mềm O&O DiskImage 6.8 Professional.
+                                                    <a href="load?id=${pageScope.mienphigiamgia2.id }"><img src="${pageScope.mienphigiamgia2.url_daidien}" align="left" border="0" hspace="3" vspace="3"></a>
+														${pageScope.mienphigiamgia2.header }
                                                 </td>
                                          
                                             </tr>
@@ -450,15 +518,15 @@ Giới thiệu và mời tham gia nhận miễn phí khóa bản quyền phần 
                                     </div>
                                     
                                      <div class="title_article">
-                                        <a href="/">Giảm giá bộ phần mềm bảo vệ dữ liệu của Acronis
+                                        <a href="load?id=${pageScope.mienphigiamgia3.id }">Giảm giá bộ phần mềm bảo vệ dữ liệu của Acronis
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/Arconis.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Máy tính luôn là nơi lưu trữ những dữ liệu quan trọng của hầu hết mọi người dùng. Sẽ là thảm họa nếu một ngày nào đó chiếc máy tính của bạn bị hỏng, lỗi và tất cả dữ liệu bấy lâu lưu trữ đều mất sạch. Hiện nay, Acronis đưa ra chương trình giảm giá hấp dẫn cho một loạt các phần mềm của hãng.
+                                                    <a href="load?id=${pageScope.mienphigiamgia3.id }"><img src="${pageScope.mienphigiamgia3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+																	${pageScope.mienphigiamgia3.header }
                                                 </td>
                                          
                                             </tr>
@@ -471,13 +539,13 @@ Máy tính luôn là nơi lưu trữ những dữ liệu quan trọng của hầ
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Paragon giảm giá phần mềm bảo vệ dữ liệu máy tính
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.mienphigiamgia4.id }">Paragon giảm giá phần mềm bảo vệ dữ liệu máy tính
 
 
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">BlazeVideo SmartShow giảm giá 20%
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.mienphigiamgia5.id }">BlazeVideo SmartShow giảm giá 20%
 
 
  </a> </li>

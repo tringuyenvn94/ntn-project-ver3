@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -180,16 +183,28 @@
                 <div class="content_left">
            
                     <div class="topnew">
+                        <%
+                        	List<TopicEntity> topnew = TopicDAO.loadByMainId("baomat");
+                        	TopicEntity topnew1 = topnew.get(0);
+                        	TopicEntity topnew2 = topnew.get(1);
+                        	TopicEntity topnew3 = topnew.get(2);
+                        	TopicEntity topnew4 = topnew.get(3);
+                        	
+                        	pageContext.setAttribute("topnew1", topnew1);
+                        	pageContext.setAttribute("topnew2", topnew2);
+                        	pageContext.setAttribute("topnew3", topnew3);
+                        	pageContext.setAttribute("topnew4", topnew4);
                         
+                        %>
                                     <div class="title_topnew">
-                                        <a href="cach sua loi lag chuot tren windows 8.1"><span> Google tung "độc chiêu" phòng chống DDoS </span></a></div>
+                                        <a href="load?id=${pageScope.topnew1.id }"><span> ${pageScope.topnew1.title } </span></a></div>
                                     <div>
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tbody><tr>
                                                 <td class="img_top">
-                                                    <a href="/cach-sua-loi-lag-chuot-tren-windows-8-1-105457"><img src="Image/google-2.jpg" height="123" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    <a href="load?id=${pageScope.topnew1.id }"><img src="${pageScope.topnew1.url_daidien }" height="123" align="left" border="0" hspace="3" vspace="3"></a>
                                                 </td>
-                                                <td class="ctt_top" valign="top">Cho dù có cùng tên gọi với máy chơi game cầm tay của NVIDIA, Project Shield của Google là một dự án hoàn toàn độc lập sẽ giúp ích rất nhiều cho các trang web nhỏ.
+                                                <td class="ctt_top" valign="top">${pageScope.topnew1.header }
 </td>
                                             </tr>
                                         </tbody></table>
@@ -205,13 +220,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                <img src="Image/ma-doc.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew2.id }">
+                                                <img src="${pageScope.topnew2.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                              Virus lây từ smartphone sang máy tính đã có ở VN</a>
+                                            <a href="load?id=${pageScope.topnew2.id }">
+                                              ${pageScope.topnew2.title }</a>
                                         </div>
                                     </span>
                                 </td>
@@ -219,13 +234,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                <img src="Image/windows1.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew3.id }">
+                                                <img src="${pageScope.topnew3.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                Windows XP dễ nhiễm virus hơn so với Windows 8</a>
+                                            <a href="load?id=${pageScope.topnew3.id }">
+                                                ${pageScope.topnew3.title }</a>
                                         </div>
                                     </span>
                                 </td>
@@ -233,13 +248,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                <img src="Image/D-Link-1.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew4.id }">
+                                                <img src="${pageScope.topnew4.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
-                                                Modem D-Link, Tenda của Trung Quốc cài sẵn mã độc
+                                            <a href="load?id=${pageScope.topnew4.id }">
+                                                ${pageScope.topnew4.title }
 </a>
                                         </div>
                                     </span>
@@ -257,16 +272,31 @@
                             
                         </div>
                         <div class="ctm">
+                        <%
+                        	List<TopicEntity> tinbaomat = TopicDAO.loadBySubMenu("tinbaomat");
+                        	TopicEntity tinbaomat1 = tinbaomat.get(0);
+                        	TopicEntity tinbaomat2 = tinbaomat.get(1);
+                        	TopicEntity tinbaomat3 = tinbaomat.get(2);
+                        	TopicEntity tinbaomat4 = tinbaomat.get(3);
+                        	TopicEntity tinbaomat5 = tinbaomat.get(4);
+                        	
+                        	pageContext.setAttribute("tinbaomat1", tinbaomat1);
+                        	pageContext.setAttribute("tinbaomat2", tinbaomat2);
+                        	pageContext.setAttribute("tinbaomat3", tinbaomat3);
+                        	pageContext.setAttribute("tinbaomat4", tinbaomat4);
+                        	pageContext.setAttribute("tinbaomat5", tinbaomat5);
+                        
+                        %>
                            
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Trojan mới khó phát hiện tấn công lỗ hổng IE</a>
+                                        <a href="load?id=${pageScope.tinbaomat1.id }">Trojan mới khó phát hiện tấn công lỗ hổng IE</a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/Trojan-1.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Một trojan mới vừa xuất hiện khai thác lỗ hổng trình duyệt web Internet Explorer (IE), và người dùng sẽ không dễ dàng tìm thấy nó vì chúng không nằm trên ổ cứng.
+                                                    <a href="load?id=${pageScope.tinbaomat1.id }"><img src="${pageScope.tinbaomat1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+																		${pageScope.tinbaomat1.header }	
                                                 </td>
                                          
                                             </tr>
@@ -274,14 +304,14 @@ Một trojan mới vừa xuất hiện khai thác lỗ hổng trình duyệt web
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Mã PIN smartphone sẽ lộ vì camera, microphone?</a>
+                                        <a href="load?id=${pageScope.tinbaomat2.id }">Mã PIN smartphone sẽ lộ vì camera, microphone?</a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/pin-smartphone.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Sử dụng chương trình PIN Skimmer, nhóm nghiên cứu từ Đại học Cambridge (Anh) phát hiện mã pin (chỉ dùng chữ số) có thể bị xác định nhờ máy ảnh và micophone điện thoại.
+                                                    <a href="load?id=${pageScope.tinbaomat2.id }"><img src="${pageScope.tinbaomat2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 																	${pageScope.tinbaomat2.header }
                                                 </td>
                                          
                                             </tr>
@@ -289,14 +319,14 @@ Sử dụng chương trình PIN Skimmer, nhóm nghiên cứu từ Đại học C
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">152 triệu tài khoản Adobe bị lộ trên web</a>
+                                        <a href="load?id=${pageScope.tinbaomat3.id }">152 triệu tài khoản Adobe bị lộ trên web</a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/adobe.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Một hãng phần mềm vừa phát hiện dữ liệu thuộc 152 triệu tài khoản Adobe, cho thấy những gì Adobe thừa nhận cuối tháng 10 thấp hơn rất nhiều so với thực tế.
+                                                    <a href="load?id=${pageScope.tinbaomat3.id }"><img src="Image/adobe.jpg" align="left" border="0" hspace="3" vspace="3"></a>
+																		${pageScope.tinbaomat3.header }
                                                 </td>
                                          
                                             </tr>
@@ -308,10 +338,10 @@ Một hãng phần mềm vừa phát hiện dữ liệu thuộc 152 triệu tài
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448">CIA trả tiền cho dữ liệu cuộc gọi của AT&T </a> </li>
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.tinbaomat4.id }">CIA trả tiền cho dữ liệu cuộc gọi của AT&T </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/da-nang-quan-ly-do-thi-qua-facebook-105446">Microsoft, Facebook khuyến khích tìm lỗi bảo mật </a> </li>
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.tinbaomat5.id }">Microsoft, Facebook khuyến khích tìm lỗi bảo mật </a> </li>
                                             
                                                 </ul>
                                             
@@ -330,40 +360,56 @@ Một hãng phần mềm vừa phát hiện dữ liệu thuộc 152 triệu tài
                         </div>
                         <div class="ctm">
                            
+                           	<%
+	                        	List<TopicEntity> giaiphapbaomat = TopicDAO.loadBySubMenu("giaiphapbaomat");
+	                        	TopicEntity giaiphapbaomat1 = giaiphapbaomat.get(0);
+	                        	TopicEntity giaiphapbaomat2 = giaiphapbaomat.get(1);
+	                        	TopicEntity giaiphapbaomat3 = giaiphapbaomat.get(2);
+	                        	TopicEntity giaiphapbaomat4 = giaiphapbaomat.get(3);
+	                        	TopicEntity giaiphapbaomat5 = giaiphapbaomat.get(4);
+	                        	
+	                        	pageContext.setAttribute("giaiphapbaomat1", giaiphapbaomat1);
+	                        	pageContext.setAttribute("giaiphapbaomat2", giaiphapbaomat2);
+	                        	pageContext.setAttribute("giaiphapbaomat3", giaiphapbaomat3);
+	                        	pageContext.setAttribute("giaiphapbaomat4", giaiphapbaomat4);
+	                        	pageContext.setAttribute("giaiphapbaomat5", giaiphapbaomat5);
+                        
+                       	 %>
+                           
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">Mẹo bảo mật Google, Facebook và dịch vụ trực tuyến</a></div>
+                                        <a href="load?id=${pageScope.giaiphapbaomat1.id }">Mẹo bảo mật Google, Facebook và dịch vụ trực tuyến</a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/Bao-mat.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Những thông tin gần đây về các hoạt động bí mật của chính phủ Mỹ, sự tăng cường các cuộc xâm phạm thông tin cá nhân và việc ảnh đại diện của bạn xuất hiện trên Google Ads đã làm dấy lên một vấn đề: Thông tin cá nhân trực tuyến của bạn chỉ được bảo vệ tối đa khi bạn có thể để mắt đến chúng. 
+                                                    <a href="load?id=${pageScope.giaiphapbaomat1.id }"><img src="${pageScope.giaiphapbaomat1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 																					${pageScope.giaiphapbaomat1.header } 
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">"Tuyệt chiêu" diệt virus Autorun bằng tay</a></div>
+                                        <a href="load?id=${pageScope.giaiphapbaomat2.id }">"Tuyệt chiêu" diệt virus Autorun bằng tay</a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/Autorun.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Trước tiên phải khẳng định, việc giải quyết lây lan virus qua chức năng Autorun của Windows có vô cùng nhiều cách. Những cách làm này khá thủ công, tuy nhiên nó giúp người thực hiện hiểu rõ hơn về các nguyên tắc bảo mật, an ninh cho hệ thống.
+                                                    <a href="load?id=${pageScope.giaiphapbaomat2.id }"><img src="${pageScope.giaiphapbaomat2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+                                                      			${pageScope.giaiphapbaomat2.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="/google-tung-doc-chieu-phong-chong-ddos-105403">Hanoi Telecom ra mắt giải pháp chống tấn công mạng</a></div>
+                                        <a href="load?id=${pageScope.giaiphapbaoma3.id }">Hanoi Telecom ra mắt giải pháp chống tấn công mạng</a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/google-tung-doc-chieu-phong-chong-ddos-105403"><img src="Image/Tan-cong-mang.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Ngày 6/8, Công ty Cổ phần công nghệ an ninh không gian mạng Việt Nam VNCS (thuộc Hanoi Telecom) đã giới thiệu giải pháp giám sát tập trung (VNCS Web Monitoring) nhằm phát hiện các cuộc tấn công mạng kịp thời và đưa ra cảnh báo theo thời gian thực.
+                                                    <a href="load?id=${pageScope.giaiphapbaoma3.id }"><img src="${pageScope.giaiphapbaoma3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+															${pageScope.giaiphapbaoma3.header }
                                                 </td>
                                          
                                             </tr>
@@ -374,10 +420,10 @@ Ngày 6/8, Công ty Cổ phần công nghệ an ninh không gian mạng Việt N
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/nhom-tin-tac-trung-quoc-danh-cap-bi-mat-cong-ty-my-105390">Trang khắc phục lỗi tấn công của Apple </a> </li>
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.giaiphapbaoma4.id }">Trang khắc phục lỗi tấn công của Apple </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/trojan-moi-kho-phat-hien-tan-cong-lo-hong-ie-105360">8 cách bảo vệ thông tin cá nhân thời đại số
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.giaiphapbaoma5.id }">8 cách bảo vệ thông tin cá nhân thời đại số
  </a> </li>
                                             
                                                 </ul>
@@ -393,29 +439,45 @@ Ngày 6/8, Công ty Cổ phần công nghệ an ninh không gian mạng Việt N
                             
                         </div>
                         <div class="ctm">
-                            
+                            	
+                            	<%
+	                        	List<TopicEntity> virus = TopicDAO.loadBySubMenu("virus");
+	                        	TopicEntity virus1 = virus.get(0);
+	                        	TopicEntity virus2 = virus.get(1);
+	                        	TopicEntity virus3 = virus.get(2);
+	                        	TopicEntity virus4 = virus.get(3);
+	                        	TopicEntity virus5 = virus.get(4);
+	                        	
+	                        	pageContext.setAttribute("virus1", virus1);
+	                        	pageContext.setAttribute("virus2", virus2);
+	                        	pageContext.setAttribute("virus3", virus3);
+	                        	pageContext.setAttribute("virus4", virus4);
+	                        	pageContext.setAttribute("virus5", virus5);
+                        
+                       	 %>
+                            	
                                     <div class="title_article">
-                                        <a href="/">Bùng nổ virus file Infector</a></div>
+                                        <a href="load?id=${pageScope.virus1.id }">Bùng nổ virus file Infector</a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/hacker.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Hãng bảo mật Trend Micro vừa phát hiện một biến thể mới của virus file Infector, có khả năng khai thác các tập tin của Java và PDF để chèn vào mã độc và lấy trộm thông tin cá nhân người dùng.
+                                                    <a href="load?id=${pageScope.virus1.id }"><img src="${pageScope.virus1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+																	${pageScope.virus1.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                      <div class="title_article">
-                                        <a href="/">Xuất hiện loại virus mới bùng phát qua USB
+                                        <a href="load?id=${pageScope.virus2.id }">Xuất hiện loại virus mới bùng phát qua USB
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/USB.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Hệ thống giám sát virus của Công ty An ninh mạng Bkav vừa phát hiện một loại virus mới W32.UsbFakeDrive có tốc độ lây nhiễm chóng mặt. Các chuyên gia nhận định đây sẽ là mã độc thay thế các dòng virus AutoRun, phát tán qua USB trước đây.
+                                                    <a href="load?id=${pageScope.virus2.id }"><img src="${pageScope.virus2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+																		${pageScope.virus2.header }
                                                 </td>
                                          
                                             </tr>
@@ -423,14 +485,14 @@ Hệ thống giám sát virus của Công ty An ninh mạng Bkav vừa phát hi�
                                     </div>
                                     
                                      <div class="title_article">
-                                        <a href="/">Phát hiện ứng dụng "độc" nhìn xuyên quần áo
+                                        <a href="load?id=${pageScope.virus3.id }">Phát hiện ứng dụng "độc" nhìn xuyên quần áo
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/ung-dung-doc.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Bộ phận Phản ứng bảo mật của Symantec mới đây đã phát hiện một ứng dụng độc hại có tên gọi Android.Uracto, để lừa phỉnh mọi người về khả năng có thể nhìn xuyên thấu quần áo.
+                                                    <a href="load?id=${pageScope.virus3.id }"><img src="${pageScope.virus1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+																${pageScope.virus1.header }
                                                 </td>
                                          
                                             </tr>
@@ -443,11 +505,11 @@ Bộ phận Phản ứng bảo mật của Symantec mới đây đã phát hiệ
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Trojan chèn quảng cáo vào trình duyệt OS X
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.virus5.id }">Trojan chèn quảng cáo vào trình duyệt OS X
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Xuất hiện gần 3.000 dòng virus máy tính mới ở VN
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.virus5.id }">Xuất hiện gần 3.000 dòng virus máy tính mới ở VN
  </a> </li>
                                             
                                                 </ul>
@@ -466,31 +528,47 @@ Bộ phận Phản ứng bảo mật của Symantec mới đây đã phát hiệ
                             
                         </div>
                         <div class="ctm">
-                            
+                            		
+                            		<%
+	                        	List<TopicEntity> hacker = TopicDAO.loadBySubMenu("hacker");
+	                        	TopicEntity hacker1 = hacker.get(0);
+	                        	TopicEntity hacker2 = hacker.get(1);
+	                        	TopicEntity hacker3 = hacker.get(2);
+	                        	TopicEntity hacker4 = hacker.get(3);
+	                        	TopicEntity hacker5 = hacker.get(4);
+	                        	
+	                        	pageContext.setAttribute("hacker1", hacker1);
+	                        	pageContext.setAttribute("hacker2", hacker2);
+	                        	pageContext.setAttribute("hacker3", hacker3);
+	                        	pageContext.setAttribute("hacker4", hacker4);
+	                        	pageContext.setAttribute("hacker5", hacker5);
+                        
+                       	 %>
+                            		
                                     <div class="title_article">
-                                        <a href="/">Tin tặc Trung Quốc đánh cắp bí mật công ty Mỹ?
+                                        <a href="load?id=${pageScope.hacker1.id }">Tin tặc Trung Quốc đánh cắp bí mật công ty Mỹ?
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/tin-tac.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Các nhà nghiên cứu thuộc hãng bảo mật FireEye cho biết một tổ chức tin tặc Trung Quốc đang đánh cắp tài sản sở hữu trí tuệ của công ty Mỹ.
+                                                    <a href="load?id=${pageScope.hacker1.id }"><img src="${pageScope.hacker1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+															load?id=${pageScope.hacker1.header }
                                                 </td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                      <div class="title_article">
-                                        <a href="/">Bẻ mật khẩu hotspot trên iOS trong vòng 1 phút
+                                        <a href="load?id=${pageScope.hacker2.id }">Bẻ mật khẩu hotspot trên iOS trong vòng 1 phút
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/Hotspot.jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Các nhà nghiên cứu tại Đại học Erlangen, Đức, đã tìm ra một biện pháp nhằm bẻ mật khẩu hotspot (tạo kết nối Internet tới 3G/4G thông qua Wi-Fi) trong vòng 1 phút, khiến thiết bị iOS của bạn dễ dàng bị tấn công.
+                                                    <a href="load?id=${pageScope.hacker2.id }"><img src="${pageScope.hacker1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+															${pageScope.hacker2.header }
                                                 </td>
                                          
                                             </tr>
@@ -498,15 +576,15 @@ Các nhà nghiên cứu tại Đại học Erlangen, Đức, đã tìm ra một 
                                     </div>
                                     
                                      <div class="title_article">
-                                        <a href="/">Hacker bẻ mật khẩu 16 ký tự chưa đầy 60 phút
+                                        <a href="load?id=${pageScope.hacker3.id }">Hacker bẻ mật khẩu 16 ký tự chưa đầy 60 phút
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/"><img src="Image/hacker(1).jpg" align="left" border="0" hspace="3" vspace="3"></a>
-Trong một thử nghiệm của trang web Ars Technica, 14.800 mật mã đã bị hack thành công, bao gồm cả những mật mã có độ dài 16 ký tự.
+                                                    <a href="load?id=${pageScope.hacker3.id }"><img src="${pageScope.hacker3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+														 ${pageScope.hacker3.header }
                                                 </td>
                                          
                                             </tr>
@@ -519,12 +597,12 @@ Trong một thử nghiệm của trang web Ars Technica, 14.800 mật mã đã b
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/"> Đã có thể tải về công cụ bẻ khóa Windows RT
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.hacker4.id }"> Đã có thể tải về công cụ bẻ khóa Windows RT
 
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/"> Quá trình "chôm" mật khẩu Yahoo Mail trong 4 phút
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.hacker5.id }"> Quá trình "chôm" mật khẩu Yahoo Mail trong 4 phút
 
  </a> </li>
                                             
