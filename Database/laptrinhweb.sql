@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : Project_LTW
-Source Server Version : 50528
+Source Server         : LoginRoot
+Source Server Version : 50529
 Source Host           : localhost:3306
 Source Database       : laptrinhweb
 
 Target Server Type    : MYSQL
-Target Server Version : 50528
+Target Server Version : 50529
 File Encoding         : 65001
 
-Date: 2014-01-10 16:13:25
+Date: 2014-01-13 00:16:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for lienhe
+-- Table structure for `lienhe`
 -- ----------------------------
 DROP TABLE IF EXISTS `lienhe`;
 CREATE TABLE `lienhe` (
@@ -38,56 +38,7 @@ CREATE TABLE `lienhe` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for linhvuc
--- ----------------------------
-DROP TABLE IF EXISTS `linhvuc`;
-CREATE TABLE `linhvuc` (
-  `linhvuc` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`linhvuc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Records of linhvuc
--- ----------------------------
-INSERT INTO `linhvuc` VALUES ('Cisco Lab');
-INSERT INTO `linhvuc` VALUES ('Database');
-INSERT INTO `linhvuc` VALUES ('Desktop');
-INSERT INTO `linhvuc` VALUES ('DN giới thiệu');
-INSERT INTO `linhvuc` VALUES ('Doanh nghiệp 2.0');
-INSERT INTO `linhvuc` VALUES ('Doanh Nhân');
-INSERT INTO `linhvuc` VALUES ('Đánh giá');
-INSERT INTO `linhvuc` VALUES ('Đầu tư - cạnh tranh');
-INSERT INTO `linhvuc` VALUES ('Giải pháp bảo mật');
-INSERT INTO `linhvuc` VALUES ('Hacker');
-INSERT INTO `linhvuc` VALUES ('Hướng dẫn');
-INSERT INTO `linhvuc` VALUES ('Khởi nghiệp');
-INSERT INTO `linhvuc` VALUES ('﻿Kiến thức cở bản');
-INSERT INTO `linhvuc` VALUES ('LAN - WAN');
-INSERT INTO `linhvuc` VALUES ('Laptop');
-INSERT INTO `linhvuc` VALUES ('Linux-Unix');
-INSERT INTO `linhvuc` VALUES ('Mac');
-INSERT INTO `linhvuc` VALUES ('Mail Server');
-INSERT INTO `linhvuc` VALUES ('Máy chủ');
-INSERT INTO `linhvuc` VALUES ('Microsoft Lab');
-INSERT INTO `linhvuc` VALUES ('Miễn phí giảm giá');
-INSERT INTO `linhvuc` VALUES ('Quảng cáo trực tuyến');
-INSERT INTO `linhvuc` VALUES ('Quốc tế');
-INSERT INTO `linhvuc` VALUES ('Tablet');
-INSERT INTO `linhvuc` VALUES ('Thiết bị - Linh kiện');
-INSERT INTO `linhvuc` VALUES ('Thiết bị số');
-INSERT INTO `linhvuc` VALUES ('Thiết kế - Đồ họa');
-INSERT INTO `linhvuc` VALUES ('Thủ thuật');
-INSERT INTO `linhvuc` VALUES ('Thương mại điện tử');
-INSERT INTO `linhvuc` VALUES ('Tin bảo mật');
-INSERT INTO `linhvuc` VALUES ('Tin học văn phòng');
-INSERT INTO `linhvuc` VALUES ('Tin trong nước');
-INSERT INTO `linhvuc` VALUES ('Tin tức');
-INSERT INTO `linhvuc` VALUES ('Tư vấn');
-INSERT INTO `linhvuc` VALUES ('Virus - Spyware');
-INSERT INTO `linhvuc` VALUES ('Windows');
-
--- ----------------------------
--- Table structure for main_menu
+-- Table structure for `main_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `main_menu`;
 CREATE TABLE `main_menu` (
@@ -112,7 +63,44 @@ INSERT INTO `main_menu` VALUES ('tintuccongnghe', 'Tin Tức Công Nghệ', 'tin
 INSERT INTO `main_menu` VALUES ('trangchu', 'Trang Chủ', 'tranchu.jsp');
 
 -- ----------------------------
--- Table structure for sub_menu
+-- Table structure for `power`
+-- ----------------------------
+DROP TABLE IF EXISTS `power`;
+CREATE TABLE `power` (
+  `id_chucnang` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_chucnang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of power
+-- ----------------------------
+INSERT INTO `power` VALUES ('admin', 'Admn');
+INSERT INTO `power` VALUES ('user', 'User');
+
+-- ----------------------------
+-- Table structure for `role`
+-- ----------------------------
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role` (
+  `id_chucnang` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id_chucnang`,`user_id`),
+  KEY `user_id_fk` (`user_id`),
+  CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `id_chucnang_fk` FOREIGN KEY (`id_chucnang`) REFERENCES `power` (`id_chucnang`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of role
+-- ----------------------------
+INSERT INTO `role` VALUES ('user', '1');
+INSERT INTO `role` VALUES ('user', '4');
+INSERT INTO `role` VALUES ('user', '8');
+INSERT INTO `role` VALUES ('admin', '9');
+
+-- ----------------------------
+-- Table structure for `sub_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `sub_menu`;
 CREATE TABLE `sub_menu` (
@@ -159,7 +147,7 @@ INSERT INTO `sub_menu` VALUES ('virus', 'Virus', 'baomat', 'virus.jsp');
 INSERT INTO `sub_menu` VALUES ('windows', 'Windows', 'hedieuhanh', 'windows.jsp');
 
 -- ----------------------------
--- Table structure for topic
+-- Table structure for `topic`
 -- ----------------------------
 DROP TABLE IF EXISTS `topic`;
 CREATE TABLE `topic` (
@@ -176,7 +164,7 @@ CREATE TABLE `topic` (
   PRIMARY KEY (`id`),
   KEY `id_sub_menu_fk` (`id_sub_menu`),
   CONSTRAINT `id_sub_menu_fk` FOREIGN KEY (`id_sub_menu`) REFERENCES `sub_menu` (`id_sub_menu`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=351 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=352 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of topic
@@ -533,12 +521,11 @@ INSERT INTO `topic` VALUES ('349', 'hoidap', '2014-01-10 15:57:45', '<h1>Western
 INSERT INTO `topic` VALUES ('350', 'hoidap', '2014-01-10 15:58:37', '<h1>Những điều cần biết về chip Intel Core i thế hệ 4 Haswell&nbsp;</h1>\r\n\r\n<p><strong>Intel Core i thế hệ 4 ti&ecirc;u thụ &iacute;t điện năng hơn tới 20 lần so với Sandy Bridge ở chế độ chờ trong khi hiệu năng đồ họa cũng tăng đ&aacute;ng kể.&nbsp;</strong></p>\r\n\r\n<div id=\"article_content\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 12px; color: rgb(52, 52, 52); font-family: Arial; line-height: 20px;\">&nbsp;\r\n<p>D&ograve;ng vi xử l&yacute; mới của Intel mới được ra mắt v&agrave;o đầu th&aacute;ng n&agrave;y dựa tr&ecirc;n nền tảng mang t&ecirc;n Haswell. Đ&acirc;y l&agrave; d&ograve;ng chip Core i thế hệ thứ 4 của h&atilde;ng v&agrave; vẫn sử dụng quy tr&igrave;nh sản xuất 22 nm c&ugrave;ng b&oacute;ng b&aacute;n dẫn 3D giống d&ograve;ng Ivy Bridge. Theo chu tr&igrave;nh ph&aacute;t triển &quot;Tich-Tock&quot; của Intel (một năm thay đổi &iacute;t mới đến một năm thay đổi nhiều) th&igrave; Haswell nằm ở chu kỳ thay đổi nhiều.</p>\r\n\r\n<p>Đ&aacute;ng ch&uacute; &yacute; khi những n&acirc;ng cấp &nbsp;chủ yếu hỗ trợ cho c&aacute;c d&ograve;ng<a href=\"http://hoidap.tinmoi.vn/may-tinh-c149/\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background-color: transparent; color: rgb(102, 102, 102); line-height: 18px; text-decoration: none;\" target=\"_blank\">&nbsp;m&aacute;y t&iacute;nh&nbsp;</a>si&ecirc;u di động bởi li&ecirc;n quan nhiều đến thời lượng sử dụng pin cũng như hiệu năng đồ họa cho chip t&iacute;ch hợp. Dự kiến Haswell sẽ c&oacute; mặt tr&ecirc;n c&aacute;c d&ograve;ng laptop mới b&aacute;n ra từ th&aacute;ng 7 năm nay.&nbsp;</p>\r\n\r\n<p><strong>Thời lượng sử dụng pin&nbsp;</strong></p>\r\n&nbsp;\r\n\r\n<p>Intel Core i thế hệ thứ 3 từng được quảng c&aacute;o cải thiện thời gian sử dụng pin v&agrave; thiết kế mỏng nhưng chỉ tốt hơn 20% so với c&aacute;c m&aacute;y t&iacute;nh Core i thế hệ 2 Sandy Bridge. Đến năm 2013, Intel tuy&ecirc;n bố chip Haswell tốt hơn tới 20 lần so với chip Sandy Bridge ở chế độ chờ. Thời gian xem video chuẩn HD cũng cao hơn 3 giờ so với d&ograve;ng chip cũ. Thử nghiệm n&agrave;y tiến h&agrave;nh tr&ecirc;n hai vi xử l&yacute; l&agrave; Core i7-4650U thế hệ 4 v&agrave; Core iy-3667U thế hệ 3.&nbsp;</p>\r\n\r\n<p>Nh&agrave; sản xuất cũng cho biết khi m&aacute;y t&iacute;nh ở trạng th&aacute;i &quot;ngủ&quot;, lượng pin ti&ecirc;u thụ chỉ c&ograve;n bằng một nửa so với thế hệ trước. Điều n&agrave;y đồng nghĩa với việc người d&ugrave;ng c&oacute; thể gập m&aacute;y t&iacute;nh v&agrave; m&aacute;y vẫn lưu trạng th&aacute;i nghỉ trong tới 10 ng&agrave;y khi gắn k&egrave;m pin dung lượng 50 Wh thường thấy tr&ecirc;n ultrabook.&nbsp;</p>\r\n\r\n<p>Intel cũng sử dụng quy tr&igrave;nh sản xuất 22 nm c&ugrave;ng b&oacute;ng b&aacute;n dẫn 3D giống d&ograve;ng Ivy Bridge cho thế hệ Haswell. Tuy nhi&ecirc;n, c&aacute;c kỹ sư đ&atilde; t&iacute;ch hợp hệ thống quản l&yacute; điện năng &nbsp;với một loạt c&aacute;c điều chỉnh điện &aacute;p v&agrave;o một bộ điều khiển duy nhất. Điều n&agrave;y gi&uacute;p đoạn đường nối điện &aacute;p ngắn v&agrave; nhanh hơn cho ph&eacute;p c&aacute;c chip l&agrave;m việc hiệu quả khi cần thiết v&agrave; tự hạ nhiệt khi kh&ocirc;ng d&ugrave;ng. &nbsp;C&aacute;c m&aacute;y t&iacute;nh x&aacute;ch tay nhờ vậy cũng hoạt động lại từ chế độ nghỉ nhanh hơn.&nbsp;</p>\r\n\r\n<p>Nếu như năm ngo&aacute;i một chip điện &aacute;p thấp của Ivy Bridge c&oacute; mức ti&ecirc;u thụ điện năng l&agrave; 20W th&igrave; gi&aacute; trị n&agrave;y với d&ograve;ng U năm nay của Haswell chỉ l&agrave; 15W (với d&ograve;ng U series).&nbsp;</p>\r\n\r\n<p><strong>M&aacute;y mỏng hơn</strong></p>\r\n&nbsp;\r\n\r\n<p>D&ograve;ng vi xử l&yacute; mới ti&ecirc;u thụ &iacute;t điện năng hơn n&ecirc;n nhờ thế cũng tỏa nhiệt &iacute;t hơn v&agrave; kh&ocirc;ng cần nhiều kh&ocirc;ng gian để l&agrave;m m&aacute;t. Tuy nhi&ecirc;n, c&aacute;c m&aacute;y được thiết kế mỏng hơn chưa chắc đ&atilde; đi k&egrave;m mức gi&aacute; cũng dễ chịu hơn. Theo Slashgear, c&aacute;c model si&ecirc;u mỏng vẫn sẽ ở mức gi&aacute; cao v&agrave; hơn nữa hiệu suất hoạt động cũng chưa thể đ&aacute;p ứng cho c&aacute;c c&ocirc;ng việc năng như chơi game hoặc chỉnh sửa video.&nbsp;</p>\r\n\r\n<p>Theo c&ocirc;ng bố của Intel, độ mỏng của c&aacute;c m&aacute;y sử dụng chip Haswell mới sẽ l&agrave; từ 16-18 mm với dạng truyền thống. 18 đến 20 mm cho m&aacute;y m&agrave;n h&igrave;nh lật xoay. Với dạng th&aacute;o rời m&agrave;n h&igrave;nh, độ mỏng l&agrave; từ 17 đến 19 mm trong khi tablet sẽ chỉ từ 10 đến 12 mm.&nbsp;</p>\r\n\r\n<p><strong>Khả năng đồ họa&nbsp;</strong></p>\r\n&nbsp;\r\n\r\n<p>Kh&ocirc;ng chỉ tiết kiệm pin hơn, ưu điểm lớn tiếp theo của Haswell ch&iacute;nh l&agrave; khả năng đồ họa. Đi k&egrave;m với d&ograve;ng chip xử l&yacute; mới, Intel cũng đưa v&agrave;o d&ograve;ng chip đồ họa với những cải thiện r&otilde; rệt cũng như ti&ecirc;u thụ mức điện năng chỉ l&agrave; 15 W tr&ecirc;n c&aacute;c mẫu ultrabook sử dụng chip Intel HD Graphics 5000.&nbsp;</p>\r\n\r\n<p><span style=\"background-color:transparent\">Trong khi đ&oacute;, c&aacute;c chip cao cấp Core i7-4558U ti&ecirc;u thụ điện năng 28W sẽ đi k&egrave;m chip đồ họa Iris mới. Intel tuy&ecirc;n bố n&oacute; sẽ gi&uacute;p chơi một số game &quot;nặng&quot; hiện nay nay ở c&agrave;i đặt trung b&igrave;nh như 37 khung h&igrave;nh mỗi gi&acirc;y khi chơi tr&ograve; Tomb Raider ở độ ph&acirc;n giải 1.366 x 768 pixel, 60 khung h&igrave;nh mỗi gi&acirc;y với Call of Duty: Modern Warfare 3 ở độ ph&acirc;n giải Full HD.&nbsp;</span></p>\r\n\r\n<p>C&ugrave;ng với hai d&ograve;ng tiết kiệm điện năng U Series v&agrave; Y Series cũng như d&ograve;ng M Series cho tầm trung, Intel cũng giới thiệu d&ograve;ng chip hiệu năng cao l&agrave; H Series với mức ti&ecirc;u thụ điện năng 47W đi k&egrave;m chip đồ họa Iris Pro. Khi đ&oacute;, hiệu năng đồ họa c&oacute; thể so s&aacute;nh với một số d&ograve;ng card đồ họa rời như Nvidia GT 650.&nbsp;</p>\r\n\r\n<p>Ngo&agrave;i chơi game, chip đồ họa t&iacute;ch hợp mới của Intel sẽ nhanh hơn ở khả năng m&atilde; h&oacute;a v&agrave; giải m&atilde; &acirc;m thanh cũng như h&igrave;nh ảnh.&nbsp;</p>\r\n\r\n<p><strong>Tạo ra cỗ m&aacute;y si&ecirc;u di động ultrabook đ&iacute;ch thực</strong></p>\r\n&nbsp;\r\n\r\n<p>Qu&aacute; nhiều thứ được hứa hẹn tr&ecirc;n c&aacute;c mẫu ultrabook mới được b&aacute;n ra từ giữa năm nay. Đầu ti&ecirc;n ch&iacute;nh l&agrave; &quot;trọn g&oacute;i&quot; m&agrave;n h&igrave;nh cảm ứng, c&ocirc;ng nghệ truyền dẫn t&iacute;n hiệu h&igrave;nh ảnh kh&ocirc;ng d&acirc;y Intel Wireless Display, điều khiển bằng giọng n&oacute;i. Ngay sau đ&oacute; l&agrave; thời lượng sử dụng pin ấn tượng với 6 giờ ph&aacute;t video HD li&ecirc;n tục, 9 tiếng hoạt động khi chạy Windows 8 v&agrave; 7 ng&agrave;y ở chế độ chờ.&nbsp;</p>\r\n\r\n<p>Ngo&agrave;i ra, tất cả c&aacute;c m&aacute;y sẽ c&oacute; thời gian hoạt động trở lại từ chế độ &quot;ngủ&quot; chưa đầy 3 gi&acirc;y (với ổ SSD gắn k&egrave;m). C&aacute;c m&aacute;y thực hiện được điều khiển bằng giọng n&oacute;i phải c&oacute; microphone gắn k&egrave;m tương th&iacute;ch với phần mềm.&nbsp;</p>\r\n\r\n<p><strong>Tổng kết</strong></p>\r\n\r\n<p>Với sự thay đổi về thời lượng sử dụng pin được cho l&agrave; lớn nhất trong<a href=\"http://hoidap.tinmoi.vn/lich-su-c93/\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; background-color: transparent; color: rgb(102, 102, 102); line-height: 18px; text-decoration: none;\" target=\"_blank\">&nbsp;lịch sử&nbsp;</a>ph&aacute;t triển cũng như hiệu năng đồ họa tăng, Haswell r&otilde; r&agrave;ng rất được chờ đợi tr&ecirc;n c&aacute;c mẫu ultrabook năm nay. Ngo&agrave;i ra, những người y&ecirc;u th&iacute;ch thiết kế mỏng nhẹ cũng c&oacute; l&yacute; do để sở hữu ultrabook chạy Core i thế hệ thứ 4 khi c&oacute; độ d&agrave;y giảm khoảng 2-4 mm so với thế hệ cũ.&nbsp;</p>\r\n\r\n<p>Tuy nhi&ecirc;n, việc Intel kh&ocirc;ng đặc biệt n&oacute;i nhiều về cải tiến hiệu năng hoạt động của CPU tr&ecirc;n nền tảng mới sẽ gi&uacute;p người đang sử dụng m&aacute;y hoặc chuẩn bị mua c&aacute;c d&ograve;ng chip cũ cho m&aacute;y để b&agrave;n trở n&ecirc;n y&ecirc;n t&acirc;m hơn. Dễ nhận thấy lần n&acirc;ng cấp năm nay chủ yếu hướng đến c&aacute;c d&ograve;ng m&aacute;y di động thay v&igrave; m&aacute;y t&iacute;nh truyền thống.&nbsp;</p>\r\n</div>\r\n', ' Những điều cần biết về chip Intel Core i thế hệ 4 Haswell ?', 'hoidap.tinmoi.vn', 'Lương Văn Nhẫn', 'onethelove0401@gmail.com', 'http://media.hoidap.tinmoi.vn/resize_158x85/upload/question-chip%20intel%20haswell.jpg', null);
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `no_of_entries` int(11) DEFAULT NULL,
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `full_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -547,17 +534,15 @@ CREATE TABLE `user` (
   `is_male` bit(1) NOT NULL DEFAULT b'0' COMMENT '1: male, 0 famale',
   `is_receive_email` bit(1) DEFAULT b'0' COMMENT '1 yes 0 no',
   `is_show_email` bit(1) DEFAULT b'0',
-  `is_active` bit(1) NOT NULL DEFAULT b'0',
-  `is_admin` bit(1) NOT NULL DEFAULT b'0' COMMENT '1 admin, 0 normal user',
   `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`user_id`,`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`user_id`,`username`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', null, 'nv_ca', 'a', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', '1993', '', '', '', '', '', '');
-INSERT INTO `user` VALUES ('2', null, 'nguyenvanchucan', '6shbjp1', 'Nguyen Van Chuc An', 'nguyenvanchucan@gmail.com', '1993', '', '', '', '\0', '\0', 'dongnai');
-INSERT INTO `user` VALUES ('3', null, 'abc', 'abcd', 'abc', '11130001@st.hcmuaf.edu.vn', '1993', '', '', '', '', '', 'tphcm');
-INSERT INTO `user` VALUES ('4', null, 'dntien', 'a', 'Đặng Ngọc Tiến', '11130026@st.hcmuaf.edu.vn', '1993', '', '', '', '', '', 'dongthap');
-INSERT INTO `user` VALUES ('8', null, 'anhlak', 'a', 'Lương Văn Nhẫn', 'onethelove0401@gmail.com', '1993', '', '', '', '\0', '\0', 'daknak');
+INSERT INTO `user` VALUES ('1', 'nv_ca', 'a', 'Nguyen Van Chuc An', 'nv_ca@yahoo.com', '1993', '', '', '', '');
+INSERT INTO `user` VALUES ('4', 'dntien', 'a', 'Đặng Ngọc Tiến', '11130026@st.hcmuaf.edu.vn', '1993', '', '', '', 'dongthap');
+INSERT INTO `user` VALUES ('8', 'anhlak', 'a', 'Lương Văn Nhẫn', 'onethelove0401@gmail.com', '1993', '', '', '', 'daknak');
+INSERT INTO `user` VALUES ('9', 'admin', 'admin', 'Admin', 'nguyenvanchucan@gmail.com', '1993', '', '', '', 'Dong Nai');
