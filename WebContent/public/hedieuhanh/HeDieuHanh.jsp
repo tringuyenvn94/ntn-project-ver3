@@ -1,3 +1,6 @@
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.TopicDAO"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -181,17 +184,33 @@
            
                     <div class="topnew">
                         
+                          <%
+                        	
+                        	List<TopicEntity> topnew = TopicDAO.loadByMainId("hedieuhanh");
+                        	TopicEntity topnew1 = topnew.get(0);
+                        	TopicEntity topnew2 = topnew.get(1);
+                        	TopicEntity topnew3 = topnew.get(2);
+                        	//TopicEntity topnew4 = topnew.get(3);
+                        	
+                        	pageContext.setAttribute("topnew1", topnew1);
+                        	pageContext.setAttribute("topnew2", topnew2);
+                        	pageContext.setAttribute("topnew3", topnew3);
+                        	//pageContext.setAttribute("topnew4", topnew4);
+                        
+                        %>
+                        
+                        
                                     <div class="title_topnew">
-                                        <a href="cach sua loi lag chuot tren windows 8.1"><span>  Hệ điều hành Windows sinh nhật tròn 30 năm tuổi
+                                        <a href="load?id=${pageScope.topnew1.id }"><span>  ${pageScope.topnew1.title }
 
  </span></a></div>
                                     <div>
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tbody><tr>
                                                 <td class="img_top">
-                                                    <a href="/cach-sua-loi-lag-chuot-tren-windows-8-1-105457"><img src="Image/windows-1.jpg" height="239" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    <a href="load?id=${pageScope.topnew1.id }"><img src="${pageScope.topnew1.url_daidien }" height="239" align="left" border="0" hspace="3" vspace="3"></a>
                                                 </td>
-                                                <td class="ctt_top" valign="top"> Cách đây tròn 30 năm, nhà sáng lập Microsoft là Bill Gates lần đầu tiên giới thiệu Windows, mở đường cho 3 thập kỉ thành công của hệ điều hành này. 
+                                                <td class="ctt_top" valign="top">  ${pageScope.topnew1.header } 
 
 
 </td>
@@ -209,13 +228,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
-                                                <img src="Image/Dong-bo-1.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew2.id }">
+                                                <img src="${pageScope.topnew2.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/bi-quyet-bo-tui-truoc-khi-chon-mua-laptop-105450">
- Xóa bỏ dữ liệu đồng bộ trên mây từ Windows 8.1 </a>
+                                            <a href="load?id=${pageScope.topnew2.id }">
+														${pageScope.topnew1.title } </a>
                                         </div>
                                     </span>
                                 </td>
@@ -223,13 +242,13 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
-                                                <img src="Image/Windows-81-1.jpg" border="0">
+                                            <a href="load?id=${pageScope.topnew3.id }">
+                                                <img src="${pageScope.topnew3.url_daidien }" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/thietbiso/lg-man-hinh-cong-bat-ngo-xuat-hien-tai-viet-nam-105439">
- Hướng dẫn nâng cấp lên Windows 8.1 bằng hình ảnh </a>
+                                            <a href="load?id=${pageScope.topnew3.id }">
+                                            ${pageScope.topnew3.title } </a>
                                         </div>
                                     </span>
                                 </td>
@@ -237,13 +256,14 @@
                                 <td>
                                     <span>
                                         <div class="boxsub">
-                                            <a href="4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
+                                            <a href="load?id=${pageScope.topnew1.id }">
                                                 <img src="Image/Ubuntu.jpg" border="0">
                                             </a>
                                         </div>
                                         <div class="title_boxsub">
-                                            <a href="/4-cach-de-chong-lai-he-thong-binh-luan-moi-cua-youtube-105438">
- Kích hoạt bộ gõ Tiếng Việt trên Ubuntu 13.10 </a>
+                                            <a href="load?id=${pageScope.topnew1.id }">
+                                            ${pageScope.topnew1.title }
+ </a>
                                         </div>
                                     </span>
                                 </td>
@@ -260,24 +280,40 @@
                             
                         </div>
                         <div class="ctm">
-                           
+                           			
+                         <%
+                        	List<TopicEntity> windows = TopicDAO.loadBySubMenu("windows");
+                        	TopicEntity windows1 = windows.get(0);
+                        	TopicEntity windows2 = windows.get(1);
+                        	TopicEntity windows3 = windows.get(2);
+                        	TopicEntity windows4 = windows.get(3);
+                        	TopicEntity windows5 = windows.get(4);
+                        	
+                        	pageContext.setAttribute("windows1", windows1);
+                        	pageContext.setAttribute("windows2", windows2);
+                        	pageContext.setAttribute("windows3", windows3);
+                        	pageContext.setAttribute("windows4", windows4);
+                        	pageContext.setAttribute("windows5", windows5);
+                        
+                        %>
+                           			
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"> Bản cập nhật Windows 8.1 gây lag khi chơi game
+                                        <a href="load?id=${pageScope.windows1.id }"> Bản cập nhật Windows 8.1 gây lag khi chơi game
 </a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/Lag.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- Nếu mục đích sử dụng máy tính của bạn chủ yếu để chơi game, thì rất có thể bạn không nên nâng cấp lên Windows 8.1 - Hệ điều hành Windows mới nhất hiện nay vào thời điểm này.                                                 </td>
-                                         
+                                                    <a href="load?id=${pageScope.windows1.id }"><img src="${pageScope.windows1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 															${pageScope.windows1.header }
+                                         </td>
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"> Sửa lỗi 0x80240031 khi nâng cấp lên Windows 8.1
+                                        <a href="load?id=${pageScope.windows2.id }"> Sửa lỗi 0x80240031 khi nâng cấp lên Windows 8.1
 
 </a>
                                      </div>   
@@ -285,15 +321,16 @@
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/Loi-0x80240031.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- Microsoft đã chính thức phát hành bản cập nhật Windows 8.1 của mình vào hôm 17/10 vừa qua. Bản cập nhật này cho phép người dùng Windows 8 tải về miễn phí từ Windows Store.                                                 </td>
+                                                    <a href="load?id=${pageScope.windows2.id }"><img src="${pageScope.windows2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+ 																${pageScope.windows2.header }
+ 																</td>
                                          
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"> Cách nâng cấp lên Windows 8.1 từ Windows 8
+                                        <a href="load?id=${pageScope.windows3.id }"> Cách nâng cấp lên Windows 8.1 từ Windows 8
 
 </a>
                                      </div>   
@@ -301,8 +338,9 @@
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455"><img src="Image/Windows-81.jpg" align="left" border="0" hspace="3" vspace="3"></a>
- Người dùng Windows 8 muốn có trải nghiệm tốt hơn không phải chờ đợi thêm nữa. Microsoft đã phát hành Windows 8.1, như một bản cập nhật miễn phí cho tất cả máy tính chạy Windows 8. Chỉ với một vài bước đơn giản, bạn có thể nhận được các tính năng mới, quan trọng.                                                 </td>
+                                                    <a href="load?id=${pageScope.windows3.id }"><img src="${pageScope.windows3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    ${pageScope.windows3.header }
+                                               </td>
                                          
                                             </tr>
                                         </tbody></table>
@@ -313,11 +351,11 @@
                                                 <ul>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448">Chạy 4 ứng dụng một lúc trong giao diện Modern UI 
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.windows4.id }">Chạy 4 ứng dụng một lúc trong giao diện Modern UI 
  </a> </li>
                                             
                                                 <li>
-                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/da-nang-quan-ly-do-thi-qua-facebook-105446">“Dung nhan” hệ điều hành Windows qua các thời kỳ 
+                                                    <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="load?id=${pageScope.windows5.id }">“Dung nhan” hệ điều hành Windows qua các thời kỳ 
 
  </a> </li>
                                             
