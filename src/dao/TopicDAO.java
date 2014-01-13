@@ -484,9 +484,7 @@ public class TopicDAO {
 				TopicEntity topic = new TopicEntity();
 				int iD = rs.getInt("id");
 				String type = rs.getString("id_sub_menu");
-				String dateSt = rs.getString("date_created");
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-				Date date = sdf.parse(dateSt);
+				Date date = rs.getDate("date_created");
 				topic.setDateCreated(date);
 				String content = rs.getString("content");
 				String title = rs.getString("title");
@@ -511,8 +509,6 @@ public class TopicDAO {
 				topics.add(topic);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return topics;

@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="entity.TopicEntity"%>
 <%@page import="dao.LienHeDAO"%>
 <%@page import="entity.LienHeEntity"%>
 <%@page import="dao.StatusDAO"%>
@@ -232,15 +235,17 @@ function xoalh() {
 					        </tr>
 					      </table>
 <table width="950" border="1" cellpadding="5">
-				<tr>
-									<td width="111" align="center" bgcolor="#A6CAF0"><strong>Tên tài khoản</strong></td>
-									<td width="119" align="center" bgcolor="#A6CAF0"><strong>Họ tên</strong></td>
-									<td width="118" align="center" bgcolor="#A6CAF0"><strong>Email</strong></td>
-									<td width="103" align="center" bgcolor="#A6CAF0"><strong>Ngày đăng ký</strong></td>
-									<td width="88" align="center" bgcolor="#A6CAF0"><strong>Chức vụ</strong></td>
-									<td width="69" align="center" bgcolor="#A6CAF0"><strong>Trạng thái</strong></td>
-									<td width="68" align="center" bgcolor="#A6CAF0"><strong>Số bài đã đăng</strong></td>
-									<td width="106" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
+				<tr><%
+					pageContext.setAttribute("bg", "#007F7F");
+					%>
+									<td width="111" align="center" bgcolor="${pageScope.bg }"><strong>Tên tài khoản</strong></td>
+									<td width="119" align="center" bgcolor="${pageScope.bg }"><strong>Họ tên</strong></td>
+									<td width="118" align="center" bgcolor="${pageScope.bg }"><strong>Email</strong></td>
+									<td width="103" align="center" bgcolor="${pageScope.bg }"><strong>Ngày đăng ký</strong></td>
+									<td width="88" align="center" bgcolor="${pageScope.bg }"><strong>Chức vụ</strong></td>
+									<td width="69" align="center" bgcolor="${pageScope.bg }"><strong>Trạng thái</strong></td>
+									<td width="68" align="center" bgcolor="${pageScope.bg }"><strong>Số bài đã đăng</strong></td>
+									<td width="106" align="center" bgcolor="${pageScope.bg }"><strong>Tác vụ</strong></td>
 			  </tr>
 								<%
 									int c = 0;
@@ -261,8 +266,8 @@ function xoalh() {
 										
 										int count = UserDAO.countTopics(u.getUseName());
 										pageContext.setAttribute("count", count);
-										if ((c % 2) == 0) pageContext.setAttribute("color", "#CCFFCC");
-										else pageContext.setAttribute("color", "#CCFFFF");
+										if ((c % 2) == 0) pageContext.setAttribute("color", "#C9FFFF");
+										else pageContext.setAttribute("color", "#D4D4DB");
 								%>
 								<tr>
 									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.username }</td>
@@ -285,53 +290,57 @@ function xoalh() {
 							</table>
 							<table width="950">
 							  <tr>
-							    <td width="882" align="left"><form name="form2" method="post" action="">
+							    <td width="882" align="left"><form name="form2" method="get" action="lienhe">
 							      <table width="233">
 							        <tr>
 							          <td width="225" height="27"><label>
-							            <input type="radio" name="process_lh" value="radio" id="process_lh_0">
+							            <input type="radio" name="process_lh" value="readall" id="process_lh_0">
 							            Đánh dấu tất cả đã đọc</label></td>
 						            </tr>
 							        <tr>
 							          <td><label>
-							            <input type="radio" name="process_lh" value="radio" id="process_lh_1">
+							            <input type="radio" name="process_lh" value="deleteall" id="process_lh_1">
 							            Xoá tất cả
 							          </label></td>
 						            </tr>
 						          </table>
-							    </form></td>
-							    <td width="56" align="left"><form name="form3" method="post" action="">
+							    </td>
+							    <td width="56" align="left">
 							      <input type="submit" name="button5" id="button5" value="Thực hiện">
 						        </form></td>
 						      </tr>
 						  </table>
 <table width="950" border="1" cellpadding="5">
 				<tr>
-									<td width="144" align="center" bgcolor="#A6CAF0"><strong>Họ tên</strong></td>
-									<td width="144" align="center" bgcolor="#A6CAF0"><strong>Email</strong></td>
-									<td width="240" align="center" bgcolor="#A6CAF0"><strong>Nội dung</strong></td>
-									<td width="119" align="center" bgcolor="#A6CAF0"><strong>Ngày gửi</strong></td>
-									<td width="53" align="center" bgcolor="#A6CAF0"><strong>Đã đọc</strong></td>
-									<td width="100" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
+									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Họ tên</strong></td>
+									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Email</strong></td>
+									<td width="240" align="center" bgcolor="${pageScope.bg }"><strong>Nội dung</strong></td>
+									<td width="119" align="center" bgcolor="${pageScope.bg }"><strong>Ngày gửi</strong></td>
+									<td width="53" align="center" bgcolor="${pageScope.bg }"><strong>Đã đọc</strong></td>
+									<td width="100" align="center" bgcolor="${pageScope.bg }"><strong>Tác vụ</strong></td>
 			  </tr>
 									<%
+									int c2 = 0;
 									List<LienHeEntity> contacts = LienHeDAO.loadLienHe();
 									for (LienHeEntity lh : contacts) {
+										c2++;
 										pageContext.setAttribute("l", lh);
 										pageContext.setAttribute("cut", Validation.cut(lh.getContent()));
 										pageContext.setAttribute("date", Validation.rightDate(lh.getDate()));
 										if (lh.isRead()) pageContext.setAttribute("read", "CHECKED");
+										if ((c2 % 2) == 0) pageContext.setAttribute("color2", "#C9FFFF");
+										else pageContext.setAttribute("color2", "#D4D4DB");
 									%>
 								<tr>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.fullName }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.email }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.cut }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.date}</td>
-									<td align="center" bgcolor="${pageScope.color }">
+									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.l.fullName }</td>
+									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.l.email }</td>
+									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.cut }</td>
+									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.date}</td>
+									<td align="center" bgcolor="${pageScope.color2}">
 											<input type="checkbox" name="checkbox4" id="checkbox4" ${pageScope.read } disabled="disabled"> <label for="checkbox4"></label>
 
 								  </td>
-									<td align="center" bgcolor="${pageScope.color }">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
+									<td align="center" bgcolor="${pageScope.color2 }">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
 								</tr>
 								<%} %>
 						  </table>
@@ -360,32 +369,58 @@ function xoalh() {
 					      </table>
 <table width="950" border="1" cellpadding="5">
 				<tr>
-				  <td width="30" align="center" bgcolor="#A6CAF0"><strong>STT</strong></td>
-									<td width="230" align="center" bgcolor="#A6CAF0"><strong>Tiêu đề bài viết</strong></td>
-									<td width="177" align="center" bgcolor="#A6CAF0"><strong>Tác giả</strong></td>
-									<td width="131" align="center" bgcolor="#A6CAF0"><strong>Ngày đăng</strong></td>
-									<td width="54" align="center" bgcolor="#A6CAF0"><strong>Tiêu điểm</strong></td>
-									<td width="68" align="center" bgcolor="#A6CAF0"><strong>Trạng thái</strong></td>
-									<td width="158" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
+				  <td width="30" align="center" bgcolor="${pageScope.bg }"><strong>STT</strong></td>
+									<td width="230" align="center" bgcolor="${pageScope.bg }"><strong>Tiêu đề bài viết</strong></td>
+									<td width="177" align="center" bgcolor="${pageScope.bg }"><strong>Tác giả</strong></td>
+									<td width="131" align="center" bgcolor="${pageScope.bg }"><strong>Ngày đăng</strong></td>
+									<td width="54" align="center" bgcolor="${pageScope.bg }"><strong>Tiêu điểm</strong></td>
+									<td width="68" align="center" bgcolor="${pageScope.bg }"><strong>Trạng thái</strong></td>
+									<td width="158" align="center" bgcolor="${pageScope.bg }"><strong>Tác vụ</strong></td>
 								</tr>
+								<%
+									List<TopicEntity> topics = new ArrayList<TopicEntity>();
+									int stt = 0;
+									String condition = (String) request.getAttribute("condition");
+									if (condition == null) topics = TopicDAO.loadAllWaiting();
+									else {
+										if (condition.equals("waiting")) topics = TopicDAO.loadAllWaiting();
+										else if (condition.equals("posted")) topics = TopicDAO.loadAllPosted();
+										else if (condition.equals("banned")) topics = TopicDAO.loadAllBanned();
+									}
+									int c3 = 0;
+									for (TopicEntity topic : topics) {
+										++stt;
+										c3++;
+										pageContext.setAttribute("stt", stt);
+										pageContext.setAttribute("topic", topic);
+										Date datePost = topic.getDateCreated();
+										String rightDate = Validation.rightDate(datePost);
+										pageContext.setAttribute("datePost", rightDate);
+										boolean focus = topic.isFocus();
+										if (focus) pageContext.setAttribute("focus", "CHECKED");
+										else pageContext.setAttribute("focus", "");
+										if ((c3 % 2) == 0) pageContext.setAttribute("color3", "#C9FFFF");
+										else pageContext.setAttribute("color3", "#D4D4DB");
+								%>
 							<form>
 								<tr>
-								  <td align="center" bgcolor="${pageScope.color }"></td>
-									<td align="center" bgcolor="${pageScope.color }"></td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.email }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.cut}</td>
-									<td align="center" bgcolor="${pageScope.color }"><input type="checkbox" name="checkbox" id="checkbox">
+								  <td align="center" bgcolor="${pageScope.color3 }">${pageScope.stt }</td>
+									<td align="center" bgcolor="${pageScope.color3 }"><a href="load?id=${pageScope.topic.id }" title="${pageScope.topic.title }"><%=Validation.cut(topic.getTitle()) %></a></td>
+									<td align="center" bgcolor="${pageScope.color3 }">${pageScope.topic.author }</td>
+									<td align="center" bgcolor="${pageScope.color3 }">${pageScope.datePost}</td>
+									<td align="center" bgcolor="${pageScope.color3 }"><input type="checkbox" name="checkbox" id="checkbox" disabled="disabled" ${pageScope.focus }>
 								    <label for="checkbox"></label></td>
-									<td align="center" bgcolor="${pageScope.color }"><label for="select2"></label>
+									<td align="center" bgcolor="${pageScope.color3 }"><label for="select2"></label>
 									  <select name="select2" id="select2">
 									    <option value="waiting">Waiting</option>
 									    <option value="waiting">Posted</option>
 									    <option value="banned">Banned</option>
 						            </select></td>
-									<td align="center" bgcolor="${pageScope.color }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<td align="center" bgcolor="${pageScope.color3 }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a>&nbsp;&nbsp;&nbsp;&nbsp;
 								    <input type="submit" name="button3" id="button3" value="Lưu">									  &nbsp;&nbsp;&nbsp;&nbsp;</td>
 								</tr>
                                 </form>
+                                <%} %>
 							</table>
 						</div>
 					</div>
