@@ -16,6 +16,14 @@
     <url-pattern>/topic</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Load Topic By Condition Servlet</servlet-name>
+    <servlet-class>control.LoadTopicByCondition</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Load Topic By Condition Servlet</servlet-name>
+    <url-pattern>/loadtopicbycondition</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Xoa Thanh Vien Servlet</servlet-name>
     <servlet-class>control.XoaThanhVien</servlet-class>
   </servlet>
@@ -31,7 +39,7 @@
     <servlet-name>Xoa Lien He Servlet</servlet-name>
     <url-pattern>/xoalienhe</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>Doc Lien He Servlet</servlet-name>
     <servlet-class>control.DocLienHe</servlet-class>
   </servlet>
@@ -463,7 +471,6 @@
     <servlet-name>Quy Dinh JSP</servlet-name>
     <url-pattern>/quydinh.jsp</url-pattern>
   </servlet-mapping>
- 
   <servlet>
     <servlet-name>Hoi Dap JSP</servlet-name>
     <jsp-file>/public/hoidap/HoiDap.jsp</jsp-file>
@@ -552,7 +559,7 @@
     <servlet-name>Sua Bai JSP</servlet-name>
     <url-pattern>/suabai.jsp</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>Doc Lien He JSP</servlet-name>
     <jsp-file>/admin/doclienhe.jsp</jsp-file>
   </servlet>
@@ -560,7 +567,7 @@
     <servlet-name>Doc Lien He JSP</servlet-name>
     <url-pattern>/doclienhe.jsp</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <servlet-name>Them Thanh Vien JSP</servlet-name>
     <jsp-file>/admin/ThemThanhVien.jsp</jsp-file>
   </servlet>
@@ -568,5 +575,4 @@
     <servlet-name>Them Thanh Vien JSP</servlet-name>
     <url-pattern>/themthanhvien.jsp</url-pattern>
   </servlet-mapping>
-
 </web-app>

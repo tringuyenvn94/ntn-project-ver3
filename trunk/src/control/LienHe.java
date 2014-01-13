@@ -30,6 +30,10 @@ public class LienHe extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("process_lh");
+		if (action.equals("readall")) LienHeDAO.forceAllRead();
+		if (action.equals("deleteall")) LienHeDAO.deleteAll();
+		response.sendRedirect("quanly.jsp");
 	}
 
 	/**

@@ -109,4 +109,25 @@ public class LienHeDAO {
 		}
 		return lh;
 	}
+	
+	/**
+	 * Phương thức đánh dấu tất cả các liên hệ là đã đọc
+	 * */
+	public static void forceAllRead() {
+		String sql = "UPDATE lienhe SET lienhe.read = ?";
+		int[] indexes = { 1 };
+		Object[] values = { true };
+		Utils.util.update(sql, indexes, values);
+	}
+	
+	/**
+	 * Phương thức xóa tất cả các liên hệ
+	 * */
+	public static void deleteAll() {
+		String sql = "DELETE FROM LIENHE WHERE 1 = ?";
+		int[] indexes = { 1 };
+		Object[] values = { true };
+		Utils.util.update(sql, indexes, values);
+	}
+	
 }
