@@ -425,7 +425,7 @@
         
                 <ul>
             
-                <li><a href="load?id=${pageScope.bvmoinhat1.id }"> ${pageScope.bvmoinhat1.title } xa</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat1.id }"> ${pageScope.bvmoinhat1.title } </a> </li>
             
                 <li><a href="load?id=${pageScope.bvmoinhat2.id }"> ${pageScope.bvmoinhat2.title } </a> </li>
             

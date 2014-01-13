@@ -469,27 +469,75 @@
                    CÁC TIN KHÁC</div>
           <div class="title_news">
                 
+                <%
+                        	List<TopicEntity> tinkhac = TopicDAO.loadBySubMenu("tinkhac");
+                        	TopicEntity tinkhac1 = tinkhac.get(0);
+                        	TopicEntity tinkhac2 = tinkhac.get(1);
+                        	TopicEntity tinkhac3 = tinkhac.get(2);
+                        	TopicEntity tinkhac4 = tinkhac.get(3);
+                        	TopicEntity tinkhac5 = tinkhac.get(4);
+                        	TopicEntity tinkhac6 = tinkhac.get(5);
+                        	TopicEntity tinkhac7 = tinkhac.get(6);
+                        	TopicEntity tinkhac8 = tinkhac.get(7);
+                        	TopicEntity tinkhac9 = tinkhac.get(8);
+                        	TopicEntity tinkhac10 = tinkhac.get(9);   
+							
+                        	
+                        	pageContext.setAttribute("tinkhac1", tinkhac1);
+                        	pageContext.setAttribute("tinkhac2", tinkhac2);
+                        	pageContext.setAttribute("tinkhac3", tinkhac3);
+                        	pageContext.setAttribute("tinkhac4", tinkhac4);
+                        	pageContext.setAttribute("tinkhac5", tinkhac5);
+                       		pageContext.setAttribute("tinkhac6", tinkhac6);
+                        	pageContext.setAttribute("tinkhac7", tinkhac7);
+                        	pageContext.setAttribute("tinkhac8", tinkhac8);
+                        	pageContext.setAttribute("tinkhac9", tinkhac9);
+                        	pageContext.setAttribute("tinkhac10", tinkhac10);     
+                        
+                        	
+                        %>
+                
                 <ul>
                 
-                      <li> <a href="/kiem-hang-ngan-usd-tu-viec-bat-loi-bao-mat-cho-google-105514"> VLTK phiên bản 3D - WoW phương Đông </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac1.id }">
+							${pageScope.tinkhac1.title }
+ </a> </li>
                     
-                      <li> <a href="/giam-doc-windows-phone-khang-dinh-se-duoi-kip-doi-thu-105513">NgânLượng.vn tiếp tay cho game không phép nước ngoài tại Việt Nam </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac2.id }">
+								${pageScope.tinkhac2.title }
+ </a> </li>
                     
-                      <li> <a href="/google-maps-phai-go-bo-hinh-anh-thi-the-mot-cau-be-105493">Doanh nghiệp Trung Quốc vẫn phát hành game không phép tại Việt Nam </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac3.id }">
+								${pageScope.tinkhac3.title }
+</a> </li>
                     
-                      <li> <a href="/chuyen-gia-it-cua-nato-lanh-an-7-nam-tu-vi-trom-du-lieu-mat-105487">Ra mắt cổng thanh toán game và nội dung số quốc tế </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac4.id }">
+ 									${pageScope.tinkhac4.title }
+ </a> </li>
                     
-                      <li> <a href="/apple-thu-lai-iphone-ipad-bi-tham-nuoc-105477">VLTK phiên bản 3D bổ sung hình thức thu phí theo phút </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac5.id }">
+ 									${pageScope.tinkhac5.title }
+ </a> </li>
                     
-                      <li> <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">Ông chủ “đế chế” game video Nintendo qua đời </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac6.id }">
+ 									${pageScope.tinkhac6.title }
+ </a> </li>
                     
-                      <li> <a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448"> Lucky Man giành “ngôi vương” đầu tiên của “Siêu Hùng Đại Chiến"</a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac7.id }"> 
+ 								${pageScope.tinkhac7.title }
+</a> </li>
                     
-                      <li> <a href="/chau-au-chinh-thuc-cho-dung-thiet-bi-dien-tu-tren-may-bay-105443">FIFA Online 2 đóng cửa, FIFA Online 3 đón nhận game thủ </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac8.id }">
+ 								${pageScope.tinkhac8.title }
+ </a> </li>
                     
-                      <li> <a href="/apple-dong-cua-itunes-connect-tu-21-12-den-27-12-105442"> Game của Koram Game vẫn phát hành công khai tại Việt Nam </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac9.id }">
+   							${pageScope.tinkhac9.title }
+ </a> </li>
                     
-                      <li> <a href="/nhat-ban-ho-tro-asean-tang-cuong-an-ninh-mang-105436"> VLTK phiên bản 3D tiếp tục tặng ngày chơi cho tân thủ </a> </li>
+                      <li> <a href="load?id=${pageScope.tinkhac10.id }">
+								${pageScope.tinkhac10.title }
+ </a> </li>
                     
                 </ul>
                 
