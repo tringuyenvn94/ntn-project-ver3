@@ -216,9 +216,9 @@
                                             <tr>
 												<td class="infoLogin" valign="top"><strong>Password:</strong></td>
                                             
-											  <td class="infoLogin" valign="top"><label for="textfield"></label>										    
-											    <a href="resetpass?username=${requestScope.username }">Reset Password</a>
-											    ${requestScope.reseted }</td>
+											  <td class="infoLogin" valign="top"><label for="textfield"></label>
+											    <label for="textfield3"></label>
+										      <input type="text" name="textfield" id="textfield3" style="width: 245px;"></td>
 											
 											</tr>
 											<tr>
