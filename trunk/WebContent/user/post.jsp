@@ -83,7 +83,7 @@
 
 
 
-				<li id="item_3" class="item"><a href="baomat.jsp"><span> Bảo mật </span></a>
+				<li id="item_3" class="item menu"><a href="baomat.jsp"><span> Bảo mật </span></a>
 
 					<ul class="submenu_3">
 

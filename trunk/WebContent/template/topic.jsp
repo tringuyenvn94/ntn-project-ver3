@@ -31,6 +31,9 @@
 		
 		String linkSubMenu = TopicDAO.loadLinkSub(subMenu);
 		String linkMainMenu = TopicDAO.loadLinkMain(mainMenu);
+		
+		if (mainMenu.equals("Hệ Điều Hành")) pageContext.setAttribute("menu", "menu");
+		
 	%>
 
 <title>${pageScope.topic.title }</title>
@@ -78,7 +81,7 @@
 					<li class="item"><a href="trangchu.jsp"><span>Trang chủ</span> </a>
 						<ul class="submenu_1"></ul></li>
 
-					<li id="item_2" class="item menu"><a href="tintuccongnghe.jsp"><span> Tin tức công nghệ </span></a>
+					<li id="item_2" class="item"><a href="tintuccongnghe.jsp"><span> Tin tức công nghệ </span></a>
 
 						<ul class="submenu_2">
 
@@ -132,7 +135,7 @@
 
 						</ul></li>
 
-					<li id="item_6" class="item"><a href="hedieuhanh.jsp"><span> Hệ điều hành </span></a>
+					<li id="item_6" class="item ${pageScope.menu }"><a href="hedieuhanh.jsp"><span> Hệ điều hành </span></a>
 
 						<ul class="submenu_6">
 
