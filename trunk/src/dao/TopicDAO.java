@@ -133,21 +133,6 @@ public class TopicDAO {
 		return loadTopic(sql, idSubMenu);
 	}
 
-	/**
-	 * So sánh 2 bài viết để xem bài nào post trước, bài nào post sau.
-	 * 
-	 * @param t1
-	 *            topic 1
-	 * @param t2
-	 *            topic 2
-	 * @return số int như sau <br />
-	 *         &nbsp; = 0: 2 topic có cùng thời gian post <br />
-	 *         &nbsp; < 0: topic 1 được post trước, topic 2 được post sau <br />
-	 *         &nbsp; > 0: topic 2 được post trước, topic 1 được post sau <br />
-	 * */
-	public static int compare(TopicEntity t1, TopicEntity t2) {
-		return t1.getDateCreated().compareTo(t2.getDateCreated());
-	}
 
 	/**
 	 * phương thức lấy một đoạn văn bản làm mở đầu bài viết
@@ -481,5 +466,17 @@ public class TopicDAO {
 	public static List<TopicEntity> loadBySubMenu(String idSub) {
 		String sql = "SELECT * FROM topic WHERE id_sub_menu = ?";
 		return loadTopics(sql, idSub);
+	}
+	
+	/**
+	 * Phương thức tông quát load tất cả các bài viết theo state của bài viết đó
+	 * <br> ví dụ: load tất cả các bài viết có state là waiting
+	 * @param stateId id của state. vd: posted
+	 * @return danh sách chứa các bài viết có state nhập vào
+	 * */
+	public static List<TopicEntity> loadByState(String stateId)	{
+		List<TopicEntity> topics = new ArrayList<>();
+		String sql = "SELECT * FROM TOPIC WHERE state_id = ?";
+		return topics;
 	}
 }
