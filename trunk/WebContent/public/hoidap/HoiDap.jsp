@@ -189,10 +189,62 @@
    					
    					<%
                         	
-                        	List<TopicEntity> hdap = TopicDAO.loadByMainId("hoidap");
+                        	List<TopicEntity> hdap = TopicDAO.loadByMainIdOnly("hoidap");
                         	TopicEntity hdap1 = hdap.get(0);
                         	
+                        	TopicEntity hoidap1 = hdap.get(0);
+                        	TopicEntity hoidap2 = hdap.get(1);
+                        	TopicEntity hoidap3 = hdap.get(2);
+                        	TopicEntity hoidap4 = hdap.get(3);
+                        	TopicEntity hoidap5 = hdap.get(4);
+                        	TopicEntity hoidap6 = hdap.get(5);
+                        	TopicEntity hoidap7 = hdap.get(6);
+                        	TopicEntity hoidap8 = hdap.get(7);
+                        	TopicEntity hoidap9 = hdap.get(8);
+                        	TopicEntity hoidap10 = hdap.get(9);
+                        	TopicEntity hoidap11 = hdap.get(10);
+                        	TopicEntity hoidap12 = hdap.get(11);
+                        	TopicEntity hoidap13 = hdap.get(12);
+                        	TopicEntity hoidap14 = hdap.get(13);
+                        	TopicEntity hoidap15 = hdap.get(14);  // Moi
+                        	TopicEntity hoidap16 = hdap.get(15);
+                        	TopicEntity hoidap17 = hdap.get(16);
+                        	TopicEntity hoidap18 = hdap.get(17);
+                        	TopicEntity hoidap19 = hdap.get(18);
+                        	TopicEntity hoidap20 = hdap.get(19);
+                        	TopicEntity hoidap21 = hdap.get(20);
+                        	TopicEntity hoidap22 = hdap.get(21);
+                        	TopicEntity hoidap23 = hdap.get(22);
+                        	TopicEntity hoidap24 = hdap.get(23);
+
+                        	
                         	pageContext.setAttribute("hdap1", hdap1);
+                        	pageContext.setAttribute("hoidap1", hoidap1);
+                        	pageContext.setAttribute("hoidap2", hoidap2);
+                        	pageContext.setAttribute("hoidap3", hoidap3);
+                        	pageContext.setAttribute("hoidap4", hoidap4);
+                        	pageContext.setAttribute("hoidap5", hoidap5);
+                        	pageContext.setAttribute("hoidap6", hoidap6);
+                        	pageContext.setAttribute("hoidap7", hoidap7);
+                        	pageContext.setAttribute("hoidap8", hoidap8);
+                        	pageContext.setAttribute("hoidap9", hoidap9);
+                        	pageContext.setAttribute("hoidap10", hoidap10);
+                        	pageContext.setAttribute("hoidap11", hoidap11);
+                        	pageContext.setAttribute("hoidap12", hoidap12);
+                        	pageContext.setAttribute("hoidap13", hoidap13);
+                        	pageContext.setAttribute("hoidap14", hoidap14);
+                        	pageContext.setAttribute("hoidap15", hoidap15);
+                        	pageContext.setAttribute("hoidap16", hoidap16);
+                        	pageContext.setAttribute("hoidap17", hoidap17);
+                        	pageContext.setAttribute("hoidap18", hoidap18);
+                        	pageContext.setAttribute("hoidap19", hoidap19);
+                        	pageContext.setAttribute("hoidap20", hoidap20);
+                        	pageContext.setAttribute("hoidap21", hoidap21);
+                        	pageContext.setAttribute("hoidap22", hoidap22);
+                        	pageContext.setAttribute("hoidap23", hoidap23);
+                        	pageContext.setAttribute("hoidap24", hoidap24);
+                        	
+                        	
                         
                        %>
    					
@@ -219,41 +271,7 @@
                         </div>
                         <div class="subcontent">
                         
-                        
-                        	<%
-                        	List<TopicEntity> hoidap = TopicDAO.loadBySubMenu("hoidap");
-                        	TopicEntity hoidap1 = hoidap.get(0);
-                        	TopicEntity hoidap2 = hoidap.get(1);
-                        	TopicEntity hoidap3 = hoidap.get(2);
-                        	TopicEntity hoidap4 = hoidap.get(3);
-                        	TopicEntity hoidap5 = hoidap.get(4);
-                        	TopicEntity hoidap6 = hoidap.get(5);
-                        	TopicEntity hoidap7 = hoidap.get(6);
-                        	TopicEntity hoidap8 = hoidap.get(7);
-                        	TopicEntity hoidap9 = hoidap.get(8);
-                        	TopicEntity hoidap10 = hoidap.get(9);
-                        	TopicEntity hoidap11 = hoidap.get(10);
-                        	TopicEntity hoidap12 = hoidap.get(11);
-                        	TopicEntity hoidap13 = hoidap.get(12);
-                        	TopicEntity hoidap14 = hoidap.get(13);
-
-                        	
-                        	pageContext.setAttribute("hoidap1", hoidap1);
-                        	pageContext.setAttribute("hoidap2", hoidap2);
-                        	pageContext.setAttribute("hoidap3", hoidap3);
-                        	pageContext.setAttribute("hoidap4", hoidap4);
-                        	pageContext.setAttribute("hoidap5", hoidap5);
-                        	pageContext.setAttribute("hoidap6", hoidap6);
-                        	pageContext.setAttribute("hoidap7", hoidap7);
-                        	pageContext.setAttribute("hoidap8", hoidap8);
-                        	pageContext.setAttribute("hoidap9", hoidap9);
-                        	pageContext.setAttribute("hoidap10", hoidap10);
-                        	pageContext.setAttribute("hoidap11", hoidap11);
-                        	pageContext.setAttribute("hoidap12", hoidap12);
-                        	pageContext.setAttribute("hoidap13", hoidap13);
-                        	pageContext.setAttribute("hoidap14", hoidap4);
-                        
-                        %>
+      
                         
                         
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -502,7 +520,7 @@
           <div class="title_news">
                 
                 <%
-                        	List<TopicEntity> tinkhac = TopicDAO.loadBySubMenu("hoidap");
+                    /*    	List<TopicEntity> tinkhac = TopicDAO.loadBySubMenu("hoidap");
                         	TopicEntity tinkhac1 = tinkhac.get(0);
                         	TopicEntity tinkhac2 = tinkhac.get(1);
                         	TopicEntity tinkhac3 = tinkhac.get(2);
@@ -526,49 +544,49 @@
                         	pageContext.setAttribute("tinkhac9", tinkhac9);
                         	pageContext.setAttribute("tinkhac10", tinkhac10);     
                         
-                        	
-                        %>
+                        */	
+                        %> 
                 
                 <ul>
                 
-                      <li> <a href="load?id=${pageScope.tinkhac1.id }">
-							${pageScope.tinkhac1.title }
+                      <li> <a href="load?id=${pageScope.hoidap15.id }">
+							${pageScope.hoidap15.title }
  </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac2.id }">
-								${pageScope.tinkhac2.title }
+                      <li> <a href="load?id=${pageScope.hoidap16.id }">
+								${pageScope.hoidap16.title }
  </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac3.id }">
-								${pageScope.tinkhac3.title }
+                      <li> <a href="load?id=${pageScope.hoidap17.id }">
+								${pageScope.hoidap17.title }
 </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac4.id }">
- 									${pageScope.tinkhac4.title }
+                      <li> <a href="load?id=${pageScope.hoidap18.id }">
+ 									${pageScope.hoidap18.title }
  </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac5.id }">
- 									${pageScope.tinkhac5.title }
+                      <li> <a href="load?id=${pageScope.hoidap19.id }">
+ 									${pageScope.hoidap19.title }
  </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac6.id }">
- 									${pageScope.tinkhac6.title }
+                      <li> <a href="load?id=${pageScope.hoidap20.id }">
+ 									${pageScope.hoidap20.title }
  </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac7.id }"> 
- 								${pageScope.tinkhac7.title }
+                      <li> <a href="load?id=${pageScope.hoidap21.id }"> 
+ 								${pageScope.hoidap21.title }
 </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac8.id }">
- 								${pageScope.tinkhac8.title }
+                      <li> <a href="load?id=${pageScope.hoidap22.id }">
+ 								${pageScope.hoidap22.title }
  </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac9.id }">
-   							${pageScope.tinkhac9.title }
+                      <li> <a href="load?id=${pageScope.hoidap23.id }">
+   							${pageScope.hoidap23.title }
  </a> </li>
                     
-                      <li> <a href="load?id=${pageScope.tinkhac10.id }">
-								${pageScope.tinkhac10.title }
+                      <li> <a href="load?id=${pageScope.hoidap24.id }">
+								${pageScope.hoidap24.title }
  </a> </li>
                     
                 </ul>
