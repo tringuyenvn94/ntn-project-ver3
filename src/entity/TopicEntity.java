@@ -15,6 +15,7 @@ public class TopicEntity {
 	private String url_daidien;
 	private boolean isFocus;
 	private String header;
+	private StateEntity state;
 
 	public TopicEntity(String content, String type, String title, String url) {
 		this.content = content;
@@ -24,7 +25,7 @@ public class TopicEntity {
 		this.url = url;
 		this.isFocus = false;
 	}
-	
+
 	public TopicEntity(String content, String type, String title, String url, String url_daidien) {
 		this.content = content;
 		this.type = type;
@@ -127,6 +128,12 @@ public class TopicEntity {
 		this.header = header;
 	}
 
-	
-	
+	public StateEntity getState() {
+		return state;
+	}
+
+	public void setState(StateEntity state) {
+		this.state = state;
+	}
+
 }
