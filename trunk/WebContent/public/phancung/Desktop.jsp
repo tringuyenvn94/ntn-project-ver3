@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -184,23 +187,58 @@
                                
 <div class="bag">
    	<div class="tit">
+   	
+   									
+   					<%
+                        	List<TopicEntity> desktop = TopicDAO.loadBySubMenu("desktop");
+                        	TopicEntity desktop1 = desktop.get(0);
+                        	TopicEntity desktop2 = desktop.get(1);
+                        	TopicEntity desktop3 = desktop.get(2);
+                        	TopicEntity desktop4 = desktop.get(3);
+                        	TopicEntity desktop5 = desktop.get(4);
+                        	TopicEntity desktop6 = desktop.get(5);
+                        	TopicEntity desktop7 = desktop.get(6);
+                        	TopicEntity desktop8 = desktop.get(7);
+                        	TopicEntity desktop9 = desktop.get(8);
+                        	TopicEntity desktop10 = desktop.get(9);
+                        	TopicEntity desktop11 = desktop.get(10);
+                        	TopicEntity desktop12 = desktop.get(11);
+							
+                        	
+                        	pageContext.setAttribute("desktop1", desktop1);
+                        	pageContext.setAttribute("desktop2", desktop2);
+                        	pageContext.setAttribute("desktop3", desktop3);
+                        	pageContext.setAttribute("desktop4", desktop4);
+                        	pageContext.setAttribute("desktop5", desktop5);
+                       		pageContext.setAttribute("desktop6", desktop6);
+                        	pageContext.setAttribute("desktop7", desktop7);
+                        	pageContext.setAttribute("desktop8", desktop8);
+                        	pageContext.setAttribute("desktop9", desktop9);
+                        	pageContext.setAttribute("desktop10", desktop10);
+                        	pageContext.setAttribute("desktop11", desktop11);
+                        	pageContext.setAttribute("desktop12", desktop12);
+                        
+                        	
+                        %>
+   									
+   									
                 <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="phancung.jsp">Phần cứng</a>&nbsp;»&nbsp;<a href="desktop.jsp">Desktop</a>
         
     </div>
        
           <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span>
-Apple Mac Pro giá 63 triệu đồng, bán ra tháng 12
+                    <a href="load?id=${pageScope.desktop1.id }"><span>
+						${pageScope.desktop1.title }
 </span></a>
                 </div>
                 <div>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="Image/Mac-Pro.jpg" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
+                                <a href="load?id=${pageScope.desktop1.id }"><img src="${pageScope.desktop1.url_daidien }" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
                             </td>
                             <td class="content_top" valign="top" align="left">
-Thiết bị của Apple từng khiến cả thế giới bất ngờ - Mac Pro – có giá khởi điểm từ 2.999 USD và bán ra từ tháng 12 năm nay.
+							${pageScope.desktop1.header }
                           </td>
                         </tr>
                     </tbody></table>
@@ -212,32 +250,32 @@ Thiết bị của Apple từng khiến cả thế giới bất ngờ - Mac Pro 
                         </div>
                    
                         <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="Image/Mac-Pro-2013.jpg" height="179" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop2.id }">
+                                <img src="${pageScope.desktop2.url_daidien }" height="179" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-Giá Mac Pro 2013 có thể lên tới 14.000 USD
+                                <a href="load?id=${pageScope.desktop2.id }">
+									${pageScope.desktop2.title }
 
 </a></p>
                             <p class="detail_ctt">
-Mac Pro 2013 có giá khởi điểm 3000 USD nhưng nếu lựa chọn cấu hình cao nhất, người dùng sẽ phải trả một cái giá lên tới 14.000 USD.
+										${pageScope.desktop2.header }
             </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="Image/Sieu-may-tinh.jpg" height="171" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop3.id }">
+                                <img src="${pageScope.desktop3.url_daidien }" height="171" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-Siêu máy tính có khả năng dự báo thời tiết
+                                <a href="load?id=${pageScope.desktop3.id }">
+									${pageScope.desktop3.title }
 
  </a></p>
                             <p class="detail_ctt">
-Có khả năng dự báo về cường độ và đường đi của cơn bão bốn ngày trước khi nó hình thành, đó chính là sức mạnh vượt trội của siêu máy tính trị giá 30 triệu bảng - "bảo bối" của Cơ quan Khí tượng Thủy văn Anh (Met), vừa mới được lộ diện.
+								${pageScope.desktop3.header }
                             </p>
             </div>
                     
@@ -245,16 +283,16 @@ Có khả năng dự báo về cường độ và đường đi của cơn bão 
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="Image/MSI-1.jpg" height="164" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop4.id }">
+                                <img src="${pageScope.desktop4.url_daidien }" height="164" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-MSI ra bộ đôi All In One cấu hình cao
+                                <a href="load?id=${pageScope.desktop4.id }">
+								${pageScope.desktop4.title }
 
 </a></p>
                             <p class="detail_ctt">
-Hãng công nghệ MSI vừa ra mắt bộ đôi máy tính All In One (AIO) là AE221 và AE270. Máy tính All In One hiện nay đang trở thành xu thế mua sắm mới nhờ thiết kế đẹp và gọn nhẹ hơn các dòng máy tính để bàn truyền thống.
+								${pageScope.desktop4.header }
                             </p>
             </div>
                     
@@ -262,16 +300,16 @@ Hãng công nghệ MSI vừa ra mắt bộ đôi máy tính All In One (AIO) là
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="Image/Sieu-may-tinh(1).jpg" height="150" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop5.id }">
+                                <img src="${pageScope.desktop5.url_daidien }" height="150" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-"Máu điện tử" cho siêu máy tính
+                                <a href="load?id=${pageScope.desktop5.id }">
+									${pageScope.desktop5.title }
 
 </a></p>
                             <p class="detail_ctt">
-Các nhà nghiên cứu của hãng IBM tại Thụy Sĩ đã công bố máy tính mới lấy cảm hứng từ não bộ của con người và được cung cấp năng lượng bởi cái mà họ gọi là "máu điện tử".
+								${pageScope.desktop5.header }
                            </p>
             </div>
                     
@@ -279,16 +317,16 @@ Các nhà nghiên cứu của hãng IBM tại Thụy Sĩ đã công bố máy t�
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="Image/May-chu.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop6.id }">
+                                <img src="${pageScope.desktop6.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-Ra mắt máy chủ cao cấp HP Integrity Superdome 2
+                                <a href="load?id=${pageScope.desktop6.id }">
+										${pageScope.desktop6.title }
 
  </a></p>
                             <p class="detail_ctt">
-HP Superdome 2 là sản phẩm máy chủ Unix cao cấp hàng đầu đã được phát triển hơn 10 năm để phục vụ các ứng dụng quan trọng với những đòi hỏi cao nhất trên thế giới.
+									${pageScope.desktop6.header }
                              </p>
             </div>
                     
@@ -296,16 +334,16 @@ HP Superdome 2 là sản phẩm máy chủ Unix cao cấp hàng đầu đã đư
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="Image/iMac.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop7.id }">
+                                <img src="${pageScope.desktop7.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-Apple ra mắt iMac giá rẻ ngay trong thời gian tới
+                                <a href="load?id=${pageScope.desktop7.id }">
+							${pageScope.desktop7.title }
 
 </a></p>
                             <p class="detail_ctt"> 
-Theo những nguồn tin được phát đi từ báo giới Hoa Kỳ, Apple đang chuẩn bị phát hành một chiếc iMac giá rẻ ngay trong nửa đầu năm 2014.
+										${pageScope.desktop7.header }
                             </p>
                         </div>
                     
@@ -313,30 +351,30 @@ Theo những nguồn tin được phát đi từ báo giới Hoa Kỳ, Apple đa
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="Image/M8-2.jpg" height="134" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop8.id }">
+                                <img src="${pageScope.desktop8.url_daidien }" height="134" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> 
-Tiết lộ về máy tính chơi game của BM và Asrock
+                                <a href="load?id=${pageScope.desktop8.id }"> 
+								${pageScope.desktop8.title }
 
  </a></p>
                             <p class="detail_ctt">
-Hồi tháng 6 chúng ta đã từng được biết tới chiếc máy tính chơi game M8 do ASRock và BMW Group DesignworksUSA hợp tác sản xuất. Hôm nay, thêm một số thông tin mới về sản phẩm này được tiết lộ, cụ thể hơn là thông tin về cấu hình máy.
+									${pageScope.desktop8.header }
                          </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="Image/GeForce-GTX-Battlebox.jpg" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
+                        <div class="subcontent2"><a href="load?id=${pageScope.desktop9.id }"><a href="load?id=${pageScope.desktop9.id }"><img src="${pageScope.desktop9.url_daidien }" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
                           <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">
-Nvidia ra máy tính để bàn GeForce GTX Battlebox
+                              <a href="load?id=${pageScope.desktop9.id }">
+									${pageScope.desktop9.title }
 
  </a></p>
                             <p class="detail_ctt">
-Vừa qua, Nvidia đã tiết lộ một kế hoạch đầy tham vọng rằng hãng sẽ hợp tác với nhà sản xuất máy tính OEM để cho ra mắt một dòng máy tính để bàn mạnh mẽ với thương hiệu mới Nvidia GeForce GTX Battlebox.
+									${pageScope.desktop9.header }
                              </p>
                         </div>
                     
@@ -344,16 +382,16 @@ Vừa qua, Nvidia đã tiết lộ một kế hoạch đầy tham vọng rằng 
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="Image/Lenovo-1.jpg" height="147" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop10.id }">
+                                <img src="${pageScope.desktop10.url_daidien }" height="147" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-Lenovo công bố loạt máy tính AIO mới
+                                <a href="load?id=${pageScope.desktop10.id }">
+							${pageScope.desktop10.title }
 
  </a></p>
                             <p class="detail_ctt">
-Lenovo vừa chính thức tung ra một loạt mẫu máy AIO mới kết thúc đợt ra mắt dòng sản phẩm này trong năm nay bao gồm các model có tên A530, B750, B550, B350.
+									${pageScope.desktop10.header }
                             </p>
                         </div>
                     
@@ -361,16 +399,16 @@ Lenovo vừa chính thức tung ra một loạt mẫu máy AIO mới kết thúc
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="Image/iMac(1).jpg" height="142" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop11.id }">
+                                <img src="${pageScope.desktop11.url_daidien }" height="142" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-Nâng cấp iMac với chip Haswell và ổ cứng "khủng"
+                                <a href="load?id=${pageScope.desktop11.id }">
+					${pageScope.desktop11.title }
 
  </a></p>
                             <p class="detail_ctt">
-Apple vừa nâng cấp cho dòng máy tính iMac của họ với một số cải tiến về chip xử lý và bộ nhớ lưu trữ. Theo đó, iMac 2013 sẽ được trang bị chip xử lý Haswell.
+						${pageScope.desktop11.header }
                             </p>
                         </div>
                     
@@ -378,16 +416,16 @@ Apple vừa nâng cấp cho dòng máy tính iMac của họ với một số c�
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="Image/PC-Appe.jpg" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.desktop12.id }">
+                                <img src="${pageScope.desktop12.url_daidien }" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-PC Apple khiến khách hàng hài lòng 10 năm liền
+                          <a href="load?id=${pageScope.desktop12.id }">
+										${pageScope.desktop12.title }
 
  </a></p>
                             <p class="detail_ctt">
-Giới truyền thông vừa cho hay hãng Apple tiếp tục đứng đầu trong danh sách chỉ số hài lòng của người tiêu dùng Mỹ (ACSI) đối với các nhà sản xuất máy tính cá nhân.
+						${pageScope.desktop12.header }
                             </p>
           </div>
                     
@@ -402,46 +440,74 @@ Giới truyền thông vừa cho hay hãng Apple tiếp tục đứng đầu tro
                    CÁC TIN KHÁC</div>
           <div class="title_news">
                 
+                <%
+                        	List<TopicEntity> tinkhac = TopicDAO.loadBySubMenu("tinkhac");
+                        	TopicEntity tinkhac1 = tinkhac.get(0);
+                        	TopicEntity tinkhac2 = tinkhac.get(1);
+                        	TopicEntity tinkhac3 = tinkhac.get(2);
+                        	TopicEntity tinkhac4 = tinkhac.get(3);
+                        	TopicEntity tinkhac5 = tinkhac.get(4);
+                        	TopicEntity tinkhac6 = tinkhac.get(5);
+                        	TopicEntity tinkhac7 = tinkhac.get(6);
+                        	TopicEntity tinkhac8 = tinkhac.get(7);
+                        	TopicEntity tinkhac9 = tinkhac.get(8);
+                        	TopicEntity tinkhac10 = tinkhac.get(9);   
+							
+                        	
+                        	pageContext.setAttribute("tinkhac1", tinkhac1);
+                        	pageContext.setAttribute("tinkhac2", tinkhac2);
+                        	pageContext.setAttribute("tinkhac3", tinkhac3);
+                        	pageContext.setAttribute("tinkhac4", tinkhac4);
+                        	pageContext.setAttribute("tinkhac5", tinkhac5);
+                       		pageContext.setAttribute("tinkhac6", tinkhac6);
+                        	pageContext.setAttribute("tinkhac7", tinkhac7);
+                        	pageContext.setAttribute("tinkhac8", tinkhac8);
+                        	pageContext.setAttribute("tinkhac9", tinkhac9);
+                        	pageContext.setAttribute("tinkhac10", tinkhac10);     
+                        
+                        	
+                        %>
+                
                 <ul>
                 
-                      <li> <a href="/kiem-hang-ngan-usd-tu-viec-bat-loi-bao-mat-cho-google-105514">
-Asus M70: Máy tính đầu tiên có giao tiếp NFC
+                      <li> <a href="load?id=${pageScope.tinkhac1.id }">
+							${pageScope.tinkhac1.title }
  </a> </li>
                     
-                      <li> <a href="/giam-doc-windows-phone-khang-dinh-se-duoi-kip-doi-thu-105513">
-Asus M70: Máy tính đầu tiên có giao tiếp NFC
+                      <li> <a href="load?id=${pageScope.tinkhac2.id }">
+								${pageScope.tinkhac2.title }
  </a> </li>
                     
-                      <li> <a href="/google-maps-phai-go-bo-hinh-anh-thi-the-mot-cau-be-105493">
-Gygabyte ra mắt máy tính siêu nhỏ BRIX thế hệ mới
+                      <li> <a href="load?id=${pageScope.tinkhac3.id }">
+								${pageScope.tinkhac3.title }
 </a> </li>
                     
-                      <li> <a href="/chuyen-gia-it-cua-nato-lanh-an-7-nam-tu-vi-trom-du-lieu-mat-105487">
-Máy tính bàn HP tiêu thụ điện tương đương laptop
+                      <li> <a href="load?id=${pageScope.tinkhac4.id }">
+ 									${pageScope.tinkhac4.title }
  </a> </li>
                     
-                      <li> <a href="/apple-thu-lai-iphone-ipad-bi-tham-nuoc-105477">
-Lenovo trình làng mẫu máy tính AIO mới
+                      <li> <a href="load?id=${pageScope.tinkhac5.id }">
+ 									${pageScope.tinkhac5.title }
  </a> </li>
                     
-                      <li> <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">
-LG hé lộ máy tính AIO màn hình siêu dài tỷ lệ 21:9
+                      <li> <a href="load?id=${pageScope.tinkhac6.id }">
+ 									${pageScope.tinkhac6.title }
  </a> </li>
                     
-                      <li> <a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448"> 
-LG ra mắt máy tính màn hình siêu rộng
+                      <li> <a href="load?id=${pageScope.tinkhac7.id }"> 
+ 								${pageScope.tinkhac7.title }
 </a> </li>
                     
-                      <li> <a href="/chau-au-chinh-thuc-cho-dung-thiet-bi-dien-tu-tren-may-bay-105443">
-HP ra mắt máy tính để bàn tích hợp Wi-Fi
+                      <li> <a href="load?id=${pageScope.tinkhac8.id }">
+ 								${pageScope.tinkhac8.title }
  </a> </li>
                     
-                      <li> <a href="/apple-dong-cua-itunes-connect-tu-21-12-den-27-12-105442">
-HP giới thiệu máy tính bàn EliteDesk 800 G1
+                      <li> <a href="load?id=${pageScope.tinkhac9.id }">
+   							${pageScope.tinkhac9.title }
  </a> </li>
                     
-                      <li> <a href="/nhat-ban-ho-tro-asean-tang-cuong-an-ninh-mang-105436">
-Máy tính siêu nhỏ kiểu dáng giống Mac Mini
+                      <li> <a href="load?id=${pageScope.tinkhac10.id }">
+								${pageScope.tinkhac10.title }
  </a> </li>
                     
                 </ul>
@@ -473,166 +539,275 @@ Máy tính siêu nhỏ kiểu dáng giống Mac Mini
            
 
         		<div class="content_right">
-				
-                    <div class="news">
-                        <div class="tit">
-                            
-                                   <a href="tinmoinhat.jsp">  Tin mới nhất </a>
-                            
-                        </div>
-                        <div class="ctm">
-                            
-                                    <div class="title_new">
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-2 lý do nên mua ngay iPad Mini Retina
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-HP Chromebook 11 bị thu hồi hàng loạt
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Acer giới thiệu chromebook "siêu rẻ"
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-iPad Mini Retina rất khó sửa chữa
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Ngày mai iPad mini Retina 4G có mặt tại Việt Nam
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-iPad mini 2 rất khó sửa chữa
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Năm sau doanh số iPad Mini Retina sẽ tăng gấp 2
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-LG G Pad 8.3 bán tại Việt Nam cuối tháng này
-</a>
-                                     </div>
-                                      
-                                    
-                                     <span id="xemtin"><a href="${param.xemcactinkhac }"><strong>Xem các tin khác </strong></a></span>
-                                    
-                                               
-                                    </div>
-                               
-                        </div>
-                        <div class="space"></div>
-                       
-                    </div>   
-                                     
-                    <div class="headlines">
-                        <div class="tit">
-                           
-                                    <a>
-                                        Tiêu điểm
-                                    </a>
-                                
-                        </div>
-                        <div class="ctm">
-                                        
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/MSI-1.jpg" width="175" height="161" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/8-cong-dung-khong-ngo-cua-task-manager-105027">
-MSI ra bộ đôi All In One cấu hình cao
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
 
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img src="Image/Sieu-may-tinh.jpg" width="142" height="159" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
-Siêu máy tính có khả năng dự báo thời tiết
-                                                </a>
-                                            </div>
-                                        </div>
-  
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img src="Image/Mac-Pro-2013.jpg" width="142" height="147" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119">
-Giá Mac Pro 2013 có thể lên tới 14.000 USD
-                                             </a>
-                                            </div>
-                                        </div>
-                                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img src="Image/Mac-Pro.jpg" width="142" height="160" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
-Apple Mac Pro giá 63 triệu đồng, bán ra tháng 12
-                                                </a>
-                                            </div>
-                                        </div>
-       
-                                        
-                   
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Sieu-may-tinh(1).jpg" width="142" height="162" hspace="3" vspace="3" align="left" border="0"></a>    
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-"Máu điện tử" cho siêu máy tính
-                                                </a>
-                                            </div>
-                                        </div>
+					<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
 
-                                        
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
 
-                                       	
+					<div class="news">
+						<div class="tit">
 
-                                       	
-                                        
-                                        
-                                </div>
-                     </div>
-        		
-       	  </div>
+							<a href="tinmoinhat.jsp"> Tin mới nhất </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="title_new">
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
+								</div>
+
+
+								<span id="xemtin"><a href="/"><strong>Xem
+											các tin khác </strong></a></span>
+
+
+							</div>
+
+						</div>
+
+
+
+
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
+						<div class="space"></div>
+
+					</div>
+
+					<div class="headlines">
+						<div class="tit">
+
+							<a> Tiêu điểm </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
+										height="174" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
+								</div>
+							</div>
+
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
+										height="145" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
             
         
         </div>

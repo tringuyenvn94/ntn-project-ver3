@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -185,21 +188,58 @@
                                
 <div class="bag">
    	<div class="tit">
-                <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="phancung.jsp">Phần cứng</a>&nbsp;»&nbsp;<a href="tuvan.jsp">Tư vấn</a>
+   	
+   									
+   					<%
+                        	List<TopicEntity> dulieu = TopicDAO.loadBySubMenu("tuvan");
+                        	TopicEntity dulieu1 = dulieu.get(0);
+                        	TopicEntity dulieu2 = dulieu.get(1);
+                        	TopicEntity dulieu3 = dulieu.get(2);
+                        	TopicEntity dulieu4 = dulieu.get(3);
+                        	TopicEntity dulieu5 = dulieu.get(4);
+                        	TopicEntity dulieu6 = dulieu.get(5);
+                        	TopicEntity dulieu7 = dulieu.get(6);
+                        	TopicEntity dulieu8 = dulieu.get(7);
+                        	TopicEntity dulieu9 = dulieu.get(8);
+                        	TopicEntity dulieu10 = dulieu.get(9);
+                         	TopicEntity dulieu11 = dulieu.get(10);
+                        	TopicEntity dulieu12 = dulieu.get(11);      
+							
+                        	
+                        	pageContext.setAttribute("dulieu1", dulieu1);
+                        	pageContext.setAttribute("dulieu2", dulieu2);
+                        	pageContext.setAttribute("dulieu3", dulieu3);
+                        	pageContext.setAttribute("dulieu4", dulieu4);
+                        	pageContext.setAttribute("dulieu5", dulieu5);
+                       		pageContext.setAttribute("dulieu6", dulieu6);
+                        	pageContext.setAttribute("dulieu7", dulieu7);
+                        	pageContext.setAttribute("dulieu8", dulieu8);
+                        	pageContext.setAttribute("dulieu9", dulieu9);
+                        	pageContext.setAttribute("dulieu10", dulieu10);
+                        	pageContext.setAttribute("dulieu11", dulieu11);
+                        	pageContext.setAttribute("dulieu12", dulieu12);     
+                        
+                        	
+                        %>
+   									
+   									
+                <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="phancung.jsp">Phần cứng</a>&nbsp;»&nbsp;<a href="desktop.jsp">Tư Vấn</a>
         
     </div>
        
           <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span>
+                    <a href="load?id=${pageScope.dulieu1.id }"><span>
+						${pageScope.dulieu1.title }
 </span></a>
                 </div>
                 <div>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
+                                <a href="load?id=${pageScope.dulieu1.id }"><img src="${pageScope.dulieu1.url_daidien }" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
                             </td>
                             <td class="content_top" valign="top" align="left">
+							${pageScope.dulieu1.header }
                           </td>
                         </tr>
                     </tbody></table>
@@ -211,161 +251,183 @@
                         </div>
                    
                         <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="" height="179" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu2.id }">
+                                <img src="${pageScope.dulieu2.url_daidien }" height="179" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
+                                <a href="load?id=${pageScope.dulieu2.id }">
+									${pageScope.dulieu2.title }
 
 </a></p>
                             <p class="detail_ctt">
+										${pageScope.dulieu2.header }
             </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="" height="171" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu3.id }">
+                                <img src="${pageScope.dulieu3.url_daidien }" height="171" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
+                                <a href="load?id=${pageScope.dulieu3.id }">
+									${pageScope.dulieu3.title }
 
  </a></p>
                             <p class="detail_ctt">
-                          </p>
+								${pageScope.dulieu3.header }
+                            </p>
             </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="" height="164" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu4.id }">
+                                <img src="${pageScope.dulieu4.url_daidien }" height="164" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
+                                <a href="load?id=${pageScope.dulieu4.id }">
+								${pageScope.dulieu4.title }
 
 </a></p>
                             <p class="detail_ctt">
-                          </p>
+								${pageScope.dulieu4.header }
+                            </p>
             </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="" height="150" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu5.id }">
+                                <img src="${pageScope.dulieu5.url_daidien }" height="150" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
+                                <a href="load?id=${pageScope.dulieu5.id }">
+									${pageScope.dulieu5.title }
 
 </a></p>
                             <p class="detail_ctt">
-                          </p>
+								${pageScope.dulieu5.header }
+                           </p>
             </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu6.id }">
+                                <img src="${pageScope.dulieu6.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
+                                <a href="load?id=${pageScope.dulieu6.id }">
+										${pageScope.dulieu6.title }
 
  </a></p>
                             <p class="detail_ctt">
-                          </p>
+									${pageScope.dulieu6.header }
+                             </p>
             </div>
                     
                        <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu7.id }">
+                                <img src="${pageScope.dulieu7.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
+                                <a href="load?id=${pageScope.dulieu7.id }">
+							${pageScope.dulieu7.title }
 
 </a></p>
                             <p class="detail_ctt"> 
-                          </p>
+										${pageScope.dulieu7.header }
+                            </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="" height="134" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu8.id }">
+                                <img src="${pageScope.dulieu8.url_daidien }" height="134" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> 
+                                <a href="load?id=${pageScope.dulieu8.id }"> 
+								${pageScope.dulieu8.title }
 
  </a></p>
                             <p class="detail_ctt">
+									${pageScope.dulieu8.header }
                          </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
+                        <div class="subcontent2"><a href="load?id=${pageScope.dulieu9.id }"><a href="load?id=${pageScope.dulieu9.id }"><img src="${pageScope.dulieu9.url_daidien }" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
                           <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">
+                              <a href="load?id=${pageScope.dulieu9.id }">
+									${pageScope.dulieu9.title }
 
  </a></p>
                             <p class="detail_ctt">
-                          </p>
+									${pageScope.dulieu9.header }
+                             </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="" height="147" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu10.id }">
+                                <img src="${pageScope.dulieu10.url_daidien }" height="147" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
+                                <a href="load?id=${pageScope.dulieu10.id }">
+							${pageScope.dulieu10.title }
 
  </a></p>
                             <p class="detail_ctt">
-                          </p>
+									${pageScope.dulieu10.header }
+                            </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="" height="142" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu11.id }">
+                                <img src="${pageScope.dulieu11.url_daidien }" height="142" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
+                                <a href="load?id=${pageScope.dulieu11.id }">
+					${pageScope.dulieu11.title }
 
  </a></p>
                             <p class="detail_ctt">
-                          </p>
+						${pageScope.dulieu11.header }
+                            </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.dulieu12.id }">
+                                <img src="${pageScope.dulieu12.url_daidien }" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
+                          <a href="load?id=${pageScope.dulieu12.id }">
+										${pageScope.dulieu12.title }
 
  </a></p>
                             <p class="detail_ctt">
-                          </p>
+						${pageScope.dulieu12.header }
+                            </p>
           </div>
                     
                        <div class="lines">
@@ -379,36 +441,74 @@
                    CÁC TIN KHÁC</div>
           <div class="title_news">
                 
+                <%
+                        	List<TopicEntity> tinkhac = TopicDAO.loadBySubMenu("tinkhac");
+                        	TopicEntity tinkhac1 = tinkhac.get(0);
+                        	TopicEntity tinkhac2 = tinkhac.get(1);
+                        	TopicEntity tinkhac3 = tinkhac.get(2);
+                        	TopicEntity tinkhac4 = tinkhac.get(3);
+                        	TopicEntity tinkhac5 = tinkhac.get(4);
+                        	TopicEntity tinkhac6 = tinkhac.get(5);
+                        	TopicEntity tinkhac7 = tinkhac.get(6);
+                        	TopicEntity tinkhac8 = tinkhac.get(7);
+                        	TopicEntity tinkhac9 = tinkhac.get(8);
+                        	TopicEntity tinkhac10 = tinkhac.get(9);   
+							
+                        	
+                        	pageContext.setAttribute("tinkhac1", tinkhac1);
+                        	pageContext.setAttribute("tinkhac2", tinkhac2);
+                        	pageContext.setAttribute("tinkhac3", tinkhac3);
+                        	pageContext.setAttribute("tinkhac4", tinkhac4);
+                        	pageContext.setAttribute("tinkhac5", tinkhac5);
+                       		pageContext.setAttribute("tinkhac6", tinkhac6);
+                        	pageContext.setAttribute("tinkhac7", tinkhac7);
+                        	pageContext.setAttribute("tinkhac8", tinkhac8);
+                        	pageContext.setAttribute("tinkhac9", tinkhac9);
+                        	pageContext.setAttribute("tinkhac10", tinkhac10);     
+                        
+                        	
+                        %>
+                
                 <ul>
                 
-                      <li> <a href="/kiem-hang-ngan-usd-tu-viec-bat-loi-bao-mat-cho-google-105514">
+                      <li> <a href="load?id=${pageScope.tinkhac1.id }">
+							${pageScope.tinkhac1.title }
  </a> </li>
                     
-                      <li> <a href="/giam-doc-windows-phone-khang-dinh-se-duoi-kip-doi-thu-105513">
+                      <li> <a href="load?id=${pageScope.tinkhac2.id }">
+								${pageScope.tinkhac2.title }
  </a> </li>
                     
-                      <li> <a href="/google-maps-phai-go-bo-hinh-anh-thi-the-mot-cau-be-105493">
+                      <li> <a href="load?id=${pageScope.tinkhac3.id }">
+								${pageScope.tinkhac3.title }
 </a> </li>
                     
-                      <li> <a href="/chuyen-gia-it-cua-nato-lanh-an-7-nam-tu-vi-trom-du-lieu-mat-105487">
+                      <li> <a href="load?id=${pageScope.tinkhac4.id }">
+ 									${pageScope.tinkhac4.title }
  </a> </li>
                     
-                      <li> <a href="/apple-thu-lai-iphone-ipad-bi-tham-nuoc-105477">
+                      <li> <a href="load?id=${pageScope.tinkhac5.id }">
+ 									${pageScope.tinkhac5.title }
  </a> </li>
                     
-                      <li> <a href="/ai-se-giet-chet-tien-ao-bitcoin-105455">
+                      <li> <a href="load?id=${pageScope.tinkhac6.id }">
+ 									${pageScope.tinkhac6.title }
  </a> </li>
                     
-                      <li> <a href="/anonymous-tan-cong-nhieu-co-quan-chinh-phu-my-105448"> 
+                      <li> <a href="load?id=${pageScope.tinkhac7.id }"> 
+ 								${pageScope.tinkhac7.title }
 </a> </li>
                     
-                      <li> <a href="/chau-au-chinh-thuc-cho-dung-thiet-bi-dien-tu-tren-may-bay-105443">
+                      <li> <a href="load?id=${pageScope.tinkhac8.id }">
+ 								${pageScope.tinkhac8.title }
  </a> </li>
                     
-                      <li> <a href="/apple-dong-cua-itunes-connect-tu-21-12-den-27-12-105442">
+                      <li> <a href="load?id=${pageScope.tinkhac9.id }">
+   							${pageScope.tinkhac9.title }
  </a> </li>
                     
-                      <li> <a href="/nhat-ban-ho-tro-asean-tang-cuong-an-ninh-mang-105436">
+                      <li> <a href="load?id=${pageScope.tinkhac10.id }">
+								${pageScope.tinkhac10.title }
  </a> </li>
                     
                 </ul>
@@ -440,158 +540,275 @@
            
 
         		<div class="content_right">
-				
-                    <div class="news">
-                        <div class="tit">
-                            
-                                   <a href="tinmoinhat.jsp">  Tin mới nhất </a>
-                            
-                        </div>
-                        <div class="ctm">
-                            
-                                    <div class="title_new">
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-2 lý do nên mua ngay iPad Mini Retina
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-HP Chromebook 11 bị thu hồi hàng loạt
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Acer giới thiệu chromebook "siêu rẻ"
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-iPad Mini Retina rất khó sửa chữa
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Ngày mai iPad mini Retina 4G có mặt tại Việt Nam
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-iPad mini 2 rất khó sửa chữa
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Năm sau doanh số iPad Mini Retina sẽ tăng gấp 2
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-LG G Pad 8.3 bán tại Việt Nam cuối tháng này
-</a>
-                                     </div>
-                                      
-                                    
-                                     <span id="xemtin"><a href="${param.xemcactinkhac }"><strong>Xem các tin khác </strong></a></span>
-                                    
-                                               
-                                    </div>
-                               
-                        </div>
-                        <div class="space"></div>
-                       
-                    </div>   
-                                     
-                    <div class="headlines">
-                        <div class="tit">
-                           
-                                    <a>
-                                        Tiêu điểm
-                                    </a>
-                                
-                        </div>
-                        <div class="ctm">
-                                        
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="" width="175" height="161" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/8-cong-dung-khong-ngo-cua-task-manager-105027">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
 
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img src="" width="142" height="159" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
-                                                </a>
-                                            </div>
-                                        </div>
-  
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img src="" width="142" height="147" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem"></div>
-                                        </div>
-                                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img src="" width="142" height="160" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
-                                                </a>
-                                            </div>
-                                        </div>
-       
-                                        
-                   
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="" width="142" height="162" hspace="3" vspace="3" align="left" border="0"></a>    
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-                                                </a>
-                                            </div>
-                                        </div>
+					<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
 
-                                        
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
 
-                                       	
+					<div class="news">
+						<div class="tit">
 
-                                       	
-                                        
-                                        
-                                </div>
-                     </div>
-        		
-       	  </div>
+							<a href="tinmoinhat.jsp"> Tin mới nhất </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="title_new">
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
+								</div>
+
+
+								<span id="xemtin"><a href="/"><strong>Xem
+											các tin khác </strong></a></span>
+
+
+							</div>
+
+						</div>
+
+
+
+
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
+						<div class="space"></div>
+
+					</div>
+
+					<div class="headlines">
+						<div class="tit">
+
+							<a> Tiêu điểm </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
+										height="174" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
+								</div>
+							</div>
+
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
+										height="145" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
             
         
         </div>

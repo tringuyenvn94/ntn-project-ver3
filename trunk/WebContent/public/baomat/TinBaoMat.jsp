@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -185,23 +188,57 @@
                                
 <div class="bag">
    	<div class="tit">
+   	
+   					<%
+                        	List<TopicEntity> tbm = TopicDAO.loadBySubMenu("tinbaomat");
+                        	TopicEntity tbm1 = tbm.get(0);
+                        	TopicEntity tbm2 = tbm.get(1);
+                        	TopicEntity tbm3 = tbm.get(2);
+                        	TopicEntity tbm4 = tbm.get(3);
+                        	TopicEntity tbm5 = tbm.get(4);
+                        	TopicEntity tbm6 = tbm.get(5);
+                        	TopicEntity tbm7 = tbm.get(6);
+                        	TopicEntity tbm8 = tbm.get(7);
+                        	TopicEntity tbm9 = tbm.get(8);
+                        	TopicEntity tbm10 = tbm.get(9);
+                        	TopicEntity tbm11 = tbm.get(10);
+                        	TopicEntity tbm12 = tbm.get(11);
+							
+                        	
+                        	pageContext.setAttribute("tbm1", tbm1);
+                        	pageContext.setAttribute("tbm2", tbm2);
+                        	pageContext.setAttribute("tbm3", tbm3);
+                        	pageContext.setAttribute("tbm4", tbm4);
+                        	pageContext.setAttribute("tbm5", tbm5);
+                       		pageContext.setAttribute("tbm6", tbm6);
+                        	pageContext.setAttribute("tbm7", tbm7);
+                        	pageContext.setAttribute("tbm8", tbm8);
+                        	pageContext.setAttribute("tbm9", tbm9);
+                        	pageContext.setAttribute("tbm10", tbm10);
+                        	pageContext.setAttribute("tbm11", tbm11);
+                        	pageContext.setAttribute("tbm12", tbm12);
+                        
+                        	
+                        %>
+   					
+   					
                 <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="baomat.jsp">Bảo mật</a>&nbsp;»&nbsp;<a href="tinbaomat.jsp">Tin bảo mật</a>
         
     </div>
        
           <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span>
-Windows XP dễ nhiễm virus hơn so với Windows 8
+                    <a href="load?id=${pageScope.tbm1.id }"><span>
+							${pageScope.tbm1.title }
 </span></a>
                 </div>
                 <div>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="Image/windows1.jpg" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
+                                <a href="load?id=${pageScope.tbm1.id }"><img src="${pageScope.tbm1.url_daidien }" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
                             </td>
                             <td class="content_top" valign="top" align="left">
-Một bản báo cáo giám sát mới được công bố của Microsoft đã chỉ ra rằng, hệ điều hành Windows XP có khả năng bị lây nhiễm virus nhiều gấp hơn 5 lần so với Windows 8.
+										${pageScope.tbm1.header }
                           </td>
                         </tr>
                     </tbody></table>
@@ -213,30 +250,29 @@ Một bản báo cáo giám sát mới được công bố của Microsoft đã 
                         </div>
                    
                         <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="Image/Trojan-1.jpg" height="179" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm2.id }">
+                                <img src="${pageScope.tbm2.url_daidien }" height="179" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-Trojan mới khó phát hiện tấn công lỗ hổng IE
+                                <a href="load?id=${pageScope.tbm2.id }">
+									${pageScope.tbm2.title }
 </a></p>
                             <p class="detail_ctt">
-Một trojan mới vừa xuất hiện khai thác lỗ hổng trình duyệt web Internet Explorer (IE), và người dùng sẽ không dễ dàng tìm thấy nó vì chúng không nằm trên ổ cứng.
-            </div>
+${pageScope.tbm2.header }            </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="Image/pin-smartphone.jpg" height="171" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm3.id }">
+                                <img src="${pageScope.tbm3.url_daidien }" height="171" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-Mã PIN smartphone sẽ lộ vì camera, microphone?
+                                <a href="load?id=${pageScope.tbm3.id }">
+							${pageScope.tbm3.title }
  </a></p>
                             <p class="detail_ctt">
-Sử dụng chương trình PIN Skimmer, nhóm nghiên cứu từ Đại học Cambridge (Anh) phát hiện mã pin (chỉ dùng chữ số) có thể bị xác định nhờ máy ảnh và micophone điện thoại.
+								${pageScope.tbm3.header }
                             </p>
             </div>
                     
@@ -244,15 +280,15 @@ Sử dụng chương trình PIN Skimmer, nhóm nghiên cứu từ Đại học C
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="Image/adobe.jpg" height="164" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm4.id }">
+                                <img src="${pageScope.tbm4.url_daidien }" height="164" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-152 triệu tài khoản Adobe bị lộ trên web
+                                <a href="load?id=${pageScope.tbm4.id }">
+${pageScope.tbm4.title }
 </a></p>
                             <p class="detail_ctt">
-Một hãng phần mềm vừa phát hiện dữ liệu thuộc 152 triệu tài khoản Adobe, cho thấy những gì Adobe thừa nhận cuối tháng 10 thấp hơn rất nhiều so với thực tế.
+											${pageScope.tbm4.header }
                             </p>
             </div>
                     
@@ -260,15 +296,15 @@ Một hãng phần mềm vừa phát hiện dữ liệu thuộc 152 triệu tài
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="Image/tru-so-CIA.jpg" height="150" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm5.id }">
+                                <img src="${pageScope.tbm5.url_daidien }" height="150" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-CIA trả tiền cho dữ liệu cuộc gọi của AT&T
+                                <a href="load?id=${pageScope.tbm5.id }">
+										${pageScope.tbm5.title }
 </a></p>
                             <p class="detail_ctt">
-Theo quan chức chính phủ, Cục Tình báo TW Mỹ (CIA) trả cho nhà mạng AT&T (Mỹ) 10 triệu USD mỗi năm để khai thác cơ sở dữ liệu bản ghi điện thoại khổng lồ, hỗ trợ công tác điều tra chống khủng bố.
+									${pageScope.tbm5.header }
                            </p>
             </div>
                     
@@ -276,15 +312,15 @@ Theo quan chức chính phủ, Cục Tình báo TW Mỹ (CIA) trả cho nhà m�
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="Image/microsoft-va-facebook.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm6.id }">
+                                <img src="${pageScope.tbm6.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-Microsoft, Facebook khuyến khích tìm lỗi bảo mật
+                                <a href="load?id=${pageScope.tbm6.id }">
+							 ${pageScope.tbm6.title }
  </a></p>
                             <p class="detail_ctt">
-Microsoft và Facebook muốn cùng nhau tìm ra các lỗ hổng bảo mật bằng cách hợp tác tạo ra dự án mang tên HackerOne.
+								 ${pageScope.tbm6.header }
                              </p>
             </div>
                     
@@ -292,15 +328,15 @@ Microsoft và Facebook muốn cùng nhau tìm ra các lỗ hổng bảo mật b�
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="Image/chrome.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm7.id }">
+                                <img src="${pageScope.tbm7.url_daidien }" height="146" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-Google thắt chặt truy cập mật khẩu trên Chrome
+                                <a href="load?id=${pageScope.tbm7.id }">
+								${pageScope.tbm7.title }
 </a></p>
                             <p class="detail_ctt"> 
-Không như trước đây, việc truy cập vào các mật khẩu đã lưu trên Chrome sẽ cần thêm một bước xác nhận mật khẩu nữa.
+									${pageScope.tbm7.header }
                             </p>
                         </div>
                     
@@ -308,28 +344,28 @@ Không như trước đây, việc truy cập vào các mật khẩu đã lưu t
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="Image/D-Link-1.jpg" height="134" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm8.id }">
+                                <img src="${pageScope.tbm8.url_daidien }" height="134" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> 
-Modem D-Link, Tenda của Trung Quốc cài sẵn mã độc
+                                <a href="load?id=${pageScope.tbm8.id }"> 
+								${pageScope.tbm8.title }
  </a></p>
                             <p class="detail_ctt">
-Các sản phẩm modem của một số tên tuổi lớn từ Trung Quốc như D-Link, Tenda được cài sẵn mã độc nên có thể bị đột nhập bất kỳ lúc nào mà không cần tới mật khẩu truy cập.
+									${pageScope.tbm8.header }
                          </p>
                         </div>
                     
                         <div class="lines">
                             <img src="Image/netdut.jpg">
                         </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="Image/Ma-doc11.jpg" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
+                        <div class="subcontent2"><a href="load?id=${pageScope.tbm9.id }"><a href="load?id=${pageScope.tbm8.id }"><img src="${pageScope.tbm9.url_daidien }" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
                           <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">
-45% doanh nghiệp Việt Nam nhiễm mã độc tự lây lan
+                              <a href="load?id=${pageScope.tbm9.id }">
+								${pageScope.tbm9.title }
  </a></p>
                             <p class="detail_ctt">
-Theo khảo sát của Hiệp hội An toàn thông tin Việt Nam (VNISA), khả năng tự bảo vệ trước các cuộc tấn công mạng của các tổ chức, doanh nghiệp Việt Nam còn rất yếu.
+								${pageScope.tbm9.header}
                              </p>
                         </div>
                     
@@ -337,15 +373,15 @@ Theo khảo sát của Hiệp hội An toàn thông tin Việt Nam (VNISA), kh�
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="Image/Tin-nhan-rac.jpg" height="147" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm10.id }">
+                                <img src="${pageScope.tbm10.url_daidien }" height="147" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-Máy tính Việt phát tán hơn 3 tỷ tin nhắn rác/ngày
+                                <a href="load?id=${pageScope.tbm10.id }">
+							${pageScope.tbm10.title }
  </a></p>
                             <p class="detail_ctt">
-Theo Trung tâm ứng cứu máy tính khẩn cấp Việt Nam Vncert, mỗi ngày các máy tính ở Việt Nam đang phát tán hơn 3,33 tỷ tin nhắn rác.
+												${pageScope.tbm10.header }
                             </p>
                         </div>
                     
@@ -353,15 +389,15 @@ Theo Trung tâm ứng cứu máy tính khẩn cấp Việt Nam Vncert, mỗi ng�
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="Image/Hacker-1.jpg" height="142" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm11.id }">
+                                <img src="${pageScope.tbm11.url_daidien}" height="142" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-Đoạt tài khoản email người quen, phát tán mã độc
+                                <a href="load?id=${pageScope.tbm11.id }">
+										${pageScope.tbm11.title }
  </a></p>
                             <p class="detail_ctt">
-Tại hội thảo hacker mũ trắng đầu tiên được tổ chức tại Việt Nam ngày 29/10, ông Vũ Ngọc Sơn, Phó Chủ tịch phụ trách Nghiên cứu Phát triển của Bkav tiết lộ, hầu hết các tổ chức doanh nghiệp ở Việt Nam đều bị hacker tấn công bằng các phần mềm gián điệp.
+							${pageScope.tbm11.header }
                             </p>
                         </div>
                     
@@ -369,15 +405,15 @@ Tại hội thảo hacker mũ trắng đầu tiên được tổ chức tại Vi
                             <img src="Image/netdut.jpg">
                         </div>
                         <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="Image/PHP.jpg" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
+                            <a href="load?id=${pageScope.tbm12.id }">
+                                <img src="${pageScope.tbm12.url_daidien }" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
                             </a>
                             <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-PHP.net xác nhận website bị nhiễm mã độc
+                          <a href="load?id=${pageScope.tbm12.id }">
+							${pageScope.tbm12.title }
  </a></p>
                             <p class="detail_ctt">
-Từ khoảng 1 giờ chiều 24/10, Google cảnh báo trang web php.net dính mã độc và ngăn người dùng truy cập. Ban đầu, nhóm quản lý php.net cho rằng Google cảnh báo nhầm, nhưng đến buổi tối họ đã chính thức xác nhận website bị nhiễm mã độc.
+							${pageScope.tbm12.header }
                             </p>
           </div>
                     
@@ -463,222 +499,275 @@ HP kêu gọi khách hàng xem xét chiến lược bảo mật
            
 
         		<div class="content_right">
-				
-                    <div class="news">
-                        <div class="tit">
-                            
-                                   <a href="tinmoinhat.jsp">  Tin mới nhất </a>
-                            
-                        </div>
-                        <div class="ctm">
-                            
-                                    <div class="title_new">
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Google tung "độc chiêu" phòng chống DDoS
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Tin tặc Trung Quốc đánh cắp bí mật công ty Mỹ?
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Trojan mới khó phát hiện tấn công lỗ hổng IE
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Mã PIN smartphone sẽ lộ vì camera, microphone?
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-152 triệu tài khoản Adobe bị lộ trên web
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-CIA trả tiền cho dữ liệu cuộc gọi của AT&T
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Microsoft, Facebook khuyến khích tìm lỗi bảo mật
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Virus lây từ smartphone sang máy tính đã có ở VN
-</a>
-                                     </div>
-                                      
-                                    
-                                     <span id="xemtin"><a href="${param.xemcactinkhac }"><strong>Xem các tin khác </strong></a></span>
-                                    
-                                               
-                                    </div>
-                               
-                        </div>
-                        <div class="space"></div>
-                       
-                    </div>   
-                                     
-                    <div class="headlines">
-                        <div class="tit">
-                           
-                                    <a>
-                                        Tiêu điểm
-                                    </a>
-                                
-                        </div>
-                        <div class="ctm">
-                                        
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/D-Link-1.jpg" width="175" height="161" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/8-cong-dung-khong-ngo-cua-task-manager-105027">
-Modem D-Link, Tenda của Trung Quốc cài sẵn mã độc
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
 
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img src="Image/PHP.jpg" width="142" height="159" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
-PHP.net xác nhận website bị nhiễm mã độc
-                                                </a>
-                                            </div>
-                                        </div>
-  
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img src="Image/windows1.jpg" width="142" height="147" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119">
-Windows XP dễ nhiễm virus hơn so với Windows 8
-                                             </a>
-                                            </div>
-                                        </div>
-                                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img src="Image/iMessage.jpg" width="142" height="160" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
-Apple có thể đọc được nội dung tin nhắn iMessage
-                                                </a>
-                                            </div>
-                                        </div>
-       
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/modem-d-link-tenda-cua-trung-quoc-cai-san-ma-doc-105160"><img src="Image/Hacker-1.jpg" width="142" height="153" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/nhieu-modem-d-link-tenda-cua-trung-quoc-da-duoc-cai-san-ma-doc-105160">
-Đoạt tài khoản email người quen, phát tán mã độc
-                                                </a>
-                                            </div>
-                                        </div>
-                   
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/GTA-V.jpg" width="142" height="162" hspace="3" vspace="3" align="left" border="0"></a>    
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-Hàng nghìn người dính virus do tải GTA V "nhái"
-                                                </a>
-                                            </div>
-                                        </div>
+					<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
 
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Trojan-1.jpg" width="142" height="169" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-Trojan mới khó phát hiện tấn công lỗ hổng IE
-                                                </a>
-                                            </div>
-                                        </div>
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
 
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/adobe.jpg" width="142" height="176" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-152 triệu tài khoản Adobe bị lộ trên web
-                                                </a>
-                                            </div>
-                                        </div>
+					<div class="news">
+						<div class="tit">
 
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Ma-doc11.jpg" width="142" height="145" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-45% doanh nghiệp Việt Nam nhiễm mã độc tự lây lan
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/chrome.jpg" width="142" height="185" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-Google thắt chặt truy cập mật khẩu trên Chrome
-                                                </a>
-                                            </div>
-                                        </div>
-                                </div>
-                     </div>
-                    
-				
-        
-                                        
-                
-        		
-        		
-       	  </div>
+							<a href="tinmoinhat.jsp"> Tin mới nhất </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="title_new">
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
+								</div>
+
+
+								<span id="xemtin"><a href="/"><strong>Xem
+											các tin khác </strong></a></span>
+
+
+							</div>
+
+						</div>
+
+
+
+
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
+						<div class="space"></div>
+
+					</div>
+
+					<div class="headlines">
+						<div class="tit">
+
+							<a> Tiêu điểm </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
+										height="174" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
+								</div>
+							</div>
+
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
+										height="145" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
             
         
         </div>

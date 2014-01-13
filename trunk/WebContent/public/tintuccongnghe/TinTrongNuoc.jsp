@@ -301,12 +301,12 @@
 							<img src="Image/netdut.jpg">
 						</div>
 						<div class="subcontent2">
-							<a href="${pageScope.trongnuoc4.id }">
+							<a href="load?id=${pageScope.trongnuoc4.id }">
 								<img src="${pageScope.trongnuoc4.url_daidien }" height="164" hspace="5"
 								vspace="3" align="left" border="0">
 							</a>
 							<p class="title_ctt">
-								<a href="${pageScope.trongnuoc4.id }">${pageScope.trongnuoc4.title }</a>
+								<a href="load?id=${pageScope.trongnuoc4.id }">${pageScope.trongnuoc4.title }</a>
 							</p>
 							<p class="detail_ctt">${pageScope.trongnuoc4.header }</p>
 						</div>
@@ -316,13 +316,13 @@
 						</div>
 						<div class="subcontent2">
 							<a
-								href="${pageScope.trongnuoc5.id }">
+								href="load?id=${pageScope.trongnuoc5.id }">
 								<img src="${pageScope.trongnuoc5.url_daidien }" height="150" hspace="5"
 								vspace="3" align="left" border="0">
 							</a>
 							<p class="title_ctt">
 								<a
-									href="${pageScope.trongnuoc5.id }">${pageScope.trongnuoc5.title }</a>
+									href="load?id=${pageScope.trongnuoc5.id }">${pageScope.trongnuoc5.title }</a>
 							</p>
 							<p class="detail_ctt">${pageScope.trongnuoc5.header }</p>
 						</div>
@@ -331,12 +331,12 @@
 							<img src="Image/netdut.jpg">
 						</div>
 						<div class="subcontent2">
-							<a href="${pageScope.trongnuoc6.id }"> <img
+							<a href="load?id=${pageScope.trongnuoc6.id }"> <img
 								src="${pageScope.trongnuoc6.url_daidien }" height="146" hspace="5" vspace="3"
 								align="left" border="0">
 							</a>
 							<p class="title_ctt">
-								<a href="${pageScope.trongnuoc6.id }">${pageScope.trongnuoc6.title }</a>
+								<a href="load?id=${pageScope.trongnuoc6.id }">${pageScope.trongnuoc6.title }</a>
 							</p>
 							<p class="detail_ctt">${pageScope.trongnuoc6.header }</p>
 						</div>
@@ -346,13 +346,13 @@
 						</div>
 						<div class="subcontent2">
 							<a
-								href="${pageScope.trongnuoc7.id }">
+								href="load?id=${pageScope.trongnuoc7.id }">
 								<img src="${pageScope.trongnuoc7.url_daidien }" height="146" hspace="5"
 								vspace="3" align="left" border="0">
 							</a>
 							<p class="title_ctt">
 								<a
-									href="${pageScope.trongnuoc7.id }">${pageScope.trongnuoc7.title }</a>
+									href="load?id=${pageScope.trongnuoc7.id }">${pageScope.trongnuoc7.title }</a>
 							</p>
 							<p class="detail_ctt">${pageScope.trongnuoc7.header }</p>
 						</div>
@@ -362,13 +362,13 @@
 						</div>
 						<div class="subcontent2">
 							<a
-								href="${pageScope.trongnuoc8.id }">
+								href="load?id=${pageScope.trongnuoc8.id }">
 								<img src="${pageScope.trongnuoc8.url_daidien }" height="134" hspace="5" vspace="3"
 								align="left" border="0">
 							</a>
 							<p class="title_ctt">
 								<a
-									href="${pageScope.trongnuoc8.id }">${pageScope.trongnuoc8.title }</a>
+									href="load?id=${pageScope.trongnuoc8.id }">${pageScope.trongnuoc8.title }</a>
 							</p>
 							<p class="detail_ctt">${pageScope.trongnuoc8.header }</p>
 						</div>
@@ -377,11 +377,11 @@
 							<img src="Image/netdut.jpg">
 						</div>
 						<div class="subcontent2">
-							<a href="${pageScope.trongnuoc9.id }"><img
+							<a href="load?id=${pageScope.trongnuoc9.id }"><img
 									src="${pageScope.trongnuoc9.url_daidien }" height="144" hspace="5" vspace="3"
 									align="left" border="0" /></a>
 								<p class="title_ctt">
-									<a href="${pageScope.trongnuoc9.id }">${pageScope.trongnuoc9.title }</a>
+									<a href="load?id=${pageScope.trongnuoc9.id }">${pageScope.trongnuoc9.title }</a>
 								</p>
 								<p class="detail_ctt">${pageScope.trongnuoc9.header }</p>
 						</div>
@@ -390,12 +390,12 @@
 							<img src="Image/netdut.jpg">
 						</div>
 						<div class="subcontent2">
-							<a href="${pageScope.trongnuoc10.id }">
+							<a href="load?id=${pageScope.trongnuoc10.id }">
 								<img src="${pageScope.trongnuoc10.url_daidien }" height="147" hspace="5" vspace="3"
 								align="left" border="0">
 							</a>
 							<p class="title_ctt">
-								<a href="${pageScope.trongnuoc10.id }">${pageScope.trongnuoc10.title }</a>
+								<a href="load?id=${pageScope.trongnuoc10.id }">${pageScope.trongnuoc10.title }</a>
 							</p>
 							<p class="detail_ctt">${pageScope.trongnuoc10.header }</p>
 						</div>
@@ -404,12 +404,12 @@
 							<img src="Image/netdut.jpg">
 						</div>
 						<div class="subcontent2">
-							<a href="${pageScope.trongnuoc11.id }">
+							<a href="load?id=${pageScope.trongnuoc11.id }">
 								<img src="${pageScope.trongnuoc11.url_daidien }" height="142" hspace="5" vspace="3"
 								align="left" border="0">
 							</a>
 							<p class="title_ctt">
-								<a href="${pageScope.trongnuoc11.id }">${pageScope.trongnuoc11.title }</a>
+								<a href="load?id=${pageScope.trongnuoc11.id }">${pageScope.trongnuoc11.title }</a>
 							</p>
 							<p class="detail_ctt">${pageScope.trongnuoc11.header }</p>
 						</div>
@@ -419,13 +419,13 @@
 						</div>
 						<div class="subcontent2">
 							<a
-								href="${pageScope.trongnuoc12.id }">
+								href="load?id=${pageScope.trongnuoc12.id }">
 								<img src="${pageScope.trongnuoc12.url_daidien }" width="287" height="160"
 								hspace="5" vspace="3" align="left" border="0">
 							</a>
 							<p class="title_ctt">
 								<a
-									href="${pageScope.trongnuoc12.id }">${pageScope.trongnuoc12.title }</a>
+									href="load?id=${pageScope.trongnuoc12.id }">${pageScope.trongnuoc12.title }</a>
 							</p>
 							<p class="detail_ctt">${pageScope.trongnuoc12.header }</p>
 						</div>
