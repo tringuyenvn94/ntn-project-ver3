@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.LienHeDAO;
+import entity.LienHeEntity;
+
 /**
  * Servlet implementation class DocLienHe
  */
@@ -24,6 +27,9 @@ public class DocLienHe extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		LienHeEntity lh = LienHeDAO.load(Integer.parseInt(request.getParameter("id")));
+		request.setAttribute("lh", lh);
+		request.getRequestDispatcher("/doclienhe.jsp").forward(request, response);
 	}
 
 	/**

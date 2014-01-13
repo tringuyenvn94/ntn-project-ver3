@@ -591,64 +591,13 @@
     <servlet-name>Sua Bai JSP</servlet-name>
     <url-pattern>/suabai.jsp</url-pattern>
   </servlet-mapping>
-  <context-param>
-    <param-name>lienhe</param-name>
-    <param-value>lienhe.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>dangky</param-name>
-    <param-value>dangky.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>dangnhap</param-name>
-    <param-value>dangnhap.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>baomat</param-name>
-    <param-value>baomat.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>giaiphapbaomat</param-name>
-    <param-value>giaiphapbaomat.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>trangchu.jsp</param-value>
-  </context-param>
+   <servlet>
+    <servlet-name>Doc Lien He JSP</servlet-name>
+    <jsp-file>/admin/doclienhe.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Doc Lien He JSP</servlet-name>
+    <url-pattern>/doclienhe.jsp</url-pattern>
+  </servlet-mapping>
+
 </web-app>
