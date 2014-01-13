@@ -47,6 +47,9 @@ function xoalh() {
 .TabbedPanelsContent table tr td form table {
 	float: right;
 }
+.page_num {
+	margin-left: 420px;
+}
 </style>
 <script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
 </head>
@@ -229,12 +232,12 @@ function xoalh() {
 					</ul>
 					<div class="TabbedPanelsContentGroup">
 						<div class="TabbedPanelsContent">
-						  <table width="950">
+						  <table width="995">
 						    <tr>
 						      <td align="right"><a href="themthanhvien.jsp" target="_blank">Thêm thành viên</a></td>
 					        </tr>
 					      </table>
-<table width="950" border="1" cellpadding="5">
+<table width="995" border="1" cellpadding="5">
 				<tr><%
 					pageContext.setAttribute("bg", "#007F7F");
 					%>
@@ -283,12 +286,12 @@ function xoalh() {
 						  </table>
 					  </div>
 						<div class="TabbedPanelsContent">
-							<table width="950" border="0">
+							<table width="995" border="0">
 								<tr>
 									<td align="right"></td>
 								</tr>
 							</table>
-							<table width="950">
+							<table width="995">
 							  <tr>
 							    <td width="882" align="left"><form name="form2" method="get" action="lienhe">
 							      <table width="233">
@@ -310,7 +313,7 @@ function xoalh() {
 						        </form></td>
 						      </tr>
 						  </table>
-<table width="950" border="1" cellpadding="5">
+<table width="995" border="1" cellpadding="5">
 				<tr>
 									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Họ tên</strong></td>
 									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Email</strong></td>
@@ -344,7 +347,7 @@ function xoalh() {
 								</tr>
 								<%} %>
 						  </table>
-							<table width="950">
+							<table width="995">
 								<tr>
 									<td align="right"></td>
 								</tr>
@@ -352,7 +355,7 @@ function xoalh() {
 							<br>
 						</div>
 						<div class="TabbedPanelsContent">
-						  <table width="950" border="1">
+						  <table width="995" border="1">
 						    <tr>
 						      <td align="right"><form name="form1" method="post" action="">
 						        <label for="select"></label>
@@ -367,14 +370,15 @@ function xoalh() {
 						        </form></td>
 					        </tr>
 					      </table>
-<table width="950" border="1" cellpadding="5">
+						  <table width="995" border="1" cellpadding="5">
 				<tr>
-				  <td width="30" align="center" bgcolor="${pageScope.bg }"><strong>STT</strong></td>
-									<td width="230" align="center" bgcolor="${pageScope.bg }"><strong>Tiêu đề bài viết</strong></td>
-									<td width="177" align="center" bgcolor="${pageScope.bg }"><strong>Tác giả</strong></td>
-									<td width="131" align="center" bgcolor="${pageScope.bg }"><strong>Ngày đăng</strong></td>
-									<td width="54" align="center" bgcolor="${pageScope.bg }"><strong>Tiêu điểm</strong></td>
-									<td width="68" align="center" bgcolor="${pageScope.bg }"><strong>Trạng thái</strong></td>
+				  <td width="38" align="center" bgcolor="${pageScope.bg }"><strong>STT</strong></td>
+									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Tiêu đề bài viết</strong></td>
+									<td width="151" align="center" bgcolor="${pageScope.bg }"><strong>Chủ đề</strong></td>
+									<td width="135" align="center" bgcolor="${pageScope.bg }"><strong>Tác giả</strong></td>
+									<td width="124" align="center" bgcolor="${pageScope.bg }"><strong>Ngày đăng</strong></td>
+									<td width="48" align="center" bgcolor="${pageScope.bg }"><strong>Tiêu điểm</strong></td>
+									<td width="81" align="center" bgcolor="${pageScope.bg }"><strong>Trạng thái</strong></td>
 									<td width="158" align="center" bgcolor="${pageScope.bg }"><strong>Tác vụ</strong></td>
 								</tr>
 								<%
@@ -404,10 +408,11 @@ function xoalh() {
 								%>
 							<form>
 								<tr>
-								  <td align="center" bgcolor="${pageScope.color3 }">${pageScope.stt }</td>
+								  <td align="center" bgcolor="${pageScope.color3 }">&nbsp;</td>
 									<td align="center" bgcolor="${pageScope.color3 }"><a href="load?id=${pageScope.topic.id }" title="${pageScope.topic.title }"><%=Validation.cut(topic.getTitle()) %></a></td>
-									<td align="center" bgcolor="${pageScope.color3 }">${pageScope.topic.author }</td>
-									<td align="center" bgcolor="${pageScope.color3 }">${pageScope.datePost}</td>
+									<td align="center" bgcolor="${pageScope.color3 }">&nbsp;</td>
+									<td align="center" bgcolor="${pageScope.color3 }">&nbsp;</td>
+									<td align="center" bgcolor="${pageScope.color3 }">&nbsp;</td>
 									<td align="center" bgcolor="${pageScope.color3 }"><input type="checkbox" name="checkbox" id="checkbox" disabled="disabled" ${pageScope.focus }>
 								    <label for="checkbox"></label></td>
 									<td align="center" bgcolor="${pageScope.color3 }"><label for="select2"></label>
@@ -416,8 +421,8 @@ function xoalh() {
 									    <option value="waiting">Posted</option>
 									    <option value="banned">Banned</option>
 						            </select></td>
-									<td align="center" bgcolor="${pageScope.color3 }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a>&nbsp;&nbsp;&nbsp;&nbsp;
-								    <input type="submit" name="button3" id="button3" value="Lưu">									  &nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td align="center" bgcolor="${pageScope.color3 }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;<a href="#">Xoá</a>
+								    &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="button3" id="button3" value="Lưu">									  </td>
 								</tr>
                                 </form>
                                 <%} %>
@@ -425,6 +430,13 @@ function xoalh() {
 						</div>
 					</div>
 				</div>
+              <div class="page_num">
+						<span>Trang: [<b>1</b>] [<a href="/tintuc/tin-quoc-te/2"
+							title="Qua trang 2">2</a>] [<a href="/tintuc/tin-quoc-te/3"
+							title="Qua trang 3">3</a>] [<a href="/tintuc/tin-quoc-te/731"
+							title="Qua trang cuối">Cuối</a>] <br>Có tất cả ? bài viết						</span>
+
+					</div>
 
 
 
