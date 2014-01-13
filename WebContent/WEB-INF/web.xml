@@ -463,46 +463,7 @@
     <servlet-name>Quy Dinh JSP</servlet-name>
     <url-pattern>/quydinh.jsp</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>a</servlet-name>
-    <jsp-file>/test/test.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>a</servlet-name>
-    <url-pattern>/test.jsp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>aa</servlet-name>
-    <jsp-file>/test/test1.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>aa</servlet-name>
-    <url-pattern>/tes1t.jsp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>aaa</servlet-name>
-    <jsp-file>/test/test2.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>aaa</servlet-name>
-    <url-pattern>/tes12.jsp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>aaaa</servlet-name>
-    <jsp-file>/test/test3.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>aaaa</servlet-name>
-    <url-pattern>/tes3.jsp</url-pattern>
-  </servlet-mapping>
-  <context-param>
-    <param-name>trangchu</param-name>
-    <param-value>Trang Chu ak</param-value>
-  </context-param>
-  <context-param>
-    <param-name>logo</param-name>
-    <param-value>Image/icon_new1.jpg</param-value>
-  </context-param>
+ 
   <servlet>
     <servlet-name>Hoi Dap JSP</servlet-name>
     <jsp-file>/public/hoidap/HoiDap.jsp</jsp-file>
