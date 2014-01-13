@@ -479,4 +479,18 @@ public class TopicDAO {
 		String sql = "SELECT * FROM TOPIC WHERE state_id = ?";
 		return topics;
 	}
+	
+	/**
+	 * 	Phương thức lấy ID sub_menu dựa vào ID của bài viết.
+	 *  @param topicId là id của topic
+	 *  @return String là id của sub_menu
+	 * */ 
+	public static String getSubMenuId(String topicId)
+	{
+		String sql = "SELECT id_sub_menu FROM TOPIC WHERE id = ? ";
+		return loadString(sql, topicId);
+		
+	}
+	
+	
 }
