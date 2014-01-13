@@ -230,7 +230,7 @@
 											<tr>
 												<td class="infoLogin" valign="top"><span><strong>Email:</strong></span></td>
 												<td class="infoLogin" valign="top"><input name="email" type="text" value="${requestScope.email }" id="Main_txtEmail" style="width: 245px;"> 
-											  <span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">* ${requestScope.errorEmailNull } ${requestScope.errorInvalidEmail }</span><br> <input id="Main_chkShowEmail" type="checkbox" name="is_show_email" ${requestScope.showEmail }><label for="Main_chkShowEmail">Hiển thị cho mọi người cùng biết</label></td>
+											  <span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">* ${requestScope.errorEmailNull } ${requestScope.errorInvalidEmail } <br>${requestScope.errorExistedEmail }</span><br> <input id="Main_chkShowEmail" type="checkbox" name="is_show_email" ${requestScope.showEmail }><label for="Main_chkShowEmail">Hiển thị cho mọi người cùng biết</label></td>
 											</tr>
 											<tr>
 												<td class="infoLogin" valign="top"><span><strong>Sinh năm:</strong></span></td>

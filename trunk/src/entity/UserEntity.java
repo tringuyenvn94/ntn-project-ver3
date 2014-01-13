@@ -1,19 +1,23 @@
 package entity;
 
+import java.util.Date;
+
 public class UserEntity {
 	private int userId;
 	private String username, password, fullName, email, year, city;
 	private boolean isMale, isReceiveEmail, isShowEmail;
+	private Date dateReg;
+	private StatusEntity status;
 
-	public UserEntity (String username, String password) {
+	public UserEntity(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
-	
+
 	public UserEntity() {
-		
+
 	}
-	
+
 	public UserEntity(String username, String password, String fullName, String email, String year, boolean isMale, boolean isReceiveEmail, boolean isShowEmail, String city) {
 		this.username = username;
 		this.password = password;
@@ -112,6 +116,22 @@ public class UserEntity {
 
 	public void setShowEmail(boolean isShowEmail) {
 		this.isShowEmail = isShowEmail;
+	}
+
+	public Date getDateReg() {
+		return dateReg;
+	}
+
+	public void setDateReg(Date dateReg) {
+		this.dateReg = dateReg;
+	}
+
+	public StatusEntity getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusEntity status) {
+		this.status = status;
 	}
 
 }

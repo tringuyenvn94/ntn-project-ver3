@@ -1,45 +1,38 @@
-
+<%@page import="dao.StatusDAO"%>
+<%@page import="dao.RoleDAO"%>
+<%@page import="dao.UserDAO"%>
 <%@page import="entity.UserEntity"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="dao.TopicDAO"%>
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sửa Bài Viết</title>
+<title>Xóa Thành Viên</title>
 <jsp:include page="/template/Facebook.jsp"></jsp:include>
 
-<link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
-<link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
-<style type="text/css">
-#bd {
-	font-size: 20px;
-	font-style: italic;
-	font-weight: bold;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
+<link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
+
 </head>
 
 <body>
 
 	<div class="container">
-
+    
 		<div class="header">
 			<div class="headermain">
 				<div id="menu_top">
-					<a href="trangchu.jsp">Trang chủ&nbsp;</a> | &nbsp; <a href="tintuccongnghe.jsp">Tin tức&nbsp;</a> |&nbsp; <a href="gioithieu.jsp">Giới thiệu&nbsp;</a> |&nbsp; <a href="game.jsp">Game &nbsp;</a> |&nbsp; <a href="lienhe.jsp">Liên hệ&nbsp;</a> |&nbsp; 
+					<a href="trangchu.jsp">Trang chủ&nbsp;</a> | &nbsp; <a href="tintuccongnghe.jsp">Tin tức&nbsp;</a> |&nbsp; <a href="gioithieu.jsp">Giới thiệu&nbsp;</a> |&nbsp; <a href="game.jsp">Game &nbsp;</a> |&nbsp; <a href="lienhe.jsp">Liên hệ&nbsp;</a> |&nbsp;
                    <div class="fb-like" data-href="https://www.facebook.com/ntncoporation" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 				</div>
 				<div class="logo">
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
-				<%					
+				<%
 					if (session == null) response.sendRedirect("dangnhap.jsp");
 					UserEntity user = (UserEntity) session.getAttribute("user");
 					if (user == null) {
@@ -69,8 +62,8 @@
 				%>
 			</div>
 			</div>
-
-		<div id="menumain">
+		
+        <div id="menumain">
 
 				<ul id="topmenu">
 					<li class="item menu"><a href="trangchu.jsp"><span>Trang chủ</span> </a>
@@ -169,156 +162,97 @@
 						<ul class="submenu_10"></ul></li>
 				</ul>
 			</div>
-						<div style="margin: 0px auto; width: 999px; height: 80px; position: relative">
+        
+        <div style="margin:0px auto;width:999px;height:80px;position:relative">
 
-				<div id="ads_center" style="position: absolute">
-					<div>
-						<a href="http://stivi.vn" target="_blank"><img src="Image/qcao1.gif" width="999" height="80" border="0"> </a>
-					</div>
-
-				</div>
-
+ 			<div id="ads_center" style="position: absolute">
+    			<div><a href="http://stivi.vn" target="_blank"><img src="Image/qcao1.gif" width="999" height="80" border="0">
+                	</a>
+                </div>
+    			
 			</div>
-		<div class="content">
+	
+		</div>
 
-			<div id="search">
-					<form action="timkiem">
-						<table style="float: right;" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td><b>Tìm kiếm:&nbsp;</b></td>
-
-								<td><input type="text" name="query" id="txtQuery" value="Từ khóa" onfocus="if(this.value == 'Từ khóa') this.value='';" onblur="if(this.value == '') this.value='Từ khóa';" style="width: 150px; height: 18px;"></td>
-								<td><input id="button" type="submit" style="width: 50px" value="Tìm"></td>
-							</tr>
-						</table>
-					</form>
-				</div>
-
-			<div id="content_main">
+		<div class="content">       
+        
+        	<div id="search">
+        			<table style="float: right;" border="0" cellspacing="0" cellpadding="0">
+            			<tr>
+                			<td>
+                    			<b>Tìm kiếm:&nbsp;</b>
+                			</td>
+              
+                            <td>
+                                <input type="text" name="query" id="txtQuery" value="Từ khóa" onfocus="if(this.value == 'Từ khóa') this.value='';" onblur="if(this.value == '') this.value='Từ khóa';" style="width: 150px; height: 18px;">
+                            </td>
+                            <td>
+                                <input id="button" type="button" style="width: 50px" value="Tìm">
+                            </td>
+                        </tr>
+                    </table>
+                    
+            </div>
+            
+            <div id="content_main">
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<div id="bd">
-						  Sửa thông tin bài viết					
-						</div>
-						<div>
-							
-							<form method="post" action="topic">
-								<table border="0" width="150%">
-									<tbody>
-										<tr>
-											<th colspan="2" align="left"><p>&nbsp;</p>
-										    <p>Thông tin người gửi</p></th>
-										</tr>
-										<tr>
-											<td width="130" align="left"><p>Họ và tên:</p></td>
-											<td width="361"><p>
-											  <input type="text" value="" name="name" />
-											</p></td>
-										</tr>
+						<div class="ctm">
 
-										<tr>
-											<td align="left">Email:</td>
-											<td><input type="text" name="email" value="" /></td>
-										</tr>
-
-										<tr>
-											<th colspan="2" align="left"><p>&nbsp;</p>
-											  <p>Chi tiết bài viết 
-										    </p></th>
-										</tr>
-
-										<tr>
-											<td>Lĩnh vực:</td>
-											<td><p>
-											  <select name="linhvuc">
-											    <%
-														try {
-															ResultSet linhvuc = TopicDAO.loadLinhVuc();
-															while (linhvuc.next()) {
-																String name = linhvuc.getString(1);
-																String id = linhvuc.getString(2);
-													%>
-											    <option value="<%=id%>">
-											      <%=name%>
-										        </option>
-											    
-											    <%
-															}
-														} catch (Exception e) {
-															e.printStackTrace();
-														}
-													%>
-										      </select>
-											</p></td>
-										</tr>
-
-										<tr>
-											<td>Tiêu đề:</td>
-											<td><input name="title" type="text" size="60" value="${requestScope.title }" />
-											<br />
-											 <p style="color: #F00">${requestScope.errorTitleNull }</p>
-											</td>
-										</tr>
-
-										<tr>
-											<td>Ảnh đại diện (URL):</td>
-											<td><input name="url_daidien" value="${requestScope.url_daidien }" size="60" /></td>
-										</tr>
-
-										<tr>
-											<td>Nội dung:</td>
-											<td>
-											  <p>
-											    <textarea name="ta" id="ta" >${requestScope.content }</textarea>
-											    <ckeditor:replace replace="ta" basePath="ckeditor/"></ckeditor:replace>
-											    <br />
-										      </p>
-											  <p style="color: #F00">${requestScope.errorContentNull }</p>
-											</td>
-										</tr>
-
-										<tr>
-										  <td>Trạng thái:</td>
-										  <td><label for="select"></label>
-										    <select name="select" id="select">
-										      <option value="0">Chọn trạng thái</option>
-										      <option value="1">Waitting</option>
-										      <option value="2">posted</option>
-										      <option value="3">Banned</option>
-                                          </select></td>
-									  </tr>
-										<tr>
-											<td>Url nguồn:</td>
-											<td>
-											  <p>
-											    <input name="url" type="text" size="60" value="${requestScope.url }" />
-											    <br />
-										      </p>
-											  <p style="color: #F00">${requestScope.errorUrlNull }</p>
-											
-											</td>
-										</tr>
-
-										<tr>
-<td>&nbsp;</td>											<td align="left"><p>&nbsp;
-  </p>
-  <p>
-    <input type="submit" value="Đồng ý" />
-  </p></td>
-										</tr>
-
-									</tbody>
-								</table>
+							<form method="post" action="xoathanhvien">
+								<div class="aspNetHidden"></div>
+								<div id="Main_pnlRegister" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'Main_btnRegister')">
+								<%
+									String uname = (String) request.getParameter("uname");
+									UserEntity u = UserDAO.getUser(uname);
+									pageContext.setAttribute("user", u);
+									String roleName = RoleDAO.getRoleName(u.getUserId());
+									pageContext.setAttribute("roleName", roleName);
+									String statusName = StatusDAO.getStatusName(u.getUserId());
+									pageContext.setAttribute("statusName", statusName);
+									session.setAttribute("deleteUserName", uname);
+								%>
+								<h1>Bạn có chắc chắn rằng muốn xóa thành viên: ${pageScope.user.username }</h1>
+								<br>
+								<h3>Thông tin:</h3>
+								<br>
+								<h3 align="left"><strong>Tên tài khoản:</strong> &nbsp;${pageScope.user.username }</h3>
+								<h3 align="left"><strong>Họ và tên:</strong> &nbsp; ${pageScope.user.fullName }</h3>
+								<h3 align="left"><strong>Địa chỉ Email:</strong> &nbsp; ${pageScope.user.email }</h3>
+								<h3 align="left"><strong>Quyền:</strong> &nbsp; ${pageScope.roleName }</h3>
+								<h3 align="left"><strong>Trạng thái:</strong> &nbsp; ${pageScope.statusName }</h3>
+								<p align="center"><input type="submit" value="Xóa Thành Viên" /> &nbsp; <a href="quanly.jsp">Hủy, Không Xóa</a></p>
+								</div>
+								<div align="center"></div>
 							</form>
 						</div>
+						<div>
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tbody>
+									<tr>
+										<td width="100%" align="right"></td>
+									</tr>
+
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+
+
 					</div>
 					<div class="space"></div>
 				</div>
 			</div>
-		</div>
-	
-	<div class="footer">
+		
+        
+        </div>
+
+        
+		<div class="footer">
 
 				<div class="menu_footer">
 					<a href="trangchu.jsp">Trang chủ</a> | <a href="gioithieu.jsp">Giới thiệu </a> | <a href="thietbiso.jsp">Thiết bị số </a> | <a href="game.jsp">Game</a> | <a href="http://tapchicntt.com" target="_blank">Tapchicntt.com</a> | <a href="http://bkc.vn" target="_blank">bkc.vn</a> | <a href="http://Stivi.vn" target="_blank">Stivi.vn</a> | <a href="hoidap.jsp">Hỏi đáp</a> | <a href="lienhe.jsp">Liên hệ</a> | <a href="https://www.facebook.com/ntncoporation?ref=hl" target="_blank">Facebook</a>
@@ -336,21 +270,22 @@
 					</div>
 				</div>
 			</div>
-	
-	<div id="ads_left" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: -165px;">
-				<div style="position: absolute">
-					<a href="http://www.tapchicntt.com" target="_blank"> <img src="Image/quangcao2.gif" width="160" height="630" border="0"></a>
-				</div>
-			</div>
+        
+  		<div id="ads_left" style="position:fixed; top:5px; height:630px; width:160px; margin-left:-165px;">
+        	<div style="position:absolute"><a href="http://www.tapchicntt.com" target="_blank">
+            	<img src="Image/quangcao2.gif" width="160" height="630" border="0"></a>
+        	</div>
+        </div>
+        
+		<div id="ads_right" style="position:fixed; top:5px; height:630px; width:160px; margin-left:1005px;">
+        	<div style="position:absolute"><a href="http://www.bkc.vn" target="_blank">
+            	<img src="Image/quangcao3.jpg" width="160" height="630" border="0"></a>
+       	 	</div>
+        	
+ 		</div>
 
-			<div id="ads_right" style="position: fixed; top: 5px; height: 630px; width: 160px; margin-left: 1005px;">
-				<div style="position: absolute">
-					<a href="http://www.bkc.vn" target="_blank"> <img src="Image/quangcao3.jpg" width="160" height="630" border="0"></a>
-				</div>
-
-			</div>
-			
 	</div>
+
 </body>
 </html>
 

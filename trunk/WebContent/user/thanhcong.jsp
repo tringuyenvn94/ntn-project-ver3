@@ -1,3 +1,6 @@
+<%@page import="dao.StatusDAO"%>
+<%@page import="dao.RoleDAO"%>
+<%@page import="dao.UserDAO"%>
 <%@page import="entity.UserEntity"%>
 <%
 	request.setCharacterEncoding("utf8");
@@ -198,8 +201,30 @@
 							%>
 						<h1 align="center">Chúc mừng bạn đã đăng kí thành công</h1> <br />
 						<a href="trangchu.jsp">Về trang chủ</a>
+						<%} else if (success.equals("updateinfo")) {
+							String uname = (String) request.getAttribute("uname");
+							UserEntity u = UserDAO.getUser(uname);
+							pageContext.setAttribute("user", u);
+							String roleName = RoleDAO.getRoleName(u.getUserId());
+							pageContext.setAttribute("roleName", roleName);
+							String statusName = StatusDAO.getStatusName(u.getUserId());
+							pageContext.setAttribute("statusName", statusName);
+						%>
+						<h1 align="center">Cập nhật thông tin thành công</h1> <br />
+						<h3 align="center"><strong>Tên tài khoản:</strong> &nbsp;${pageScope.user.username }</h3>
+						<h3 align="center"><strong>Họ và tên:</strong> &nbsp; ${pageScope.user.fullName }</h3>
+						<h3 align="center"><strong>Địa chỉ Email:</strong> &nbsp; ${pageScope.user.email }</h3>
+						<h3 align="center"><strong>Quyền:</strong> &nbsp; ${pageScope.roleName }</h3>
+						<h3 align="center"><strong>Trạng thái:</strong> &nbsp; ${pageScope.statusName }</h3>
+						<a href="trangchu.jsp">Về trang chủ</a>&nbsp;<a href="quanly.jsp">Trang Quản lý</a>
+						<%} else if (success.equals("deleteuser")) {
+							String deleteUserName = (String) request.getAttribute("deleteUserName");
+							
+						%>
+							<h1 align="center">Xóa thành công User: &nbsp; <%=deleteUserName %></h1>
+							<br>
+							<a href="trangchu.jsp">Về trang chủ</a>&nbsp;<a href="quanly.jsp">Trang Quản lý</a>
 						<%} %>
-						
 						</div>
 					</div>
 					<div class="space"></div>
