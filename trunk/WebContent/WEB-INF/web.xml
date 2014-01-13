@@ -560,5 +560,13 @@
     <servlet-name>Doc Lien He JSP</servlet-name>
     <url-pattern>/doclienhe.jsp</url-pattern>
   </servlet-mapping>
+     <servlet>
+    <servlet-name>Them Thanh Vien JSP</servlet-name>
+    <jsp-file>/admin/ThemThanhVien.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Them Thanh Vien JSP</servlet-name>
+    <url-pattern>/themthanhvien.jsp</url-pattern>
+  </servlet-mapping>
 
 </web-app>
