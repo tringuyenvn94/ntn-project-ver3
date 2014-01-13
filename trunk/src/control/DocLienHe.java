@@ -28,7 +28,7 @@ public class DocLienHe extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LienHeEntity lh = LienHeDAO.load(Integer.parseInt(request.getParameter("id")));
-		request.setAttribute("lh", lh);
+		request.setAttribute("l", lh);
 		request.getRequestDispatcher("/doclienhe.jsp").forward(request, response);
 	}
 
