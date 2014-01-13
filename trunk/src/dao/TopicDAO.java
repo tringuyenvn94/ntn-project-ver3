@@ -5,6 +5,7 @@ import handle.Validation;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -474,10 +475,71 @@ public class TopicDAO {
 	 * @param stateId id của state. vd: posted
 	 * @return danh sách chứa các bài viết có state nhập vào
 	 * */
-	public static List<TopicEntity> loadByState(String stateId)	{
+	private static List<TopicEntity> loadByState(String stateId)	{
 		List<TopicEntity> topics = new ArrayList<>();
 		String sql = "SELECT * FROM TOPIC WHERE state_id = ?";
+		ResultSet rs = Utils.util.getResultSet(sql, stateId);
+		try {
+			while (rs.next()) {
+				TopicEntity topic = new TopicEntity();
+				int iD = rs.getInt("id");
+				String type = rs.getString("id_sub_menu");
+				String dateSt = rs.getString("date_created");
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				Date date = sdf.parse(dateSt);
+				topic.setDateCreated(date);
+				String content = rs.getString("content");
+				String title = rs.getString("title");
+				String url = rs.getString("url");
+				String author = rs.getString("author");
+				String email = rs.getString("email");
+				String url_daidien = rs.getString("url_daidien");
+				boolean isFocus = rs.getBoolean("focus");
+
+				topic.setId(iD);
+				topic.setType(type);
+				topic.setContent(content);
+				topic.setTitle(title);
+				topic.setUrl(url);
+				topic.setAuthor(author);
+				topic.setEmail(email);
+				topic.setUrl_daidien(url_daidien);
+				topic.setFocus(isFocus);
+
+				String header = getHeader(content);
+				topic.setHeader(header);
+				topics.add(topic);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		return topics;
+	}
+	
+	/**
+	 * Phương load tất cả các bài viết có state là posted
+	 * @return danh sách chứa các bài viết có state là posted
+	 * */
+	public static List<TopicEntity> loadAllPosted() {
+		return loadByState("posted");
+	}
+	
+	/**
+	 * Phương load tất cả các bài viết có state là waiting
+	 * @return danh sách chứa các bài viết có state là waiting
+	 * */
+	public static List<TopicEntity> loadAllWaiting() {
+		return loadByState("waiting");
+	}
+	
+	/**
+	 * Phương load tất cả các bài viết có state là banned
+	 * @return danh sách chứa các bài viết có state là banned
+	 * */
+	public static List<TopicEntity> loadAllBanned() {
+		return loadByState("banned");
 	}
 	
 	/**
