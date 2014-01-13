@@ -574,225 +574,275 @@
            
 
         		<div class="content_right">
-				
-                    <div class="news">
-                        <div class="tit">
-                            
-                                   <a href="tinmoinhat.jsp">  Tin mới nhất </a>
-                            
-                        </div>
-                        <div class="ctm">
-                            
-                                    <div class="title_new">
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Hệ điều hành Windows sinh nhật tròn 30 năm tuổi 
 
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Xóa bỏ dữ liệu đồng bộ trên mây từ Windows 8.1 
+					<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
 
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
 
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Hướng dẫn nâng cấp lên Windows 8.1 bằng hình ảnh 
+					<div class="news">
+						<div class="tit">
 
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Phiên bản Mac OS X tiếp theo vẫn miễn phí 
+							<a href="tinmoinhat.jsp"> Tin mới nhất </a>
 
+						</div>
+						<div class="ctm">
 
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Kích hoạt bộ gõ Tiếng Việt trên Ubuntu 13.10 
+							<div class="title_new">
 
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Cách truy cập ảnh nền bí mật trên OS X Mavericks 
-
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Lỗi thường gặp khi nâng cấp OS X Mavericks 
-
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">Vì sao Apple cho nâng cấp miễn phí OS X Mavericks? 
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
+								</div>
 
 
-</a>
-                                     </div>
-                                      
-                                    
-                                     <span id="xemtin"><a href="${param.xemcactinkhac }"><strong>Xem các tin khác </strong></a></span>
-                                    
-                                               
-                                    </div>
-                               
-                        </div>
-                        <div class="space"></div>
-                       
-                    </div>   
-                                     
-                    <div class="headlines">
-                        <div class="tit">
-                           
-                                    <a>
-                                        Tiêu điểm
-                                    </a>
-                                
-                        </div>
-                        <div class="ctm">
-                                        
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Task-Manager.jpg" width="142" height="174" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/8-cong-dung-khong-ngo-cua-task-manager-105027">
-                                                    8 công dụng không ngờ của Task Manager
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
+								</div>
 
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img src="Image/Windows-81.jpg" width="142" height="169" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
-                                                    Hướng dẫn nâng cấp lên Windows 8.1 bằng hình ảnh
-                                                </a>
-                                            </div>
-                                        </div>
-  
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img src="Image/Dong-bo-1.jpg" width="142" height="154" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119">
-                                                    Xóa bỏ dữ liệu đồng bộ trên mây từ Windows 8.1
-                                                </a>
-                                            </div>
-                                        </div>
-                                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img src="Image/Ubuntu.jpg" width="142" height="172" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
-                                                    Kích hoạt bộ gõ Tiếng Việt trên Ubuntu 13.10
-                                                </a>
-                                            </div>
-                                        </div>
-       
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/modem-d-link-tenda-cua-trung-quoc-cai-san-ma-doc-105160"><img src="Image/D-Link-1.jpg" width="142" height="163" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/nhieu-modem-d-link-tenda-cua-trung-quoc-da-duoc-cai-san-ma-doc-105160">
-                                                    Modem D-Link, Tenda của Trung Quốc cài sẵn mã độc
-                                                </a>
-                                            </div>
-                                        </div>
-                   
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Outlook.jpg" width="142" height="154" hspace="3" vspace="3" align="left" border="0"></a>    
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-                                                   Mẹo hay khắc phục sự cố kết nối trên Outlook 
-                                                </a>
-                                            </div>
-                                        </div>
 
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Phan-cung.jpg" width="142" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-                                                   Xác định phần cứng nào trong máy tính đang hỏng 
-                                                </a>
-                                            </div>
-                                        </div>
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
+								</div>
 
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/iOS-7.jpg" width="142" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-                                                    Apple chính thức tung ra bản cập nhật iOS 7.0.3 
-                                                </a>
-                                            </div>
-                                        </div>
 
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Windows-81-1.jpg" width="142" height="145" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-                                                    Hướng dẫn nâng cấp lên Windows 8.1 bằng hình ảnh 
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Facebook-Page.jpg" width="142" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
-                                                    Cách chuyển Facebook cá nhân thành Facebook Page
-                                                </a>
-                                            </div>
-                                        </div>
-                                </div>
-                     </div>
-                    
-				
-        
-                                        
-                
-        		
-        		
-       	  </div>
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="middle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
+								</div>
+
+
+								<span id="xemtin"><a href="/"><strong>Xem
+											các tin khác </strong></a></span>
+
+
+							</div>
+
+						</div>
+
+
+
+
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
+						<div class="space"></div>
+
+					</div>
+
+					<div class="headlines">
+						<div class="tit">
+
+							<a> Tiêu điểm </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
+										height="174" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
+								</div>
+							</div>
+
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
+										height="145" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
             
         
         </div>
