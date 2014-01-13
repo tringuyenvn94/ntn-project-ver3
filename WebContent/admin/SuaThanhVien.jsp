@@ -230,7 +230,7 @@
 																	<p>
 																		<input name="full_name" value="${requestScope.fullName }" type="text" id="Main_txtFirstName" style="width: 240px;"> 
 																		<br>
-																		<span id="Main_reqFirstName" style="display: none;">*&nbsp;</span><span style="color: #F00">*</span><span style="color: #F00">error here</span><br>
+																		<span id="Main_reqFirstName" style="display: none;">*&nbsp;</span><span style="color: #F00">*</span><span style="color: #F00">${requestScope.errorFullNameNull }</span><br>
 																	</p>
 																</td>
 																<td width="79" class="infoLogin"><span id="Main_reqLastName" style="display: none;">*</span><strong>Giới tính:</strong><br></td>
@@ -244,7 +244,7 @@
 											<tr>
 												<td class="infoLogin" valign="top"><span><strong>Email:</strong></span></td>
 												<td class="infoLogin" valign="top"><input name="email" type="text" value="${requestScope.email }" id="Main_txtEmail" style="width: 245px;"> 
-												<span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">*error here</span></td>
+												<span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">*${requestScope.errorEmailNull } ${requestScope.errorInvalidEmail }</span></td>
 											</tr>
                                            <tr>
 												<td class="infoLogin" valign="top"><strong>Password:</strong></td>
