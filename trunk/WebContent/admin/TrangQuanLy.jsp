@@ -1,3 +1,5 @@
+<%@page import="dao.LienHeDAO"%>
+<%@page import="entity.LienHeEntity"%>
 <%@page import="dao.StatusDAO"%>
 <%@page import="dao.RoleDAO"%>
 <%@page import="java.util.Date"%>
@@ -203,18 +205,20 @@
 						<div class="TabbedPanelsContent">
 							<table width="950" border="1" cellpadding="5">
 								<tr>
-									<td width="111" align="center"><strong>Tên tài khoản</strong></td>
-									<td width="119" align="center"><strong>Họ tên</strong></td>
-									<td width="118" align="center"><strong>Email</strong></td>
-									<td width="103" align="center"><strong>Ngày đăng ký</strong></td>
-									<td width="88" align="center"><strong>Chức vụ</strong></td>
-									<td width="69" align="center"><strong>Trạng thái</strong></td>
-									<td width="68" align="center"><strong>Số bài đã đăng</strong></td>
-									<td width="106" align="center"><strong>Tác vụ</strong></td>
+									<td width="111" align="center" bgcolor="#A6CAF0"><strong>Tên tài khoản</strong></td>
+									<td width="119" align="center" bgcolor="#A6CAF0"><strong>Họ tên</strong></td>
+									<td width="118" align="center" bgcolor="#A6CAF0"><strong>Email</strong></td>
+									<td width="103" align="center" bgcolor="#A6CAF0"><strong>Ngày đăng ký</strong></td>
+									<td width="88" align="center" bgcolor="#A6CAF0"><strong>Chức vụ</strong></td>
+									<td width="69" align="center" bgcolor="#A6CAF0"><strong>Trạng thái</strong></td>
+									<td width="68" align="center" bgcolor="#A6CAF0"><strong>Số bài đã đăng</strong></td>
+									<td width="106" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
 								</tr>
 								<%
+									int c = 0;
 									List<UserEntity> users = UserDAO.loadAllUser();
 									for (UserEntity u : users)  {
+										c++;
 										pageContext.setAttribute("user", u);
 										
 										Date dateRegister = u.getDateReg();
@@ -229,16 +233,18 @@
 										
 										int count = UserDAO.countTopics(u.getUseName());
 										pageContext.setAttribute("count", count);
+										if ((c % 2) == 0) pageContext.setAttribute("color", "#CCCCFF");
+										else pageContext.setAttribute("color", "#CCFFFF");
 								%>
 								<tr>
-									<td align="center">${pageScope.user.username }</td>
-									<td align="center">${pageScope.user.fullName }</td>
-									<td align="center">${pageScope.user.email }</td>
-									<td align="center">${pageScope.date }</td>
-									<td align="center">${pageScope.role }</td>
-									<td align="center">${pageScope.status }</td>
-									<td align="center">${pageScope.count }</td>
-									<td align="center"><a href="suathanhvien?username=${pageScope.user.username }" target="_blank">Sửa </a>&nbsp;<a href="xoathanhvien.jsp?uname=${pageScope.user.username }" target="_blank">Xoá</a></td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.username }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.fullName }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.email }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.date }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.role }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.status }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.count }</td>
+									<td align="center" bgcolor="${pageScope.color }"><a href="suathanhvien?username=${pageScope.user.username }" target="_blank">Sửa </a>&nbsp;<a href="xoathanhvien.jsp?uname=${pageScope.user.username }" target="_blank">Xoá</a></td>
 								</tr>
 								<%} %>
 							</table>
@@ -254,7 +260,6 @@
 							</table>
 							<table width="950" border="1" cellpadding="5">
 								<tr>
-									<td width="48" align="center"><strong>Chọn</strong></td>
 									<td width="144" align="center"><strong>Họ tên</strong></td>
 									<td width="144" align="center"><strong>Email</strong></td>
 									<td width="240" align="center"><strong>Nội dung</strong></td>
@@ -262,19 +267,26 @@
 									<td width="53" align="center"><strong>Đã đọc</strong></td>
 									<td width="100" align="center"><strong>Tác vụ</strong></td>
 								</tr>
+									<%
+									List<LienHeEntity> contacts = LienHeDAO.loadLienHe();
+									for (LienHeEntity lh : contacts) {
+										pageContext.setAttribute("l", lh);
+										pageContext.setAttribute("cut", Validation.cut(lh.getContent()));
+										pageContext.setAttribute("date", Validation.rightDate(lh.getDate()));
+										if (lh.isRead()) pageContext.setAttribute("read", "CHECKED");
+									%>
 								<tr>
-									<td align="center"><form name="form1" method="post" action="">
-											<input type="checkbox" name="checkbox3" id="checkbox3"> <label for="checkbox3"></label>
-										</form></td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center"><form name="form3" method="post" action="">
-											<input type="checkbox" name="checkbox4" id="checkbox4"> <label for="checkbox4"></label>
-										</form></td>
-									<td align="center">&nbsp;<a href="#">Xoá</a></td>
+									<td align="center">${pageScope.l.fullName }</td>
+									<td align="center">${pageScope.l.email }</td>
+									<td align="center">${pageScope.cut }</td>
+									<td align="center">${pageScope.date}</td>
+									<td align="center">
+											<input type="checkbox" name="checkbox4" id="checkbox4" ${pageScope.read } disabled="disabled"> <label for="checkbox4"></label>
+										</td>
+									<td align="center">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
+									
 								</tr>
+								<%} %>
 							</table>
 							<table width="950">
 								<tr>
@@ -288,21 +300,18 @@
 						<div class="TabbedPanelsContent">
 							<table width="950" border="1" cellpadding="5">
 								<tr>
-									<td width="35" align="center"><strong>Chọn</strong></td>
 									<td width="352" align="center"><strong>Tiêu đề bài viết</strong></td>
 									<td width="127" align="center"><strong>Tác giả</strong></td>
 									<td width="113" align="center"><strong>Ngày đăng</strong></td>
 									<td width="115" align="center"><strong>Trạng thái</strong></td>
 									<td width="120" align="center"><strong>Tác vụ</strong></td>
 								</tr>
+							
 								<tr>
-									<td align="center"><form name="form1" method="post" action="">
-											<input type="checkbox" name="checkbox" id="checkbox"> <label for="checkbox"></label>
-										</form></td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
+									<td align="center"></td>
+									<td align="center">${pageScope.l.email }</td>
+									<td align="center">${pageScope.cut}</td>
+									<td align="center">${pageScope.l.fullName }</td>
 									<td align="center"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a></td>
 								</tr>
 							</table>

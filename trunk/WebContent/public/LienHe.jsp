@@ -254,27 +254,29 @@
 																		if (errorEmailInvalid == null) errorEmailInvalid = "";
 																		if (errorPhoneInvalid == null) errorPhoneInvalid = "";
 																	%>
-																	<td width="98" class="contactRightPad"><span>Họ và tên:</span></td>
-																	<td width="495" class="contactLeftPad"><input name="txtFullName" type="text" size="32" id="txtFullName" value="<%=name%>"> <span id="reqFullName" style="color: Red; display: none;"></span>* <%=errorNameNull%></td>
+																	<td width="98" class="contactRightPad"><span><strong>Họ và tên:</strong></span></td>
+																	<td width="495" class="contactLeftPad"><input name="txtFullName" type="text" size="32" id="txtFullName" value="<%=name%>">
+                                                                    <span style="color: #F00">* <%=errorNameNull%></span></td>
 																</tr>
 																<tr>
-																	<td class="contactRightPad"><span>Email:</span></td>
-																	<td class="contactLeftPad"><input name="txtEmail" type="text" size="32" id="txtEmail" value="<%=email%>"> <span id="reqEmail" style="color: Red; display: none;"></span> <span id="regEmail" style="color: Red; display: none;"></span>* <%=errorEmailNull%><%=errorEmailInvalid%></td>
+																	<td class="contactRightPad"><span><strong>Email:</strong></span></td>
+																	<td class="contactLeftPad"><input name="txtEmail" type="text" size="32" id="txtEmail" value="<%=email%>"> <span id="reqEmail" style="color: Red; display: none;"></span> <span style="color: #F00">* <%=errorEmailNull%><%=errorEmailInvalid%></span></td>
 																</tr>
 																<tr>
-																	<td class="contactRightPad"><span>Điện thoại:</span></td>
-																	<td class="contactLeftPad"><input name="txtPhone" type="text" size="18" id="txtPhone" value="<%=phone%>"> * <%=errorPhoneNull%><%=errorPhoneInvalid%></td>
+																	<td class="contactRightPad"><span><strong>Điện thoại:</strong></span></td>
+																	<td class="contactLeftPad"><input name="txtPhone" type="text" size="18" id="txtPhone" value="<%=phone%>">
+																    <span style="color: #F00"> * <%=errorPhoneNull%><%=errorPhoneInvalid%></span></td>
 																</tr>
 																<tr>
-																	<td class="contactRightPad"><span>Địa chỉ:</span></td>
-																	<td class="contactLeftPad"><input name="txtAddress" type="text" size="55" id="txtAddress" value="<%=address%>"> * <%=errorAddressNull%></td>
+																	<td class="contactRightPad"><span><strong>Địa chỉ:</strong></span></td>
+																	<td class="contactLeftPad"><input name="txtAddress" type="text" size="55" id="txtAddress" value="<%=address%>"> <span style="color: #F00">* <%=errorAddressNull%></span></td>
 																</tr>
 																<tr>
-																	<td class="contactRightPad"><span>Tên công ty:</span></td>
+																	<td class="contactRightPad"><span><strong>Tên công ty:</strong></span></td>
 																	<td class="contactLeftPad"><input name="txtCompany" type="text" size="55" id="txtCompany" value="<%=company%>"></td>
 																</tr>
 																<tr>
-																	<td class="contactRightPad"><span>Mục liên hệ:</span></td>
+																	<td class="contactRightPad"><span><strong>Mục liên hệ:</strong></span></td>
 																	<td class="contactLeftPad"><select name="slcContactCategory" id="slcContactCategory">
 																			<option value="Góp ý xây dựng">Góp ý xây dựng</option>
 																			<option value="Hỗ trợ">Hỗ trợ</option>
@@ -285,13 +287,14 @@
 																	</select> <span id="reqContactCategory" style="color: Red; display: none;"></span></td>
 																</tr>
 																<tr>
-																	<td class="contactRightPad" valign="top"><span>Nội dung: </span></td>
-																	<td class="contactLeftPad"><textarea name="txtContent" rows="5" cols="55" id="txtContent"><%=content%></textarea> <span id="reqContent" style="color: Red; display: none;"></span>* <%=errorContentNull%></td>
+																	<td class="contactRightPad" valign="top"><span><strong>Nội dung: </strong></span></td>
+																	<td class="contactLeftPad"><textarea name="txtContent" rows="5" cols="55" id="txtContent"><%=content%></textarea> <br>
+                                                                    <span style="color: #F00">* <%=errorContentNull%></span></td>
 																</tr>
 																<tr>
 																	<td colspan="2" valign="top" class="contactRightPad">
 																		<div style="float: left"></div>
-																		<p>(* bắt buộc phải điền vào)</p>
+																		<p><strong>(* bắt buộc phải điền vào)</strong></p>
 																	</td>
 																</tr>
 																<tr>

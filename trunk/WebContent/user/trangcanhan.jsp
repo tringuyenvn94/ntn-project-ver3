@@ -204,15 +204,22 @@
 						    <%//TODO 
 						UserEntity user = (UserEntity) session.getAttribute("user");
 						if (user == null) response.sendRedirect("dangnhap.jsp");
+						if (((String) session.getAttribute("role")).equals("admin")) {
 						%>
-						    <a href="suathongtin.jsp">Sửa thông tin cá nhân</a>						    </p>
-						  <p><br/><a href="doimatkhau.jsp">Đổi Mật Khẩu</a></p>
-						  <p><br/><a href="post.jsp">Đăng Bài</a></p>
-						  <p><br/>
-						    <a href="quanlybai.jsp">Quản lí bài đã viết</a>						    </p>
-						  <p><br/>
-						    <a href="bookmark.jsp">Các bài đã đánh dấu</a><a href="post.jsp"></a></p>
-						  <p><br/><a href="dangxuat">Đăng Xuất</a><a href="post.jsp"></a></p>
+						 <p align="justify" ><a href="quanly.jsp">Trang Quản Lý</a></p> <br>
+						<%} %>
+						   <p align="justify" ><a href="suathongtin.jsp">Sửa thông tin cá nhân</a></p>
+						    <br>
+						  <p align="justify" ><a href="doimatkhau.jsp">Đổi Mật Khẩu</a></p>
+						  <br/>
+						  <p align="justify" ><a href="post.jsp">Đăng Bài</a></p>
+							<br/>
+						    <p align="justify" ><a href="quanlybai.jsp">Quản lí bài đã viết</a></p>
+						  <br/>
+						    <p align="justify" ><a href="bookmark.jsp">Các bài đã đánh dấu</a></p>
+						 <br/>
+						 <p align="justify" ><a href="dangxuat">Đăng Xuất</a></p>
+						  
 						  
 						</center>
 					</div>

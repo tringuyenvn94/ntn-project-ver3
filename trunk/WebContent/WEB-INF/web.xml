@@ -15,13 +15,29 @@
     <servlet-name>Topic Servlet</servlet-name>
     <url-pattern>/topic</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>Xoa Thanh Vien Servlet</servlet-name>
     <servlet-class>control.XoaThanhVien</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Xoa Thanh Vien Servlet</servlet-name>
     <url-pattern>/xoathanhvien</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Xoa Lien He Servlet</servlet-name>
+    <servlet-class>control.XoaLienHe</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Xoa Lien He Servlet</servlet-name>
+    <url-pattern>/xoalienhe</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>Doc Lien He Servlet</servlet-name>
+    <servlet-class>control.DocLienHe</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Doc Lien He Servlet</servlet-name>
+    <url-pattern>/doclienhe</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Sua Thah Vien Servlet</servlet-name>
