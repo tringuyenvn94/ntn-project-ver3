@@ -1,3 +1,9 @@
+<%@page import="dao.StatusDAO"%>
+<%@page import="dao.RoleDAO"%>
+<%@page import="java.util.Date"%>
+<%@page import="handle.Validation"%>
+<%@page import="dao.UserDAO"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%
 	request.setCharacterEncoding("utf8");
@@ -31,6 +37,7 @@
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
 				<%
+					if (session == null) response.sendRedirect("dangnhap.jsp");
 					UserEntity user = (UserEntity) session.getAttribute("user");
 					if (user == null) {
 						response.sendRedirect("dangnhap.jsp");
@@ -196,7 +203,6 @@
 						<div class="TabbedPanelsContent">
 							<table width="950" border="1" cellpadding="5">
 								<tr>
-									<td width="38" align="center"><strong>Chọn</strong></td>
 									<td width="111" align="center"><strong>Tên tài khoản</strong></td>
 									<td width="119" align="center"><strong>Họ tên</strong></td>
 									<td width="118" align="center"><strong>Email</strong></td>
@@ -206,19 +212,35 @@
 									<td width="68" align="center"><strong>Số bài đã đăng</strong></td>
 									<td width="106" align="center"><strong>Tác vụ</strong></td>
 								</tr>
+								<%
+									List<UserEntity> users = UserDAO.loadAllUser();
+									for (UserEntity u : users)  {
+										pageContext.setAttribute("user", u);
+										
+										Date dateRegister = u.getDateReg();
+										String dateSt = Validation.rightDate(dateRegister);
+										pageContext.setAttribute("date", dateSt);
+										
+										String role = RoleDAO.getRoleName(u.getUserId());
+										pageContext.setAttribute("role", role);
+										
+										String status = StatusDAO.getStatusName(u.getUserId());
+										pageContext.setAttribute("status", status);
+										
+										int count = UserDAO.countTopics(u.getUseName());
+										pageContext.setAttribute("count", count);
+								%>
 								<tr>
-									<td align="center"><form name="form2" method="post" action="">
-											<input type="checkbox" name="checkbox2" id="checkbox2"> <label for="checkbox2"></label>
-										</form></td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center">&nbsp;</td>
-									<td align="center"><a href="suathanhvien.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<a href="#">Xoá</a></td>
+									<td align="center">${pageScope.user.username }</td>
+									<td align="center">${pageScope.user.fullName }</td>
+									<td align="center">${pageScope.user.email }</td>
+									<td align="center">${pageScope.date }</td>
+									<td align="center">${pageScope.role }</td>
+									<td align="center">${pageScope.status }</td>
+									<td align="center">${pageScope.count }</td>
+									<td align="center"><a href="suathanhvien?username=${pageScope.user.username }" target="_blank">Sửa </a>&nbsp;<a href="xoathanhvien.jsp?uname=${pageScope.user.username }" target="_blank">Xoá</a></td>
 								</tr>
+								<%} %>
 							</table>
 						</div>
 						<div class="TabbedPanelsContent">

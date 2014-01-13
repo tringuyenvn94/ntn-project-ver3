@@ -46,4 +46,36 @@ public class RoleDAO {
 		return role;
 	}
 
+	/**
+	 * phương thức lấy ra Role name dựa vào id của người dùng
+	 * @param id id của người dùng, dựa vào id này ta có thể xác định được người dùng
+	 * thuộc role nào: admin hay user
+	 * @return một chuỗi String đại diện cho role name đó: User, Admin
+	 * */
+	public static String getRoleName(int id) {
+		String roleName = "";
+		String sql = "SELECT power.name FROM power WHERE id_chucnang = "
+				+ "(SELECT id_chucnang FROM role WHERE user_id = ?)";
+		ResultSet rs = Utils.util.getResultSet(sql, id + "");
+		try {
+			while (rs.next()) {
+				roleName = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return roleName;
+	}
+	
+	/**
+	 * Phương thức update quyền hạn của người dùng (ví dụ: set cho người dùng đó là quyền admin ...)
+	 * @param user user được cập nhật quyền hạn
+	 * */
+	public static void updateRole(UserEntity user, String roleName) {
+		String sql = "UPDATE ROLE SET id_chucnang = ? WHERE user_id = ?";
+		int[] indexes = { 1, 2 };
+		Object[] values = { roleName, user.getUserId() };
+		Utils.util.update(sql, indexes, values);
+	}
+	
 }

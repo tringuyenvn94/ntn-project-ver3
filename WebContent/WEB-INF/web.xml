@@ -4,24 +4,40 @@
   <welcome-file-list>
     <welcome-file>trangchu.jsp</welcome-file>
   </welcome-file-list>
- 
-  
-	<session-config>
-		<session-timeout>5</session-timeout>
-	</session-config>
-  
-  <!-- 
-  ===================================================
-  						Start Servlet
-  ===================================================
-   -->
-   <servlet>
+  <session-config>
+    <session-timeout>500</session-timeout>
+  </session-config>
+  <servlet>
     <servlet-name>Topic Servlet</servlet-name>
     <servlet-class>control.Topic</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Topic Servlet</servlet-name>
     <url-pattern>/topic</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>Xoa Thanh Vien Servlet</servlet-name>
+    <servlet-class>control.XoaThanhVien</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Xoa Thanh Vien Servlet</servlet-name>
+    <url-pattern>/xoathanhvien</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Sua Thah Vien Servlet</servlet-name>
+    <servlet-class>control.SuaThanhVien</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sua Thah Vien Servlet</servlet-name>
+    <url-pattern>/suathanhvien</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Reset Pass Servlet</servlet-name>
+    <servlet-class>control.ResetPass</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Reset Pass Servlet</servlet-name>
+    <url-pattern>/resetpass</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Load Servlet</servlet-name>
@@ -79,11 +95,6 @@
     <servlet-name>DoiMK Servlet</servlet-name>
     <url-pattern>/doimatkhau</url-pattern>
   </servlet-mapping>
-  <!-- 
-  ===================================================
-  						Start JSP
-  ===================================================
-   -->
   <servlet>
     <servlet-name>Lien He JSP</servlet-name>
     <jsp-file>/public/LienHe.jsp</jsp-file>
@@ -404,7 +415,6 @@
     <servlet-name>Thanh Cong JSP</servlet-name>
     <url-pattern>/thanhcong.jsp</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Trang Ca Nhan JSP</servlet-name>
     <jsp-file>/user/trangcanhan.jsp</jsp-file>
@@ -422,6 +432,14 @@
     <url-pattern>/post.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Xoa Thanh Vien JSP</servlet-name>
+    <jsp-file>/admin/xoathanhvien.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Xoa Thanh Vien JSP</servlet-name>
+    <url-pattern>/xoathanhvien.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Quy Dinh JSP</servlet-name>
     <jsp-file>/user/quydinh.jsp</jsp-file>
   </servlet>
@@ -429,7 +447,6 @@
     <servlet-name>Quy Dinh JSP</servlet-name>
     <url-pattern>/quydinh.jsp</url-pattern>
   </servlet-mapping>
- 
   <servlet>
     <servlet-name>a</servlet-name>
     <jsp-file>/test/test.jsp</jsp-file>
@@ -486,8 +503,7 @@
     <servlet-name>Template JSP</servlet-name>
     <url-pattern>/template.jsp</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>Topic JSP</servlet-name>
     <jsp-file>/template/topic.jsp</jsp-file>
   </servlet>
@@ -495,148 +511,128 @@
     <servlet-name>Topic JSP</servlet-name>
     <url-pattern>/topic.jsp</url-pattern>
   </servlet-mapping>
-     <servlet>
-  	<servlet-name>Gioi Thieu JSP</servlet-name>
-  	<jsp-file>/public/GioiThieu.jsp</jsp-file>
+  <servlet>
+    <servlet-name>Gioi Thieu JSP</servlet-name>
+    <jsp-file>/public/GioiThieu.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Gioi Thieu JSP</servlet-name>
-  	<url-pattern>/gioithieu.jsp</url-pattern>
-  </servlet-mapping>
-   <servlet>
-  	<servlet-name>Quan Ly JSP</servlet-name>
-  	<jsp-file>/admin/TrangQuanLy.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>Quan Ly JSP</servlet-name>
-  	<url-pattern>/quanly.jsp</url-pattern>
-  </servlet-mapping>
-   <servlet>
-  	<servlet-name>Sua Thong Tin Ca Nhan JSP</servlet-name>
-  	<jsp-file>/user/SuaThongTin.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>Sua Thong Tin Ca Nhan JSP</servlet-name>
-  	<url-pattern>/suathongtin.jsp</url-pattern>
+    <servlet-name>Gioi Thieu JSP</servlet-name>
+    <url-pattern>/gioithieu.jsp</url-pattern>
   </servlet-mapping>
   <servlet>
-   	<servlet-name>Quan Ly Bai Viet JSP</servlet-name>
-  	<jsp-file>/user/QuanLyBai.jsp</jsp-file>
+    <servlet-name>Quan Ly JSP</servlet-name>
+    <jsp-file>/admin/TrangQuanLy.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Quan Ly Bai Viet JSP</servlet-name>
-  	<url-pattern>/quanlybai.jsp</url-pattern>
+    <servlet-name>Quan Ly JSP</servlet-name>
+    <url-pattern>/quanly.jsp</url-pattern>
   </servlet-mapping>
-    <servlet>
-   	<servlet-name>Quan Ly Bai Da Danh Dau JSP</servlet-name>
-  	<jsp-file>/user/Bookmark.jsp</jsp-file>
+  <servlet>
+    <servlet-name>Sua Thong Tin Ca Nhan JSP</servlet-name>
+    <jsp-file>/user/SuaThongTin.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Quan Ly Bai Da Danh Dau JSP</servlet-name>
-  	<url-pattern>/bookmark.jsp</url-pattern>
+    <servlet-name>Sua Thong Tin Ca Nhan JSP</servlet-name>
+    <url-pattern>/suathongtin.jsp</url-pattern>
   </servlet-mapping>
-      <servlet>
-   	<servlet-name>Sua Bai Viet JSP</servlet-name>
-  	<jsp-file>/admin/SuaBaiViet.jsp</jsp-file>
+  <servlet>
+    <servlet-name>Quan Ly Bai Viet JSP</servlet-name>
+    <jsp-file>/user/QuanLyBai.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Sua Bai Viet JSP</servlet-name>
-  	<url-pattern>/suabaiviet.jsp</url-pattern>
+    <servlet-name>Quan Ly Bai Viet JSP</servlet-name>
+    <url-pattern>/quanlybai.jsp</url-pattern>
   </servlet-mapping>
-     <servlet>
-   	<servlet-name>Sua Thanh Vien JSP</servlet-name>
-  	<jsp-file>/admin/SuaThanhVien.jsp</jsp-file>
+  <servlet>
+    <servlet-name>Quan Ly Bai Da Danh Dau JSP</servlet-name>
+    <jsp-file>/user/Bookmark.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Sua Thanh Vien JSP</servlet-name>
-  	<url-pattern>/suathanhvien.jsp</url-pattern>
+    <servlet-name>Quan Ly Bai Da Danh Dau JSP</servlet-name>
+    <url-pattern>/bookmark.jsp</url-pattern>
   </servlet-mapping>
-       <servlet>
-   	<servlet-name>Sua Bai JSP</servlet-name>
-  	<jsp-file>/user/SuaBai.jsp</jsp-file>
+  <servlet>
+    <servlet-name>Sua Bai Viet JSP</servlet-name>
+    <jsp-file>/admin/SuaBaiViet.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Sua Bai JSP</servlet-name>
-  	<url-pattern>/suabai.jsp</url-pattern>
+    <servlet-name>Sua Bai Viet JSP</servlet-name>
+    <url-pattern>/suabaiviet.jsp</url-pattern>
   </servlet-mapping>
-    <!-- 
-  ===================================================
-  				Start Context Param
-  ===================================================
-   -->
-  
+  <servlet>
+    <servlet-name>Sua Thanh Vien JSP</servlet-name>
+    <jsp-file>/admin/SuaThanhVien.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sua Thanh Vien JSP</servlet-name>
+    <url-pattern>/suathanhvien.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Sua Bai JSP</servlet-name>
+    <jsp-file>/user/SuaBai.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sua Bai JSP</servlet-name>
+    <url-pattern>/suabai.jsp</url-pattern>
+  </servlet-mapping>
   <context-param>
-  	<param-name>lienhe</param-name>
-  	<param-value>lienhe.jsp</param-value>
+    <param-name>lienhe</param-name>
+    <param-value>lienhe.jsp</param-value>
   </context-param>
-  
-   <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>dangky</param-name>
-  	<param-value>dangky.jsp</param-value>
+  <context-param>
+    <param-name>dangky</param-name>
+    <param-value>dangky.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>dangnhap</param-name>
-  	<param-value>dangnhap.jsp</param-value>
+  <context-param>
+    <param-name>dangnhap</param-name>
+    <param-value>dangnhap.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>baomat</param-name>
-  	<param-value>baomat.jsp</param-value>
+  <context-param>
+    <param-name>baomat</param-name>
+    <param-value>baomat.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>giaiphapbaomat</param-name>
-  	<param-value>giaiphapbaomat.jsp</param-value>
+  <context-param>
+    <param-name>giaiphapbaomat</param-name>
+    <param-value>giaiphapbaomat.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
-  
-    <context-param>
-  	<param-name>trangchu</param-name>
-  	<param-value>trangchu.jsp</param-value>
+  <context-param>
+    <param-name>trangchu</param-name>
+    <param-value>trangchu.jsp</param-value>
   </context-param>
 </web-app>

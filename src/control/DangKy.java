@@ -3,6 +3,7 @@ package control;
 import handle.Validation;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -79,7 +80,8 @@ public class DangKy extends HttpServlet {
 
 		if (UserDAO.checkUsername(username))
 			request.setAttribute("errorUsernameExisted", "Tài khoản này đã tồn tại. Hãy chọn tên đăng nhập khác.");
-
+		if (UserDAO.isExistEmail(email)) request.setAttribute("errorExistedEmail", "Địa chỉ email này đã có tài khoản khác đăng kí, xin vui lòng điền địa chỉ email khác");
+		
 		if (Validation.isNull(username)) request.setAttribute("errorUsernameNull", "Xin hãy nhập Tên đăng nhập");
 		if (Validation.isNull(password)) request.setAttribute("errorPasswordNull", "Xin hãy nhập mật khẩu");
 		if (Validation.isNull(confirmPassword)) request.setAttribute("errorConfirmPasswordNull", "Xin hãy nhập lại mật khẩu");
@@ -100,7 +102,8 @@ public class DangKy extends HttpServlet {
 				!city.equals("chontinhthanh") && // đã chọn tỉnh thành rồi
 				!year.equals("nam") && // đã chọn năm sinh rồi
 				!Validation.isNulls(parameters) && // tất cả các trường không null
-				!UserDAO.checkUsername(username)) {// username chưa tồn tại trong database
+				!UserDAO.checkUsername(username) && 
+				!UserDAO.isExistEmail(email)) {// username chưa tồn tại trong database
 
 			boolean isMale = false;
 			if (sex.equals("male")) isMale = true;
@@ -119,7 +122,7 @@ public class DangKy extends HttpServlet {
 					isReceiveEmail,
 					showEmail,
 					city);
-
+			user.setDateReg(new Date());
 			UserDAO.write(user);
 			request.setAttribute("success", "dangky");
 			request.getRequestDispatcher("/thanhcong.jsp").forward(request, response);
