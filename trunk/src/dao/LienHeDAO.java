@@ -70,4 +70,43 @@ public class LienHeDAO {
 		Object[] values = { id };
 		Utils.util.delete(sql, indexes, values);
 	}
+	
+	/**
+	 * Load một liên hệ lên nhờ vào id của nó
+	 * @param id id của liên hệ cần load
+	 * @return một liên hệ
+	 * */
+	public static LienHeEntity load(int id) {
+		LienHeEntity lh = new LienHeEntity();
+		String sql = "SELECT * FROM LIENHE WHERE id = ?";
+		ResultSet rs = Utils.util.getResultSet(sql, id + "");
+		try {
+		while (rs.next()) {
+			String fullName = rs.getString("fullname");
+			String email = rs.getString("email");
+			String phone = rs.getString("phone");
+			String address = rs.getString("address");
+			String company = rs.getString("company");
+			String contact = rs.getString("contact");
+			String content = rs.getString("content");
+			Date date = rs.getDate("date");
+			boolean read = rs.getBoolean("read");
+			
+			lh.setId(id);
+			lh.setFullName(fullName);
+			lh.setEmail(email);
+			lh.setPhone(phone);
+			lh.setAddress(address);
+			lh.setCompany(company);
+			lh.setCompany(company);
+			lh.setContact(contact);
+			lh.setContent(content);
+			lh.setDate(date);
+			lh.setRead(read);
+		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return lh;
+	}
 }
