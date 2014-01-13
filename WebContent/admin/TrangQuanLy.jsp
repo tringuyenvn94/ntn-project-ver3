@@ -332,11 +332,6 @@ function xoalh() {
 
 								  </td>
 									<td align="center" bgcolor="${pageScope.color }">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
-										
-										
-									<td align="center">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
-
-									
 								</tr>
 								<%} %>
 						  </table>
