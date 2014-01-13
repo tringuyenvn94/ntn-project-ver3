@@ -7,7 +7,8 @@ body {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
-	background-image: url(../Image/body.png);
+	background-image: url(../Image/2014.jpg);
+	background-attachment: fixed;
 	margin: 0;
 	padding: 0;
 	line-height: 30px;
@@ -556,7 +557,7 @@ padding:0;
 }
 #ads_right div a img {
 	width: 125px;
-	height: 390px;
+	height: 388px;
 	margin-top: -5px;
 	margin-left: -2px;
 }

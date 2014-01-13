@@ -232,7 +232,7 @@
                         	TopicEntity gamesub11 = gamesub.get(10);
                         	TopicEntity gamesub12 = gamesub.get(11);
                         	TopicEntity gamesub13 = gamesub.get(12);
-                        	TopicEntity gamesub14 = gamesub.get(13);
+                        	//TopicEntity gamesub14 = gamesub.get(13);
 
                         	
                         	pageContext.setAttribute("gamesub1", gamesub1);
@@ -248,7 +248,7 @@
                         	pageContext.setAttribute("gamesub11", gamesub11);
                         	pageContext.setAttribute("gamesub12", gamesub12);
                         	pageContext.setAttribute("gamesub13", gamesub13);
-                        	pageContext.setAttribute("gamesub14", gamesub14);
+                        	//pageContext.setAttribute("gamesub14", gamesub14);
                         
                         %>
                         
