@@ -33,31 +33,47 @@ public class Validation {
 	}
 
 	public static boolean isEmail(String email) {
-			Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
-			Matcher emailMatcher = emailPattern.matcher(email);
-			if (emailMatcher.matches()) {
-				return true;
-			}
+		Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
+		Matcher emailMatcher = emailPattern.matcher(email);
+		if (emailMatcher.matches()) {
+			return true;
+		}
 		return false;
 	}
-	
+
 	/**
 	 * Phương thức chuyển đổi dạng ngày của DB (yyyy-mm-dd) thành dạng
 	 * ngày của người Việt Nam cho dễ nhìn (dd-mm-yyyy)
-	 * @param dateReg  ngày cần chuyển đổi
+	 * 
+	 * @param dateReg
+	 *            ngày cần chuyển đổi
 	 * @return chuỗi String là ngày đã chuyển đổi
 	 * */
 	public static String rightDate(Date dateReg) {
 		String dateResult = "";
 		try {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String dateInString = dateReg.toString();
-		Date dateOut = sdf.parse(dateInString);
-		SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy");
-		dateResult = sdf2.format(dateOut); 
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String dateInString = dateReg.toString();
+			Date dateOut = sdf.parse(dateInString);
+			SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy");
+			dateResult = sdf2.format(dateOut);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return dateResult;
+	}
+
+	/**
+	 * Phương thức hiện 20 ký tự đầu tiên của một đoạn văn
+	 * 
+	 * @param p
+	 *            đoạn văn
+	 * @return chuỗi 20 ký tự đầu của p
+	 * */
+	public static String cut(String p) {
+		if (p.length() > 20) {
+			return p.substring(0, 20) + "...";
+		}
+		else return p;
 	}
 }
