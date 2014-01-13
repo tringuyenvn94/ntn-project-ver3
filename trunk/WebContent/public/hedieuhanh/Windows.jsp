@@ -543,7 +543,7 @@
 
         		<div class="content_right">
 
-					<%
+				<%
 					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
 					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
 					TopicEntity tinmoinhat2 = tinmoinhat.get(1);

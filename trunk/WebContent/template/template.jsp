@@ -1,3 +1,5 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@page import="java.util.Date"%>
 <%@page import="entity.TopicEntity"%>
@@ -368,7 +370,71 @@ response.setCharacterEncoding("utf8");
 
 <div class="ctRight_detail">
 
-<div class="new_article">
+	<div class="new_article">
+
+				<%
+					List<TopicEntity> bvmoinhat = TopicDAO.loadLastedTopic(29);
+					TopicEntity bvmoinhat1 = bvmoinhat.get(0);
+					TopicEntity bvmoinhat2 = bvmoinhat.get(1);
+					TopicEntity bvmoinhat3 = bvmoinhat.get(2);
+					TopicEntity bvmoinhat4 = bvmoinhat.get(3);
+					TopicEntity bvmoinhat5 = bvmoinhat.get(4);
+					TopicEntity bvmoinhat6 = bvmoinhat.get(5);
+					TopicEntity bvmoinhat7 = bvmoinhat.get(6);
+					TopicEntity bvmoinhat8 = bvmoinhat.get(7);
+					TopicEntity bvmoinhat9 = bvmoinhat.get(8);
+					TopicEntity bvmoinhat10 = bvmoinhat.get(9);
+					TopicEntity bvmoinhat11 = bvmoinhat.get(10);
+					TopicEntity bvmoinhat12 = bvmoinhat.get(11);
+					TopicEntity bvmoinhat13 = bvmoinhat.get(12);
+					TopicEntity bvmoinhat14 = bvmoinhat.get(13);
+					TopicEntity bvmoinhat15 = bvmoinhat.get(14);
+					TopicEntity bvmoinhat16 = bvmoinhat.get(15);
+					TopicEntity bvmoinhat17 = bvmoinhat.get(16);
+					TopicEntity bvmoinhat18 = bvmoinhat.get(17);
+					TopicEntity bvmoinhat19 = bvmoinhat.get(18);
+					TopicEntity bvmoinhat20 = bvmoinhat.get(19);
+					TopicEntity bvmoinhat21 = bvmoinhat.get(20);
+					TopicEntity bvmoinhat22 = bvmoinhat.get(21);
+					TopicEntity bvmoinhat23 = bvmoinhat.get(22);
+					TopicEntity bvmoinhat24 = bvmoinhat.get(23);
+					TopicEntity bvmoinhat25 = bvmoinhat.get(24);
+					TopicEntity bvmoinhat26 = bvmoinhat.get(25);
+					TopicEntity bvmoinhat27 = bvmoinhat.get(26);
+					TopicEntity bvmoinhat28 = bvmoinhat.get(27);
+					TopicEntity bvmoinhat29 = bvmoinhat.get(28);
+
+					pageContext.setAttribute("bvmoinhat1", bvmoinhat1);
+					pageContext.setAttribute("bvmoinhat2", bvmoinhat2);
+					pageContext.setAttribute("bvmoinhat3", bvmoinhat3);
+					pageContext.setAttribute("bvmoinhat4", bvmoinhat4);
+					pageContext.setAttribute("bvmoinhat5", bvmoinhat5);
+					pageContext.setAttribute("bvmoinhat6", bvmoinhat6);
+					pageContext.setAttribute("bvmoinhat7", bvmoinhat7);
+					pageContext.setAttribute("bvmoinhat8", bvmoinhat8);
+					pageContext.setAttribute("bvmoinhat9", bvmoinhat9);
+					pageContext.setAttribute("bvmoinhat10", bvmoinhat10);
+					pageContext.setAttribute("bvmoinhat11", bvmoinhat11);
+					pageContext.setAttribute("bvmoinhat12", bvmoinhat12);
+					pageContext.setAttribute("bvmoinhat13", bvmoinhat13);
+					pageContext.setAttribute("bvmoinhat14", bvmoinhat14);
+					pageContext.setAttribute("bvmoinhat15", bvmoinhat15);
+					pageContext.setAttribute("bvmoinhat16", bvmoinhat16);
+					pageContext.setAttribute("bvmoinhat17", bvmoinhat17);
+					pageContext.setAttribute("bvmoinhat18", bvmoinhat18);
+					pageContext.setAttribute("bvmoinhat19", bvmoinhat19);
+					pageContext.setAttribute("bvmoinhat20", bvmoinhat20);
+					pageContext.setAttribute("bvmoinhat21", bvmoinhat21);
+					pageContext.setAttribute("bvmoinhat22", bvmoinhat22);
+					pageContext.setAttribute("bvmoinhat23", bvmoinhat23);
+					pageContext.setAttribute("bvmoinhat24", bvmoinhat24);
+					pageContext.setAttribute("bvmoinhat25", bvmoinhat25);
+					pageContext.setAttribute("bvmoinhat26", bvmoinhat26);
+					pageContext.setAttribute("bvmoinhat27", bvmoinhat27);
+					pageContext.setAttribute("bvmoinhat28", bvmoinhat28);
+					pageContext.setAttribute("bvmoinhat29", bvmoinhat29);
+				%>
+
     <div class="title_art">
         Bài viết mới nhất</div>
     <div class="hr">
@@ -377,63 +443,65 @@ response.setCharacterEncoding("utf8");
         
                 <ul>
             
-                <li><a href="">Amazon giao hàng bằng máy bay điều khiển từ xa</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat1.id }"> ${pageScope.bvmoinhat1.title } xa</a> </li>
             
-                <li><a href=""> Cách phát hiện kẻ lén lút vào Facebook của bạn</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat2.id }"> ${pageScope.bvmoinhat2.title } </a> </li>
             
-                <li><a href=""> Apple thống trị thị trường smartphone tại Nhật</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat3.id }"> ${pageScope.bvmoinhat3.title }</a> </li>
             
-                <li><a href=""> Quyến rũ với phiên bản màu đỏ đun của HTC One Max</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat4.id }"> ${pageScope.bvmoinhat4.title } </a> </li>
             
-                <li><a href=""> Chính thức ra mt Galaxy Note 3 màu cam và vàng</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat5.id }"> ${pageScope.bvmoinhat5.title } </a> </li>
             
-                <li><a href=""> Làm sao tránh các cài đặt không mong muốn</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat6.id }"> ${pageScope.bvmoinhat6.title } </a> </li>
             
-                <li><a href=""> Website an sinh của chính phủ Obama không an toàn</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat7.id }"> ${pageScope.bvmoinhat7.title } </a> </li>
             
-                <li><a href=""> Toàn cảnh Internet Việt Nam hiện như thế nào?</a> </li>
+                <li><a href="load?id=${pageScope.bvmoinhat8.id }"> ${pageScope.bvmoinhat8.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat9.id }"> ${pageScope.bvmoinhat9.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat10.id }"> ${pageScope.bvmoinhat10.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat11.id }"> ${pageScope.bvmoinhat11.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat12.id }"> ${pageScope.bvmoinhat12.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat13.id }"> ${pageScope.bvmoinhat13.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat14.id }"> ${pageScope.bvmoinhat14.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat15.id }"> ${pageScope.bvmoinhat15.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat16.id }"> ${pageScope.bvmoinhat16.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat17.id }"> ${pageScope.bvmoinhat17.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat18.id }"> ${pageScope.bvmoinhat18.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat19.id }"> ${pageScope.bvmoinhat19.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat20.id }"> ${pageScope.bvmoinhat20.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat21.id }"> ${pageScope.bvmoinhat21.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat22.id }"> ${pageScope.bvmoinhat22.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat23.id }"> ${pageScope.bvmoinhat23.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat24.id }"> ${pageScope.bvmoinhat24.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat25.id }"> ${pageScope.bvmoinhat25.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat26.id }"> ${pageScope.bvmoinhat26.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat27.id }"> ${pageScope.bvmoinhat27.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat28.id }"> ${pageScope.bvmoinhat28.title }</a> </li>
+                
+                <li><a href="load?id=${pageScope.bvmoinhat29.id }"> ${pageScope.bvmoinhat29.title }</a> </li>
             
-                <li><a href=""> Gợi ý 5 phần mềm diệt virus tốt nhất cho Windows 8</a> </li>
-            
-                <li><a href=""> Người dùng Internet Explorer 11 tăng nhanh</a> </li>
-            
-                <li><a href=""> Apple chi 578 triệu USD cho màn hình sapphire</a> </li>
-            
-                <li><a href=""> Đến lượt Amazon cũng tung clip chê iPad Air</a> </li>
-            
-                <li><a href=""> Ứng dụng của FIFA “cập bến” iOS và Android</a> </li>
-            
-                <li><a href=""> Chán “ném đá” Apple, Microsoft lại “dìm hàng” Sams</a> </li>
-            
-                <li><a href=""> Galaxy S5 sản xuất tại Việt Nam từ tháng 1/2014?</a> </li>
-            
-                <li><a href=""> Vỏ chống thấm nước cho iPhone 5s và Galaxy S4</a> </li>
-            
-                <li><a href=""> “Khủng long” LG G2 sắp lên đời Android 4.4 KitKat</a> </li>
-            
-                <li><a href=""> Smartphone 2 sim giá rẻ mới của Samsung</a> </li>
-            
-                <li><a href=""> Việt Nam là thị trường quyết định tương lai Nokia</a> </li>
-            
-                <li><a href=""> 5 tiện ích giúp bạn sử dụng PowerPoint hiệu quả</a> </li>
-            
-                <li><a href=""> 3 mẹo đơn giản để bảo vệ smartphone Android</a> </li>
-            
-                <li><a href=""> Apple thoát kiện theo dõi, bán thông tin phi pháp</a> </li>
-            
-                <li><a href=""> Tăng không gian lưu trữ cho Windows 8 bằng ổ SD</a> </li>
-            
-                <li><a href=""> Chính phủ Mỹ bị phạt 50 triệu USD vì phần mềm lậu</a> </li>
-            
-                <li><a href=""> Facebook triển khai chiến dịch Internet miễn phí</a> </li>
-            
-                <li><a href=""> Mở hộp iPad Air chính hãng tại Việt Nam </a> </li>
-            
-                <li><a href=""> TQ nghiên cứu phát hiện ảnh đã chỉnh sửa </a> </li>
-            
-                <li><a href=""> Stephen Elop không còn “cửa” làm CEO Microsoft</a> </li>
-            
-                <li><a href=""> Google xóa bỏ phần mềm đối thủ CyanogenMod</a> </li>
+                
             
                 </ul>
                 <span id="allnews"><a href="/">Xem tất cả</a></span>
@@ -447,6 +515,38 @@ response.setCharacterEncoding("utf8");
 <div class="tieudiem">
     <div class="tit">
         
+        			
+        			<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+							TopicEntity tieudiem11 = tieudiem.get(10);
+							TopicEntity tieudiem12 = tieudiem.get(11);
+							TopicEntity tieudiem13 = tieudiem.get(12);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+							pageContext.setAttribute("tieudiem11", tieudiem11);
+							pageContext.setAttribute("tieudiem12", tieudiem12);
+							pageContext.setAttribute("tieudiem13", tieudiem13);
+						%>
+        			
                 <a>
                     Tiêu điểm
                 </a>
@@ -457,82 +557,82 @@ response.setCharacterEncoding("utf8");
                 <div class="focus">
                     
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Modem D-Link, Tenda của Trung Quốc cài sẵn mã độc
+                                <a href="load?id=${pageScope.tieudiem1.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem1.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a  href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Làm thế nào để khôi phục ID tài khoản iTunes?
+                                <a  href="load?id=${pageScope.tieudiem2.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem2.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Khắc phục lỗi 100% Disk trên Windows 8/8.1
+                                <a href="load?id=${pageScope.tieudiem3.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem3.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Mẹo tận dụng sức mạnh tối đa của card đồ hoạ
+                                <a href="load?id=${pageScope.tieudiem4.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem4.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Hệ điều hành Windows sinh nhật tròn 30 năm tuổi
+                                <a href="load?id=${pageScope.tieudiem5.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem5.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Google tung "độc chiêu" phòng chống DDoS
+                                <a href="load?id=${pageScope.tieudiem6.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem6.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Cách nhanh nhất để chia sẻ kết nối Wifi
+                                <a href="load?id=${pageScope.tieudiem7.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem7.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Mẹo sử dụng iDevice không cần iTunes
+                                <a href="load?id=${pageScope.tieudiem8.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem8.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Sử dụng Email theo tên miền với Windows Live
+                                <a href="load?id=${pageScope.tieudiem9.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem9.title }
                                 </a>
                             </div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Cách phòng tránh các tác hại khi sử dụng laptop</a></div>
+                                <a href="load?id=${pageScope.tieudiem10.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                     ${pageScope.tieudiem10.title }</a></div>
                                     <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Cách phòng tránh các tác hại khi sử dụng laptop</a></div>
+                                <a href="load?id=${pageScope.tieudiem11.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem11.title }</a></div>
                                     <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Cách phòng tránh các tác hại khi sử dụng laptop</a></div>
+                                <a href="load?id=${pageScope.tieudiem12.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem12.title }</a></div>
 
                         
                             <div>
-                                <a href=""><img src="Image/icon.jpg" align="absmiddle">
-                                    Quản lý toàn diện iCloud từ máy tính
+                                <a href="load?id=${pageScope.tieudiem13.id }"><img src="Image/icon.jpg" align="absmiddle">
+                                    ${pageScope.tieudiem13.title }
                                 </a>
                           
             </div>
