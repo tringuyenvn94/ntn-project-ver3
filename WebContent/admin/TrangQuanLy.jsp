@@ -30,6 +30,21 @@ function xoalh() {
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css" />
 <link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.TabbedPanelsContent table tr td a {
+	text-decoration: none;
+	font-weight: bold;
+}
+.TabbedPanelsContent table tr td form table {
+	float: none;
+}
+.TabbedPanelsContent table {
+	float: right;
+}
+.TabbedPanelsContent table tr td form table {
+	float: right;
+}
+</style>
 <script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
 </head>
 
@@ -62,8 +77,8 @@ function xoalh() {
 							String username = user.getUseName();
 				%>
 				<div id="tv">
-					Xin chào,<%=username%>
-					|<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
+					Xin chào,&nbsp;<%=username%>
+					| <a href="trangcanhan.jsp">Trang cá nhân </a>| <a href="dangxuat?user=user">Đăng Xuất </a>
 
 				</div>
 				<%
@@ -211,8 +226,13 @@ function xoalh() {
 					</ul>
 					<div class="TabbedPanelsContentGroup">
 						<div class="TabbedPanelsContent">
-							<table width="950" border="1" cellpadding="5">
-								<tr>
+						  <table width="950">
+						    <tr>
+						      <td align="right"><a href="themthanhvien.jsp" target="_blank">Thêm thành viên</a></td>
+					        </tr>
+					      </table>
+<table width="950" border="1" cellpadding="5">
+				<tr>
 									<td width="111" align="center" bgcolor="#A6CAF0"><strong>Tên tài khoản</strong></td>
 									<td width="119" align="center" bgcolor="#A6CAF0"><strong>Họ tên</strong></td>
 									<td width="118" align="center" bgcolor="#A6CAF0"><strong>Email</strong></td>
@@ -221,7 +241,7 @@ function xoalh() {
 									<td width="69" align="center" bgcolor="#A6CAF0"><strong>Trạng thái</strong></td>
 									<td width="68" align="center" bgcolor="#A6CAF0"><strong>Số bài đã đăng</strong></td>
 									<td width="106" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
-								</tr>
+			  </tr>
 								<%
 									int c = 0;
 									List<UserEntity> users = UserDAO.loadAllUser();
@@ -255,26 +275,45 @@ function xoalh() {
 									<td align="center" bgcolor="${pageScope.color }"><a href="suathanhvien?username=${pageScope.user.username }" target="_blank">Sửa </a>&nbsp;<a href="xoathanhvien.jsp?uname=${pageScope.user.username }" target="_blank">Xoá</a></td>
 								</tr>
 								<%} %>
-							</table>
-						</div>
+						  </table>
+					  </div>
 						<div class="TabbedPanelsContent">
 							<table width="950" border="0">
 								<tr>
-									<td align="right"><form name="form4" method="post" action="">
-											<strong> <input type="checkbox" name="checkbox5" id="checkbox5"> Đánh dấu đã đọc tất cả &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="checkbox6" id="checkbox6"> Xoá tất cả
-											</strong>
-										</form></td>
+									<td align="right"></td>
 								</tr>
 							</table>
-							<table width="950" border="1" cellpadding="5">
-								<tr>
+							<table width="950">
+							  <tr>
+							    <td width="882" align="left"><form name="form2" method="post" action="">
+							      <table width="233">
+							        <tr>
+							          <td width="225" height="27"><label>
+							            <input type="radio" name="process_lh" value="radio" id="process_lh_0">
+							            Đánh dấu tất cả đã đọc</label></td>
+						            </tr>
+							        <tr>
+							          <td><label>
+							            <input type="radio" name="process_lh" value="radio" id="process_lh_1">
+							            Xoá tất cả
+							          </label></td>
+						            </tr>
+						          </table>
+							    </form></td>
+							    <td width="56" align="left"><form name="form3" method="post" action="">
+							      <input type="submit" name="button5" id="button5" value="Thực hiện">
+						        </form></td>
+						      </tr>
+						  </table>
+<table width="950" border="1" cellpadding="5">
+				<tr>
 									<td width="144" align="center" bgcolor="#A6CAF0"><strong>Họ tên</strong></td>
 									<td width="144" align="center" bgcolor="#A6CAF0"><strong>Email</strong></td>
 									<td width="240" align="center" bgcolor="#A6CAF0"><strong>Nội dung</strong></td>
 									<td width="119" align="center" bgcolor="#A6CAF0"><strong>Ngày gửi</strong></td>
 									<td width="53" align="center" bgcolor="#A6CAF0"><strong>Đã đọc</strong></td>
 									<td width="100" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
-								</tr>
+			  </tr>
 									<%
 									List<LienHeEntity> contacts = LienHeDAO.loadLienHe();
 									for (LienHeEntity lh : contacts) {
@@ -288,41 +327,70 @@ function xoalh() {
 									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.email }</td>
 									<td align="center" bgcolor="${pageScope.color }">${pageScope.cut }</td>
 									<td align="center" bgcolor="${pageScope.color }">${pageScope.date}</td>
-									<td align="center">
+									<td align="center" bgcolor="${pageScope.color }">
 											<input type="checkbox" name="checkbox4" id="checkbox4" ${pageScope.read } disabled="disabled"> <label for="checkbox4"></label>
-										</td>
+
+								  </td>
+									<td align="center" bgcolor="${pageScope.color }">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
+										
 										
 									<td align="center">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
+
 									
 								</tr>
 								<%} %>
-							</table>
+						  </table>
 							<table width="950">
 								<tr>
-									<td align="right"><form name="form5" method="post" action="">
-											<input type="submit" name="button2" id="button2" value="    OK      ">
-										</form></td>
+									<td align="right"></td>
 								</tr>
 							</table>
 							<br>
 						</div>
 						<div class="TabbedPanelsContent">
-							<table width="950" border="1" cellpadding="5">
-								<tr>
-									<td width="352" align="center" bgcolor="#A6CAF0"><strong>Tiêu đề bài viết</strong></td>
-									<td width="127" align="center" bgcolor="#A6CAF0"><strong>Tác giả</strong></td>
-									<td width="113" align="center" bgcolor="#A6CAF0"><strong>Ngày đăng</strong></td>
-									<td width="115" align="center" bgcolor="#A6CAF0"><strong>Trạng thái</strong></td>
-									<td width="120" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
+						  <table width="950" border="1">
+						    <tr>
+						      <td align="right"><form name="form1" method="post" action="">
+						        <label for="select"></label>
+						        Sắp xếp theo
+						        <select name="select" id="select">
+						          <option value="waiting">Watting</option>
+						          <option value="posted">Posted</option>
+						          <option value="banned">Banned</option>
+                                </select>&nbsp;&nbsp;&nbsp;&nbsp;
+					            <input type="submit" name="button4" id="button4" value="Sắp xếp">
+					            &nbsp;&nbsp;&nbsp;&nbsp;
+						        </form></td>
+					        </tr>
+					      </table>
+<table width="950" border="1" cellpadding="5">
+				<tr>
+				  <td width="30" align="center" bgcolor="#A6CAF0"><strong>STT</strong></td>
+									<td width="230" align="center" bgcolor="#A6CAF0"><strong>Tiêu đề bài viết</strong></td>
+									<td width="177" align="center" bgcolor="#A6CAF0"><strong>Tác giả</strong></td>
+									<td width="131" align="center" bgcolor="#A6CAF0"><strong>Ngày đăng</strong></td>
+									<td width="54" align="center" bgcolor="#A6CAF0"><strong>Tiêu điểm</strong></td>
+									<td width="68" align="center" bgcolor="#A6CAF0"><strong>Trạng thái</strong></td>
+									<td width="158" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
 								</tr>
-							
+							<form>
 								<tr>
+								  <td align="center" bgcolor="${pageScope.color }"></td>
 									<td align="center" bgcolor="${pageScope.color }"></td>
 									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.email }</td>
 									<td align="center" bgcolor="${pageScope.color }">${pageScope.cut}</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.fullName }</td>
-									<td align="center" bgcolor="${pageScope.color }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a></td>
+									<td align="center" bgcolor="${pageScope.color }"><input type="checkbox" name="checkbox" id="checkbox">
+								    <label for="checkbox"></label></td>
+									<td align="center" bgcolor="${pageScope.color }"><label for="select2"></label>
+									  <select name="select2" id="select2">
+									    <option value="waiting">Waiting</option>
+									    <option value="waiting">Posted</option>
+									    <option value="banned">Banned</option>
+						            </select></td>
+									<td align="center" bgcolor="${pageScope.color }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								    <input type="submit" name="button3" id="button3" value="Lưu">									  &nbsp;&nbsp;&nbsp;&nbsp;</td>
 								</tr>
+                                </form>
 							</table>
 						</div>
 					</div>
