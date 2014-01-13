@@ -17,6 +17,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Trang Quản Lý</title>
+<script>
+function xoalh() {
+ 	return confirm("Bạn có thật sự muốn xóa liên hệ này không?")
+
+  
+}
+</script>
+			
 <jsp:include page="/template/Facebook.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css" />
@@ -283,6 +291,7 @@
 									<td align="center">
 											<input type="checkbox" name="checkbox4" id="checkbox4" ${pageScope.read } disabled="disabled"> <label for="checkbox4"></label>
 										</td>
+										
 									<td align="center">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
 									
 								</tr>
