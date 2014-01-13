@@ -31,7 +31,7 @@
 	margin: 0px;
 	padding: 0px;
 	clear: none;
-	width: 96%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
+	width: 99%; /* IE Hack to force proper layout when preceded by a paragraph. (hasLayout Bug)*/
 }
 .TabbedPanelsContentVisible table tr td a {
 	font-size: 14px;
