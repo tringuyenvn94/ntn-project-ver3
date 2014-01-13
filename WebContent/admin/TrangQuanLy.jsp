@@ -233,7 +233,7 @@
 										
 										int count = UserDAO.countTopics(u.getUseName());
 										pageContext.setAttribute("count", count);
-										if ((c % 2) == 0) pageContext.setAttribute("color", "#CCCCFF");
+										if ((c % 2) == 0) pageContext.setAttribute("color", "#CCFFCC");
 										else pageContext.setAttribute("color", "#CCFFFF");
 								%>
 								<tr>
@@ -260,12 +260,12 @@
 							</table>
 							<table width="950" border="1" cellpadding="5">
 								<tr>
-									<td width="144" align="center"><strong>Họ tên</strong></td>
-									<td width="144" align="center"><strong>Email</strong></td>
-									<td width="240" align="center"><strong>Nội dung</strong></td>
-									<td width="119" align="center"><strong>Ngày gửi</strong></td>
-									<td width="53" align="center"><strong>Đã đọc</strong></td>
-									<td width="100" align="center"><strong>Tác vụ</strong></td>
+									<td width="144" align="center" bgcolor="#A6CAF0"><strong>Họ tên</strong></td>
+									<td width="144" align="center" bgcolor="#A6CAF0"><strong>Email</strong></td>
+									<td width="240" align="center" bgcolor="#A6CAF0"><strong>Nội dung</strong></td>
+									<td width="119" align="center" bgcolor="#A6CAF0"><strong>Ngày gửi</strong></td>
+									<td width="53" align="center" bgcolor="#A6CAF0"><strong>Đã đọc</strong></td>
+									<td width="100" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
 								</tr>
 									<%
 									List<LienHeEntity> contacts = LienHeDAO.loadLienHe();
@@ -276,10 +276,10 @@
 										if (lh.isRead()) pageContext.setAttribute("read", "CHECKED");
 									%>
 								<tr>
-									<td align="center">${pageScope.l.fullName }</td>
-									<td align="center">${pageScope.l.email }</td>
-									<td align="center">${pageScope.cut }</td>
-									<td align="center">${pageScope.date}</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.fullName }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.email }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.cut }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.date}</td>
 									<td align="center">
 											<input type="checkbox" name="checkbox4" id="checkbox4" ${pageScope.read } disabled="disabled"> <label for="checkbox4"></label>
 										</td>
@@ -300,19 +300,19 @@
 						<div class="TabbedPanelsContent">
 							<table width="950" border="1" cellpadding="5">
 								<tr>
-									<td width="352" align="center"><strong>Tiêu đề bài viết</strong></td>
-									<td width="127" align="center"><strong>Tác giả</strong></td>
-									<td width="113" align="center"><strong>Ngày đăng</strong></td>
-									<td width="115" align="center"><strong>Trạng thái</strong></td>
-									<td width="120" align="center"><strong>Tác vụ</strong></td>
+									<td width="352" align="center" bgcolor="#A6CAF0"><strong>Tiêu đề bài viết</strong></td>
+									<td width="127" align="center" bgcolor="#A6CAF0"><strong>Tác giả</strong></td>
+									<td width="113" align="center" bgcolor="#A6CAF0"><strong>Ngày đăng</strong></td>
+									<td width="115" align="center" bgcolor="#A6CAF0"><strong>Trạng thái</strong></td>
+									<td width="120" align="center" bgcolor="#A6CAF0"><strong>Tác vụ</strong></td>
 								</tr>
 							
 								<tr>
-									<td align="center"></td>
-									<td align="center">${pageScope.l.email }</td>
-									<td align="center">${pageScope.cut}</td>
-									<td align="center">${pageScope.l.fullName }</td>
-									<td align="center"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a></td>
+									<td align="center" bgcolor="${pageScope.color }"></td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.email }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.cut}</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.l.fullName }</td>
+									<td align="center" bgcolor="${pageScope.color }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Xoá</a></td>
 								</tr>
 							</table>
 						</div>
