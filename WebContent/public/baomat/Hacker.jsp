@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -185,24 +188,51 @@
                                
 <div class="bag">
    	<div class="tit">
+   	
+   	<%
+				List<TopicEntity> hacker = TopicDAO.loadBySubMenu("hacker");
+				TopicEntity hacker1 = hacker.get(0);
+				TopicEntity hacker2 = hacker.get(1);
+				TopicEntity hacker3 = hacker.get(2);
+				TopicEntity hacker4 = hacker.get(3);
+				TopicEntity hacker5 = hacker.get(4);
+				TopicEntity hacker6 = hacker.get(5);
+				TopicEntity hacker7 = hacker.get(6);
+				TopicEntity hacker8 = hacker.get(7);
+				TopicEntity hacker9 = hacker.get(8);
+				TopicEntity hacker10 = hacker.get(9);
+				TopicEntity hacker11 = hacker.get(10);
+			//	TopicEntity hacker12 = hacker.get(11);
+				
+				pageContext.setAttribute("hacker1", hacker1);
+				pageContext.setAttribute("hacker2", hacker2);
+				pageContext.setAttribute("hacker3", hacker3);
+				pageContext.setAttribute("hacker4", hacker4);
+				pageContext.setAttribute("hacker5", hacker5);
+				pageContext.setAttribute("hacker6", hacker6);
+				pageContext.setAttribute("hacker7", hacker7);
+				pageContext.setAttribute("hacker8", hacker8);
+				pageContext.setAttribute("hacker9", hacker9);
+				pageContext.setAttribute("hacker10", hacker10);
+				pageContext.setAttribute("hacker11", hacker11);
+			//	pageContext.setAttribute("hacker12", hacker12);
+			%>
                 <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="baomat.jsp">Bảo mật</a>&nbsp;»&nbsp;<a href="hacker.jsp">Hacker</a>
         
     </div>
        
           <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span>
-Hacker bẻ mật khẩu 16 ký tự chưa đầy 60 phút
-</span></a>
+                    <a href="load?id=${pageScope.hacker1.id }"><span>
+ ${pageScope.hacker1.title } </span></a>
                 </div>
                 <div>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="Image/hacker(1).jpg" width="247" height="265" hspace="3" vspace="3" align="left" border="0"></a>
+                                <a href="load?id=${pageScope.hacker1.id }"><img src="${pageScope.hacker1.url_daidien }" width="247" height="193" hspace="3" vspace="3" align="left" border="0"></a>
                             </td>
                             <td class="content_top" valign="top" align="left">
-Trong một thử nghiệm của trang web Ars Technica, 14.800 mật mã đã bị hack thành công, bao gồm cả những mật mã có độ dài 16 ký tự.
-                          </td>
+ ${pageScope.hacker1.header }</td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -212,193 +242,175 @@ Trong một thử nghiệm của trang web Ars Technica, 14.800 mật mã đã b
                             <img src="Image/netdut.jpg">
                         </div>
                    
-                        <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="Image/tin-tac.jpg" height="179" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-Tin tặc Trung Quốc đánh cắp bí mật công ty Mỹ?
+                        	<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.hacker2.id }">
+								<img src="${pageScope.hacker2.url_daidien }" height="179" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.hacker2.id }">${pageScope.hacker2.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker2.header }</div>
 
-</a></p>
-                            <p class="detail_ctt">
-Các nhà nghiên cứu thuộc hãng bảo mật FireEye cho biết một tổ chức tin tặc Trung Quốc đang đánh cắp tài sản sở hữu trí tuệ của công ty Mỹ.
-            </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="Image/Hotspot.jpg" height="171" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-Bẻ mật khẩu hotspot trên iOS trong vòng 1 phút
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.hacker3.id }">
+								<img src="${pageScope.hacker3.url_daidien }" height="171" hspace="5"
+								vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.hacker3.id }">${pageScope.hacker3.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker3.header }</p>
+						</div>
 
- </a></p>
-                            <p class="detail_ctt">
-Các nhà nghiên cứu tại Đại học Erlangen, Đức, đã tìm ra một biện pháp nhằm bẻ mật khẩu hotspot (tạo kết nối Internet tới 3G/4G thông qua Wi-Fi) trong vòng 1 phút, khiến thiết bị iOS của bạn dễ dàng bị tấn công.
-                            </p>
-            </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="Image/windows-RT1.jpg" height="164" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-Đã có thể tải về công cụ bẻ khóa Windows RT
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.hacker4.id }">
+								<img src="${pageScope.hacker4.url_daidien }" height="164" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="load?id=${pageScope.hacker4.id }">${pageScope.hacker4.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker4.header }</p>
+						</div>
 
-</a></p>
-                            <p class="detail_ctt">
-Mới đây, công cụ jailbreak hệ điều hành Windows RT đã được tung ra bởi một hacker thuộc diễn đàn nổi tiếng xda-developer. Khi Windows RT được jailbreak, người dùng hoàn toàn có thể cài đặt được các ứng dụng dành cho PC lên nền tảng này.
-                            </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="Image/yahoo.jpg" height="150" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-Quá trình "chôm" mật khẩu Yahoo Mail trong 4 phút
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.hacker5.id }">
+								<img src="${pageScope.hacker5.url_daidien }" height="150" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.hacker5.id }">${pageScope.hacker5.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker5.header }</p>
+						</div>
 
-</a></p>
-                            <p class="detail_ctt">
-Một hacker đã đưa lên YouTube đoạn video mô tả việc dễ dàng lấy được thông tin đăng nhập tài khoản Yahoo của nạn nhân đơn giản bằng cách dụ họ bấm vào một đường link.
-                           </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="Image/nokia.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-Nhân viên Nokia "hack" game trên Windows Store
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.hacker6.id }"> <img
+								src="${pageScope.hacker6.url_daidien }" height="146" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="load?id=${pageScope.hacker6.id }">${pageScope.hacker6.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker6.header }</p>
+						</div>
 
- </a></p>
-                            <p class="detail_ctt">
-Justin Angel, một kỹ sư Windows Phone thuộc Nokia, đã hướng dẫn người dùng chỉnh sửa game dùng thử thành bản full đồng thời loại bỏ các quảng cáo trong đó.
-                             </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="Image/hacker2.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-Hành trình truy bắt thủ lĩnh Anonymous của FBI
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.hacker7.id }">
+								<img src="${pageScope.hacker7.url_daidien }" height="146" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.hacker7.id }">${pageScope.hacker7.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker7.header }</p>
+						</div>
 
-</a></p>
-                            <p class="detail_ctt"> 
-Tạp chí Rolling Stone kể về hành trình bắt giữ thủ lĩnh hacker Jeremy Hammond của Anonymous cũng như mô tả sự hỗn độn, tối tăm của thế giới tin tặc với những con người tài năng, lập dị và ẩn chứa cả sự phản bội.
-                            </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="Image/tin-tac(1).jpg" height="134" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> 
-Tin tặc tấn công Facebook Phó Thủ tướng Israel
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.hacker8.id }">
+								<img src="${pageScope.hacker8.url_daidien }" height="134" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.hacker8.id }">${pageScope.hacker8.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker8.header }</p>
+						</div>
 
- </a></p>
-                            <p class="detail_ctt">
-AFP đưa tin, ngày 21/11, tài khoản trên trang mạng xã hội Twitter của Phó Thủ tướng Israel Silvan Shalom đã bị "ZCompanyHackingCrew," nhóm tin tặc ủng hộ Palestine tấn công.
-                         </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="Image/tin-tac(2).jpg" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
-                          <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">
-Nhóm tin tặc Anonymous tuyên bố chiến tranh ảo
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.hacker9.id }"><img
+									src="${pageScope.hacker9.url_daidien }" height="144" hspace="5" vspace="3"
+									align="left" border="0" /></a>
+								<p class="title_ctt">
+									<a href="load?id=${pageScope.hacker9.id }">${pageScope.hacker9.title }</a>
+								</p>
+								<p class="detail_ctt">${pageScope.hacker9.header }</p>
+						</div>
 
- </a></p>
-                            <p class="detail_ctt">
-Mục tiêu chiến tranh của tổ chức hacker khét tiếng thế giới là Israel vì nước này đã oanh tạc dải Gaza khiến số nạn nhân Palestine thiệt mạng lên tới hơn 100 người.
-                             </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="Image/Hacker12.jpg" height="147" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-Hacker Ấn Độ 16 tuổi bẻ khóa Windows Phone 8
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.hacker10.id }">
+								<img src="${pageScope.hacker10.url_daidien }" height="147" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="load?id=${pageScope.hacker10.id }">${pageScope.hacker10.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker10.header }</p>
+						</div>
 
- </a></p>
-                            <p class="detail_ctt">
-Shantanu Gawde được tôn vinh là "Hacker trẻ nhất quốc gia", bởi khi mới lên 7 tuổi cậu đã có trong tay chứng nhận "Nhà phát triển ứng dụng" do Microsoft cấp.
-                            </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="Image/Anonymous1.jpg" height="142" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-Tin tặc Anonymous tấn công các trang web Israel
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.hacker11.id }">
+								<img src="${pageScope.hacker11.url_daidien }" height="142" hspace="5"
+								vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="load?id=${pageScope.hacker11.id }">${pageScope.hacker11.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker11.header }</p>
+						</div>
 
- </a></p>
-                            <p class="detail_ctt">
-Các tin tặc của nhóm Anonymous đã tấn công các trang web của Israel để biểu thị sự phản đối hoạt động quân sự của lực lượng vũ trang nước này ở Dải Gaza.
-                            </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="Image/iphone-5.jpg" width="287" height="160" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-Công cụ phá khóa iPhone 5 sẽ có trong tháng sau
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.hacker12.id }">
+								<img src="${pageScope.hacker12.url_daidien }" width="287" height="160"
+								hspace="5" vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.hacker12.id }">${pageScope.hacker12.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.hacker12.header }</p>
+						</div>
 
- </a></p>
-                            <p class="detail_ctt">
-Đã 3 tháng sau khi xuất hiện nhưng chiếc iPhone thế hệ 6 vẫn khiến cho giới hacker khó khăn trong việc đưa ra công cụ jailbreak, để bẻ khóa hệ điều hành iOS và cài phần mềm không qua kiểm duyệt từ Apple.
-                            </p>
-          </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        
-                    
-                        <div class="lines">
-                            <img src="../../../Styles/images/kengang_netdut_digi_03.jpg"></div>
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+
+
+						<div class="lines">
+							<img src="../../../Styles/images/kengang_netdut_digi_03.jpg">
+						</div>
                         <div class="news_other">
                    CÁC TIN KHÁC</div>
           <div class="title_news">
@@ -472,175 +484,280 @@ Các website dựa trên osCommerce bị tấn công
         		</div>		                                               
 				</div>
            
+<div class="content_right">
+<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
 
-        		<div class="content_right">
-				
-                    <div class="news">
-                        <div class="tit">
-                            
-                                   <a href="tinmoinhat.jsp">  Tin mới nhất </a>
-                            
-                        </div>
-                        <div class="ctm">
-                            
-                                    <div class="title_new">
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Google tung "độc chiêu" phòng chống DDoS
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Tin tặc Trung Quốc đánh cắp bí mật công ty Mỹ?
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Trojan mới khó phát hiện tấn công lỗ hổng IE
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Mã PIN smartphone sẽ lộ vì camera, microphone?
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-152 triệu tài khoản Adobe bị lộ trên web
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-CIA trả tiền cho dữ liệu cuộc gọi của AT&T
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Microsoft, Facebook khuyến khích tìm lỗi bảo mật
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Virus lây từ smartphone sang máy tính đã có ở VN
-</a>
-                                     </div>
-                                      
-                                    
-                                     <span id="xemtin"><a href="${param.xemcactinkhac }"><strong>Xem các tin khác </strong></a></span>
-                                    
-                                               
-                                    </div>
-                               
-                        </div>
-                        <div class="space"></div>
-                       
-                    </div>   
-                                     
-                    <div class="headlines">
-                        <div class="tit">
-                           
-                                    <a>
-                                        Tiêu điểm
-                                    </a>
-                                
-                        </div>
-                        <div class="ctm">
-                                        
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/hacker2.jpg" width="175" height="161" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/8-cong-dung-khong-ngo-cua-task-manager-105027">
-Hành trình truy bắt thủ lĩnh Anonymous của FBI
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
+					<div class="news">
+						<div class="tit">
 
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
+							<a href="tinmoinhat.jsp"> Tin mới nhất </a>
 
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img src="Image/nokia.jpg" width="142" height="159" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
-Nhân viên Nokia "hack" game trên Windows Store
+						</div>
+						<div class="ctm">
 
-                                                </a>
-                                            </div>
-                                        </div>
-  
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img src="Image/Hacker(2).jpg" width="142" height="147" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119">
-Mười sản phẩm công nghệ dễ bị hacker tấn công
+							<div class="title_new">
 
-                                             </a>
-                                            </div>
-                                        </div>
-                                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img src="Image/tin-tac.jpg" width="142" height="160" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
-Tin tặc Trung Quốc đánh cắp bí mật công ty Mỹ?
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
+								</div>
 
-                                                </a>
-                                            </div>
-                                        </div>
-       
-                                        
-                   
-                                        
 
-                                        
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
+								</div>
 
-                                       	
 
-                                       	
-                                        
-                                        
-                                </div>
-                     </div>
-                    
-				
-        
-                                        
-                
-        		
-        		
-       	  </div>
-            
-        
-        </div>
-		
-        
-        </div>
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
+								</div>
+
+
+								<span id="xemtin"><a href="/"><strong>Xem
+											các tin khác </strong></a></span>
+
+
+							</div>
+
+						</div>
+
+
+
+
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
+						<div class="space"></div>
+
+					</div>
+
+					<div class="headlines">
+						<div class="tit">
+
+							<a> Tiêu điểm </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
+										height="174" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
+								</div>
+							</div>
+
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
+										height="145" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+
+		</div>
         
 		<div class="footer">
 

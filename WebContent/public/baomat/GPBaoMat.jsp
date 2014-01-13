@@ -1,3 +1,6 @@
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
 <%@page import="entity.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -176,6 +179,7 @@
                     
             </div>
             
+            
             <div id="content_main">
             	
                 <div class="content_left">
@@ -183,22 +187,53 @@
                                
 <div class="bag">
    	<div class="tit">
+   	
+   				
+   				<%
+				List<TopicEntity> giaiphapbaomat = TopicDAO.loadBySubMenu("giaiphapbaomat");
+				TopicEntity giaiphapbaomat1 = giaiphapbaomat.get(0);
+				TopicEntity giaiphapbaomat2 = giaiphapbaomat.get(1);
+				TopicEntity giaiphapbaomat3 = giaiphapbaomat.get(2);
+				TopicEntity giaiphapbaomat4 = giaiphapbaomat.get(3);
+				TopicEntity giaiphapbaomat5 = giaiphapbaomat.get(4);
+				TopicEntity giaiphapbaomat6 = giaiphapbaomat.get(5);
+				TopicEntity giaiphapbaomat7 = giaiphapbaomat.get(6);
+				TopicEntity giaiphapbaomat8 = giaiphapbaomat.get(7);
+				TopicEntity giaiphapbaomat9 = giaiphapbaomat.get(8);
+				TopicEntity giaiphapbaomat10 = giaiphapbaomat.get(9);
+				TopicEntity giaiphapbaomat11 = giaiphapbaomat.get(10);
+				TopicEntity giaiphapbaomat12 = giaiphapbaomat.get(11);
+				
+				pageContext.setAttribute("giaiphapbaomat1", giaiphapbaomat1);
+				pageContext.setAttribute("giaiphapbaomat2", giaiphapbaomat2);
+				pageContext.setAttribute("giaiphapbaomat3", giaiphapbaomat3);
+				pageContext.setAttribute("giaiphapbaomat4", giaiphapbaomat4);
+				pageContext.setAttribute("giaiphapbaomat5", giaiphapbaomat5);
+				pageContext.setAttribute("giaiphapbaomat6", giaiphapbaomat6);
+				pageContext.setAttribute("giaiphapbaomat7", giaiphapbaomat7);
+				pageContext.setAttribute("giaiphapbaomat8", giaiphapbaomat8);
+				pageContext.setAttribute("giaiphapbaomat9", giaiphapbaomat9);
+				pageContext.setAttribute("giaiphapbaomat10", giaiphapbaomat10);
+				pageContext.setAttribute("giaiphapbaomat11", giaiphapbaomat11);
+				pageContext.setAttribute("giaiphapbaomat12", giaiphapbaomat12);
+			%>
+   				
                 <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="baomat.jsp">Bảo mật</a>&nbsp;»&nbsp;<a href="giaiphapbaomat.jsp">Giải pháp bảo mật</a>
         
     </div>
        
           <div class="title_article">
-                    <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><span>
- Google tung "độc chiêu" phòng chống DDoS </span></a>
+                    <a href="load?id=${pageScope.giaiphapbaomat1.id }"><span>
+ ${pageScope.giaiphapbaomat1.title } </span></a>
                 </div>
                 <div>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td class="img_top2">
-                                <a href="/apple-tang-the-qua-nhan-ngay-black-friday-105640"><img src="Image/google-2.jpg" width="247" height="193" hspace="3" vspace="3" align="left" border="0"></a>
+                                <a href="load?id=${pageScope.giaiphapbaomat1.id }"><img src="${pageScope.giaiphapbaomat1.url_daidien }" width="247" height="193" hspace="3" vspace="3" align="left" border="0"></a>
                             </td>
                             <td class="content_top" valign="top" align="left">
- Cho dù có cùng tên gọi với máy chơi game cầm tay của NVIDIA, Project Shield của Google là một dự án hoàn toàn độc lập sẽ giúp ích rất nhiều cho các trang web nhỏ.                           </td>
+ ${pageScope.giaiphapbaomat1.header }</td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -208,160 +243,175 @@
                             <img src="Image/netdut.jpg">
                         </div>
                    
-                        <div class="subcontent2">
-                            <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
-                                <img src="Image/Bao-mat.jpg" height="179" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/chinh-phu-my-bi-phat-50-trieu-usd-vi-cai-phan-mem-lau-105658">
- Mẹo bảo mật Google, Facebook và dịch vụ trực tuyến</a></p>
-                            <p class="detail_ctt">
- Những thông tin gần đây về các hoạt động bí mật của chính phủ Mỹ, sự tăng cường các cuộc xâm phạm thông tin cá nhân và việc ảnh đại diện của bạn xuất hiện trên Google Ads đã làm dấy lên một vấn đề: Thông tin cá nhân trực tuyến của bạn chỉ được bảo vệ tối đa khi bạn có thể để mắt đến chúng.             </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
-                                <img src="Image/Autorun.jpg" height="171" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/trung-quoc-nghien-cuu-cong-nghe-phat-hien-anh-da-chinh-sua-105655">
- "Tuyệt chiêu" diệt virus Autorun bằng tay </a></p>
-                            <p class="detail_ctt">
- Trước tiên phải khẳng định, việc giải quyết lây lan virus qua chức năng Autorun của Windows có vô cùng nhiều cách. Những cách làm này khá thủ công, tuy nhiên nó giúp người thực hiện hiểu rõ hơn về các nguyên tắc bảo mật, an ninh cho hệ thống.                             </p>
-            </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
-                                <img src="Image/Tan-cong-mang.jpg" height="164" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/my-se-cham-dut-dich-vu-dien-thoai-co-dinh-105648">
- Hanoi Telecom ra mắt giải pháp chống tấn công mạng</a></p>
-                            <p class="detail_ctt">
- Ngày 6/8, Công ty Cổ phần công nghệ an ninh không gian mạng Việt Nam VNCS (thuộc Hanoi Telecom) đã giới thiệu giải pháp giám sát tập trung (VNCS Web Monitoring) nhằm phát hiện các cuộc tấn công mạng kịp thời và đưa ra cảnh báo theo thời gian thực.                             </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
-                                <img src="Image/apple-11.jpg" height="150" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/microsoft-giam-gia-hang-loat-san-pham-trong-dip-ngay-thu-6-den-toi-105638">
- Trang khắc phục lỗi tấn công của Apple</a></p>
-                            <p class="detail_ctt">
- Trang web dành cho nhà phát triển (developer) của Apple mới đây đã bị hacker tấn công khiến công ty phải "đại tu hoàn toàn" cơ sở hạ tầng. Hiện tại Apple đã giới thiệu một trang cập nhật những trạng thái mới nhất của việc khắc phục hậu quả từ vụ tấn công trên.                            </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
-                                <img src="Image/Bao-ve.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/chau-au-doa-huy-giao-keo-voi-my-vi-nsa-105632">
- 8 cách bảo vệ thông tin cá nhân thời đại số </a></p>
-                            <p class="detail_ctt">
- Người dùng có thể tự vệ bằng cách không lưu lại các thông tin duyệt web trên browser, luôn đặt mật khẩu cho các thiết bị di động của bạn để đề phòng các trường hợp "táy máy" không cần thiết hoặc kích hoạt tính năng mật khẩu hai tầng cho một số dịch vụ Internet.                              </p>
-            </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
-                                <img src="Image/Antivirut-27.jpg" height="146" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/qualcomm-dang-bi-dieu-tra-chong-doc-quyen-tai-qualcomm-105602">
- Danh sách 26 đĩa CD boot antivirus để quét offline</a></p>
-                            <p class="detail_ctt"> 
- Một đĩa CD cứu hộ là một công cụ bổ sung hữu ích được cung cấp bởi các công ty chống virus để hỗ trợ trong việc loại bỏ khó khăn những phần mềm độc hại mà không cần khởi động vào Windows.                             </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597">
-                                <img src="Image/hacker-11.jpg" height="134" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/gia-ipad-co-the-giam-trong-ngay-black-friday-nam-nay-105597"> 
- Chương trình giúp người dùng kiểm tra mã độc DDoS </a></p>
-                            <p class="detail_ctt">
- Các trang báo điện tử lớn tại Việt Nam hiện tại vẫn đang bị hacker tấn công từ chối dịch vụ (DDoS) dẫn tới việc khó truy cập. Diễn đàn hacker lớn nhất Việt Nam, HVA Online cho biết hiện mỗi tờ báo đang phải gánh từ 50-70 Mbps, con số này lớn hơn rất nhiều lần so với lưu lượng truy cập thông thường.                          </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584"><img src="Image/Two-step-Apple-ID.jpg" height="144" hspace="5" vspace="3" align="left" border="0" /></a>
-                          <p class="title_ctt">
-                              <a href="/internet-khien-nganh-truyen-hinh-my-hap-hoi-105584">
- Apple ID được tăng cường tính bảo mật </a></p>
-                            <p class="detail_ctt">
- Nhà sản xuất iPhone, iPad buộc người dùng phải đăng nhập vào tài khoản Apple ID thông qua hai tầng mật khẩu.                              </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
-                                <img src="Image/Virus.jpg" height="147" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/trung-quoc-chinh-thuc-cung-cap-4g-tu-18-12-105578">
- Cách phòng chống nhiễm virus từ trình duyệt </a></p>
-                            <p class="detail_ctt">
- Plugin là những đối tượng tấn công béo bở. Lỗ hổng plugin có thể bị lợi dụng trên tất cả các trình duyệt và trên nhiều hệ điều hành khác nhau. Một lỗ hổng plugin Flash có thể bị lợi dụng để khai thác trình duyệt Chrome, Firefox hoặc Internet Explorer trên máy tính chạy hệ điều hành Windows, Linux hoặc Mac.                             </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
-                                <img src="Image/Cuoc-goi-nho.jpg" width="233" height="143" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                                <a href="/2-3-so-vu-ro-ri-thong-tin-xay-ra-tren-may-chu-105558">
- Đã có giải pháp chặn các cuộc gọi nhỡ lừa đảo </a></p>
-                            <p class="detail_ctt">
- Chiều ngày 27/2, Công ty Bkav cho biết đã tích hợp thành công giải pháp chặn các cuộc gọi nhỡ lừa đảo vào phần mềm bảo vệ Smartphone - Bkav Mobile Security.                             </p>
-                        </div>
-                    
-                        <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        <div class="subcontent2">
-                            <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
-                                <img src="Image/Bao-mat-2.jpg" width="287" height="141" hspace="5" vspace="3" align="left" border="0">
-                            </a>
-                            <p class="title_ctt">
-                          <a href="/gioi-chuc-duc-cam-dung-iphone-sau-be-boi-nghe-len-dien-thoai-105537">
- 10 lời khuyên bảo mật trực tuyến từ Google </a></p>
-                            <p class="detail_ctt">
- Có thể kể đến một số cách đơn giản như sử dụng mật khẩu phức tạp hoặc luôn khoá thiết bị sau khi sử dụng. Những lời khuyên này có thể áp dụng được cả trên máy tính lẫn thiết bị di động.                             </p>
-          </div>
-                    
-                       <div class="lines">
-                            <img src="Image/netdut.jpg">
-                        </div>
-                        
-                    
-                        <div class="lines">
-                            <img src="../../../Styles/images/kengang_netdut_digi_03.jpg"></div>
+                        	<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.giaiphapbaomat2.id }">
+								<img src="${pageScope.giaiphapbaomat2.url_daidien }" height="179" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.giaiphapbaomat2.id }">${pageScope.giaiphapbaomat2.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat2.header }</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.giaiphapbaomat3.id }">
+								<img src="${pageScope.giaiphapbaomat3.url_daidien }" height="171" hspace="5"
+								vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.giaiphapbaomat3.id }">${pageScope.giaiphapbaomat3.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat3.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.giaiphapbaomat4.id }">
+								<img src="${pageScope.giaiphapbaomat4.url_daidien }" height="164" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="load?id=${pageScope.giaiphapbaomat4.id }">${pageScope.giaiphapbaomat4.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat4.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.giaiphapbaomat5.id }">
+								<img src="${pageScope.giaiphapbaomat5.url_daidien }" height="150" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.giaiphapbaomat5.id }">${pageScope.giaiphapbaomat5.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat5.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.giaiphapbaomat6.id }"> <img
+								src="${pageScope.giaiphapbaomat6.url_daidien }" height="146" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="load?id=${pageScope.giaiphapbaomat6.id }">${pageScope.giaiphapbaomat6.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat6.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.giaiphapbaomat7.id }">
+								<img src="${pageScope.giaiphapbaomat7.url_daidien }" height="146" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.giaiphapbaomat7.id }">${pageScope.giaiphapbaomat7.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat7.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.giaiphapbaomat8.id }">
+								<img src="${pageScope.giaiphapbaomat8.url_daidien }" height="134" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.giaiphapbaomat8.id }">${pageScope.giaiphapbaomat8.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat8.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.giaiphapbaomat9.id }"><img
+									src="${pageScope.giaiphapbaomat9.url_daidien }" height="144" hspace="5" vspace="3"
+									align="left" border="0" /></a>
+								<p class="title_ctt">
+									<a href="load?id=${pageScope.giaiphapbaomat9.id }">${pageScope.giaiphapbaomat9.title }</a>
+								</p>
+								<p class="detail_ctt">${pageScope.giaiphapbaomat9.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.giaiphapbaomat10.id }">
+								<img src="${pageScope.giaiphapbaomat10.url_daidien }" height="147" hspace="5" vspace="3"
+								align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="load?id=${pageScope.giaiphapbaomat10.id }">${pageScope.giaiphapbaomat10.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat10.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a href="load?id=${pageScope.giaiphapbaomat11.id }">
+								<img src="${pageScope.giaiphapbaomat11.url_daidien }" height="142" hspace="5"
+								vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a href="load?id=${pageScope.giaiphapbaomat11.id }">${pageScope.giaiphapbaomat11.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat11.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+						<div class="subcontent2">
+							<a
+								href="load?id=${pageScope.giaiphapbaomat12.id }">
+								<img src="${pageScope.giaiphapbaomat12.url_daidien }" width="287" height="160"
+								hspace="5" vspace="3" align="left" border="0">
+							</a>
+							<p class="title_ctt">
+								<a
+									href="load?id=${pageScope.giaiphapbaomat12.id }">${pageScope.giaiphapbaomat12.title }</a>
+							</p>
+							<p class="detail_ctt">${pageScope.giaiphapbaomat12.header }</p>
+						</div>
+
+						<div class="lines">
+							<img src="Image/netdut.jpg">
+						</div>
+
+
+						<div class="lines">
+							<img src="../../../Styles/images/kengang_netdut_digi_03.jpg">
+						</div>
                         <div class="news_other">
                    CÁC TIN KHÁC</div>
           <div class="title_news">
@@ -427,163 +477,279 @@
            
 
         		<div class="content_right">
-				
-                    <div class="news">
-                        <div class="tit">
-                            
-                                   <a href="tinmoinhat.jsp">  Tin mới nhất </a>
-                            
-                        </div>
-                        <div class="ctm">
-                            
-                                    <div class="title_new">
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Google tung "độc chiêu" phòng chống DDoS
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Tin tặc Trung Quốc đánh cắp bí mật công ty Mỹ?
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Trojan mới khó phát hiện tấn công lỗ hổng IE
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Mã PIN smartphone sẽ lộ vì camera, microphone?
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-152 triệu tài khoản Adobe bị lộ trên web
-</a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-CIA trả tiền cho dữ liệu cuộc gọi của AT&T
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Microsoft, Facebook khuyến khích tìm lỗi bảo mật
- </a>
-                                     </div>
-                                      
-                                    
-                                     <div>
-                                          <img src="Image/icon.jpg" align="absmiddle">&nbsp;<a href="/">
-Virus lây từ smartphone sang máy tính đã có ở VN
-</a>
-                                     </div>
-                                      
-                                    
-                                     <span id="xemtin"><a href="${param.xemcactinkhac }"><strong>Xem các tin khác </strong></a></span>
-                                    
-                                               
-                                    </div>
-                               
-                        </div>
-                        <div class="space"></div>
-                       
-                    </div>   
-                                     
-                    <div class="headlines">
-                        <div class="tit">
-                           
-                                    <a>
-                                        Tiêu điểm
-                                    </a>
-                                
-                        </div>
-                        <div class="ctm">
-                                        
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Tan-cong-mang.jpg" width="175" height="161" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/8-cong-dung-khong-ngo-cua-task-manager-105027">
- Hanoi Telecom ra mắt giải pháp chống tấn công mạng                                                </a>
-                                            </div>
-                                        </div>
-                                        
+<%
+					List<TopicEntity> tinmoinhat = TopicDAO.loadLastedTopic(8);
+					TopicEntity tinmoinhat1 = tinmoinhat.get(0);
+					TopicEntity tinmoinhat2 = tinmoinhat.get(1);
+					TopicEntity tinmoinhat3 = tinmoinhat.get(2);
+					TopicEntity tinmoinhat4 = tinmoinhat.get(3);
+					TopicEntity tinmoinhat5 = tinmoinhat.get(4);
+					TopicEntity tinmoinhat6 = tinmoinhat.get(5);
+					TopicEntity tinmoinhat7 = tinmoinhat.get(6);
+					TopicEntity tinmoinhat8 = tinmoinhat.get(7);
 
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098"><img src="Image/hacker-11.jpg" width="142" height="159" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/huong-dan-nang-cap-len-windows-8-1-bang-hinh-anh-105098">
- Chương trình giúp người dùng kiểm tra mã độc DDoS                                                </a>
-                                            </div>
-                                        </div>
-  
-                                       	<div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119"><img src="Image/Bao-mat.jpg" width="142" height="147" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/xoa-bo-du-lieu-dong-bo-tren-may-tu-windows-8-1-105119">
- Mẹo bảo mật Google, Facebook và dịch vụ trực tuyến                                              </a>
-                                            </div>
-                                        </div>
-                                                        
-                                        <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044"><img src="Image/google-2.jpg" width="142" height="160" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/kich-hoat-bo-go-tieng-viet-tren-ubuntu-13-10-105044">
- Google tung "độc chiêu" phòng chống DDoS                                                 </a>
-                                            </div>
-                                        </div>
-                                     <div class="box1">
-                                            <div class="img_tieudiem">
-                                            <a href="/"><img src="Image/Bao-mat(1).jpg" width="142" height="185" hspace="3" vspace="3" align="left" border="0"></a>
-                                               
-                                            </div>
-                                            <div class="title_tieudiem">
-                                                <a href="/">
- Bảo mật smartphone Android chuyên nghiệp                                                </a>
-                                            </div>
-                                        </div>
-                                </div>
-                     </div>
-                    
-				
-        
-                                        
-                
-        		
-        		
-       	  </div>
-            
-        
-        </div>
-		
-        
-        </div>
+					pageContext.setAttribute("tinmoinhat1", tinmoinhat1);
+					pageContext.setAttribute("tinmoinhat2", tinmoinhat2);
+					pageContext.setAttribute("tinmoinhat3", tinmoinhat3);
+					pageContext.setAttribute("tinmoinhat4", tinmoinhat4);
+					pageContext.setAttribute("tinmoinhat5", tinmoinhat5);
+					pageContext.setAttribute("tinmoinhat6", tinmoinhat6);
+					pageContext.setAttribute("tinmoinhat7", tinmoinhat7);
+					pageContext.setAttribute("tinmoinhat8", tinmoinhat8);
+				%>
+					<div class="news">
+						<div class="tit">
+
+							<a href="tinmoinhat.jsp"> Tin mới nhất </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="title_new">
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat1.id }">${pageScope.tinmoinhat1.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat2.id }">${pageScope.tinmoinhat2.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat3.id }">${pageScope.tinmoinhat3.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat4.id }">${pageScope.tinmoinhat4.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat5.id }">${pageScope.tinmoinhat5.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat6.id }">${pageScope.tinmoinhat6.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat7.id }">${pageScope.tinmoinhat7.title
+										}</a>
+								</div>
+
+
+								<div>
+									<img src="Image/icon.jpg" align="absmiddle">&nbsp;<a
+										href="load?id=${pageScope.tinmoinhat8.id }">${pageScope.tinmoinhat8.title
+										}</a>
+								</div>
+
+
+								<span id="xemtin"><a href="/"><strong>Xem
+											các tin khác </strong></a></span>
+
+
+							</div>
+
+						</div>
+
+
+
+
+						<%
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							TopicEntity tieudiem1 = tieudiem.get(0);
+							TopicEntity tieudiem2 = tieudiem.get(1);
+							TopicEntity tieudiem3 = tieudiem.get(2);
+							TopicEntity tieudiem4 = tieudiem.get(3);
+							TopicEntity tieudiem5 = tieudiem.get(4);
+							TopicEntity tieudiem6 = tieudiem.get(5);
+							TopicEntity tieudiem7 = tieudiem.get(6);
+							TopicEntity tieudiem8 = tieudiem.get(7);
+							TopicEntity tieudiem9 = tieudiem.get(8);
+							TopicEntity tieudiem10 = tieudiem.get(9);
+
+							pageContext.setAttribute("tieudiem1", tieudiem1);
+							pageContext.setAttribute("tieudiem2", tieudiem2);
+							pageContext.setAttribute("tieudiem3", tieudiem3);
+							pageContext.setAttribute("tieudiem4", tieudiem4);
+							pageContext.setAttribute("tieudiem5", tieudiem5);
+							pageContext.setAttribute("tieudiem6", tieudiem6);
+							pageContext.setAttribute("tieudiem7", tieudiem7);
+							pageContext.setAttribute("tieudiem8", tieudiem8);
+							pageContext.setAttribute("tieudiem9", tieudiem9);
+							pageContext.setAttribute("tieudiem10", tieudiem10);
+						%>
+						<div class="space"></div>
+
+					</div>
+
+					<div class="headlines">
+						<div class="tit">
+
+							<a> Tiêu điểm </a>
+
+						</div>
+						<div class="ctm">
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }"><img
+										src="${pageScope.tieudiem1.url_daidien }" width="142"
+										height="174" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem1.id }">${pageScope.tieudiem1.title
+										}</a>
+								</div>
+							</div>
+
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }"><img
+										src="${pageScope.tieudiem2.url_daidien }" width="142"
+										height="169" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem2.id }">${pageScope.tieudiem2.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }"><img
+										src="${pageScope.tieudiem3.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem3.id }">${pageScope.tieudiem3.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }"><img
+										src="${pageScope.tieudiem4.url_daidien }" width="142"
+										height="172" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem4.id }">${pageScope.tieudiem4.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }"><img
+										src="${pageScope.tieudiem5.url_daidien }" width="142"
+										height="163" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem5.id }">${pageScope.tieudiem5.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }"><img
+										src="${pageScope.tieudiem6.url_daidien }" width="142"
+										height="154" hspace="3" vspace="3" align="left" border="0"></a>
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem6.id }">${pageScope.tieudiem6.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }"><img
+										src="${pageScope.tieudiem7.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem7.id }">${pageScope.tieudiem7.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }"><img
+										src="${pageScope.tieudiem8.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem8.id }">${pageScope.tieudiem8.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id }"><img
+										src="${pageScope.tieudiem9.url_daidien }" width="142"
+										height="145" hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem9.id } }">${pageScope.tieudiem9.title
+										}</a>
+								</div>
+							</div>
+
+							<div class="box1">
+								<div class="img_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }"><img
+										src="${pageScope.tieudiem10.url_daidien }" width="142"
+										hspace="3" vspace="3" align="left" border="0"></a>
+
+								</div>
+								<div class="title_tieudiem">
+									<a href="load?id=${pageScope.tieudiem10.id }">${pageScope.tieudiem10.title
+										}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+
+		</div>
         
 		<div class="footer">
 

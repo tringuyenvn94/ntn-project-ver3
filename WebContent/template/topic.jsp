@@ -32,7 +32,16 @@
 		String linkSubMenu = TopicDAO.loadLinkSub(subMenu);
 		String linkMainMenu = TopicDAO.loadLinkMain(mainMenu);
 		
-		if (mainMenu.equals("Hệ Điều Hành")) pageContext.setAttribute("menu", "menu");
+		if (mainMenu.equals("Trang Chủ")) pageContext.setAttribute("menu1", "menu");
+		if (mainMenu.equals("Tin Tức Công Nghệ")) pageContext.setAttribute("menu2", "menu");
+		if (mainMenu.equals("Bảo Mật")) pageContext.setAttribute("menu3", "menu");
+		if (mainMenu.equals("Phần Cứng")) pageContext.setAttribute("menu4", "menu");
+		if (mainMenu.equals("Phần Mềm")) pageContext.setAttribute("menu5", "menu");
+		if (mainMenu.equals("Hệ Điều Hành")) pageContext.setAttribute("menu6", "menu");
+		if (mainMenu.equals("Thiết Bị Số")) pageContext.setAttribute("menu7", "menu");
+		if (mainMenu.equals("Game")) pageContext.setAttribute("menu8", "menu");
+		if (mainMenu.equals("Thủ Thuật - Tiện Ích")) pageContext.setAttribute("menu9", "menu");
+		if (mainMenu.equals("Hỏi - Đáp")) pageContext.setAttribute("menu10", "menu");
 		
 	%>
 
@@ -78,10 +87,10 @@
         <div id="menumain">
 
 				<ul id="topmenu">
-					<li class="item"><a href="trangchu.jsp"><span>Trang chủ</span> </a>
+					<li class="item ${pageScope.menu1 }"><a href="trangchu.jsp"><span>Trang chủ</span> </a>
 						<ul class="submenu_1"></ul></li>
 
-					<li id="item_2" class="item"><a href="tintuccongnghe.jsp"><span> Tin tức công nghệ </span></a>
+					<li id="item_2" class="item ${pageScope.menu2 }"><a href="tintuccongnghe.jsp"><span> Tin tức công nghệ </span></a>
 
 						<ul class="submenu_2">
 
@@ -95,7 +104,7 @@
 
 
 
-					<li id="item_3" class="item"><a href="baomat.jsp"><span> Bảo mật </span></a>
+					<li id="item_3" class="item ${pageScope.menu3 }"><a href="baomat.jsp"><span> Bảo mật </span></a>
 
 						<ul class="submenu_3">
 
@@ -109,7 +118,7 @@
 
 						</ul></li>
 
-					<li id="item_4" class="item"><a href="phancung.jsp"><span> Phần cứng </span></a>
+					<li id="item_4" class="item ${pageScope.menu4 }"><a href="phancung.jsp"><span> Phần cứng </span></a>
 
 						<ul class="submenu_4">
 
@@ -123,7 +132,7 @@
 
 						</ul></li>
 
-					<li id="item_5" class="item"><a href="phanmem.jsp"><span> Phần mềm </span></a>
+					<li id="item_5" class="item ${pageScope.menu5 }"><a href="phanmem.jsp"><span> Phần mềm </span></a>
 
 						<ul class="submenu_5">
 
@@ -135,7 +144,7 @@
 
 						</ul></li>
 
-					<li id="item_6" class="item ${pageScope.menu }"><a href="hedieuhanh.jsp"><span> Hệ điều hành </span></a>
+					<li id="item_6" class="item ${pageScope.menu6 }"><a href="hedieuhanh.jsp"><span> Hệ điều hành </span></a>
 
 						<ul class="submenu_6">
 
@@ -147,7 +156,7 @@
 
 						</ul></li>
 
-					<li id="item_7" class="item"><a href="thietbiso.jsp"><span> Thiết bị số </span></a>
+					<li id="item_7" class="item ${pageScope.menu7 }"><a href="thietbiso.jsp"><span> Thiết bị số </span></a>
 						<ul class="submenu_7">
 
 							<li><a href="mayanh.jsp"> Máy ảnh</a></li>
@@ -164,13 +173,13 @@
 							<li><a href="phukien.jsp"> Phụ kiện</a></li>
 
 						</ul></li>
-					<li id="item_8" class="item"><a href="game.jsp"><span> Game </span></a>
+					<li id="item_8" class="item ${pageScope.menu8 }"><a href="game.jsp"><span> Game </span></a>
 						<ul class="submenu_8"></ul></li>
 
-					<li id="item_9" class="item"><a href="thuthuattientich.jsp"><span> Thủ thuật-Tiện ích </span></a>
+					<li id="item_9" class="item ${pageScope.menu9 }"><a href="thuthuattientich.jsp"><span> Thủ thuật-Tiện ích </span></a>
 						<ul class="submenu_9"></ul></li>
 
-					<li id="item_10" class="item"><a href="hoidap.jsp"><span> Hỏi-đáp </span></a>
+					<li id="item_10" class="item ${pageScope.menu10 }"><a href="hoidap.jsp"><span> Hỏi-đáp </span></a>
 						<ul class="submenu_10"></ul></li>
 				</ul>
 			</div>
