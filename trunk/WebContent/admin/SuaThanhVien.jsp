@@ -46,8 +46,8 @@
 							String username = user.getUseName();
 				%>
 				<div id="tv">
-					Xin chào,<%=username%>
-					|<a href="trangcanhan.jsp">Trang cá nhân </a>|<a href="dangxuat?user=user">Đăng Xuất </a>
+					Xin chào,&nbsp;<%=username%>
+					| <a href="trangcanhan.jsp">Trang cá nhân </a>| <a href="dangxuat?user=user">Đăng Xuất </a>
 
 				</div>
 				<%
