@@ -326,7 +326,7 @@
     			pageContext.setAttribute("bv9", bv9);
     			pageContext.setAttribute("bv10", bv10);
     			pageContext.setAttribute("bv11", bv11);
-    			pageContext.setAttribute("bv12", bv12);
+    	 		pageContext.setAttribute("bv12", bv12);
     	/*		pageContext.setAttribute("bv13", bv13);
     			pageContext.setAttribute("bv14", bv14);
     			pageContext.setAttribute("bv15", bv15);

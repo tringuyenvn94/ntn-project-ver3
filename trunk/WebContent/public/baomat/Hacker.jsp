@@ -202,7 +202,7 @@
 				TopicEntity hacker9 = hacker.get(8);
 				TopicEntity hacker10 = hacker.get(9);
 				TopicEntity hacker11 = hacker.get(10);
-			//	TopicEntity hacker12 = hacker.get(11);
+				TopicEntity hacker12 = hacker.get(11);
 				
 				pageContext.setAttribute("hacker1", hacker1);
 				pageContext.setAttribute("hacker2", hacker2);
@@ -215,7 +215,7 @@
 				pageContext.setAttribute("hacker9", hacker9);
 				pageContext.setAttribute("hacker10", hacker10);
 				pageContext.setAttribute("hacker11", hacker11);
-			//	pageContext.setAttribute("hacker12", hacker12);
+				pageContext.setAttribute("hacker12", hacker12);
 			%>
                 <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="baomat.jsp">Bảo mật</a>&nbsp;»&nbsp;<a href="hacker.jsp">Hacker</a>
         
