@@ -249,7 +249,9 @@
 						<tbody>
 							<tr>
 								<td>
-									<div id="baiviet">${pageScope.topic.content }
+									<div id="baiviet">
+									${pageScope.topic.header }
+									${pageScope.topic.content }
 									
 										<p style="text-align: right;"><em><strong>Theo ${pageScope.topic.url }</strong></em></p>
 									</div>
