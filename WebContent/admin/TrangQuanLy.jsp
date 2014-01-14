@@ -310,7 +310,7 @@ function xoalh() {
 											topics = TopicDAO.loadLastedTopic(-1);
 											break;
 										case 5:
-											topics = TopicDAO.loadAllFocusTopic();
+											topics = TopicDAO.loadAllFocusTopic(false);
 											break;
 										case 6:
 											topics = TopicDAO.loadBySubMenu("desktop");
