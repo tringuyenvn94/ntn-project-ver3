@@ -203,7 +203,7 @@
                         	TopicEntity dulieu9 = dulieu.get(8);
                         	TopicEntity dulieu10 = dulieu.get(9);
                         	TopicEntity dulieu11 = dulieu.get(10);
-                        /*	TopicEntity dulieu12 = dulieu.get(11);      */
+                        	TopicEntity dulieu12 = dulieu.get(11);      
 							
                         	
                         	pageContext.setAttribute("dulieu1", dulieu1);
@@ -217,7 +217,7 @@
                         	pageContext.setAttribute("dulieu9", dulieu9);
                         	pageContext.setAttribute("dulieu10", dulieu10);
                         	pageContext.setAttribute("dulieu11", dulieu11);
-                       /* 	pageContext.setAttribute("dulieu12", dulieu12);     */
+                        	pageContext.setAttribute("dulieu12", dulieu12);     
                         
                         	
                         %>
