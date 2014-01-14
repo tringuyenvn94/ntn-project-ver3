@@ -357,13 +357,41 @@ function xoalh() {
 						<div class="TabbedPanelsContent">
 						  <table width="995" border="1">
 						    <tr>
-						      <td align="right"><form name="form1" method="post" action="">
+						      <td align="right"><form name="form1" method="get" action="loadtopicbycondition">
 						        <label for="select"></label>
 						        Sắp xếp theo
-						        <select name="select" id="select">
-						          <option value="waiting">Watting</option>
-						          <option value="posted">Posted</option>
-						          <option value="banned">Banned</option>
+						        <select name="condition" id="select">
+						          <option value="waiting" ${requestScope.waiting }>Watting</option>
+						          <option value="posted" ${requestScope.posted }>Posted</option>
+						          <option value="banned" ${requestScope.banned }>Banned</option>
+						          <option value="all"	${requestScope.all }>All</option>
+						          <option value=desktop ${requestScope.desktop }>Desktop</option>
+								<option value=didong ${requestScope.didong }>Di Động</option>
+								<option value=danhgia ${requestScope.danhgia }>Đánh Giá</option>
+								<option value=game ${requestScope.game }>Game</option>
+								<option value=giaiphapbaomat ${requestScope.giaiphapbaomat }>Giải Pháp Bảo Mật</option>
+								<option value=hacker ${requestScope.hacker }>Hacker</option>
+								<option value=hoidap ${requestScope.hoidap }>Hỏi Đáp</option>
+								<option value=laptop ${requestScope.laptop }>Laptop</option>
+								<option value=mac ${requestScope.mac }>Mac</option>
+								<option value=mayanh ${requestScope.mayanh }>Máy Ảnh</option>
+								<option value=maynghenhac ${requestScope.maynghenhac }>Máy Nghe Nhạc</option>
+								<option value=mayquay ${requestScope.mayquay }>Máy Quay</option>
+								<option value=mienphigiamgia ${requestScope.mienphigiamgia }>Miễn Phí - Giảm Giá</option>
+								<option value=phukien ${requestScope.phukien }>Phụ Kiện</option>
+								<option value=quocte ${requestScope.quocte }>Quốc Tế</option>
+								<option value=thietbilinhkien ${requestScope.thietbilinhkien }>Thiết Bị - Linh Kiện</option>
+								<option value=thietbigame ${requestScope.thietbigame }>Thiết Bị Game</option>
+								<option value=thietbikhac ${requestScope.thietbikhac }>Thiết Bị Khác</option>
+								<option value=thuathuattienich ${requestScope.thuathuattienich }>Thủ Thuật Tiện Ích</option>
+								<option value=tinbaomat ${requestScope.tinbaomat }>Tin Bảo Mật</option>
+								<option value=tinkhac ${requestScope.tinkhac }>Tin Khác</option>
+								<option value=tintuc ${requestScope.tintuc }>Tin Tức</option>
+								<option value=trongnuoc ${requestScope.trongnuoc }>Trong Nước</option>
+								<option value=tuvan ${requestScope.tuvan }>Tư Vấn</option>
+								<option value=unixlinux ${requestScope.unixlinux }>Unit - Linux</option>
+								<option value=virus ${requestScope.virus }>Virus</option>
+								<option value=windows ${requestScope.windows }>Windows</option>
                                 </select>&nbsp;&nbsp;&nbsp;&nbsp;
 					            <input type="submit" name="button4" id="button4" value="Sắp xếp">
 					            &nbsp;&nbsp;&nbsp;&nbsp;
@@ -372,7 +400,7 @@ function xoalh() {
 					      </table>
 						  <table width="995" border="1" cellpadding="5">
 				<tr>
-				  <td width="38" align="center" bgcolor="${pageScope.bg }"><strong>STT</strong></td>
+				 					<td width="38" align="center" bgcolor="${pageScope.bg }"><strong>STT</strong></td>
 									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Tiêu đề bài viết</strong></td>
 									<td width="151" align="center" bgcolor="${pageScope.bg }"><strong>Chủ đề</strong></td>
 									<td width="135" align="center" bgcolor="${pageScope.bg }"><strong>Tác giả</strong></td>
@@ -383,19 +411,43 @@ function xoalh() {
 								</tr>
 								<%
 									List<TopicEntity> topics = new ArrayList<TopicEntity>();
-									int stt = 0;
 									String condition = (String) request.getAttribute("condition");
-									if (condition == null) topics = TopicDAO.loadAllWaiting();
+									String con = request.getParameter("con");
+									if (condition == null && con == null) topics = TopicDAO.loadAllWaiting();
+									else if (condition == null && con != null) condition = con;
 									else {
-										if (condition.equals("waiting")) topics = TopicDAO.loadAllWaiting();
-										else if (condition.equals("posted")) topics = TopicDAO.loadAllPosted();
-										else if (condition.equals("banned")) topics = TopicDAO.loadAllBanned();
+										switch (Integer.parseInt(condition)) {
+										case 1: 
+											topics = TopicDAO.loadAllWaiting();
+											break;
+										case 3:
+											topics = TopicDAO.loadAllPosted();
+											break;
+										case 2:
+											topics = TopicDAO.loadAllBanned();
+											break;
+										case 4:
+											topics = TopicDAO.loadLastedTopic(-1);
+											break;
+										case 5:
+											topics = TopicDAO.loadBySubMenu("desktop");
+											break;
+										}
 									}
 									int c3 = 0;
-									for (TopicEntity topic : topics) {
-										++stt;
+									String stt = request.getParameter("stt");
+									if (stt == null) stt = "0";
+									int n = Integer.parseInt(stt);
+									String pageNo = request.getParameter("page");
+									if (pageNo == null) pageNo = "1";
+									int pNo = Integer.parseInt(pageNo);
+									for (int i = (pNo - 1) * 30; i < (pNo * 30); i ++) {
+										n++;
+										System.out.println("STT: " + n);
+										if (n > topics.size()) break;
+										TopicEntity topic = topics.get(i);
 										c3++;
-										pageContext.setAttribute("stt", stt);
+										pageContext.setAttribute("stt", n);
 										pageContext.setAttribute("topic", topic);
 										Date datePost = topic.getDateCreated();
 										String rightDate = Validation.rightDate(datePost);
@@ -405,21 +457,35 @@ function xoalh() {
 										else pageContext.setAttribute("focus", "");
 										if ((c3 % 2) == 0) pageContext.setAttribute("color3", "#C9FFFF");
 										else pageContext.setAttribute("color3", "#D4D4DB");
+										String state = TopicDAO.getTopicState(topic.getId());
+										if (state.equals("waiting")) {
+											pageContext.setAttribute("waiting", "SELECTED");
+											pageContext.setAttribute("posted", "");
+											pageContext.setAttribute("banned", "");
+										} else if (state.equals("banned")) {
+											pageContext.setAttribute("waiting", "");
+											pageContext.setAttribute("posted", "");
+											pageContext.setAttribute("banned", "SELECTED");
+										} else if (state.equals("posted")) {
+											pageContext.setAttribute("waiting", "");
+											pageContext.setAttribute("posted", "SELECTED");
+											pageContext.setAttribute("banned", "");
+										}
 								%>
 							<form>
 								<tr>
-								  <td align="center" bgcolor="${pageScope.color3 }">&nbsp;</td>
+								  <td align="center" bgcolor="${pageScope.color3 }">${pageScope.stt }</td>
 									<td align="center" bgcolor="${pageScope.color3 }"><a href="load?id=${pageScope.topic.id }" title="${pageScope.topic.title }"><%=Validation.cut(topic.getTitle()) %></a></td>
-									<td align="center" bgcolor="${pageScope.color3 }">&nbsp;</td>
-									<td align="center" bgcolor="${pageScope.color3 }">&nbsp;</td>
-									<td align="center" bgcolor="${pageScope.color3 }">&nbsp;</td>
-									<td align="center" bgcolor="${pageScope.color3 }"><input type="checkbox" name="checkbox" id="checkbox" disabled="disabled" ${pageScope.focus }>
+									<td align="center" bgcolor="${pageScope.color3 }"><%=TopicDAO.loadSubMenu(topic.getId() + "") %></td>
+									<td align="center" bgcolor="${pageScope.color3 }">${pageScope.topic.author }</td>
+									<td align="center" bgcolor="${pageScope.color3 }"><%=Validation.rightDate(topic.getDateCreated()) %></td>
+									<td align="center" bgcolor="${pageScope.color3 }"><input type="checkbox" name="checkbox" id="checkbox" ${pageScope.focus }>
 								    <label for="checkbox"></label></td>
 									<td align="center" bgcolor="${pageScope.color3 }"><label for="select2"></label>
 									  <select name="select2" id="select2">
-									    <option value="waiting">Waiting</option>
-									    <option value="waiting">Posted</option>
-									    <option value="banned">Banned</option>
+									    <option value="waiting" ${pageScope.waiting }>Waiting</option>
+									    <option value="posted" ${pageScope.posted }>Posted</option>
+									    <option value="banned" ${pageScope.banned }>Banned</option>
 						            </select></td>
 									<td align="center" bgcolor="${pageScope.color3 }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;<a href="#">Xoá</a>
 								    &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="button3" id="button3" value="Lưu">									  </td>
@@ -431,10 +497,16 @@ function xoalh() {
 					</div>
 				</div>
               <div class="page_num">
-						<span>Trang: [<b>1</b>] [<a href="/tintuc/tin-quoc-te/2"
-							title="Qua trang 2">2</a>] [<a href="/tintuc/tin-quoc-te/3"
-							title="Qua trang 3">3</a>] [<a href="/tintuc/tin-quoc-te/731"
-							title="Qua trang cuối">Cuối</a>] <br>Có tất cả ? bài viết						</span>
+						<span>Trang:
+						<%
+						int pages = topics.size() / 30;
+						for (int i =  1; i <= pages + 1; i++ ) {
+						%>
+						[<a href="quanly.jsp?page=<%=i %>&stt=<%=(i - 1) * 30 %>&con=<%=condition %>" title="Qua trang <%=i %>"><%=i %></a>]
+						<%
+							}
+						%> 
+						 <br>Có tất cả <%=topics.size() %> bài viết	(ở phần quản lý bài viết)					</span>
 
 					</div>
 

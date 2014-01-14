@@ -5,7 +5,6 @@ import handle.Validation;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -133,7 +132,6 @@ public class TopicDAO {
 		String sql = "SELECT * FROM TOPIC WHERE id_sub_menu = ?";
 		return loadTopic(sql, idSubMenu);
 	}
-
 
 	/**
 	 * phương thức lấy một đoạn văn bản làm mở đầu bài viết
@@ -373,17 +371,21 @@ public class TopicDAO {
 			rs.afterLast();
 			int index = 0;
 			while (rs.previous()) {
-				if (index >= noOfEntities) break;
+				if (noOfEntities > 1) {
+					if (index >= noOfEntities) break;
+				}
 				TopicEntity topic = new TopicEntity();
 				String content = rs.getString("content");
 				topic.setContent(content);
-
-				String dateSt = rs.getString("date_created");
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-				Date date = sdf.parse(dateSt);
-				topic.setDateCreated(date);
+				if (noOfEntities > 1) {
+					String dateSt = rs.getString("date_created");
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+					Date date = sdf.parse(dateSt);
+					topic.setDateCreated(date);
+				} else topic.setDateCreated(rs.getDate("date_created"));
 				int id = rs.getInt("id");
 				topic.setId(id);
+				topic.setAuthor(rs.getString("author"));
 				String title = rs.getString("title");
 				topic.setTitle(title);
 				String type = rs.getString("id_sub_menu");
@@ -412,10 +414,12 @@ public class TopicDAO {
 		String sql = "SELECT * FROM topic WHERE focus = 1";
 		return loadTopics(sql, "");
 	}
-	
+
 	/**
 	 * Load những bài viết mà chỉ có duy nhất một main menu cũng là sub menu
-	 * @param idMain id của sub menu
+	 * 
+	 * @param idMain
+	 *            id của sub menu
 	 * @return danh sách các bài viết của sub menu đó
 	 * */
 	public static List<TopicEntity> loadByMainIdOnly(String idMain) {
@@ -459,23 +463,28 @@ public class TopicDAO {
 		}
 		return topics;
 	}
+
 	/**
 	 * Load bằng sub menu
-	 * @param id sub menu
+	 * 
+	 * @param id
+	 *            sub menu
 	 * @return một danh sách chứa các topic có cùng sub menu
 	 * */
 	public static List<TopicEntity> loadBySubMenu(String idSub) {
 		String sql = "SELECT * FROM topic WHERE id_sub_menu = ?";
 		return loadTopics(sql, idSub);
 	}
-	
+
 	/**
-	 * Phương thức tông quát load tất cả các bài viết theo state của bài viết đó
-	 * <br> ví dụ: load tất cả các bài viết có state là waiting
-	 * @param stateId id của state. vd: posted
+	 * Phương thức tông quát load tất cả các bài viết theo state của bài viết đó <br>
+	 * ví dụ: load tất cả các bài viết có state là waiting
+	 * 
+	 * @param stateId
+	 *            id của state. vd: posted
 	 * @return danh sách chứa các bài viết có state nhập vào
 	 * */
-	private static List<TopicEntity> loadByState(String stateId)	{
+	private static List<TopicEntity> loadByState(String stateId) {
 		List<TopicEntity> topics = new ArrayList<>();
 		String sql = "SELECT * FROM TOPIC WHERE state_id = ?";
 		ResultSet rs = Utils.util.getResultSet(sql, stateId);
@@ -513,42 +522,65 @@ public class TopicDAO {
 		}
 		return topics;
 	}
-	
+
 	/**
 	 * Phương load tất cả các bài viết có state là posted
+	 * 
 	 * @return danh sách chứa các bài viết có state là posted
 	 * */
 	public static List<TopicEntity> loadAllPosted() {
 		return loadByState("posted");
 	}
-	
+
 	/**
 	 * Phương load tất cả các bài viết có state là waiting
+	 * 
 	 * @return danh sách chứa các bài viết có state là waiting
 	 * */
 	public static List<TopicEntity> loadAllWaiting() {
 		return loadByState("waiting");
 	}
-	
+
 	/**
 	 * Phương load tất cả các bài viết có state là banned
+	 * 
 	 * @return danh sách chứa các bài viết có state là banned
 	 * */
 	public static List<TopicEntity> loadAllBanned() {
 		return loadByState("banned");
 	}
-	
+
 	/**
-	 * 	Phương thức lấy ID sub_menu dựa vào ID của bài viết.
-	 *  @param topicId là id của topic
-	 *  @return String là id của sub_menu
-	 * */ 
-	public static String getSubMenuId(String topicId)
-	{
+	 * Phương thức lấy ID sub_menu dựa vào ID của bài viết.
+	 * 
+	 * @param topicId
+	 *            là id của topic
+	 * @return String là id của sub_menu
+	 * */
+	public static String getSubMenuId(String topicId) {
 		String sql = "SELECT id_sub_menu FROM TOPIC WHERE id = ? ";
 		return loadString(sql, topicId);
-		
 	}
-	
-	
+
+	/**
+	 * Phương thức load trạng thái của một bài viết dựa vào id của bài viết
+	 * 
+	 * @param id
+	 *            id của bài viết
+	 * @return id của trạng thái của bài viết
+	 * */
+	public static String getTopicState(int id) {
+		String sql = "SELECT state_id FROM TOPIC WHERE id = ?";
+		ResultSet rs = Utils.util.getResultSet(sql, id + "");
+		String stateName = "";
+		try {
+			while (rs.next()) {
+				stateName = rs.getString("state_id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return stateName;
+	}
+
 }
