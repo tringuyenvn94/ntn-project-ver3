@@ -408,7 +408,7 @@ public class TopicDAO {
 	 *            id của sub menu
 	 * @return danh sách các bài viết của sub menu đó
 	 * */
-	public static List<TopicEntity> loadByMainIdOnly(String idMain) {
+	public static List<TopicEntity> loadByMainIdOnly(String idMain, boolean post) {
 		List<TopicEntity> topics = new ArrayList<>();
 		String sql = "SELECT * FROM topic WHERE id_sub_menu = ?";
 		ResultSet rs = Utils.util.getResultSet(sql, idMain);
@@ -418,10 +418,12 @@ public class TopicDAO {
 				topic = new TopicEntity();
 				int iD = rs.getInt("id");
 				String type = rs.getString("id_sub_menu");
+				if (post) {
 				String dateSt = rs.getString("date_created");
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 				Date date = sdf.parse(dateSt);
 				topic.setDateCreated(date);
+				}else topic.setDateCreated(rs.getDate("date_created"));
 				String content = rs.getString("content");
 				String title = rs.getString("title");
 				String url = rs.getString("url");
