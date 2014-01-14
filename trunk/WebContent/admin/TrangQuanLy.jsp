@@ -365,6 +365,7 @@ function xoalh() {
 						          <option value="posted" ${requestScope.posted }>Posted</option>
 						          <option value="banned" ${requestScope.banned }>Banned</option>
 						          <option value="all"	${requestScope.all }>All</option>
+						           <option value="tieudiem"	${requestScope.tieudiem }>Tiêu điểm</option>
 						          <option value=desktop ${requestScope.desktop }>Desktop</option>
 								<option value=didong ${requestScope.didong }>Di Động</option>
 								<option value=danhgia ${requestScope.danhgia }>Đánh Giá</option>
@@ -432,84 +433,87 @@ function xoalh() {
 											topics = TopicDAO.loadLastedTopic(-1);
 											break;
 										case 5:
-											topics = TopicDAO.loadBySubMenu("desktop");
+											topics = TopicDAO.loadAllFocusTopic();
 											break;
 										case 6:
-											topics = TopicDAO.loadBySubMenu("didong");
+											topics = TopicDAO.loadBySubMenu("desktop");
 											break;
 										case 7:
-											topics = TopicDAO.loadBySubMenu("danhgia");
+											topics = TopicDAO.loadBySubMenu("didong");
 											break;
 										case 8:
-											topics = TopicDAO.loadByMainIdOnly("game", false);
+											topics = TopicDAO.loadBySubMenu("danhgia");
 											break;
 										case 9:
-											topics = TopicDAO.loadBySubMenu("giaiphapbaomat");
+											topics = TopicDAO.loadByMainIdOnly("game", false);
 											break;
 										case 10:
-											topics = TopicDAO.loadBySubMenu("hacker");
+											topics = TopicDAO.loadBySubMenu("giaiphapbaomat");
 											break;
 										case 11:
-											topics = TopicDAO.loadByMainIdOnly("hoidap", false);
+											topics = TopicDAO.loadBySubMenu("hacker");
 											break;
 										case 12:
-											topics = TopicDAO.loadBySubMenu("laptop");
+											topics = TopicDAO.loadByMainIdOnly("hoidap", false);
 											break;
 										case 13:
-											topics = TopicDAO.loadBySubMenu("mac");
+											topics = TopicDAO.loadBySubMenu("laptop");
 											break;
 										case 14:
-											topics = TopicDAO.loadBySubMenu("mayanh");
+											topics = TopicDAO.loadBySubMenu("mac");
 											break;
 										case 15:
-											topics = TopicDAO.loadBySubMenu("maynghenhac");
+											topics = TopicDAO.loadBySubMenu("mayanh");
 											break;
 										case 16:
-											topics = TopicDAO.loadBySubMenu("mayquay");
+											topics = TopicDAO.loadBySubMenu("maynghenhac");
 											break;
 										case 17:
-											topics = TopicDAO.loadBySubMenu("mienphigiamgia");
+											topics = TopicDAO.loadBySubMenu("mayquay");
 											break;
 										case 18:
-											topics = TopicDAO.loadBySubMenu("phukien");
+											topics = TopicDAO.loadBySubMenu("mienphigiamgia");
 											break;
 										case 19:
-											topics = TopicDAO.loadBySubMenu("quocte");
+											topics = TopicDAO.loadBySubMenu("phukien");
 											break;
 										case 20:
-											topics = TopicDAO.loadBySubMenu("thietbilinhkien");
+											topics = TopicDAO.loadBySubMenu("quocte");
 											break;
 										case 21:
-											topics = TopicDAO.loadBySubMenu("thietbigame");
+											topics = TopicDAO.loadBySubMenu("thietbilinhkien");
 											break;
 										case 22:
-											topics = TopicDAO.loadBySubMenu("thietbikhac");
+											topics = TopicDAO.loadBySubMenu("thietbigame");
 											break;
 										case 23:
-											topics = TopicDAO.loadByMainIdOnly("thuthuattienich", false);
+											topics = TopicDAO.loadBySubMenu("thietbikhac");
 											break;
 										case 24:
-											topics = TopicDAO.loadBySubMenu("tinbaomat");
+											topics = TopicDAO.loadByMainIdOnly("thuthuattienich", false);
 											break;
 										case 25:
-											topics = TopicDAO.loadBySubMenu("tinkhac");
+											topics = TopicDAO.loadBySubMenu("tinbaomat");
 											break;
 										case 26:
-											topics = TopicDAO.loadBySubMenu("tintuc");
+											topics = TopicDAO.loadBySubMenu("tinkhac");
 											break;
 										case 27:
-											topics = TopicDAO.loadBySubMenu("trongnuoc");
+											topics = TopicDAO.loadBySubMenu("tintuc");
 											break;
 										case 28:
-											topics = TopicDAO.loadBySubMenu("tuvan");
+											topics = TopicDAO.loadBySubMenu("trongnuoc");
 											break;
 										case 29:
-											topics = TopicDAO.loadBySubMenu("unixlinux");
+											topics = TopicDAO.loadBySubMenu("tuvan");
 											break;
 										case 30:
-											topics = TopicDAO.loadBySubMenu("virus");
+											topics = TopicDAO.loadBySubMenu("unixlinux");
 											break;
 										case 31:
+											topics = TopicDAO.loadBySubMenu("virus");
+											break;
+										case 32:
 											topics = TopicDAO.loadBySubMenu("windows");
 											break;
 										}

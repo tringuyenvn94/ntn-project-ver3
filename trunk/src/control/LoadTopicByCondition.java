@@ -32,8 +32,34 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
+			request.setAttribute("danhgia", "");
+			request.setAttribute("game", "");
+			request.setAttribute("giaiphapbaomat", "");
+			request.setAttribute("hacker", "");
+			request.setAttribute("hoidap", "");
+			request.setAttribute("laptop", "");
+			request.setAttribute("mac", "");
+			request.setAttribute("mayanh", "");
+			request.setAttribute("maynghenhac", "");
+			request.setAttribute("mayquay", "");
+			request.setAttribute("mienphigiamgia", "");
+			request.setAttribute("phukien", "");
+			request.setAttribute("quocte", "");
+			request.setAttribute("thietbilinhkien", "");
+			request.setAttribute("thietbigame", "");
+			request.setAttribute("thietbikhac", "");
+			request.setAttribute("thuthuattienich", "");
+			request.setAttribute("tinbaomat", "");
+			request.setAttribute("tinkhac", "");
+			request.setAttribute("tintuc", "");
+			request.setAttribute("trongnuoc", "");
+			request.setAttribute("tuvan", "");
+			request.setAttribute("unixlinux", "");
+			request.setAttribute("virus", "");
+			request.setAttribute("windows", "");
 			break;
 		case "banned":
 			request.setAttribute("condition", "2");
@@ -41,8 +67,34 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "SELECTED");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
+			request.setAttribute("danhgia", "");
+			request.setAttribute("game", "");
+			request.setAttribute("giaiphapbaomat", "");
+			request.setAttribute("hacker", "");
+			request.setAttribute("hoidap", "");
+			request.setAttribute("laptop", "");
+			request.setAttribute("mac", "");
+			request.setAttribute("mayanh", "");
+			request.setAttribute("maynghenhac", "");
+			request.setAttribute("mayquay", "");
+			request.setAttribute("mienphigiamgia", "");
+			request.setAttribute("phukien", "");
+			request.setAttribute("quocte", "");
+			request.setAttribute("thietbilinhkien", "");
+			request.setAttribute("thietbigame", "");
+			request.setAttribute("thietbikhac", "");
+			request.setAttribute("thuthuattienich", "");
+			request.setAttribute("tinbaomat", "");
+			request.setAttribute("tinkhac", "");
+			request.setAttribute("tintuc", "");
+			request.setAttribute("trongnuoc", "");
+			request.setAttribute("tuvan", "");
+			request.setAttribute("unixlinux", "");
+			request.setAttribute("virus", "");
+			request.setAttribute("windows", "");
 			break;
 		case "posted":
 			request.setAttribute("condition", "3");
@@ -50,8 +102,34 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("posted", "SELECTED");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
+			request.setAttribute("danhgia", "");
+			request.setAttribute("game", "");
+			request.setAttribute("giaiphapbaomat", "");
+			request.setAttribute("hacker", "");
+			request.setAttribute("hoidap", "");
+			request.setAttribute("laptop", "");
+			request.setAttribute("mac", "");
+			request.setAttribute("mayanh", "");
+			request.setAttribute("maynghenhac", "");
+			request.setAttribute("mayquay", "");
+			request.setAttribute("mienphigiamgia", "");
+			request.setAttribute("phukien", "");
+			request.setAttribute("quocte", "");
+			request.setAttribute("thietbilinhkien", "");
+			request.setAttribute("thietbigame", "");
+			request.setAttribute("thietbikhac", "");
+			request.setAttribute("thuthuattienich", "");
+			request.setAttribute("tinbaomat", "");
+			request.setAttribute("tinkhac", "");
+			request.setAttribute("tintuc", "");
+			request.setAttribute("trongnuoc", "");
+			request.setAttribute("tuvan", "");
+			request.setAttribute("unixlinux", "");
+			request.setAttribute("virus", "");
+			request.setAttribute("windows", "");
 			break;
 		case "all":
 			request.setAttribute("condition", "4");
@@ -59,15 +137,77 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "SELECTED");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
+			request.setAttribute("danhgia", "");
+			request.setAttribute("game", "");
+			request.setAttribute("giaiphapbaomat", "");
+			request.setAttribute("hacker", "");
+			request.setAttribute("hoidap", "");
+			request.setAttribute("laptop", "");
+			request.setAttribute("mac", "");
+			request.setAttribute("mayanh", "");
+			request.setAttribute("maynghenhac", "");
+			request.setAttribute("mayquay", "");
+			request.setAttribute("mienphigiamgia", "");
+			request.setAttribute("phukien", "");
+			request.setAttribute("quocte", "");
+			request.setAttribute("thietbilinhkien", "");
+			request.setAttribute("thietbigame", "");
+			request.setAttribute("thietbikhac", "");
+			request.setAttribute("thuthuattienich", "");
+			request.setAttribute("tinbaomat", "");
+			request.setAttribute("tinkhac", "");
+			request.setAttribute("tintuc", "");
+			request.setAttribute("trongnuoc", "");
+			request.setAttribute("tuvan", "");
+			request.setAttribute("unixlinux", "");
+			request.setAttribute("virus", "");
+			request.setAttribute("windows", "");
 			break;
-		case "desktop":
+		case "tieudiem":
 			request.setAttribute("condition", "5");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "SELECTED");
+			request.setAttribute("desktop", "");
+			request.setAttribute("didong", "");
+			request.setAttribute("danhgia", "");
+			request.setAttribute("game", "");
+			request.setAttribute("giaiphapbaomat", "");
+			request.setAttribute("hacker", "");
+			request.setAttribute("hoidap", "");
+			request.setAttribute("laptop", "");
+			request.setAttribute("mac", "");
+			request.setAttribute("mayanh", "");
+			request.setAttribute("maynghenhac", "");
+			request.setAttribute("mayquay", "");
+			request.setAttribute("mienphigiamgia", "");
+			request.setAttribute("phukien", "");
+			request.setAttribute("quocte", "");
+			request.setAttribute("thietbilinhkien", "");
+			request.setAttribute("thietbigame", "");
+			request.setAttribute("thietbikhac", "");
+			request.setAttribute("thuthuattienich", "");
+			request.setAttribute("tinbaomat", "");
+			request.setAttribute("tinkhac", "");
+			request.setAttribute("tintuc", "");
+			request.setAttribute("trongnuoc", "");
+			request.setAttribute("tuvan", "");
+			request.setAttribute("unixlinux", "");
+			request.setAttribute("virus", "");
+			request.setAttribute("windows", "");
+			break;
+		case "desktop":
+			request.setAttribute("condition", "6");
+			request.setAttribute("waiting", "");
+			request.setAttribute("posted", "");
+			request.setAttribute("banned", "");
+			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "SELECTED");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -97,11 +237,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "didong":
-			request.setAttribute("condition", "6");
+			request.setAttribute("condition", "7");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "SELECTED");
 			request.setAttribute("danhgia", "");
@@ -131,11 +272,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "danhgia":
-			request.setAttribute("condition", "7");
+			request.setAttribute("condition", "8");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "SELECTED");
@@ -165,11 +307,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "game":
-			request.setAttribute("condition", "8");
+			request.setAttribute("condition", "9");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -199,11 +342,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "giaiphapbaomat":
-			request.setAttribute("condition", "9");
+			request.setAttribute("condition", "10");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -233,11 +377,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "hacker":
-			request.setAttribute("condition", "10");
+			request.setAttribute("condition", "11");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -267,11 +412,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "hoidap":
-			request.setAttribute("condition", "11");
+			request.setAttribute("condition", "12");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -301,11 +447,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "laptop":
-			request.setAttribute("condition", "12");
+			request.setAttribute("condition", "13");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -335,11 +482,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "mac":
-			request.setAttribute("condition", "13");
+			request.setAttribute("condition", "14");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -369,11 +517,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "mayanh":
-			request.setAttribute("condition", "14");
+			request.setAttribute("condition", "15");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -403,11 +552,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "maynghenhac":
-			request.setAttribute("condition", "15");
+			request.setAttribute("condition", "16");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -437,11 +587,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "mayquay":
-			request.setAttribute("condition", "16");
+			request.setAttribute("condition", "17");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -471,11 +622,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "mienphigiamgia":
-			request.setAttribute("condition", "17");
+			request.setAttribute("condition", "18");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -505,11 +657,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "phukien":
-			request.setAttribute("condition", "18");
+			request.setAttribute("condition", "19");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -539,11 +692,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "quocte":
-			request.setAttribute("condition", "19");
+			request.setAttribute("condition", "20");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -573,11 +727,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "thietbilinhkien":
-			request.setAttribute("condition", "20");
+			request.setAttribute("condition", "21");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -607,11 +762,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "thietbigame":
-			request.setAttribute("condition", "21");
+			request.setAttribute("condition", "22");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -641,11 +797,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "thietbikhac":
-			request.setAttribute("condition", "22");
+			request.setAttribute("condition", "23");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -675,11 +832,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "thuthuattienich":
-			request.setAttribute("condition", "23");
+			request.setAttribute("condition", "24");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -709,11 +867,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "tinbaomat":
-			request.setAttribute("condition", "24");
+			request.setAttribute("condition", "25");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -743,11 +902,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "tinkhac":
-			request.setAttribute("condition", "25");
+			request.setAttribute("condition", "26");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -777,11 +937,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "tintuc":
-			request.setAttribute("condition", "26");
+			request.setAttribute("condition", "27");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -811,11 +972,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "trongnuoc":
-			request.setAttribute("condition", "27");
+			request.setAttribute("condition", "28");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -845,11 +1007,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "tuvan":
-			request.setAttribute("condition", "28");
+			request.setAttribute("condition", "29");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -879,11 +1042,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "unixlinux":
-			request.setAttribute("condition", "29");
+			request.setAttribute("condition", "30");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -913,11 +1077,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "virus":
-			request.setAttribute("condition", "30");
+			request.setAttribute("condition", "31");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
@@ -947,11 +1112,12 @@ public class LoadTopicByCondition extends HttpServlet {
 			request.setAttribute("windows", "");
 			break;
 		case "windows":
-			request.setAttribute("condition", "31");
+			request.setAttribute("condition", "32");
 			request.setAttribute("waiting", "");
 			request.setAttribute("posted", "");
 			request.setAttribute("banned", "");
 			request.setAttribute("all", "");
+			request.setAttribute("tieudiem", "");
 			request.setAttribute("desktop", "");
 			request.setAttribute("didong", "");
 			request.setAttribute("danhgia", "");
