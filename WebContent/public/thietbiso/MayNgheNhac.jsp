@@ -222,7 +222,7 @@
                         %>
    									
    									
-                <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="phancung.jsp">Phần mềm</a>&nbsp;»&nbsp;<a href="desktop.jsp">Tin tức</a>
+                <a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="24" align="absmiddle" border="0"></a> »&nbsp;<a href="thietbiso.jsp">Thiết bị số</a>&nbsp;»&nbsp;<a href="maynghenhac.jsp">Máy nghe nhạc</a>
         
     </div>
        

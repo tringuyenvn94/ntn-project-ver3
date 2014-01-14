@@ -24,7 +24,7 @@ body {
 }
 
 .header {
-	background-image: url(../Image/Happy-new-year1.png);
+	background-image: url(../Image/Happy-new-year.png);
 	background-repeat: no-repeat;
 	background-position: right;
 	color: #FFFFFF;
@@ -35,7 +35,7 @@ body {
 }
 .headermain
 {
-	background-image: url(../Image/b.jpg);
+	background-image: url(../Image/header.jpg);
 	background-repeat: no-repeat;
 	background-position: 300px;
 	width: 999px;
