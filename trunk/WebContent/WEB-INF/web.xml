@@ -47,6 +47,14 @@
     <servlet-name>Xoa Lien He Servlet</servlet-name>
     <url-pattern>/xoalienhe</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>Xoa Bai Viet Servlet</servlet-name>
+    <servlet-class>control.XoaBaiViet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Xoa Bai Viet Servlet</servlet-name>
+    <url-pattern>/xoabaiviet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>Doc Lien He Servlet</servlet-name>
     <servlet-class>control.DocLienHe</servlet-class>
