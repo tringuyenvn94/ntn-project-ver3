@@ -47,7 +47,7 @@
     <servlet-name>Xoa Lien He Servlet</servlet-name>
     <url-pattern>/xoalienhe</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>Xoa Bai Viet Servlet</servlet-name>
     <servlet-class>control.XoaBaiViet</servlet-class>
   </servlet>
@@ -62,6 +62,14 @@
   <servlet-mapping>
     <servlet-name>Doc Lien He Servlet</servlet-name>
     <url-pattern>/doclienhe</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>State And Focus Servlet</servlet-name>
+    <servlet-class>control.StateAndFocus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>State And Focus Servlet</servlet-name>
+    <url-pattern>/stateandfocus</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Sua Thah Vien Servlet</servlet-name>
