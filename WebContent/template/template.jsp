@@ -295,69 +295,107 @@ response.setCharacterEncoding("utf8");
     <div class="title_art">
         Bài viết cùng chủ đề</div>
     <div class="hr"> </div>
+    
+    			
+    				<% 
+    			String id = (String) request.getAttribute("id");
+    			
+    			String topicIdMenu =  TopicDAO.getSubMenuId(id);
+    			List<TopicEntity> bv = TopicDAO.loadBySubMenu(topicIdMenu);
+    			TopicEntity bv1 = bv.get(0);    			
+    			TopicEntity bv2 = bv.get(1);    			
+    			TopicEntity bv3 = bv.get(2);    			
+    			TopicEntity bv4 = bv.get(3);    			
+    			TopicEntity bv5 = bv.get(4);    			
+    			TopicEntity bv6 = bv.get(5);    			
+    			TopicEntity bv7 = bv.get(6);    			
+    			TopicEntity bv8 = bv.get(7);    			
+    			TopicEntity bv9 = bv.get(8);    			
+    			TopicEntity bv10 = bv.get(9);    			
+    			TopicEntity bv11 = bv.get(10);    			
+    			TopicEntity bv12 = bv.get(11);    			
+    		/*	TopicEntity bv13 = bv.get(12);    			
+    			TopicEntity bv14 = bv.get(13);    			
+    			TopicEntity bv15 = bv.get(14);    			
+    			TopicEntity bv16 = bv.get(15);    			
+    			TopicEntity bv17 = bv.get(16);    			
+    			TopicEntity bv18 = bv.get(17);    			
+    			TopicEntity bv19 = bv.get(18);    			
+    			TopicEntity bv20 = bv.get(19);    			
+    			TopicEntity bv21 = bv.get(20);    			
+    			TopicEntity bv22 = bv.get(21);    			
+    			TopicEntity bv23 = bv.get(22);    			
+    			TopicEntity bv24 = bv.get(23);    			
+    			TopicEntity bv25 = bv.get(24);    			
+    			TopicEntity bv26 = bv.get(25);    			
+    			TopicEntity bv27 = bv.get(26);    			
+    			TopicEntity bv28 = bv.get(27);    			
+    			TopicEntity bv29 = bv.get(28);    			
+    			TopicEntity bv30 = bv.get(29);    			*/
+    			
+    			pageContext.setAttribute("bv1", bv1);
+    			pageContext.setAttribute("bv2", bv2);
+    			pageContext.setAttribute("bv3", bv3);
+    			pageContext.setAttribute("bv4", bv4);
+    			pageContext.setAttribute("bv5", bv5);
+    			pageContext.setAttribute("bv6", bv6);
+    			pageContext.setAttribute("bv7", bv7);
+    			pageContext.setAttribute("bv8", bv8);
+    			pageContext.setAttribute("bv9", bv9);
+    			pageContext.setAttribute("bv10", bv10);
+    			pageContext.setAttribute("bv11", bv11);
+    			pageContext.setAttribute("bv12", bv12);
+    	/*		pageContext.setAttribute("bv13", bv13);
+    			pageContext.setAttribute("bv14", bv14);
+    			pageContext.setAttribute("bv15", bv15);
+    			pageContext.setAttribute("bv16", bv16);
+    			pageContext.setAttribute("bv17", bv17);
+    			pageContext.setAttribute("bv18", bv18);
+    			pageContext.setAttribute("bv19", bv19);
+    			pageContext.setAttribute("bv20", bv20);
+    			pageContext.setAttribute("bv21", bv21);
+    			pageContext.setAttribute("bv22", bv22);
+    			pageContext.setAttribute("bv23", bv23);
+    			pageContext.setAttribute("bv24", bv24);
+    			pageContext.setAttribute("bv25", bv25);
+    			pageContext.setAttribute("bv26", bv26);
+    			pageContext.setAttribute("bv27", bv27);
+    			pageContext.setAttribute("bv28", bv28);
+    			pageContext.setAttribute("bv29", bv29);
+    			pageContext.setAttribute("bv30", bv30);			*/
+    			
+    			%>
+    			
+    			
     <div class="infoA">
         
                 <ul>
             
-                <li><a href=""> nd</a> </li>
+                <li><a href="load?id=${pageScope.bv1.id }"> ${pageScope.bv1.title }  </a> </li>
             
-                <li><a href=""> nd</a> </li>
+                <li><a href="load?id=${pageScope.bv2.id }"> ${pageScope.bv2.title }</a> </li>
             
-                <li><a href=""> Lenovo ra mắt ThinkPad W540 màn hình 15,5 inch</a> </li>
+                <li><a href="load?id=${pageScope.bv3.id }"> ${pageScope.bv3.title }</a> </li>
             
-                <li><a href=""> Xem mặt đối thủ mới của MacBook Pro Retina</a> </li>
+                <li><a href="load?id=${pageScope.bv4.id }"> ${pageScope.bv4.title }</a> </li>
             
-                <li><a href=""> Chromebook dùng chip Haswell ra mắt vài tháng tới</a> </li>
+                <li><a href="load?id=${pageScope.bv5.id }"> ${pageScope.bv5.title }</a> </li>
             
-                <li><a href=""> HP giới thiệu loạt máy trạm siêu mỏng dòng Zbook</a> </li>
+                <li><a href="load?id=${pageScope.bv6.id }"> ${pageScope.bv6.title }</a> </li>
             
-                <li><a href=""> HP Chromebook 14 nhiều màu sắc, giá từ 299 USD</a> </li>
+                <li><a href="load?id=${pageScope.bv7.id }"> ${pageScope.bv7.title }</a> </li>
             
-                <li><a href=""> Máy tính 2 màn hình tất cả trong một</a> </li>
+                <li><a href="load?id=${pageScope.bv8.id }"> ${pageScope.bv8.title }</a> </li>
             
-                <li><a href=""> Dell công bố bộ đôi máy trạm cấu hình "khủng"</a> </li>
+                <li><a href="load?id=${pageScope.bv9.id }"> ${pageScope.bv9.title }</a> </li>
             
-                <li><a href=""> Điểm mặt laptop giảm giá tiền triệu</a> </li>
+                <li><a href="load?id=${pageScope.bv10.id }"> ${pageScope.bv10.title }</a> </li>
             
-                <li><a href=""> Những máy tính nổi bật nhất tại IFA 2013</a> </li>
+                <li><a href="load?id=${pageScope.bv11.id }"> ${pageScope.bv11.title }</a> </li>
             
-                <li><a href=""> Asus công bố bộ đôi Zenbook UX301 và UX302</a> </li>
+                <li><a href="load?id=${pageScope.bv12.id }"> ${pageScope.bv12.title }</a> </li>
             
-                <li><a href=""> Toshiba giới thiệu laptop lai Satellite Click</a> </li>
-            
-                <li><a href=""> Toshiba ra mắt Satellite NB15t màn hình cảm ứng</a> </li>
-            
-                <li><a href=""> Lenovo công bố Yoga 2 với màn hình "siêu khủng"</a> </li>
-            
-                <li><a href=""> Thế hệ Vaio Fit mới tối ưu khả năng cảm ứng</a> </li>
-            
-                <li><a href=""> Asus hé lộ mẫu ultrabook cao cấp Zenbook UX301</a> </li>
-            
-                <li><a href=""> Lenovo ra mắt Thinkpad X240 với pin hơn 10 tiếng</a> </li>
-            
-                <li><a href=""> Lenovo ra ultrabook có 2 pin, dùng được 17 tiếng</a> </li>
-            
-                <li><a href=""> 5 "bom xịt" laptop trong năm 2013</a> </li>
-            
-                <li><a href=""> Asus giới thiệu ultrabook cảm ứng giá từ 700 USD</a> </li>
-            
-                <li><a href=""> MacBook Pro dùng chip Intel sẽ ra mắt tháng sau</a> </li>
-            
-                <li><a href=""> Lenovo Flex 14 - Ultrabook màn hình xoay 300 độ</a> </li>
-            
-                <li><a href=""> Top laptop phục vụ thiết kế đồ họa hiện nay</a> </li>
-            
-                <li><a href=""> Apple tập trung đẩy mạnh doanh số máy Mac</a> </li>
-            
-                <li><a href=""> Asus có thể ra laptop cảm ứng với pin 5 tiếng</a> </li>
-            
-                <li><a href=""> Acer công bố giá bán Aspire S7 dùng chip Haswell</a> </li>
-            
-                <li><a href=""> Top những laptop phục vụ "nghe nhìn" đáng mua nhất</a> </li>
-            
-                <li><a href=""> Ultrabook đắt nhất của Acer nâng cấp chip Haswell</a> </li>
-            
-                <li><a href=""> Asus rời "sân chơi" Windows RT</a> </li>
+         
             
                 </ul> <span id="allnews"><a href="/">Xem tất cả </a></span>
     </div>
