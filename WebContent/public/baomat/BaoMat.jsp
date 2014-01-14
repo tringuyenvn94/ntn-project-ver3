@@ -290,7 +290,7 @@
                         %>
                            
                                     <div class="title_article">
-                                        <a href="load?id=${pageScope.tinbaomat1.id }">Trojan mới khó phát hiện tấn công lỗ hổng IE</a>
+                                        <a href="load?id=${pageScope.tinbaomat1.id }"></a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
@@ -320,13 +320,13 @@
                                     </div>
                                     
                                     <div class="title_article">
-                                        <a href="load?id=${pageScope.tinbaomat3.id }">152 triệu tài khoản Adobe bị lộ trên web</a>
+                                        <a href="load?id=${pageScope.tinbaomat3.id }">{pageScope.tinbaomat3.title }</a>
                                      </div>   
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="load?id=${pageScope.tinbaomat3.id }"><img src="Image/adobe.jpg" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    <a href="load?id=${pageScope.tinbaomat3.id }"><img src="${pageScope.tinbaomat3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
 																		${pageScope.tinbaomat3.header }
                                                 </td>
                                          
