@@ -413,6 +413,8 @@ function xoalh() {
 									List<TopicEntity> topics = new ArrayList<TopicEntity>();
 									String condition = (String) request.getAttribute("condition");
 									String con = request.getParameter("con");
+									System.out.println(con);
+									System.out.println(condition);
 									if (condition == null && con == null) topics = TopicDAO.loadAllWaiting();
 									else if (condition == null && con != null) condition = con;
 									else {
@@ -432,6 +434,9 @@ function xoalh() {
 										case 5:
 											topics = TopicDAO.loadBySubMenu("desktop");
 											break;
+										case 6:
+											topics = TopicDAO.loadBySubMenu("didong");
+											break;
 										}
 									}
 									int c3 = 0;
@@ -443,7 +448,6 @@ function xoalh() {
 									int pNo = Integer.parseInt(pageNo);
 									for (int i = (pNo - 1) * 30; i < (pNo * 30); i ++) {
 										n++;
-										System.out.println("STT: " + n);
 										if (n > topics.size()) break;
 										TopicEntity topic = topics.get(i);
 										c3++;
