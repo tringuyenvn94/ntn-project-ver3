@@ -432,17 +432,17 @@ function xoalh() {
 											pageContext.setAttribute("banned", "");
 										}
 								%>
-							<form>
+							<form action="stateandfocus" method="get">
 								<tr>
-								  <td align="center" bgcolor="${pageScope.color3 }">${pageScope.stt }</td>
+								  <td align="center" bgcolor="${pageScope.color3 }">${pageScope.stt }<input type="hidden" value="${pageScope.topic.id }" name="hiddenid"></td>
 									<td align="center" bgcolor="${pageScope.color3 }"><a href="load?id=${pageScope.topic.id }" title="${pageScope.topic.title }"><%=Validation.cut(topic.getTitle()) %></a></td>
 									<td align="center" bgcolor="${pageScope.color3 }"><%=TopicDAO.loadSubMenu(topic.getId() + "") %></td>
 									<td align="center" bgcolor="${pageScope.color3 }">${pageScope.topic.author }</td>
 									<td align="center" bgcolor="${pageScope.color3 }"><%=Validation.rightDate(topic.getDateCreated()) %></td>
-									<td align="center" bgcolor="${pageScope.color3 }"><input type="checkbox" name="checkbox" id="checkbox" ${pageScope.focus }>
+									<td align="center" bgcolor="${pageScope.color3 }"><input type="checkbox" name="focus" id="checkbox" ${pageScope.focus }>
 								    <label for="checkbox"></label></td>
 									<td align="center" bgcolor="${pageScope.color3 }"><label for="select2"></label>
-									  <select name="select2" id="select2">
+									  <select name="state_id" id="select2">
 									    <option value="waiting" ${pageScope.waiting }>Waiting</option>
 									    <option value="posted" ${pageScope.posted }>Posted</option>
 									    <option value="banned" ${pageScope.banned }>Banned</option>

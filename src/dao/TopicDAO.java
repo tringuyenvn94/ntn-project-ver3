@@ -217,7 +217,7 @@ public class TopicDAO {
 	 *            tham số truyền vào làm điều kiện của câu truy vấn
 	 * @return một List chứa các topic đã lọc được nhờ vào câu sql
 	 * */
-	private static List<TopicEntity> loadTopics(String sql, String param) {
+	private static List<TopicEntity> loadTopics(String sql, String param, boolean post) {
 		ResultSet rs = null;
 		List<TopicEntity> topics = new ArrayList<>();
 
@@ -233,11 +233,12 @@ public class TopicDAO {
 				topic = new TopicEntity();
 				int iD = rs.getInt("id");
 				String type = rs.getString("id_sub_menu");
+				if (post) {
 				String dateSt = rs.getString("date_created");
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 				Date date = sdf.parse(dateSt);
 				topic.setDateCreated(date);
-				
+				} else topic.setDateCreated(rs.getDate("date_created"));
 				String content = rs.getString("content");
 				String title = rs.getString("title");
 				String url = rs.getString("url");
@@ -396,9 +397,9 @@ public class TopicDAO {
 	 * 
 	 * @return một danh sách chứa các bài viết
 	 * */
-	public static List<TopicEntity> loadAllFocusTopic() {
+	public static List<TopicEntity> loadAllFocusTopic(boolean post) {
 		String sql = "SELECT * FROM topic WHERE focus = 1";
-		return loadTopics(sql, "");
+		return loadTopics(sql, "", post);
 	}
 
 	/**
@@ -638,9 +639,10 @@ public class TopicDAO {
 				+ "header = ?,"
 				+ "content = ?,"
 				+ "state_id = ?,"
-				+ "url = ?"
+				+ "url = ?, "
+				+ "focus = ?"
 				+ " WHERE id = ?";
-		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 		Object[] values = { 
 				topic.getAuthor(),
 				topic.getEmail(),
@@ -651,7 +653,8 @@ public class TopicDAO {
 				topic.getContent(),
 				topic.getState().getId(),
 				topic.getUrl(),
-				topic.getId()
+				topic.getId(),
+				topic.isFocus()
 		};
 		Utils.util.update(sql, indexes, values);
 	}

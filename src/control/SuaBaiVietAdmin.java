@@ -34,10 +34,6 @@ public class SuaBaiVietAdmin extends HttpServlet {
 		System.out.println(topicId);
 		request.setAttribute("topicEditId", topicId);
 		request.getRequestDispatcher("/suabaiviet.jsp").forward(request, response);
-		String focus = request.getParameter("focus");
-		String stateId = request.getParameter("state_id");
-		System.out.println("focus in servlet: " + focus);
-		System.out.println("state id in servlet: " + stateId);
 	}
 
 	/**
