@@ -85,4 +85,29 @@ public class Utils {
 		}
 		return result;
 	}
+	
+	/**
+	 * Phương thức tổng quát load ResultSet
+	 * 
+	 * @param sql
+	 *            câu lệnh sql cho prepared statement
+	 * @param indexes
+	 *            mảng lưu các chỉ số index cho prepared statement set vào
+	 * @param values
+	 *            mảng các giá trị cho prepared statement set vào
+	 * @return ResultSet là kết quả trả về của câu sql
+	 * */
+	public ResultSet executeQuery(String sql, int[] indexes, Object[] values) {
+		ResultSet rs = null;
+		try {
+			ps = mc.conn.prepareStatement(sql);
+			for (int i = 0; i < indexes.length; i++) {
+				ps.setObject(indexes[i], values[i]);
+			}
+			rs = ps.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 }

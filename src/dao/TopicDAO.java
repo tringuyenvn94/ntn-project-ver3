@@ -116,22 +116,24 @@ public class TopicDAO {
 	/**
 	 * Lấy topic cuối cùng được lưu vào DB
 	 * 
-	 * @return 1 topic được đăng gần nhất
+	 * @return 1 topic được đăng gần nhất và được admin cho phép posted
+	 *         (có nghĩa là state id của nó phải là posted)
 	 * */
 	public static TopicEntity loadLastedTopic() {
-		String sql = "SELECT * FROM TOPIC";
-		return loadTopic(sql, "");
+		String sql = "SELECT * FROM TOPIC WHERE state_id = ?";
+		return loadTopic(sql, "posted");
 	}
 
 	/**
 	 * Lấy topic cuối cùng được lưu vào DB dựa trên một id của sub menu
+	 * và topic đó phải có state id là posted
 	 * 
 	 * @param idSubMenu
 	 *            id của sub menu cần lấy bài lên
-	 * @return 1 topic được đăng gần nhất
+	 * @return 1 topic được đăng gần nhất (có stated là posted)
 	 * */
 	public static TopicEntity loadLastedTopic(String idSubMenu) {
-		String sql = "SELECT * FROM TOPIC WHERE id_sub_menu = ?";
+		String sql = "SELECT * FROM TOPIC WHERE id_sub_menu = ? AND state_id = 'posted'";
 		return loadTopic(sql, idSubMenu);
 	}
 
@@ -215,6 +217,8 @@ public class TopicDAO {
 	 *            câu lệnh sql
 	 * @param param
 	 *            tham số truyền vào làm điều kiện của câu truy vấn
+	 * @param post Nếu topic có đk post là true thì topic đó dùng để hiển thị lên trang web,
+	 * còn nếu post là false thì nó dùng để cập nhật trong bảng (phần quản lý bài viết của user)
 	 * @return một List chứa các topic đã lọc được nhờ vào câu sql
 	 * */
 	private static List<TopicEntity> loadTopics(String sql, String param, boolean post) {
@@ -234,10 +238,10 @@ public class TopicDAO {
 				int iD = rs.getInt("id");
 				String type = rs.getString("id_sub_menu");
 				if (post) {
-				String dateSt = rs.getString("date_created");
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-				Date date = sdf.parse(dateSt);
-				topic.setDateCreated(date);
+					String dateSt = rs.getString("date_created");
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+					Date date = sdf.parse(dateSt);
+					topic.setDateCreated(date);
 				} else topic.setDateCreated(rs.getDate("date_created"));
 				String content = rs.getString("content");
 				String title = rs.getString("title");
@@ -269,13 +273,13 @@ public class TopicDAO {
 
 	/**
 	 * Phương thức load một loạt 3 bài viết trước bài mới nhất
-	 * 
+	 * và 3 bài viết đó phải có state là posted
 	 * @return một list chứa 3 topic đó
 	 * */
 
 	public static List<TopicEntity> loadBeforeLasted() {
 		List<TopicEntity> topics = new ArrayList<>();
-		String sql = "SELECT * FROM TOPIC";
+		String sql = "SELECT * FROM TOPIC WHERE state_id = 'posted'";
 		ResultSet rs = Utils.util.getResultSet(sql);
 		try {
 			rs.afterLast();
@@ -314,7 +318,7 @@ public class TopicDAO {
 
 	/**
 	 * Phương thức load những bài mới nhất theo id của main menu
-	 * 
+	 * , bài viết đó phải có state là posted
 	 * @param idMainMenu
 	 *            id của main menu muốn load
 	 * @return một list gồm những bài viết mới nhất
@@ -344,14 +348,14 @@ public class TopicDAO {
 
 	/**
 	 * Lấy những topic cuối cùng được lưu vào DB dựa trên một số nhập vào
-	 * 
+	 * và các bài viết đó phải có state là posted
 	 * @param noOfEntities
 	 *            số lượng topic muốn load lên
 	 * @return 1 danh sách topic được đăng gần nhất
 	 * */
 	public static List<TopicEntity> loadLastedTopic(int noOfEntities) {
 		List<TopicEntity> topics = new ArrayList<>();
-		String sql = "SELECT * FROM TOPIC";
+		String sql = "SELECT * FROM TOPIC WHERE state_id = 'posted'";
 		ResultSet rs = Utils.util.getResultSet(sql);
 		try {
 			rs.last();
@@ -394,24 +398,24 @@ public class TopicDAO {
 
 	/**
 	 * Phương thức load tất cả các bài tiêu điểm
-	 * 
+	 * và các bài viết đó phải có state là posted
 	 * @return một danh sách chứa các bài viết
 	 * */
 	public static List<TopicEntity> loadAllFocusTopic(boolean post) {
-		String sql = "SELECT * FROM topic WHERE focus = 1";
+		String sql = "SELECT * FROM topic WHERE focus = 1 AND state_id = 'posted'";
 		return loadTopics(sql, "", post);
 	}
 
 	/**
 	 * Load những bài viết mà chỉ có duy nhất một main menu cũng là sub menu
-	 * 
+	 * và các bài viết đó phải có state là posted
 	 * @param idMain
 	 *            id của sub menu
 	 * @return danh sách các bài viết của sub menu đó
 	 * */
 	public static List<TopicEntity> loadByMainIdOnly(String idMain, boolean post) {
 		List<TopicEntity> topics = new ArrayList<>();
-		String sql = "SELECT * FROM topic WHERE id_sub_menu = ?";
+		String sql = "SELECT * FROM topic WHERE id_sub_menu = ? AND state_id = 'posted'";
 		ResultSet rs = Utils.util.getResultSet(sql, idMain);
 		try {
 			TopicEntity topic;
@@ -420,11 +424,11 @@ public class TopicDAO {
 				int iD = rs.getInt("id");
 				String type = rs.getString("id_sub_menu");
 				if (post) {
-				String dateSt = rs.getString("date_created");
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-				Date date = sdf.parse(dateSt);
-				topic.setDateCreated(date);
-				}else topic.setDateCreated(rs.getDate("date_created"));
+					String dateSt = rs.getString("date_created");
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+					Date date = sdf.parse(dateSt);
+					topic.setDateCreated(date);
+				} else topic.setDateCreated(rs.getDate("date_created"));
 				String content = rs.getString("content");
 				String title = rs.getString("title");
 				String url = rs.getString("url");
@@ -455,13 +459,13 @@ public class TopicDAO {
 
 	/**
 	 * Load bằng sub menu
-	 * 
+	 * và các bài viết đó phải có state là posted
 	 * @param id
 	 *            sub menu
 	 * @return một danh sách chứa các topic có cùng sub menu
 	 * */
 	public static List<TopicEntity> loadBySubMenu(String idSub) {
-		String sql = "SELECT * FROM topic WHERE id_sub_menu = ?";
+		String sql = "SELECT * FROM topic WHERE id_sub_menu = ? AND state_id = 'posted'";
 		ResultSet rs = null;
 		List<TopicEntity> topics = new ArrayList<>();
 
@@ -613,23 +617,15 @@ public class TopicDAO {
 		}
 		return stateName;
 	}
-	
+
 	/**
 	 * Phương thức update bài viết
-	 * @param topic một bài viết được update
+	 * 
+	 * @param topic
+	 *            một bài viết được update
 	 * */
 	public static void update(TopicEntity topic) {
-		System.out.println("dao Header: "+topic.getHeader());
-		System.out.println("dao Email: "+topic.getEmail());
-		System.out.println("dao Type: "+topic.getType());
-		System.out.println("dao Title: "+topic.getTitle());
-		System.out.println("dao: URL Dai Dien: "+topic.getUrl_daidien());
-		System.out.println("dao Content: "+topic.getContent());
-		System.out.println("dao Url: "+topic.getUrl());
-		System.out.println("dao Id: "+topic.getId());
-		System.out.println("dao Author: "+topic.getAuthor());
-		System.out.println("dao State: "+topic.getState().getId());
-		
+
 		String sql = "UPDATE TOPIC SET "
 				+ "author = ?,"
 				+ "email = ?,"
@@ -643,7 +639,7 @@ public class TopicDAO {
 				+ "focus = ?"
 				+ " WHERE id = ?";
 		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-		Object[] values = { 
+		Object[] values = {
 				topic.getAuthor(),
 				topic.getEmail(),
 				topic.getType(),
@@ -661,13 +657,15 @@ public class TopicDAO {
 
 	/**
 	 * Phương thức xóa bài viết
-	 * @param id id của bài viết
+	 * 
+	 * @param id
+	 *            id của bài viết
 	 * */
 	public static void delete(int id) {
 		String sql = "DELETE FROM TOPIC WHERE id = ?";
 		int[] indexes = { 1 };
-		Object[] values= { id };
+		Object[] values = { id };
 		Utils.util.delete(sql, indexes, values);
 	}
-	
+
 }
