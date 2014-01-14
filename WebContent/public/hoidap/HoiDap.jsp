@@ -215,7 +215,7 @@
                         	TopicEntity hoidap21 = hdap.get(20);
                         	TopicEntity hoidap22 = hdap.get(21);
                         	TopicEntity hoidap23 = hdap.get(22);
-                        	TopicEntity hoidap24 = hdap.get(23);
+                        	TopicEntity hoidap24 = hdap.get(23);		
 
                         	
                         	pageContext.setAttribute("hdap1", hdap1);
@@ -242,7 +242,7 @@
                         	pageContext.setAttribute("hoidap21", hoidap21);
                         	pageContext.setAttribute("hoidap22", hoidap22);
                         	pageContext.setAttribute("hoidap23", hoidap23);
-                        	pageContext.setAttribute("hoidap24", hoidap24);
+                        	pageContext.setAttribute("hoidap24", hoidap24);    
                         	
                         	
                         
