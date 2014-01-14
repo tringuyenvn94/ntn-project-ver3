@@ -52,6 +52,7 @@ public class SuaBaiVietAdmin extends HttpServlet {
 		String url_daidien = request.getParameter("url_daidien");
 		String header = request.getParameter("header");
 		String state = request.getParameter("state");
+		String topicId = request.getParameter("topicid");
 		if (
 				!Validation.isNull(content) &&
 				!Validation.isNull(fullName) &&
@@ -64,8 +65,9 @@ public class SuaBaiVietAdmin extends HttpServlet {
 			topic.setAuthor(fullName);
 			topic.setEmail(email);
 			topic.setUrl_daidien(url_daidien);
-			topic.setHeader(header);
+			topic.setHeader("<p><strong>" + header + "</strong></p>");
 			topic.setState(new StateEntity(state, state));
+			topic.setId(Integer.parseInt(topicId));
 			
 			TopicDAO.update(topic);
 //			request.getSession().setAttribute("topic", topic);

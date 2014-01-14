@@ -336,6 +336,7 @@
 <td>&nbsp;</td>											<td align="left"><p>&nbsp;
   </p>
   <p>
+  <input type="hidden" value="${pageScope.t.id }" name="topicid"> 
     <input type="submit" value="Đồng ý" />
   </p></td>
 										</tr>

@@ -269,7 +269,7 @@ function xoalh() {
 										
 										int count = UserDAO.countTopics(u.getUseName());
 										pageContext.setAttribute("count", count);
-										if ((c % 2) == 0) pageContext.setAttribute("color", "#C9FFFF");
+										if ((c % 2) == 0) pageContext.setAttribute("color", "#E2EFE1");
 										else pageContext.setAttribute("color", "#D4D4DB");
 								%>
 								<tr>
@@ -331,7 +331,7 @@ function xoalh() {
 										pageContext.setAttribute("cut", Validation.cut(lh.getContent()));
 										pageContext.setAttribute("date", Validation.rightDate(lh.getDate()));
 										if (lh.isRead()) pageContext.setAttribute("read", "CHECKED");
-										if ((c2 % 2) == 0) pageContext.setAttribute("color2", "#C9FFFF");
+										if ((c2 % 2) == 0) pageContext.setAttribute("color2", "#E2EFE1");
 										else pageContext.setAttribute("color2", "#D4D4DB");
 									%>
 								<tr>
@@ -459,7 +459,7 @@ function xoalh() {
 										boolean focus = topic.isFocus();
 										if (focus) pageContext.setAttribute("focus", "CHECKED");
 										else pageContext.setAttribute("focus", "");
-										if ((c3 % 2) == 0) pageContext.setAttribute("color3", "#C9FFFF");
+										if ((c3 % 2) == 0) pageContext.setAttribute("color3", "#E2EFE1");
 										else pageContext.setAttribute("color3", "#D4D4DB");
 										String state = TopicDAO.getTopicState(topic.getId());
 										if (state.equals("waiting")) {

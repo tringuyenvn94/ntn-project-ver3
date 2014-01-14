@@ -237,6 +237,7 @@ public class TopicDAO {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 				Date date = sdf.parse(dateSt);
 				topic.setDateCreated(date);
+				
 				String content = rs.getString("content");
 				String title = rs.getString("title");
 				String url = rs.getString("url");
@@ -458,7 +459,49 @@ public class TopicDAO {
 	 * */
 	public static List<TopicEntity> loadBySubMenu(String idSub) {
 		String sql = "SELECT * FROM topic WHERE id_sub_menu = ?";
-		return loadTopics(sql, idSub);
+		ResultSet rs = null;
+		List<TopicEntity> topics = new ArrayList<>();
+
+		if (!idSub.equals("")) {
+			rs = Utils.util.getResultSet(sql, idSub);
+		} else {
+			rs = Utils.util.getResultSet(sql);
+		}
+
+		try {
+			TopicEntity topic;
+			while (rs.next()) {
+				topic = new TopicEntity();
+				int iD = rs.getInt("id");
+				String type = rs.getString("id_sub_menu");
+				Date date = rs.getDate("date_created");
+				String content = rs.getString("content");
+				String title = rs.getString("title");
+				String url = rs.getString("url");
+				String author = rs.getString("author");
+				String email = rs.getString("email");
+				String url_daidien = rs.getString("url_daidien");
+				boolean isFocus = rs.getBoolean("focus");
+				String header = rs.getString("header");
+
+				topic.setHeader(header);
+				topic.setId(iD);
+				topic.setType(type);
+				topic.setContent(content);
+				topic.setTitle(title);
+				topic.setUrl(url);
+				topic.setAuthor(author);
+				topic.setEmail(email);
+				topic.setUrl_daidien(url_daidien);
+				topic.setFocus(isFocus);
+				topic.setDateCreated(date);
+				topics.add(topic);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return topics;
 	}
 
 	/**
@@ -573,6 +616,17 @@ public class TopicDAO {
 	 * @param topic một bài viết được update
 	 * */
 	public static void update(TopicEntity topic) {
+		System.out.println("dao Header: "+topic.getHeader());
+		System.out.println("dao Email: "+topic.getEmail());
+		System.out.println("dao Type: "+topic.getType());
+		System.out.println("dao Title: "+topic.getTitle());
+		System.out.println("dao: URL Dai Dien: "+topic.getUrl_daidien());
+		System.out.println("dao Content: "+topic.getContent());
+		System.out.println("dao Url: "+topic.getUrl());
+		System.out.println("dao Id: "+topic.getId());
+		System.out.println("dao Author: "+topic.getAuthor());
+		System.out.println("dao State: "+topic.getState().getId());
+		
 		String sql = "UPDATE TOPIC SET "
 				+ "author = ?,"
 				+ "email = ?,"
