@@ -468,7 +468,7 @@
 								<table border="0" cellpadding="0" cellspacing="0">
 									<tbody>
 										<tr>
-											<td class="image" valign="top"><a href="load?id=${pageScope.tbg1.id }"><img src="Image/Xbox-One-1.jpg" height="150" align="left" border="0" hspace="3" vspace="3"></a> ${pageScope.tbg1.header }</td>
+											<td class="image" valign="top"><a href="load?id=${pageScope.tbg1.id }"><img src="${pageScope.tbg1.url_daidien }" height="150" align="left" border="0" hspace="3" vspace="3"></a> ${pageScope.tbg1.header }</td>
 
 										</tr>
 									</tbody>
