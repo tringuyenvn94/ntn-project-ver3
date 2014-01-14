@@ -31,9 +31,9 @@ public class TopicDAO {
 	 * */
 	public static void save(TopicEntity topic) {
 		String sql = "INSERT INTO TOPIC"
-				+ "(content, id_sub_menu, date_created, title, author, email, url, url_daidien) "
-				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8 };
+				+ "(content, id_sub_menu, date_created, title, author, email, url, url_daidien, header) "
+				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		if (Validation.isNull(topic.getUrl_daidien())) topic.setUrl_daidien("Image/hinhdaidien.jpg");
 		Object[] values = {
 				topic.getContent(),
@@ -43,7 +43,8 @@ public class TopicDAO {
 				topic.getAuthor(),
 				topic.getEmail(),
 				topic.getUrl(),
-				topic.getUrl_daidien()
+				topic.getUrl_daidien(),
+				topic.getHeader()
 
 		};
 
@@ -80,7 +81,9 @@ public class TopicDAO {
 				String author = rs.getString("author");
 				String email = rs.getString("email");
 				String url_daidien = rs.getString("url_daidien");
+				String header = rs.getString("header");
 
+				topic.setHeader(header);
 				topic.setUrl_daidien(url_daidien);
 				topic.setId(iD);
 				topic.setType(type);
@@ -89,7 +92,6 @@ public class TopicDAO {
 				topic.setUrl(url);
 				topic.setAuthor(author);
 				topic.setEmail(email);
-				String header = getHeader(content);
 				topic.setHeader(header);
 			}
 		} catch (Exception e) {
@@ -131,23 +133,6 @@ public class TopicDAO {
 	public static TopicEntity loadLastedTopic(String idSubMenu) {
 		String sql = "SELECT * FROM TOPIC WHERE id_sub_menu = ?";
 		return loadTopic(sql, idSubMenu);
-	}
-
-	/**
-	 * phương thức lấy một đoạn văn bản làm mở đầu bài viết
-	 * chua xong
-	 * */
-	private static String getHeader(String content) {
-		String contentSub = content.substring(38);
-		String result = "";
-		char st;
-		for (int i = 0; i < contentSub.length(); i++) {
-			if ((st = contentSub.charAt(i)) == '<') {
-				break;
-			}
-			result += st;
-		}
-		return result;
 	}
 
 	/**
@@ -259,7 +244,9 @@ public class TopicDAO {
 				String email = rs.getString("email");
 				String url_daidien = rs.getString("url_daidien");
 				boolean isFocus = rs.getBoolean("focus");
+				String header = rs.getString("header");
 
+				topic.setHeader(header);
 				topic.setId(iD);
 				topic.setType(type);
 				topic.setContent(content);
@@ -269,9 +256,6 @@ public class TopicDAO {
 				topic.setEmail(email);
 				topic.setUrl_daidien(url_daidien);
 				topic.setFocus(isFocus);
-
-				String header = getHeader(content);
-				topic.setHeader(header);
 				topics.add(topic);
 			}
 		} catch (Exception e) {
@@ -312,10 +296,11 @@ public class TopicDAO {
 				topic.setTitle(title);
 				String url_daidien = rs.getString("url_daidien");
 				topic.setUrl_daidien(url_daidien);
+				String header = rs.getString("header");
+
+				topic.setHeader(header);
 				topics.add(topic);
 
-				String header = getHeader(content);
-				topic.setHeader(header);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -393,10 +378,10 @@ public class TopicDAO {
 				String url_daidien = rs.getString("url_daidien");
 				if (url_daidien != null) topic.setUrl_daidien(url_daidien);
 				index++;
-				topics.add(topic);
+				String header = rs.getString("header");
 
-				String header = getHeader(content);
 				topic.setHeader(header);
+				topics.add(topic);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -453,8 +438,8 @@ public class TopicDAO {
 				topic.setEmail(email);
 				topic.setUrl_daidien(url_daidien);
 				topic.setFocus(isFocus);
+				String header = rs.getString("header");
 
-				String header = getHeader(content);
 				topic.setHeader(header);
 				topics.add(topic);
 			}
@@ -512,8 +497,8 @@ public class TopicDAO {
 				topic.setEmail(email);
 				topic.setUrl_daidien(url_daidien);
 				topic.setFocus(isFocus);
+				String header = rs.getString("header");
 
-				String header = getHeader(content);
 				topic.setHeader(header);
 				topics.add(topic);
 			}
@@ -581,6 +566,38 @@ public class TopicDAO {
 			e.printStackTrace();
 		}
 		return stateName;
+	}
+	
+	/**
+	 * Phương thức update bài viết
+	 * @param topic một bài viết được update
+	 * */
+	public static void update(TopicEntity topic) {
+		String sql = "UPDATE TOPIC SET "
+				+ "author = ?,"
+				+ "email = ?,"
+				+ "id_sub_menu = ?,"
+				+ "title = ?,"
+				+ "url_daidien = ?,"
+				+ "header = ?,"
+				+ "content = ?,"
+				+ "state_id = ?,"
+				+ "url = ?"
+				+ " WHERE id = ?";
+		int[] indexes = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		Object[] values = { 
+				topic.getAuthor(),
+				topic.getEmail(),
+				topic.getType(),
+				topic.getTitle(),
+				topic.getUrl_daidien(),
+				topic.getHeader(),
+				topic.getContent(),
+				topic.getState().getId(),
+				topic.getUrl(),
+				topic.getId()
+		};
+		Utils.util.update(sql, indexes, values);
 	}
 
 }

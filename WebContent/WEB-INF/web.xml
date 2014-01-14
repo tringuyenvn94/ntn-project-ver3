@@ -16,6 +16,14 @@
     <url-pattern>/topic</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Sua Bai Viet Admin Servlet</servlet-name>
+    <servlet-class>control.SuaBaiVietAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sua Bai Viet Admin Servlet</servlet-name>
+    <url-pattern>/suabaivietadmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Load Topic By Condition Servlet</servlet-name>
     <servlet-class>control.LoadTopicByCondition</servlet-class>
   </servlet>
