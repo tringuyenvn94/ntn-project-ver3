@@ -74,20 +74,8 @@ public class SuaBaiVietAdmin extends HttpServlet {
 			topic.setId(Integer.parseInt(topicId));
 			
 			TopicDAO.update(topic);
-//			request.getSession().setAttribute("topic", topic);
-//			response.sendRedirect("template.jsp");
-		} else {
-			request.setAttribute("content", content);
-			request.setAttribute("title", title);
-			request.setAttribute("url", url);
-			request.setAttribute("url_daidien", url_daidien);
-			
-			if (Validation.isNull(content)) request.setAttribute("errorContentNull", "Bạn chưa điền nội dung bài viết");
-			if (Validation.isNull(title)) request.setAttribute("errorTitleNull", "Bạn chưa điền tiêu đề bài viết");
-			if (Validation.isNull(url)) request.setAttribute("errorUrlNull", "Bạn chưa điền Url");
-			
-			request.getRequestDispatcher("/post.jsp").forward(request, response);
-		}
+			response.sendRedirect("load?id=" + topicId);
+		} 
 	}
 
 }

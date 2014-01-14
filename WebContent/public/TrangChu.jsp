@@ -649,7 +649,7 @@
 					</div>
 					
 					<%
-						List<TopicEntity> game = TopicDAO.loadByMainIdOnly("game");
+						List<TopicEntity> game = TopicDAO.loadByMainIdOnly("game", true);
 						TopicEntity game1 = game.get(0);
 						TopicEntity game2 = game.get(1);
 						TopicEntity game3 = game.get(2);
@@ -702,7 +702,7 @@
 
 
 					<%
-						List<TopicEntity> thuthuat = TopicDAO.loadByMainIdOnly("thuathuattienich");
+						List<TopicEntity> thuthuat = TopicDAO.loadByMainIdOnly("thuathuattienich", true);
 						TopicEntity thuthuat1 = thuthuat.get(0);
 						TopicEntity thuthuat2 = thuthuat.get(1);
 						TopicEntity thuthuat3 = thuthuat.get(2);
@@ -753,7 +753,7 @@
 
 					</div>
 					<%
-						List<TopicEntity> hoidap = TopicDAO.loadByMainIdOnly("hoidap");
+						List<TopicEntity> hoidap = TopicDAO.loadByMainIdOnly("hoidap", true);
 						TopicEntity hoidap1 = hoidap.get(0);
 						TopicEntity hoidap2 = hoidap.get(1);
 						TopicEntity hoidap3 = hoidap.get(2);

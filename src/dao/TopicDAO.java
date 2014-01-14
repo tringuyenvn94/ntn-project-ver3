@@ -656,4 +656,15 @@ public class TopicDAO {
 		Utils.util.update(sql, indexes, values);
 	}
 
+	/**
+	 * Phương thức xóa bài viết
+	 * @param id id của bài viết
+	 * */
+	public static void delete(int id) {
+		String sql = "DELETE FROM TOPIC WHERE id = ?";
+		int[] indexes = { 1 };
+		Object[] values= { id };
+		Utils.util.delete(sql, indexes, values);
+	}
+	
 }

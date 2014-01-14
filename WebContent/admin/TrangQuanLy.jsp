@@ -441,7 +441,7 @@ function xoalh() {
 											topics = TopicDAO.loadBySubMenu("danhgia");
 											break;
 										case 8:
-											topics = TopicDAO.loadByMainIdOnly("game");
+											topics = TopicDAO.loadByMainIdOnly("game", false);
 											break;
 										case 9:
 											topics = TopicDAO.loadBySubMenu("giaiphapbaomat");
@@ -450,7 +450,7 @@ function xoalh() {
 											topics = TopicDAO.loadBySubMenu("hacker");
 											break;
 										case 11:
-											topics = TopicDAO.loadByMainIdOnly("hoidap");
+											topics = TopicDAO.loadByMainIdOnly("hoidap", false);
 											break;
 										case 12:
 											topics = TopicDAO.loadBySubMenu("laptop");
@@ -486,7 +486,7 @@ function xoalh() {
 											topics = TopicDAO.loadBySubMenu("thietbikhac");
 											break;
 										case 23:
-											topics = TopicDAO.loadByMainIdOnly("thuthuattienich");
+											topics = TopicDAO.loadByMainIdOnly("thuthuattienich", false);
 											break;
 										case 24:
 											topics = TopicDAO.loadBySubMenu("tinbaomat");
@@ -566,11 +566,16 @@ function xoalh() {
 									    <option value="posted" ${pageScope.posted }>Posted</option>
 									    <option value="banned" ${pageScope.banned }>Banned</option>
 						            </select></td>
-									<td align="center" bgcolor="${pageScope.color3 }"><a href="suabaivietadmin?id=${pageScope.topic.id }" target="_blank">Sửa </a>&nbsp;&nbsp;<a href="#">Xoá</a>
+									<td align="center" bgcolor="${pageScope.color3 }"><a href="suabaivietadmin?id=${pageScope.topic.id }" target="_blank">Sửa </a>&nbsp;&nbsp;<a href="xoabaiviet?id=${pageScope.topic.id }" onclick="return delete_topic()">Xoá</a>
 								    &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="button3" id="button3" value="Lưu">									  </td>
 								</tr>
                                 </form>
                                 <%} %>
+                                <script>
+                                	function delete_topic() {
+                                		return confirm("Bạn có chắc chắn rằng muốn xóa topic này? \n Thao tác sẽ không thể khôi phục lại");
+                                	}
+                                </script>
 							</table>
 						</div>
 					</div>
