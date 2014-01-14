@@ -519,34 +519,6 @@
                    CÂu HỎI KHÁC</div>
           <div class="title_news">
                 
-                <%
-                    /*    	List<TopicEntity> tinkhac = TopicDAO.loadBySubMenu("hoidap");
-                        	TopicEntity tinkhac1 = tinkhac.get(0);
-                        	TopicEntity tinkhac2 = tinkhac.get(1);
-                        	TopicEntity tinkhac3 = tinkhac.get(2);
-                        	TopicEntity tinkhac4 = tinkhac.get(3);
-                        	TopicEntity tinkhac5 = tinkhac.get(4);
-                        	TopicEntity tinkhac6 = tinkhac.get(5);
-                        	TopicEntity tinkhac7 = tinkhac.get(6);
-                        	TopicEntity tinkhac8 = tinkhac.get(7);
-                        	TopicEntity tinkhac9 = tinkhac.get(8);
-                        	TopicEntity tinkhac10 = tinkhac.get(9);   
-							
-                        	
-                        	pageContext.setAttribute("tinkhac1", tinkhac1);
-                        	pageContext.setAttribute("tinkhac2", tinkhac2);
-                        	pageContext.setAttribute("tinkhac3", tinkhac3);
-                        	pageContext.setAttribute("tinkhac4", tinkhac4);
-                        	pageContext.setAttribute("tinkhac5", tinkhac5);
-                       		pageContext.setAttribute("tinkhac6", tinkhac6);
-                        	pageContext.setAttribute("tinkhac7", tinkhac7);
-                        	pageContext.setAttribute("tinkhac8", tinkhac8);
-                        	pageContext.setAttribute("tinkhac9", tinkhac9);
-                        	pageContext.setAttribute("tinkhac10", tinkhac10);     
-                        
-                        */	
-                        %> 
-                
                 <ul>
                 
                       <li> <a href="load?id=${pageScope.hoidap15.id }">
