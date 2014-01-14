@@ -226,134 +226,11 @@ function xoalh() {
 			<div id="content_main">
 				<div id="TabbedPanels1" class="TabbedPanels">
 					<ul class="TabbedPanelsTabGroup">
-						<li class="TabbedPanelsTab" tabindex="0">Quản lý thành viên</li>
-						<li class="TabbedPanelsTab" tabindex="0">Quản lý liên hệ</li>
 						<li class="TabbedPanelsTab" tabindex="0">Quản lý bài viết</li>
+						<li class="TabbedPanelsTab" tabindex="0">Quản lý liên hệ</li>
+						<li class="TabbedPanelsTab" tabindex="0">Quản lý thành viên</li>
 					</ul>
 					<div class="TabbedPanelsContentGroup">
-						<div class="TabbedPanelsContent">
-						  <table width="995">
-						    <tr>
-						      <td align="right"><a href="themthanhvien.jsp" target="_blank">Thêm thành viên</a></td>
-					        </tr>
-					      </table>
-<table width="995" border="1" cellpadding="5">
-				<tr><%
-					pageContext.setAttribute("bg", "#007F7F");
-					%>
-									<td width="111" align="center" bgcolor="${pageScope.bg }"><strong>Tên tài khoản</strong></td>
-									<td width="119" align="center" bgcolor="${pageScope.bg }"><strong>Họ tên</strong></td>
-									<td width="118" align="center" bgcolor="${pageScope.bg }"><strong>Email</strong></td>
-									<td width="103" align="center" bgcolor="${pageScope.bg }"><strong>Ngày đăng ký</strong></td>
-									<td width="88" align="center" bgcolor="${pageScope.bg }"><strong>Chức vụ</strong></td>
-									<td width="69" align="center" bgcolor="${pageScope.bg }"><strong>Trạng thái</strong></td>
-									<td width="68" align="center" bgcolor="${pageScope.bg }"><strong>Số bài đã đăng</strong></td>
-									<td width="106" align="center" bgcolor="${pageScope.bg }"><strong>Tác vụ</strong></td>
-			  </tr>
-								<%
-									int c = 0;
-									List<UserEntity> users = UserDAO.loadAllUser();
-									for (UserEntity u : users)  {
-										c++;
-										pageContext.setAttribute("user", u);
-										
-										Date dateRegister = u.getDateReg();
-										String dateSt = Validation.rightDate(dateRegister);
-										pageContext.setAttribute("date", dateSt);
-										
-										String role = RoleDAO.getRoleName(u.getUserId());
-										pageContext.setAttribute("role", role);
-										
-										String status = StatusDAO.getStatusName(u.getUserId());
-										pageContext.setAttribute("status", status);
-										
-										int count = UserDAO.countTopics(u.getUseName());
-										pageContext.setAttribute("count", count);
-										if ((c % 2) == 0) pageContext.setAttribute("color", "#E2EFE1");
-										else pageContext.setAttribute("color", "#D4D4DB");
-								%>
-								<tr>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.username }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.fullName }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.email }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.date }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.role }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.status }</td>
-									<td align="center" bgcolor="${pageScope.color }">${pageScope.count }</td>
-									<td align="center" bgcolor="${pageScope.color }"><a href="suathanhvien?username=${pageScope.user.username }" target="_blank">Sửa </a>&nbsp;<a href="xoathanhvien.jsp?uname=${pageScope.user.username }" target="_blank">Xoá</a></td>
-								</tr>
-								<%} %>
-						  </table>
-					  </div>
-						<div class="TabbedPanelsContent">
-							<table width="995" border="0">
-								<tr>
-									<td align="right"></td>
-								</tr>
-							</table>
-							<table width="995">
-							  <tr>
-							    <td width="882" align="left"><form name="form2" method="get" action="lienhe">
-							      <table width="233">
-							        <tr>
-							          <td width="225" height="27"><label>
-							            <input type="radio" name="process_lh" value="readall" id="process_lh_0">
-							            Đánh dấu tất cả đã đọc</label></td>
-						            </tr>
-							        <tr>
-							          <td><label>
-							            <input type="radio" name="process_lh" value="deleteall" id="process_lh_1">
-							            Xoá tất cả
-							          </label></td>
-						            </tr>
-						          </table>
-							    </td>
-							    <td width="56" align="left">
-							      <input type="submit" name="button5" id="button5" value="Thực hiện">
-						        </form></td>
-						      </tr>
-						  </table>
-<table width="995" border="1" cellpadding="5">
-				<tr>
-									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Họ tên</strong></td>
-									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Email</strong></td>
-									<td width="240" align="center" bgcolor="${pageScope.bg }"><strong>Nội dung</strong></td>
-									<td width="119" align="center" bgcolor="${pageScope.bg }"><strong>Ngày gửi</strong></td>
-									<td width="53" align="center" bgcolor="${pageScope.bg }"><strong>Đã đọc</strong></td>
-									<td width="100" align="center" bgcolor="${pageScope.bg }"><strong>Tác vụ</strong></td>
-			  </tr>
-									<%
-									int c2 = 0;
-									List<LienHeEntity> contacts = LienHeDAO.loadLienHe();
-									for (LienHeEntity lh : contacts) {
-										c2++;
-										pageContext.setAttribute("l", lh);
-										pageContext.setAttribute("cut", Validation.cut(lh.getContent()));
-										pageContext.setAttribute("date", Validation.rightDate(lh.getDate()));
-										if (lh.isRead()) pageContext.setAttribute("read", "CHECKED");
-										if ((c2 % 2) == 0) pageContext.setAttribute("color2", "#E2EFE1");
-										else pageContext.setAttribute("color2", "#D4D4DB");
-									%>
-								<tr>
-									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.l.fullName }</td>
-									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.l.email }</td>
-									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.cut }</td>
-									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.date}</td>
-									<td align="center" bgcolor="${pageScope.color2}">
-											<input type="checkbox" name="checkbox4" id="checkbox4" ${pageScope.read } disabled="disabled"> <label for="checkbox4"></label>
-
-								  </td>
-									<td align="center" bgcolor="${pageScope.color2 }">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
-								</tr>
-								<%} %>
-						  </table>
-							<table width="995">
-								<tr>
-									<td align="right"></td>
-								</tr>
-							</table>
-							<br>
-						</div>
 						<div class="TabbedPanelsContent">
 						  <table width="995" border="1">
 						    <tr>
@@ -582,6 +459,129 @@ function xoalh() {
                                 </script>
 							</table>
 						</div>
+						<div class="TabbedPanelsContent">
+							<table width="995" border="0">
+								<tr>
+									<td align="right"></td>
+								</tr>
+							</table>
+							<table width="995">
+							  <tr>
+							    <td width="882" align="left"><form name="form2" method="get" action="lienhe">
+							      <table width="233">
+							        <tr>
+							          <td width="225" height="27"><label>
+							            <input type="radio" name="process_lh" value="readall" id="process_lh_0">
+							            Đánh dấu tất cả đã đọc</label></td>
+						            </tr>
+							        <tr>
+							          <td><label>
+							            <input type="radio" name="process_lh" value="deleteall" id="process_lh_1">
+							            Xoá tất cả
+							          </label></td>
+						            </tr>
+						          </table>
+							    </td>
+							    <td width="56" align="left">
+							      <input type="submit" name="button5" id="button5" value="Thực hiện">
+						        </form></td>
+						      </tr>
+						  </table>
+<table width="995" border="1" cellpadding="5">
+				<tr>
+									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Họ tên</strong></td>
+									<td width="144" align="center" bgcolor="${pageScope.bg }"><strong>Email</strong></td>
+									<td width="240" align="center" bgcolor="${pageScope.bg }"><strong>Nội dung</strong></td>
+									<td width="119" align="center" bgcolor="${pageScope.bg }"><strong>Ngày gửi</strong></td>
+									<td width="53" align="center" bgcolor="${pageScope.bg }"><strong>Đã đọc</strong></td>
+									<td width="100" align="center" bgcolor="${pageScope.bg }"><strong>Tác vụ</strong></td>
+			  </tr>
+									<%
+									int c2 = 0;
+									List<LienHeEntity> contacts = LienHeDAO.loadLienHe();
+									for (LienHeEntity lh : contacts) {
+										c2++;
+										pageContext.setAttribute("l", lh);
+										pageContext.setAttribute("cut", Validation.cut(lh.getContent()));
+										pageContext.setAttribute("date", Validation.rightDate(lh.getDate()));
+										if (lh.isRead()) pageContext.setAttribute("read", "CHECKED");
+										if ((c2 % 2) == 0) pageContext.setAttribute("color2", "#E2EFE1");
+										else pageContext.setAttribute("color2", "#D4D4DB");
+									%>
+								<tr>
+									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.l.fullName }</td>
+									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.l.email }</td>
+									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.cut }</td>
+									<td align="center" bgcolor="${pageScope.color2 }">${pageScope.date}</td>
+									<td align="center" bgcolor="${pageScope.color2}">
+											<input type="checkbox" name="checkbox4" id="checkbox4" ${pageScope.read } disabled="disabled"> <label for="checkbox4"></label>
+
+								  </td>
+									<td align="center" bgcolor="${pageScope.color2 }">&nbsp;<a href="doclienhe?id=${pageScope.l.id } " target="_blank">Đọc</a>&nbsp;&nbsp;&nbsp;<a href="xoalienhe?id=${pageScope.l.id }">Xoá</a></td>
+								</tr>
+								<%} %>
+						  </table>
+							<table width="995">
+								<tr>
+									<td align="right"></td>
+								</tr>
+							</table>
+							<br>
+						</div>
+						<div class="TabbedPanelsContent">
+						  <table width="995">
+						    <tr>
+						      <td align="right"><a href="themthanhvien.jsp" target="_blank">Thêm thành viên</a></td>
+					        </tr>
+					      </table>
+<table width="995" border="1" cellpadding="5">
+				<tr><%
+					pageContext.setAttribute("bg", "#007F7F");
+					%>
+									<td width="111" align="center" bgcolor="${pageScope.bg }"><strong>Tên tài khoản</strong></td>
+									<td width="119" align="center" bgcolor="${pageScope.bg }"><strong>Họ tên</strong></td>
+									<td width="118" align="center" bgcolor="${pageScope.bg }"><strong>Email</strong></td>
+									<td width="103" align="center" bgcolor="${pageScope.bg }"><strong>Ngày đăng ký</strong></td>
+									<td width="88" align="center" bgcolor="${pageScope.bg }"><strong>Chức vụ</strong></td>
+									<td width="69" align="center" bgcolor="${pageScope.bg }"><strong>Trạng thái</strong></td>
+									<td width="68" align="center" bgcolor="${pageScope.bg }"><strong>Số bài đã đăng</strong></td>
+									<td width="106" align="center" bgcolor="${pageScope.bg }"><strong>Tác vụ</strong></td>
+			  </tr>
+								<%
+									int c = 0;
+									List<UserEntity> users = UserDAO.loadAllUser();
+									for (UserEntity u : users)  {
+										c++;
+										pageContext.setAttribute("user", u);
+										
+										Date dateRegister = u.getDateReg();
+										String dateSt = Validation.rightDate(dateRegister);
+										pageContext.setAttribute("date", dateSt);
+										
+										String role = RoleDAO.getRoleName(u.getUserId());
+										pageContext.setAttribute("role", role);
+										
+										String status = StatusDAO.getStatusName(u.getUserId());
+										pageContext.setAttribute("status", status);
+										
+										int count = UserDAO.countTopics(u.getUseName());
+										pageContext.setAttribute("count", count);
+										if ((c % 2) == 0) pageContext.setAttribute("color", "#E2EFE1");
+										else pageContext.setAttribute("color", "#D4D4DB");
+								%>
+								<tr>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.username }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.fullName }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.user.email }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.date }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.role }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.status }</td>
+									<td align="center" bgcolor="${pageScope.color }">${pageScope.count }</td>
+									<td align="center" bgcolor="${pageScope.color }"><a href="suathanhvien?username=${pageScope.user.username }" target="_blank">Sửa </a>&nbsp;<a href="xoathanhvien.jsp?uname=${pageScope.user.username }" target="_blank">Xoá</a></td>
+								</tr>
+								<%} %>
+						  </table>
+					  </div>
 					</div>
 				</div>
               <div class="page_num">
