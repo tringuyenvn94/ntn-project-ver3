@@ -1,4 +1,6 @@
 
+<%@page import="dao.StatusDAO"%>
+<%@page import="dao.RoleDAO"%>
 <%@page import="entity.UserEntity"%>
 <%
 	request.setCharacterEncoding("utf8");
@@ -204,22 +206,31 @@
 						    <%//TODO 
 						UserEntity user = (UserEntity) session.getAttribute("user");
 						if (user == null) response.sendRedirect("dangnhap.jsp");
+						String status = StatusDAO.getStatusName(user.getUserId());
+						System.out.println(status);
 						if (((String) session.getAttribute("role")).equals("admin")) {
 						%>
 						 <p align="justify" ><a href="quanly.jsp">Trang Quản Lý</a></p> <br>
-						<%} %>
+						<%} 
+						%>
 						   <p align="justify" ><a href="suathongtin.jsp">Sửa thông tin cá nhân</a></p>
 						    <br>
 						  <p align="justify" ><a href="doimatkhau.jsp">Đổi Mật Khẩu</a></p>
+						 <%
+						 	if (status.equals("Banned")) {
+						 	
+						 %>
+						 <h1>Tài khoản của bạn tạm thời giới hạn một số chức năng</h1>
+						 <%} else{ %>
 						  <br/>
 						  <p align="justify" ><a href="post.jsp">Đăng Bài</a></p>
 							<br/>
 						    <p align="justify" ><a href="quanlybai.jsp">Quản lí bài đã viết</a></p>
 						  <br/>
 						    <p align="justify" ><a href="bookmark.jsp">Các bài đã đánh dấu</a></p>
+						   <%} %>
 						 <br/>
 						 <p align="justify" ><a href="dangxuat">Đăng Xuất</a></p>
-						  
 						  
 						</center>
 					</div>

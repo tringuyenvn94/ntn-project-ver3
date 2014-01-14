@@ -217,15 +217,19 @@
 							<br /> <a href="dangxuat?user=user">Đăng Xuất</a> &nbsp; <a href="dangnhap.jsp">Đăng nhập</a>&nbsp; <a href="trangchu.jsp">Trang Chủ</a>
 							<%
 								}
-								if (error.equals("da co user roi")) {
+								else if (error.equals("da co user roi")) {
 							%>
 							<h1>
 								Bạn đã đăng nhập vào trang web của chúng tôi, để đăng nhập tài khoản khác, xin hãy <a href="dangxuat?user=user">đăng xuất</a> tài khoản này.
 							</h1>
 							<br /> <a href="dangxuat?user=user">Đăng Xuất</a> &nbsp;<a href="trangchu.jsp">Trang Chủ</a>
 							<%
-								}
+								} else if (error.equals("biban")) {
 							%>
+							<h1>Tài khoản của bạn đang trong tình trạng bị phạt nên giới hạn một số chức năng.</h1>
+							<br>
+							<a href="trangchu.jsp">Về trang chủ</a>
+							<%} %>
 						</div>
 
 

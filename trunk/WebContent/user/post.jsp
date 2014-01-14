@@ -204,25 +204,25 @@
 									<tbody>
 										<tr>
 											<th colspan="2" align="left"><p>&nbsp;</p>
-												<p>Thông tin người gửi</p></th>
+												<p><em style="font-size: 18px">Thông tin người gửi</em></p></th>
 										</tr>
 										<tr>
-											<td width="130" align="left">Họ và tên:</td>
+											<td width="130" align="left"><strong>Họ và tên:</strong></td>
 											<td width="361"><input type="text" value="<%=fullName%>" name="name" /></td>
 										</tr>
 
 										<tr>
-											<td align="left">Email:</td>
+											<td align="left"><strong>Email:</strong></td>
 											<td><input type="text" name="email" value="<%=email%>" /></td>
 										</tr>
 
 										<tr>
-											<th colspan="2" align="left">Chi tiết bài viết <a href="quydinh.jsp">(Quy định)</a>
+											<th colspan="2" align="left"><em style="font-size: 16px">Chi tiết bài viết</em> <a href="quydinh.jsp">(Quy định)</a>
 											</th>
 										</tr>
 
 										<tr>
-											<td>Lĩnh vực:</td>
+											<td><strong>Lĩnh vực:</strong></td>
 											<td><select name="linhvuc">
 													<%
 														try {
@@ -246,24 +246,30 @@
 										</tr>
 
 										<tr>
-											<td>Tiêu đề:</td>
+											<td><strong>Tiêu đề:</strong></td>
 											<td><input name="title" type="text" size="60" value="${requestScope.title }" /> <br />
 												<p style="color: #F00">${requestScope.errorTitleNull }</p></td>
 										</tr>
 
 										<tr>
-											<td>Ảnh đại diện (URL):</td>
+											<td><strong>Ảnh đại diện (URL):</strong></td>
 											<td><input name="url_daidien" value="${requestScope.url_daidien }" size="60" /></td>
 										</tr>
 
 										<tr>
-											<td>Nội dung:</td>
+										  <td><strong>Mở bài:</strong></td>
+										  <td><textarea name="header" id="header" cols="60" rows="5">${requestScope.header}</textarea>
+									      <br>
+									      <span style="color: #F00">*${requestScope.errorHeaderNull}</span></td>
+									  </tr>
+										<tr>
+											<td><strong>Nội dung:</strong></td>
 											<td><textarea name="ta" id="ta">${requestScope.content }</textarea> <ckeditor:replace replace="ta" basePath="ckeditor/"></ckeditor:replace> <br />
 												<p style="color: #F00">${requestScope.errorContentNull }</p></td>
 										</tr>
 
 										<tr>
-											<td>Url nguồn:</td>
+											<td><strong>Url nguồn:</strong></td>
 											<td><input name="url" type="text" size="60" value="${requestScope.url }" /> <br />
 												<p style="color: #F00">${requestScope.errorUrlNull }</p></td>
 										</tr>

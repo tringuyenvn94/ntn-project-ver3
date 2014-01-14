@@ -9,12 +9,28 @@
 request.setCharacterEncoding("utf8");
 response.setCharacterEncoding("utf8");
 %>
+	<%
+		//TODO START
+		
+		String topicId = (String) session.getAttribute("topicId");
+		TopicEntity topic = TopicDAO.load(topicId);
+		pageContext.setAttribute("topic", topic);
+		String title = topic.getTitle();
+		Date date = topic.getDateCreated();
+		String content = topic.getContent();
+		String author = topic.getAuthor();
+		String subMenu = TopicDAO.loadSubMenu(topicId);
+		String mainMenu = TopicDAO.loadMainMenu(topicId);
+		
+		String linkSubMenu = TopicDAO.loadLinkSub(subMenu);
+		String linkMainMenu = TopicDAO.loadLinkMain(mainMenu);
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Tiêu đề</title>
+<title>${pageScope.topic.title }</title>
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
@@ -188,18 +204,9 @@ response.setCharacterEncoding("utf8");
         <div id="ctLeft_detail">
 <div class="news_detail">
 	<div class="tit">
-		<%
-		//TODO START
+	
 		
-		TopicEntity topic = (TopicEntity) session.getAttribute("topic");
-		session.removeAttribute("topic");
-		String title = topic.getTitle();
-		Date date = topic.getDateCreated();
-		String content = topic.getContent();
-		String author = topic.getAuthor();
-	%>
-		
-				<a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="22" align="absmiddle" border="0"></a> »&nbsp;<a href="">Tên menu cha</a>&nbsp;»&nbsp;<a href="">Tên menu con</a>
+				<a href="trangchu.jsp"><img src="Image/icon_home.jpg" width="18" height="22" align="middle" border="0"></a> »&nbsp;<a href="<%=linkMainMenu %>"><%=mainMenu %></a>&nbsp;»&nbsp;<a href="<%=linkSubMenu%>"><%=subMenu %></a>
 			
 	</div>
 	<div class="ctm">
@@ -228,7 +235,7 @@ response.setCharacterEncoding("utf8");
 							<td>
 							<div id="baiviet">
 							<%=content %>
-<p style="text-align: right;"><em><strong><%=author %></strong></em></p>
+<p style="text-align: right;"><em><strong>Theo ${pageScope.topic.url }</strong></em></p>
 								
 							</div>
 							</td>
@@ -298,9 +305,8 @@ response.setCharacterEncoding("utf8");
     
     			
     				<% 
-    			String id = (String) request.getAttribute("id");
     			
-    			String topicIdMenu =  TopicDAO.getSubMenuId(id);
+    			String topicIdMenu =  TopicDAO.getSubMenuId(topicId);
     			List<TopicEntity> bv = TopicDAO.loadBySubMenu(topicIdMenu);
     			TopicEntity bv1 = bv.get(0);    			
     			TopicEntity bv2 = bv.get(1);    			

@@ -26,10 +26,11 @@ public class TopicDAO {
 	/**
 	 * Phương thức lưu nội dụng bài viết xuống database
 	 * 
-	 * @param content
+	 * @param topic
 	 *            nội dung toàn bộ bài viết
+	 * @return id của bài viết
 	 * */
-	public static void save(TopicEntity topic) {
+	public static int save(TopicEntity topic) {
 		String sql = "INSERT INTO TOPIC"
 				+ "(content, id_sub_menu, date_created, title, author, email, url, url_daidien, header) "
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -45,10 +46,19 @@ public class TopicDAO {
 				topic.getUrl(),
 				topic.getUrl_daidien(),
 				topic.getHeader()
-
 		};
-
 		Utils.util.insert(sql, indexes, values);
+		int id = -1;
+		String getId = "SELECT id FROM TOPIC WHERE header = ?";
+		ResultSet rs = Utils.util.getResultSet(getId, topic.getHeader());
+		try {
+		while (rs.next()) {
+			id = rs.getInt(1);
+		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
 	}
 
 	/**
