@@ -1,4 +1,5 @@
 
+<%@page import="entity.TopicEntity"%>
 <%@page import="entity.UserEntity"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="dao.TopicDAO"%>
@@ -40,9 +41,10 @@
 					<a href="trangchu.jsp"><img src="Image/Logo.png" width="185" height="107" /></a>
 				</div>
 				<%					
-					if (session == null) response.sendRedirect("dangnhap.jsp");
 					UserEntity user = (UserEntity) session.getAttribute("user");
-					if (user == null) {
+					String tid = (String) request.getAttribute("topicEditId");
+					if (tid == null) response.sendRedirect("dangnhap.jsp");
+					else if (user == null) {
 						response.sendRedirect("dangnhap.jsp");
 				%>
 				<div id="memberbox">
@@ -203,99 +205,129 @@
 						</div>
 						<div>
 							
-							<form method="post" action="topic">
+							<form method="post" action="suabaivietadmin">
 								<table border="0" width="150%">
 									<tbody>
 										<tr>
+										<%
+											if (tid != null) {
+											TopicEntity tp = TopicDAO.load(tid);
+											pageContext.setAttribute("t", tp);
+										%>
 											<th colspan="2" align="left"><p>&nbsp;</p>
-										    <p>Thông tin người gửi</p></th>
+										    <p><strong><em style="font-size: 18px; color: #399;">Thông tin người gửi</em></strong></p></th>
 										</tr>
 										<tr>
-											<td width="130" align="left"><p>Họ và tên:</p></td>
+											<td width="130" align="left"><p><strong>Họ và tên:</strong></p></td>
 											<td width="361"><p>
-											  <input type="text" value="" name="name" />
-											</p></td>
+											  <input name="name" type="text" value="${pageScope.t.author }" size="40" />
+										  <span style="color: #F00">*</span></p></td>
 										</tr>
 
 										<tr>
-											<td align="left">Email:</td>
-											<td><input type="text" name="email" value="" /></td>
+											<td align="left"><strong>Email:</strong></td>
+											<td><input name="email" type="text" value="${pageScope.t.email }" size="40" />
+										    <span style="color: #F00">*</span></td>
 										</tr>
 
 										<tr>
 											<th colspan="2" align="left"><p>&nbsp;</p>
-											  <p>Chi tiết bài viết 
-										    </p></th>
+											  <p><strong><em style="font-size: 18px; color: #369;">Chi tiết bài viết 
+								          </em></strong></p></th>
 										</tr>
 
 										<tr>
-											<td>Lĩnh vực:</td>
+											<td><strong>Lĩnh vực:</strong></td>
 											<td><p>
 											  <select name="linhvuc">
 											    <%
 														try {
 															ResultSet linhvuc = TopicDAO.loadLinhVuc();
+															String state = TopicDAO.getTopicState(tp.getId());
+															if (state.equals("waiting")) {
+																pageContext.setAttribute("waiting", "SELECTED");
+																pageContext.setAttribute("posted", "");
+																pageContext.setAttribute("banned", "");
+															} else if (state.equals("banned")) {
+																pageContext.setAttribute("waiting", "");
+																pageContext.setAttribute("posted", "");
+																pageContext.setAttribute("banned", "SELECTED");
+															} else if (state.equals("posted")) {
+																pageContext.setAttribute("waiting", "");
+																pageContext.setAttribute("posted", "SELECTED");
+																pageContext.setAttribute("banned", "");
+															}
+															String type = tp.getType();
 															while (linhvuc.next()) {
 																String name = linhvuc.getString(1);
 																String id = linhvuc.getString(2);
+																if (id.equals(type)) {
 													%>
-											    <option value="<%=id%>">
+											    <option value="<%=id%>" selected="selected">
 											      <%=name%>
 										        </option>
 											    
+											    <%}else {
+											    %>
+											    <option value="<%=id%>">
+											      <%=name%>
+										        </option>
 											    <%
+													}
 															}
 														} catch (Exception e) {
 															e.printStackTrace();
 														}
+											}
 													%>
 										      </select>
-											</p></td>
+										  <span style="color: #F00">*</span></p></td>
 										</tr>
 
 										<tr>
-											<td>Tiêu đề:</td>
-											<td><input name="title" type="text" size="60" value="${requestScope.title }" />
-											<br />
-											 <p style="color: #F00">${requestScope.errorTitleNull }</p>
-											</td>
+											<td><strong>Tiêu đề:</strong></td>
+											<td><input name="title" type="text" size="60" value="${pageScope.t.title }" /></td>
 										</tr>
 
 										<tr>
-											<td>Ảnh đại diện (URL):</td>
-											<td><input name="url_daidien" value="${requestScope.url_daidien }" size="60" /></td>
+											<td><strong>Ảnh đại diện (URL):</strong></td>
+											<td><input name="url_daidien" value="${pageScope.t.url_daidien }" size="60" /></td>
 										</tr>
 
 										<tr>
-											<td>Nội dung:</td>
+										  <td><strong>Mở bài:</strong></td>
+										  <td><textarea name="header" id="textarea" cols="65" rows="5">${pageScope.t.header }</textarea></td>
+									  </tr>
+										<tr>
+											<td><strong>Nội dung:</strong></td>
 											<td>
 											  <p>
-											    <textarea name="ta" id="ta" >${requestScope.content }</textarea>
+											    <textarea name="ta" id="ta" >${pageScope.t.content }</textarea>
 											    <ckeditor:replace replace="ta" basePath="ckeditor/"></ckeditor:replace>
 											    <br />
 										      </p>
-											  <p style="color: #F00">${requestScope.errorContentNull }</p>
+											  <p style="color: #F00">*${requestScope.errorContentNull }</p>
 											</td>
 										</tr>
 
 										<tr>
-										  <td>Trạng thái:</td>
+										  <td><strong>Trạng thái:</strong></td>
 										  <td><label for="select"></label>
-										    <select name="select" id="select">
-										      <option value="0">Chọn trạng thái</option>
-										      <option value="1">Waitting</option>
-										      <option value="2">posted</option>
-										      <option value="3">Banned</option>
-                                          </select></td>
+										    <select name="state" id="select">
+										      <option value="waiting" ${pageScope.waiting }>Waitting</option>
+										      <option value="posted" ${pageScope.posted }>Posted</option>
+										      <option value="banned" ${pageScope.banned }>Banned</option>
+                                            </select>
+										    <span style="color: #F00">*</span></td>
 									  </tr>
 										<tr>
-											<td>Url nguồn:</td>
+											<td><strong>Url nguồn:</strong></td>
 											<td>
 											  <p>
-											    <input name="url" type="text" size="60" value="${requestScope.url }" />
+											    <input name="url" type="text" size="60" value="${pageScope.t.url }" />
 											    <br />
 										      </p>
-											  <p style="color: #F00">${requestScope.errorUrlNull }</p>
+											  <p style="color: #F00">*${requestScope.errorUrlNull }</p>
 											
 											</td>
 										</tr>

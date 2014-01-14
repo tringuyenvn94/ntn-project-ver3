@@ -446,7 +446,7 @@ function xoalh() {
 									String pageNo = request.getParameter("page");
 									if (pageNo == null) pageNo = "1";
 									int pNo = Integer.parseInt(pageNo);
-									for (int i = (pNo - 1) * 30; i < (pNo * 30); i ++) {
+									for (int i = (pNo - 1) * 30; i < topics.size(); i ++) {
 										n++;
 										if (n > topics.size()) break;
 										TopicEntity topic = topics.get(i);
@@ -491,7 +491,7 @@ function xoalh() {
 									    <option value="posted" ${pageScope.posted }>Posted</option>
 									    <option value="banned" ${pageScope.banned }>Banned</option>
 						            </select></td>
-									<td align="center" bgcolor="${pageScope.color3 }"><a href="suabaiviet.jsp">Sửa </a>&nbsp;&nbsp;<a href="#">Xoá</a>
+									<td align="center" bgcolor="${pageScope.color3 }"><a href="suabaivietadmin?id=${pageScope.topic.id }" target="_blank">Sửa </a>&nbsp;&nbsp;<a href="#">Xoá</a>
 								    &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="button3" id="button3" value="Lưu">									  </td>
 								</tr>
                                 </form>
