@@ -627,7 +627,7 @@ ${pageScope.tbm4.title }
 
 
 						<%
-							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic();
+							List<TopicEntity> tieudiem = TopicDAO.loadAllFocusTopic(true);
 							TopicEntity tieudiem1 = tieudiem.get(0);
 							TopicEntity tieudiem2 = tieudiem.get(1);
 							TopicEntity tieudiem3 = tieudiem.get(2);
