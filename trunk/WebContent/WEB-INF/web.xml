@@ -15,6 +15,14 @@
     <servlet-name>Topic Servlet</servlet-name>
     <url-pattern>/topic</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>Them Thanh Vien Servlet</servlet-name>
+    <servlet-class>control.ThemThanhVien</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Them Thanh Vien Servlet</servlet-name>
+    <url-pattern>/themthanhvien</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>Sua Bai Viet Admin Servlet</servlet-name>
     <servlet-class>control.SuaBaiVietAdmin</servlet-class>

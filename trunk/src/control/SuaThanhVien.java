@@ -31,6 +31,8 @@ public class SuaThanhVien extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf8");
+		response.setCharacterEncoding("utf8");
 		String username = request.getParameter("username");
 		UserEntity user = UserDAO.getUser(username);
 		request.setAttribute("username", username);
@@ -72,6 +74,8 @@ public class SuaThanhVien extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf8");
+		response.setCharacterEncoding("utf8");
 		String username = request.getParameter("username");
 		String fullName = request.getParameter("full_name");
 		String email = request.getParameter("email");

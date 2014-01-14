@@ -169,7 +169,7 @@
 					<div class="news_detail">
 						<div class="ctm">
 
-							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
+							<form method="post" action="themthanhvien" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
 								<div class="aspNetHidden"></div>
 							  <h1>Thêm thành viên</h1>
 							  <div id="Main_pnlRegister" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'Main_btnRegister')">
@@ -414,7 +414,7 @@
 											    <label for="select"></label>
 											    <select name="role" id="select">
 											      <option value="admin" ${requestScope.adminRole }>Admin</option>
-											      <option value="user" ${requestScope.userRole }>User</option>
+											      <option value="user" selected="selected" ${requestScope.userRole }>User</option>
 										        </select>
 											    <label for="Main_chkArgreePolicy"></label></span></td>
 											</tr>
@@ -423,7 +423,7 @@
 												<td class="infoLogin">
 											    <label for="infoLogin"></label>
 											    <select name="status" id="select">
-	   												<option value="actived" ${requestScope.statusActive }>Actived</option>
+	   												<option value="actived" selected="selected" ${requestScope.statusActive }>Actived</option>
 											     	<option value="banned" ${requestScope.statusBan }>Banned</option>
                                                 </select>
 												</td>

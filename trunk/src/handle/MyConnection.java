@@ -26,5 +26,12 @@ public class MyConnection {
 		}
 	}
 	
+	public void disconnect() {
+		try {
+			this.conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
