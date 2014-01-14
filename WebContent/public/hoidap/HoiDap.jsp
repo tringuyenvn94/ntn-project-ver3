@@ -189,7 +189,7 @@
    					
    					<%
                         	
-                        	List<TopicEntity> hdap = TopicDAO.loadByMainIdOnly("hoidap");
+                        	List<TopicEntity> hdap = TopicDAO.loadByMainIdOnly("hoidap", true);
                         	TopicEntity hdap1 = hdap.get(0);
                         	
                         	TopicEntity hoidap1 = hdap.get(0);
