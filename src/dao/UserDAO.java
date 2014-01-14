@@ -13,7 +13,9 @@ import entity.UserEntity;
 public class UserDAO {
 	/**
 	 * Kiểm tra xem username truyền vào đã tồn tại trong database chưa
-	 * @param username username cần kiểm tra
+	 * 
+	 * @param username
+	 *            username cần kiểm tra
 	 * @return true đã tồn tại, false chưa tồn tại
 	 * */
 	public static boolean checkUsername(String username) {
@@ -30,10 +32,12 @@ public class UserDAO {
 
 		return false;
 	}
-	
+
 	/**
 	 * Kiểm tra xem email truyền vào đã tồn tại trong database chưa
-	 * @param email eamil cần kiểm tra
+	 * 
+	 * @param email
+	 *            eamil cần kiểm tra
 	 * @return true đã tồn tại, false chưa tồn tại
 	 * */
 	public static boolean isExistEmail(String email) {
@@ -52,7 +56,9 @@ public class UserDAO {
 
 	/**
 	 * Ghi user vào database
-	 * @param user user cần ghi xuống DB 
+	 * 
+	 * @param user
+	 *            user cần ghi xuống DB
 	 * */
 	public static void write(UserEntity user) {
 		String sql = "INSERT INTO USER"
@@ -86,7 +92,9 @@ public class UserDAO {
 
 	/**
 	 * Kiểm tra xem user truyền vào có tồn tại trong database hay không
-	 * @param user user cần kiểm tra
+	 * 
+	 * @param user
+	 *            user cần kiểm tra
 	 * @return true có, false không
 	 * */
 	public static boolean checkUser(UserEntity user) {
@@ -104,11 +112,14 @@ public class UserDAO {
 
 		return false;
 	}
-	
+
 	/**
 	 * Set password cho một user được xác định bằng username
-	 * @param username cần set password
-	 * @param newPassword password mới 
+	 * 
+	 * @param username
+	 *            cần set password
+	 * @param newPassword
+	 *            password mới
 	 * */
 	public static void setPassword(String username, String newPassword) {
 		String sql = "UPDATE USER SET password = ? WHERE username = ?";
@@ -116,10 +127,12 @@ public class UserDAO {
 		String[] values = { newPassword, username };
 		Utils.util.update(sql, indexes, values);
 	}
-	
+
 	/**
 	 * ReSet password cho một user được xác định bằng địa chỉ Email
-	 * @param email cần reset password
+	 * 
+	 * @param email
+	 *            cần reset password
 	 * */
 	public static boolean resetPassword(String email) {
 		String username = getUsername(email);
@@ -135,7 +148,9 @@ public class UserDAO {
 
 	/**
 	 * Lấy lên username từ một địa chỉ email (Giả sử email là duy nhất trong DB)
-	 * @param email địa chỉ email
+	 * 
+	 * @param email
+	 *            địa chỉ email
 	 * @return username là chủ nhân của địa chỉ email nhập vào
 	 * */
 	public static String getUsername(String email) {
@@ -153,10 +168,12 @@ public class UserDAO {
 		}
 		return "Không tồn tại email";
 	}
-	
+
 	/**
 	 * Lấy user dựa vào username
-	 * @param username username dùng để xác định user cần lấy
+	 * 
+	 * @param username
+	 *            username dùng để xác định user cần lấy
 	 * @return một user
 	 * */
 	public static UserEntity getUser(String username) {
@@ -175,7 +192,7 @@ public class UserDAO {
 				boolean isShowEmail = rs.getBoolean("is_show_email");
 				String city = rs.getString("city");
 				Date dateReg = rs.getDate("date_reg");
-				
+
 				user.setUserId(id);
 				user.setUseName(username);
 				user.setPassword(password);
@@ -193,9 +210,10 @@ public class UserDAO {
 		}
 		return user;
 	}
-	
+
 	/**
 	 * Load tất cả các user có trong database lên lưu vào một List
+	 * 
 	 * @return ArrayList chứa tất cả các user
 	 * */
 	public static List<UserEntity> loadAllUser() {
@@ -216,30 +234,32 @@ public class UserDAO {
 				boolean isShowEmail = rs.getBoolean("is_show_email");
 				String city = rs.getString("city");
 				Date dateReg = rs.getDate("date_reg");
-				
-				user.setUserId(id);
-				user.setUseName(username);
-				user.setPassword(password);
-				user.setFullName(fullName);
-				user.setEmail(email);
-				user.setYear(year);
-				user.setMale(isMale);
-				user.setReceiveEmail(isReceiveEmail);
-				user.setShowEmail(isShowEmail);
-				user.setCity(city);
-				user.setDateReg(dateReg);
-				users.add(user);
-				
+				if (!username.equals("admin")) {
+					user.setUserId(id);
+					user.setUseName(username);
+					user.setPassword(password);
+					user.setFullName(fullName);
+					user.setEmail(email);
+					user.setYear(year);
+					user.setMale(isMale);
+					user.setReceiveEmail(isReceiveEmail);
+					user.setShowEmail(isShowEmail);
+					user.setCity(city);
+					user.setDateReg(dateReg);
+					users.add(user);
+				}
 			}
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return users;
 	}
-	
+
 	/**
 	 * Đếm số bài viết mà người dùng đó viết được
-	 * @param username tên người dùng
+	 * 
+	 * @param username
+	 *            tên người dùng
 	 * @return một số int thể hiện số bài viết mà username đó viết
 	 * */
 	public static int countTopics(String username) {
@@ -256,10 +276,12 @@ public class UserDAO {
 		}
 		return count;
 	}
-	
+
 	/**
 	 * Phương thức update thông tin của người dùng
-	 * @param user user được cập nhật thông tin
+	 * 
+	 * @param user
+	 *            user được cập nhật thông tin
 	 * */
 	public static void updateInfo(UserEntity user, String roleName, String statusName) {
 		String updateTableUser = "UPDATE user SET "
@@ -272,10 +294,12 @@ public class UserDAO {
 		RoleDAO.updateRole(user, roleName);
 		StatusDAO.updateStatus(user, statusName);
 	}
-	
+
 	/**
 	 * Phương thức xóa một user dựa vào user name cho vào
-	 * @param username tên username của user bị xóa
+	 * 
+	 * @param username
+	 *            tên username của user bị xóa
 	 * */
 	public static void delete(String username) {
 		String sql = "DELETE FROM USER WHERE username = ?";
@@ -283,6 +307,5 @@ public class UserDAO {
 		String[] values = { username };
 		Utils.util.delete(sql, indexes, values);
 	}
-	
-}
 
+}

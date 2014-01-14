@@ -14,6 +14,9 @@
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
 %>
+<%
+pageContext.setAttribute("bg", "#007F7F");
+%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -535,9 +538,7 @@ function xoalh() {
 					        </tr>
 					      </table>
 <table width="995" border="1" cellpadding="5">
-				<tr><%
-					pageContext.setAttribute("bg", "#007F7F");
-					%>
+				<tr>
 									<td width="111" align="center" bgcolor="${pageScope.bg }"><strong>Tên tài khoản</strong></td>
 									<td width="119" align="center" bgcolor="${pageScope.bg }"><strong>Họ tên</strong></td>
 									<td width="118" align="center" bgcolor="${pageScope.bg }"><strong>Email</strong></td>
