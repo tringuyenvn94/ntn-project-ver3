@@ -631,4 +631,12 @@
     <servlet-name>Them Thanh Vien JSP</servlet-name>
     <url-pattern>/themthanhvien.jsp</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Tim Thanh Vien JSP</servlet-name>
+    <jsp-file>/admin/TimThanhVien.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tim Thanh Vien JSP</servlet-name>
+    <url-pattern>/timthanhvien.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>
