@@ -534,7 +534,7 @@ function xoalh() {
 						<div class="TabbedPanelsContent">
 						  <table width="995">
 						    <tr>
-						      <td align="right"><a href="themthanhvien.jsp" target="_blank">Thêm thành viên</a></td>
+						      <td align="right"><a href="themthanhvien.jsp" target="_blank">Thêm thành viên</a> / <a href="timthanhvien.jsp" target="_blank">Tìm thành viên</a></td>
 					        </tr>
 					      </table>
 <table width="995" border="1" cellpadding="5">

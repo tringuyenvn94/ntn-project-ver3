@@ -31,19 +31,19 @@
 }
 .news_detail #tcn {
 	margin-left: 0px;
-	background-color: #FF9;
-	border: 1px solid #FF0;
+	background-color: #000;
+	border: 1px solid #000;
 	font-size: 20px;
 	line-height: 30px;
 	font-weight: bold;
-	color: #000;
+	color: #FFF;
 }
 .news_detail div center p a {
 	font-style: italic;
 }
 .news_detail {
-	border: 1px solid #FC0;
-	background-color: #AEFFAE;
+	border: 1px solid #CCC;
+	background-color: #CCCCCC;
 }
 </style>
 </head>
@@ -196,7 +196,8 @@
 
 				<div id="ctLeft_detail">
 					<div class="news_detail">
-						<center><div id="tcn">Trang cá nhân
+						<center>
+						  <div id="tcn">Trang cá nhân
 
 							
 						</div></center>
