@@ -12,6 +12,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style type="text/css">
+#bm {
+	text-decoration: none;
+	font-size: 14px;
+	font-style: italic;
+}
+</style>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -267,7 +274,7 @@
 	<div class="space">	
 	</div>
 </div>
-
+<div id="bm"> <img src="Image/ra.gif" width="16" height="16"><a href="#"> Bookmark</a></div>
 
 		<div class="sameType">
             <div class="article_detail">
