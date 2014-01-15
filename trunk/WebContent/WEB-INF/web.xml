@@ -16,6 +16,14 @@
     <url-pattern>/suathongtin</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Sua Bai Viet User Servlet</servlet-name>
+    <servlet-class>control.SuaBaiVietUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sua Bai Viet User Servlet</servlet-name>
+    <url-pattern>/suabaivietuser</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Xoa Bookmark Servlet</servlet-name>
     <servlet-class>control.XoaBookMark</servlet-class>
   </servlet>

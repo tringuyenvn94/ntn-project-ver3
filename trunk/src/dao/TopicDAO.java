@@ -719,4 +719,14 @@ public class TopicDAO {
 		Utils.util.delete(sql, indexes, values);
 	}
 
+	/**
+	 * Load tất cả các bài viết của một user nhất đinh.
+	 * @param userId id của user đó
+	 * @return danh sách các bài viết
+	 * */
+	public static List<TopicEntity> loadByUser(int userId) {
+		String sql = "SELECT * FROM TOPIC WHERE user_id = ?";
+		return loadTopics(sql, userId + "", false);
+	}
+	
 }
