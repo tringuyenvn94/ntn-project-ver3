@@ -197,7 +197,31 @@
 											</tr>
 											<tr>
 												<td nowrap="nowrap" class="infoLogin"><span><strong>Tên đăng nhập:</strong></span></td>
-											  <td width="748" class="infoLogin"><input name="username" type="text" id="Main_txtUserName" style="width: 245px;" value="${sessionScope.user.username } ${requestScope.username }" readonly> <span style="color: #F00">*</span> <span id="Main_reqUserName" style="display: none;">*</span> <span id="Main_regUserName" style="display: none;">*</span> </td>
+												<%
+												UserEntity fromSS = (UserEntity) pageContext.getAttribute("user", PageContext.SESSION_SCOPE);
+												UserEntity fromRQ = (UserEntity) pageContext.getAttribute("user", PageContext.REQUEST_SCOPE);
+												String unameFromSS = fromSS.getUseName();
+												String unameFromRq = "";
+												if (fromRQ != null){ 
+													unameFromSS = "";
+													unameFromRq = fromRQ.getUseName();
+												}
+												
+												String fnFromSS = fromSS.getFullName();
+												String fnFromRq = "";
+												if (fromRQ != null){ 
+													fnFromSS = "";
+													fnFromRq = fromRQ.getFullName();
+												}
+												
+												String eFromSS = fromSS.getEmail();
+												String eFromRq = "";
+												if (fromRQ != null){ 
+													eFromSS = "";
+													eFromRq = fromRQ.getEmail();
+												}
+												%>
+											  <td width="748" class="infoLogin"><input name="username" type="text" id="Main_txtUserName" style="width: 245px;" value="<%=unameFromRq %><%=unameFromSS %>" readonly> <span style="color: #F00">*</span> <span id="Main_reqUserName" style="display: none;">*</span> <span id="Main_regUserName" style="display: none;">*</span> </td>
 											</tr>
 											
 											
@@ -210,13 +234,23 @@
 															<tr>
 																<td width="323" class="infoLogin">
 																	<p>
-																		<input name="full_name" value="${sessionScope.user.fullName } ${requestScope.fullName }" type="text" id="Main_txtFirstName" style="width: 240px;"> 
+																		<input name="full_name" value="<%=fnFromRq %><%=fnFromSS %>" type="text" id="Main_txtFirstName" style="width: 240px;"> 
 																		<span id="Main_reqFirstName" style="display: none;">*&nbsp;</span><span style="color: #F00"><br>*${requestScope.errorFullNameNull }</span><br>
 																	</p>
 																</td>
 																<td width="79" class="infoLogin"><span id="Main_reqLastName" style="display: none;">*</span><strong>Giới tính:</strong><br></td>
+																<%
+																boolean isMale = ((UserEntity) pageContext.getAttribute("user", PageContext.SESSION_SCOPE)).isMale();
+																if (isMale) {
+																	pageContext.setAttribute("male", "CHECKED");
+																	pageContext.setAttribute("female", "");
+																} else if (!isMale) {
+																	pageContext.setAttribute("male", "");
+																	pageContext.setAttribute("female", "CHECKED");
+																}
+																%>
 																<td width="1" align="right" class="infoLogin"></td>
-																<td width="348" class="infoLogin"><span id="Main_slcSex"><input id="Main_slcSex_0" type="radio" name="sex" value="male"  ${requestScope.male } ><label for="Main_slcSex_0">Nam</label><input id="Main_slcSex_1" type="radio" name="sex" value="female" ${requestScope.female }><label for="Main_slcSex_1">Nữ</label></span></td>
+																<td width="348" class="infoLogin"><span id="Main_slcSex"><input id="Main_slcSex_0" type="radio" name="sex" value="male"  ${requestScope.male } ${pageScope.male }><label for="Main_slcSex_0">Nam</label><input id="Main_slcSex_1" type="radio" name="sex" value="female" ${requestScope.female } ${pageScope.female }><label for="Main_slcSex_1">Nữ</label></span></td>
 															</tr>
 														</tbody>
 													</table>
@@ -224,7 +258,7 @@
 											</tr>
 											<tr>
 												<td class="infoLogin" valign="top"><span><strong>Email:</strong></span></td>
-												<td class="infoLogin" valign="top"><input name="email" type="text" value="${sessionScope.user.email }" id="Main_txtEmail" style="width: 245px;"> 
+												<td class="infoLogin" valign="top"><input name="email" type="text" value="<%=eFromRq %><%=eFromSS %>" id="Main_txtEmail" style="width: 245px;"> 
 											  <span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">* ${requestScope.errorEmailNull } ${requestScope.errorInvalidEmail }</span></td>
 											</tr>
 											<tr>

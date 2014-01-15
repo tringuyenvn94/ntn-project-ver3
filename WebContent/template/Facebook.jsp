@@ -15,7 +15,9 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!-- java script cho nut like facebook -->
-
+	<!-- Code javascript phao hoa -->
+	<script type="text/javascript" src="template/phaohoa.js"></script>
+	<!-- hết -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>

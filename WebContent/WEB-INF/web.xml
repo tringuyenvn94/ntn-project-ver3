@@ -16,7 +16,6 @@
   <servlet-mapping>
   <servlet-name>Sua Thong Tin Servlet</servlet-name>  
   <url-pattern>/suathongtin</url-pattern>
-  
   </servlet-mapping>
   
   
