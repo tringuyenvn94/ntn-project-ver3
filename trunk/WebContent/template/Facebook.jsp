@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="template/phaohoa.js"></script>
 	<!-- hết -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Trang Chủ</title>
 </head>
 <body>
 

@@ -211,7 +211,7 @@
 										<tr>
 										<%
 											if (tid != null) {
-											TopicEntity tp = TopicDAO.load(tid);
+											TopicEntity tp = TopicDAO.load(tid, true);
 											pageContext.setAttribute("t", tp);
 										%>
 											<th colspan="2" align="left"><p>&nbsp;</p>

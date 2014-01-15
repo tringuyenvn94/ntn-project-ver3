@@ -1,13 +1,19 @@
 
+<%@page import="dao.StatusDAO"%>
 <%@page import="entity.UserEntity"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="dao.TopicDAO"%>
 
 <%
-	request.setCharacterEncoding("utf8");
-	response.setCharacterEncoding("utf8");
-	UserEntity user = (UserEntity) session.getAttribute("user");
-	if (user == null) response.sendRedirect("dangnhap.jsp");
+request.setCharacterEncoding("utf8");
+response.setCharacterEncoding("utf8");
+UserEntity user = (UserEntity) session.getAttribute("user");
+if (user == null) response.sendRedirect("dangnhap.jsp");
+String status = StatusDAO.getStatusName(user.getUserId());
+if (status.equals("Banned")){
+	request.setAttribute("error", "biban");
+	request.getRequestDispatcher("/error.jsp").forward(request, response);
+}
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>

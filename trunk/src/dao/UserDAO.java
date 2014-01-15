@@ -289,7 +289,7 @@ public class UserDAO {
 				+ "email = ?, "
 				+ "year = ?,"
 				+ "city = ?, "
-				+ "sex = ? "
+				+ "is_male = ? "
 				+ "WHERE username = ?";
 		int[] indexes = { 1, 2, 3, 4, 5, 6 };
 		Object[] values = {
@@ -318,4 +318,12 @@ public class UserDAO {
 		Utils.util.delete(sql, indexes, values);
 	}
 
+	/**
+	 * Phương thức load bookmark từ DB dựa vào một user
+	 * @param userId id của user muốn load bookmark lên
+	 * @return danh sách chứa các topicid của tài khoản đó
+	 * */
+	public static List<String> loadBookmark(int userId) {
+		return BookmarkDAO.loadBookmark(userId);
+	}
 }

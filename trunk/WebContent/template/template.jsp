@@ -13,7 +13,7 @@ response.setCharacterEncoding("utf8");
 		//TODO START
 		
 		String topicId = (String) session.getAttribute("topicId");
-		TopicEntity topic = TopicDAO.load(topicId);
+		TopicEntity topic = TopicDAO.load(topicId, true);
 		pageContext.setAttribute("topic", topic);
 		String title = topic.getTitle();
 		Date date = topic.getDateCreated();

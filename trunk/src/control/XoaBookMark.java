@@ -1,42 +1,33 @@
 package control;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TopicDAO;
-import entity.StateEntity;
-import entity.TopicEntity;
-
 /**
- * Servlet implementation class StateAndFocus
+ * Servlet implementation class XoaBookMark
  */
-public class StateAndFocus extends HttpServlet {
+public class XoaBookMark extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public StateAndFocus() {
-		super();
-	}
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public XoaBookMark() {
+        super();
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String focus = request.getParameter("focus");
-		String stateId = request.getParameter("state_id");
-		String id = request.getParameter("hiddenid");
-		TopicEntity topic = TopicDAO.load(id, false);
-		topic.setState(new StateEntity(stateId, stateId));
-		if (focus == null) topic.setFocus(false);
-		else topic.setFocus(true);
-		TopicDAO.update(topic);
-		response.sendRedirect("quanly.jsp");
+		String uid = request.getParameter("userid");
+		String tid = request.getParameter("topicid");
+		System.out.println(uid);
+		System.out.println(tid);
 	}
 
 	/**
