@@ -319,7 +319,7 @@ public class UserDAO {
 	}
 
 	/**
-	 * Phương thức load bookmark từ DB dựa vào một user
+	 * Phương thức load bookmark từ DB dựa vào một user id
 	 * @param userId id của user muốn load bookmark lên
 	 * @return danh sách chứa các topicid của tài khoản đó
 	 * */
