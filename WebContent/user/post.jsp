@@ -1,10 +1,12 @@
 
+<%@page import="dao.StatusDAO"%>
 <%@page import="entity.UserEntity"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="dao.TopicDAO"%>
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
+	
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>
@@ -55,6 +57,11 @@
 					if (user == null) response.sendRedirect("dangnhap.jsp");
 					else {
 						String username = user.getUsername();
+						String status = StatusDAO.getStatusName(user.getUserId());
+						if (status.equals("Banned")){
+							request.setAttribute("error", "biban");
+							request.getRequestDispatcher("/error.jsp").forward(request, response);
+						}
 				%>
 				<div id="tv">
 					Xin chào, <a href="trangcanhan.jsp"><%=username%></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;

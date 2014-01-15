@@ -31,7 +31,7 @@
 	<%
 		//TODO START
 		String id = (String) request.getAttribute("id");
-		TopicEntity topic = TopicDAO.load(id);
+		TopicEntity topic = TopicDAO.load(id, true);
 		pageContext.setAttribute("topic", topic);
 		
 		String subMenu = TopicDAO.loadSubMenu(id);

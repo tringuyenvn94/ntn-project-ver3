@@ -1,4 +1,10 @@
 
+<%@page import="handle.Validation"%>
+<%@page import="java.util.Date"%>
+<%@page import="dao.TopicDAO"%>
+<%@page import="entity.TopicEntity"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.UserDAO"%>
 <%@page import="dao.StatusDAO"%>
 <%@page import="entity.UserEntity"%>
 <%
@@ -196,27 +202,46 @@
 			<br><div id="ql_ct">
 			  <table width="950" border="1" cellpadding="5">
 			    <tr>
-			      <td width="77" height="28" align="center"><strong>Chọn</strong></td>
-			      <td width="402" align="center"><strong>Tiêu đề</strong></td>
-			      <td width="139" align="center"><strong>Ngày gửi</strong></td>
-			      <td width="141" align="center"><strong>Tác giả</strong></td>
-			      <td width="157" align="center"><strong>Thao tác</strong></td>
+			      <td width="77" height="28" align="center" bgcolor="#336666"><strong>STT</strong></td>
+			      <td width="402" align="center" bgcolor="#336666"><strong>Tiêu đề</strong></td>
+			      <td width="139" align="center" bgcolor="#336666"><strong>Ngày gửi</strong></td>
+			      <td width="141" align="center" bgcolor="#336666"><strong>Tác giả</strong></td>
+			      <td width="157" align="center" bgcolor="#336666"><strong>Thao tác</strong></td>
 		        </tr>
+		        <%
+		        	int i = 0;
+		        	List<String> bookmarks = UserDAO.loadBookmark(user.getUserId()); 
+		        	for (String topicId : bookmarks) {
+		        		++i;
+		        		TopicEntity topic = TopicDAO.load(topicId, false);
+		        		pageContext.setAttribute("topic", topic);
+		        		
+		        		if (i % 2 == 0) pageContext.setAttribute("bg", "#CCCCCC");
+		        		else pageContext.setAttribute("bg", "#FFFFFF");
+		        		Date date = topic.getDateCreated();
+		        		String d = Validation.rightDate(date);
+		        		
+		        %>
 			    <tr>
-			      <td align="center"><form name="form1" method="post" action="">
-			        <input type="checkbox" name="checkbox" id="checkbox">
-			        <label for="checkbox"></label>
-		          </form></td>
-			      <td align="center">&nbsp;</td>
-			      <td align="center">&nbsp;</td>
-			      <td align="center">&nbsp;</td>
-			      <td align="center"><a href="#">Xoá</a></td>
+			      <td align="center" bgcolor="${pageScope.bg }"><%=i %></td>
+			      <td align="center" bgcolor="${pageScope.bg }">${pageScope.topic.title }</td>
+			      <td align="center" bgcolor="${pageScope.bg }"><%=d %></td>
+			      <td align="center" bgcolor="${pageScope.bg }">${pageScope.topic.author }</td>
+			      <td align="center" bgcolor="${pageScope.bg }"><a href="xoabookmark?userid=<%=user.getUserId() %>&topicid=<%=topicId %>" onclick="return delete_bookmark()">Xoá</a></td>
 		        </tr>
+		        <%
+		        	}
+		        %>
 		      </table>
 			</div>
 		  </div>
 		</div>
-	
+	<script>
+		function delete_bookmark() {
+			return confirm("Bạn có chắc là xóa bookmark này? thao tác sẽ không khôi phục được!");
+		}
+		
+	</script>
 	<div class="footer">
 
 				<div class="menu_footer">

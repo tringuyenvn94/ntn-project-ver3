@@ -52,9 +52,9 @@ public class TopicDAO {
 		String getId = "SELECT id FROM TOPIC WHERE header = ?";
 		ResultSet rs = Utils.util.getResultSet(getId, topic.getHeader());
 		try {
-		while (rs.next()) {
-			id = rs.getInt(1);
-		}
+			while (rs.next()) {
+				id = rs.getInt(1);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -118,9 +118,43 @@ public class TopicDAO {
 	 *            id của bài viết
 	 * @return 1 topic tương ứng với id truyền vào
 	 * */
-	public static TopicEntity load(String id) {
+	public static TopicEntity load(String id, boolean post) {
 		String sql = "SELECT * FROM TOPIC WHERE id = ?";
-		return loadTopic(sql, id);
+		TopicEntity topic = new TopicEntity();
+		ResultSet rs = Utils.util.getResultSet(sql, id);
+		try {
+			while (rs.next()) {
+				int iD = rs.getInt("id");
+				String type = rs.getString("id_sub_menu");
+				if (post) {
+					String dateSt = rs.getString("date_created");
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+					Date date = sdf.parse(dateSt);
+					topic.setDateCreated(date);
+				}else topic.setDateCreated(rs.getDate("date_created"));
+				String content = rs.getString("content");
+				String title = rs.getString("title");
+				String url = rs.getString("url");
+				String author = rs.getString("author");
+				String email = rs.getString("email");
+				String url_daidien = rs.getString("url_daidien");
+				String header = rs.getString("header");
+
+				topic.setHeader(header);
+				topic.setUrl_daidien(url_daidien);
+				topic.setId(iD);
+				topic.setType(type);
+				topic.setContent(content);
+				topic.setTitle(title);
+				topic.setUrl(url);
+				topic.setAuthor(author);
+				topic.setEmail(email);
+				topic.setHeader(header);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return topic;
 	}
 
 	/**
@@ -227,8 +261,9 @@ public class TopicDAO {
 	 *            câu lệnh sql
 	 * @param param
 	 *            tham số truyền vào làm điều kiện của câu truy vấn
-	 * @param post Nếu topic có đk post là true thì topic đó dùng để hiển thị lên trang web,
-	 * còn nếu post là false thì nó dùng để cập nhật trong bảng (phần quản lý bài viết của user)
+	 * @param post
+	 *            Nếu topic có đk post là true thì topic đó dùng để hiển thị lên trang web,
+	 *            còn nếu post là false thì nó dùng để cập nhật trong bảng (phần quản lý bài viết của user)
 	 * @return một List chứa các topic đã lọc được nhờ vào câu sql
 	 * */
 	private static List<TopicEntity> loadTopics(String sql, String param, boolean post) {
@@ -284,6 +319,7 @@ public class TopicDAO {
 	/**
 	 * Phương thức load một loạt 3 bài viết trước bài mới nhất
 	 * và 3 bài viết đó phải có state là posted
+	 * 
 	 * @return một list chứa 3 topic đó
 	 * */
 
@@ -329,6 +365,7 @@ public class TopicDAO {
 	/**
 	 * Phương thức load những bài mới nhất theo id của main menu
 	 * , bài viết đó phải có state là posted
+	 * 
 	 * @param idMainMenu
 	 *            id của main menu muốn load
 	 * @return một list gồm những bài viết mới nhất
@@ -359,6 +396,7 @@ public class TopicDAO {
 	/**
 	 * Lấy những topic cuối cùng được lưu vào DB dựa trên một số nhập vào
 	 * và các bài viết đó phải có state là posted
+	 * 
 	 * @param noOfEntities
 	 *            số lượng topic muốn load lên
 	 * @return 1 danh sách topic được đăng gần nhất
@@ -409,6 +447,7 @@ public class TopicDAO {
 	/**
 	 * Phương thức load tất cả các bài tiêu điểm
 	 * và các bài viết đó phải có state là posted
+	 * 
 	 * @return một danh sách chứa các bài viết
 	 * */
 	public static List<TopicEntity> loadAllFocusTopic(boolean post) {
@@ -419,6 +458,7 @@ public class TopicDAO {
 	/**
 	 * Load những bài viết mà chỉ có duy nhất một main menu cũng là sub menu
 	 * và các bài viết đó phải có state là posted
+	 * 
 	 * @param idMain
 	 *            id của sub menu
 	 * @return danh sách các bài viết của sub menu đó
@@ -470,6 +510,7 @@ public class TopicDAO {
 	/**
 	 * Load bằng sub menu
 	 * và các bài viết đó phải có state là posted
+	 * 
 	 * @param id
 	 *            sub menu
 	 * @return một danh sách chứa các topic có cùng sub menu
