@@ -53,13 +53,18 @@ public class DangNhap extends HttpServlet {
 			UserEntity fromSession = (UserEntity) session.getAttribute("user");
 			UserEntity fromDB = UserDAO.getUser(username);// (*)
 			if (fromSession == null) session.setAttribute("user", fromDB);
-			if (RoleDAO.getRole(fromDB).equals("admin")) {
-				response.sendRedirect("quanly.jsp");
-				session.setAttribute("role", "admin");
-			}
-			else {
-				session.setAttribute("role", "user");
-				response.sendRedirect("trangchu.jsp");
+			System.out.println("servlet dang nhap: " + (String) session.getAttribute("forward"));
+			if ((String) session.getAttribute("forward") == null) {
+				if (RoleDAO.getRole(fromDB).equals("admin")) {
+					response.sendRedirect("quanly.jsp");
+					session.setAttribute("role", "admin");
+				}
+				else {
+					session.setAttribute("role", "user");
+					response.sendRedirect("trangchu.jsp");
+				}
+			} else {
+				response.sendRedirect("load?id=" + (String) session.getAttribute("forward") + "&forward=forward");
 			}
 		} else {
 			request.setAttribute("error", "Mật khẩu hoặc tên tài khoản không đúng, xin kiểm tra lại");

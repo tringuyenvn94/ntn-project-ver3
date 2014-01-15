@@ -224,10 +224,10 @@
 		        %>
 			    <tr>
 			      <td align="center" bgcolor="${pageScope.bg }"><%=i %></td>
-			      <td align="center" bgcolor="${pageScope.bg }">${pageScope.topic.title }</td>
+			      <td align="center" bgcolor="${pageScope.bg }"><a href="load?id=${pageScope.topic.id }" title="${pageScope.topic.title }">${pageScope.topic.title }</a></td>
 			      <td align="center" bgcolor="${pageScope.bg }"><%=d %></td>
 			      <td align="center" bgcolor="${pageScope.bg }">${pageScope.topic.author }</td>
-			      <td align="center" bgcolor="${pageScope.bg }"><a href="xoabookmark?userid=<%=user.getUserId() %>&topicid=<%=topicId %>" onclick="return delete_bookmark()">Xoá</a></td>
+			      <td align="center" bgcolor="${pageScope.bg }"><a href="xoabookmark?userid=<%=user.getUserId() %>&topicid=${pageScope.topic.id}" onclick="return delete_bookmark()">Xoá</a></td>
 		        </tr>
 		        <%
 		        	}

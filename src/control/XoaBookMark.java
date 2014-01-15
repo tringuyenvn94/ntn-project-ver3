@@ -1,11 +1,13 @@
 package control;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.BookmarkDAO;
 
 /**
  * Servlet implementation class XoaBookMark
@@ -26,8 +28,8 @@ public class XoaBookMark extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uid = request.getParameter("userid");
 		String tid = request.getParameter("topicid");
-		System.out.println(uid);
-		System.out.println(tid);
+		BookmarkDAO.delete(Integer.parseInt(uid), Integer.parseInt(tid));
+		response.sendRedirect("bookmark.jsp");
 	}
 
 	/**

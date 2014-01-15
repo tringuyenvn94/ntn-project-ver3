@@ -17,11 +17,19 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>Xoa Bookmark Servlet</servlet-name>
-    <servlet-class>control.XoaBaiViet</servlet-class>
+    <servlet-class>control.XoaBookMark</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Xoa Bookmark Servlet</servlet-name>
-    <url-pattern>/xoabaiviet</url-pattern>
+    <url-pattern>/xoabookmark</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Bookmark Servlet</servlet-name>
+    <servlet-class>control.Bookmark</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Bookmark Servlet</servlet-name>
+    <url-pattern>/bookmark</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Topic Servlet</servlet-name>
