@@ -14,6 +14,10 @@
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
 
+	<!-- Code javascript phao hoa -->
+	<script type="text/javascript" src="http://lephiphi.com/tetphimkhung.com.js"></script>
+	<!-- hết -->
+
 </head>
 
 <body>
