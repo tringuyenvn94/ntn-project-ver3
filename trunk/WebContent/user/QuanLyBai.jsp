@@ -5,6 +5,7 @@
 	response.setCharacterEncoding("utf8");
 	UserEntity user = (UserEntity) session.getAttribute("user");
 	if (user == null) response.sendRedirect("dangnhap.jsp");
+	
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>
