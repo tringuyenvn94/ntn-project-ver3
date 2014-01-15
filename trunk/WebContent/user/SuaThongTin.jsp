@@ -3,8 +3,11 @@
 <%
 	request.setCharacterEncoding("utf8");
 	response.setCharacterEncoding("utf8");
+	if(session == null) response.sendRedirect("dangnhap.jsp");
+	else {
 	UserEntity user = (UserEntity) session.getAttribute("user");
 	if (user == null) response.sendRedirect("dangnhap.jsp");
+	else {
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://ckeditor.com" prefix="ckeditor"%>
@@ -45,7 +48,7 @@
 				
 				%>
 					Xin chào, <a href="trangcanhan.jsp"> <%=username %></a>&nbsp;&nbsp; | &nbsp; <a href="dangxuat?user=user>">Đăng Xuất &nbsp;</a>&nbsp;
-
+<%}} %>
 				</div>
 			</div>
 			</div>
@@ -180,7 +183,7 @@
 					<div class="news_detail">
 						<div class="ctm">
 
-							<form method="post" action="dangki" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
+							<form method="post" action="suathongtin" onsubmit="javascript:return WebForm_OnSubmit();" id="frm">
 								<div class="aspNetHidden"></div>
 											<h1>Sửa thông tin cá nhân</h1>
 								<div id="Main_pnlRegister" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'Main_btnRegister')">
@@ -194,7 +197,7 @@
 											</tr>
 											<tr>
 												<td nowrap="nowrap" class="infoLogin"><span><strong>Tên đăng nhập:</strong></span></td>
-											  <td width="748" class="infoLogin"><input name="username" type="text" disabled id="Main_txtUserName" style="width: 245px;" value="${requestScope.username }"> <span style="color: #F00">*</span> <span id="Main_reqUserName" style="display: none;">*</span> <span id="Main_regUserName" style="display: none;">*</span> <span style="color: #F00">${requestScope.errorUsernameNull} ${requestScope.errorUsernameExisted }</span></td>
+											  <td width="748" class="infoLogin"><input name="username" type="text" id="Main_txtUserName" style="width: 245px;" value="${sessionScope.user.username } ${requestScope.username }" readonly> <span style="color: #F00">*</span> <span id="Main_reqUserName" style="display: none;">*</span> <span id="Main_regUserName" style="display: none;">*</span> </td>
 											</tr>
 											
 											
@@ -207,13 +210,13 @@
 															<tr>
 																<td width="323" class="infoLogin">
 																	<p>
-																		<input name="full_name" value="${requestScope.fullName }" type="text" id="Main_txtFirstName" style="width: 240px;"> 
+																		<input name="full_name" value="${sessionScope.user.fullName } ${requestScope.fullName }" type="text" id="Main_txtFirstName" style="width: 240px;"> 
 																		<span id="Main_reqFirstName" style="display: none;">*&nbsp;</span><span style="color: #F00"><br>*${requestScope.errorFullNameNull }</span><br>
 																	</p>
 																</td>
 																<td width="79" class="infoLogin"><span id="Main_reqLastName" style="display: none;">*</span><strong>Giới tính:</strong><br></td>
 																<td width="1" align="right" class="infoLogin"></td>
-																<td width="348" class="infoLogin"><span id="Main_slcSex"><input id="Main_slcSex_0" type="radio" name="sex" value="male" checked ="checked" ><label for="Main_slcSex_0">Nam</label><input id="Main_slcSex_1" type="radio" name="sex" value="female" ><label for="Main_slcSex_1">Nữ</label></span></td>
+																<td width="348" class="infoLogin"><span id="Main_slcSex"><input id="Main_slcSex_0" type="radio" name="sex" value="male"  ${requestScope.male } ><label for="Main_slcSex_0">Nam</label><input id="Main_slcSex_1" type="radio" name="sex" value="female" ${requestScope.female }><label for="Main_slcSex_1">Nữ</label></span></td>
 															</tr>
 														</tbody>
 													</table>
@@ -221,8 +224,8 @@
 											</tr>
 											<tr>
 												<td class="infoLogin" valign="top"><span><strong>Email:</strong></span></td>
-												<td class="infoLogin" valign="top"><input name="email" type="text" value="${requestScope.email }" id="Main_txtEmail" style="width: 245px;"> 
-											  <span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">* ${requestScope.errorEmailNull } ${requestScope.errorInvalidEmail }</span><br> <input id="Main_chkShowEmail" type="checkbox" name="is_show_email" ${requestScope.showEmail }><label for="Main_chkShowEmail">Hiển thị cho mọi người cùng biết</label></td>
+												<td class="infoLogin" valign="top"><input name="email" type="text" value="${sessionScope.user.email }" id="Main_txtEmail" style="width: 245px;"> 
+											  <span id="Main_reqEmail" style="display: none;">*</span> <span id="Main_regEmail" style="display: none;">*</span> <span style="color: #F00">* ${requestScope.errorEmailNull } ${requestScope.errorInvalidEmail }</span></td>
 											</tr>
 											<tr>
 												<td class="infoLogin" valign="top"><span><strong>Sinh năm:</strong></span></td>

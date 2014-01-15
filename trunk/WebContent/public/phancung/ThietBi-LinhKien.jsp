@@ -11,6 +11,8 @@
 
 <title>Thiết bị-Linh kiện</title>
 <jsp:include page="/template/Facebook.jsp"></jsp:include>
+<script type="text/javascript" src="http://tapchicntt.com/Demo/2013/tuyetroi/snow.js"></script>
+
 
 <link rel="stylesheet" type="text/css" href="CSS/styleMenu.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/styleLayout.css"/>
