@@ -378,7 +378,7 @@
                        	 %>
                            
                                     <div class="title_article">
-                                        <a href="load?id=${pageScope.giaiphapbaomat1.id }">Mẹo bảo mật Google, Facebook và dịch vụ trực tuyến</a></div>
+                                        <a href="load?id=${pageScope.giaiphapbaomat1.id }">${pageScope.giaiphapbaomat1.title }</a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
@@ -391,7 +391,7 @@
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="load?id=${pageScope.giaiphapbaomat2.id }">"Tuyệt chiêu" diệt virus Autorun bằng tay</a></div>
+                                        <a href="load?id=${pageScope.giaiphapbaomat2.id }">${pageScope.giaiphapbaomat2.title }</a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
@@ -404,13 +404,13 @@
                                         </tbody></table>
                                     </div>
                                     <div class="title_article">
-                                        <a href="load?id=${pageScope.giaiphapbaoma3.id }">Hanoi Telecom ra mắt giải pháp chống tấn công mạng</a></div>
+                                        <a href="load?id=${pageScope.giaiphapbaomat3.id }">${pageScope.giaiphapbaomat3.title }</a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="load?id=${pageScope.giaiphapbaoma3.id }"><img src="${pageScope.giaiphapbaoma3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
-															${pageScope.giaiphapbaoma3.header }
+                                                    <a href="load?id=${pageScope.giaiphapbaomat3.id }"><img src="${pageScope.giaiphapbaomat3.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+															${pageScope.giaiphapbaomat3.header }
                                                 </td>
                                          
                                             </tr>
@@ -547,7 +547,7 @@
                        	 %>
                             		
                                     <div class="title_article">
-                                        <a href="load?id=${pageScope.hacker1.id }">Tin tặc Trung Quốc đánh cắp bí mật công ty Mỹ?
+                                        <a href="load?id=${pageScope.hacker1.id }"> ${pageScope.hacker1.title }
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
@@ -561,14 +561,14 @@
                                         </tbody></table>
                                     </div>
                                      <div class="title_article">
-                                        <a href="load?id=${pageScope.hacker2.id }">Bẻ mật khẩu hotspot trên iOS trong vòng 1 phút
+                                        <a href="load?id=${pageScope.hacker2.id }">${pageScope.hacker2.title }
 
 </a></div>
                                     <div>
                                        <table border="0" cellpadding="0" cellspacing="0">
                                             <tbody><tr>
                                                 <td class="image" valign="top">
-                                                    <a href="load?id=${pageScope.hacker2.id }"><img src="${pageScope.hacker1.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
+                                                    <a href="load?id=${pageScope.hacker2.id }"><img src="${pageScope.hacker2.url_daidien }" align="left" border="0" hspace="3" vspace="3"></a>
 															${pageScope.hacker2.header }
                                                 </td>
                                          
@@ -577,7 +577,7 @@
                                     </div>
                                     
                                      <div class="title_article">
-                                        <a href="load?id=${pageScope.hacker3.id }">Hacker bẻ mật khẩu 16 ký tự chưa đầy 60 phút
+                                        <a href="load?id=${pageScope.hacker3.id }">${pageScope.hacker3.title }
 
 </a></div>
                                     <div>
