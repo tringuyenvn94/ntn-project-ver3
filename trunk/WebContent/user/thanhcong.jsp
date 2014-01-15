@@ -224,7 +224,22 @@
 							<h1 align="center">Xóa thành công User: &nbsp; <%=deleteUserName %></h1>
 							<br>
 							<a href="trangchu.jsp">Về trang chủ</a>&nbsp;<a href="quanly.jsp">Trang Quản lý</a>
-						<%} %>
+						<%} else if (success.equals("updateinfouser")) {
+							String uname = (String) request.getAttribute("uname");
+							UserEntity u = UserDAO.getUser(uname);
+							pageContext.setAttribute("user", u);
+							if (u.isMale()) pageContext.setAttribute("sex", "Nam");
+							else pageContext.setAttribute("sex", "Nữ");
+						%>
+						<h1 align="center">Bạn đã cập nhật thông tin thành công:</h1> <br />
+						<h3 align="center"><strong>Tên tài khoản:</strong> &nbsp;${pageScope.user.username }</h3>
+						<h3 align="center"><strong>Họ và tên:</strong> &nbsp; ${pageScope.user.fullName }</h3>
+						<h3 align="center"><strong>Địa chỉ Email:</strong> &nbsp; ${pageScope.user.email }</h3>
+						<h3 align="center"><strong>Giới tính:</strong> &nbsp; ${pageScope.sex }</h3>
+						<h3 align="center"><strong>Năm sinh:</strong> &nbsp; ${pageScope.user.year }</h3>
+						<h3 align="center"><strong>Tỉnh/thành:</strong> &nbsp; ${pageScope.user.city }</h3>
+						<a href="trangchu.jsp">Về trang chủ</a>&nbsp;<a href="trangcanhan.jsp">Trang cá nhân</a>
+						<%}%>
 						</div>
 					</div>
 					<div class="space"></div>

@@ -286,10 +286,20 @@ public class UserDAO {
 	public static void updateInfo(UserEntity user, String roleName, String statusName) {
 		String updateTableUser = "UPDATE user SET "
 				+ "full_name = ?,"
-				+ "email = ?"
+				+ "email = ?, "
+				+ "year = ?,"
+				+ "city = ?, "
+				+ "sex = ? "
 				+ "WHERE username = ?";
-		int[] indexes = { 1, 2, 3 };
-		Object[] values = { user.getFullName(), user.getEmail(), user.getUseName() };
+		int[] indexes = { 1, 2, 3, 4, 5, 6 };
+		Object[] values = {
+				user.getFullName(),
+				user.getEmail(),
+				user.getYear(),
+				user.getCity(),
+				user.isMale(),
+				user.getUseName() 
+				};
 		Utils.util.update(updateTableUser, indexes, values);
 		RoleDAO.updateRole(user, roleName);
 		StatusDAO.updateStatus(user, statusName);
